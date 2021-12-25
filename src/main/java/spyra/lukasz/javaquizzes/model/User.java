@@ -1,0 +1,27 @@
+package spyra.lukasz.javaquizzes.model;
+
+import javax.persistence.*;
+import javax.transaction.Transactional;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+
+@Transactional
+@Entity
+@Table(name = "user")
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @NotNull
+    private String name;
+
+    @NotNull
+    @Email
+    private String email;
+
+    @NotNull
+    private String password;
+
+}
