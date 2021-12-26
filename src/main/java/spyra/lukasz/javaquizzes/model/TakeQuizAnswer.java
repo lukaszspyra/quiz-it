@@ -2,6 +2,7 @@ package spyra.lukasz.javaquizzes.model;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
@@ -21,5 +22,11 @@ public class TakeQuizAnswer {
 
     @NotNull
     private LocalDateTime finish;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "takeQuiz_id")
+    @NotNull
+    @Valid
+    private TakeQuiz takeQuiz;
 
 }

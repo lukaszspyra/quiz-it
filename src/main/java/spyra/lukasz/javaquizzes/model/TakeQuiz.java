@@ -2,8 +2,11 @@ package spyra.lukasz.javaquizzes.model;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @Entity
@@ -21,5 +24,21 @@ public class TakeQuiz {
 
     @NotNull
     private LocalDateTime finish;
+
+    @OneToMany(mappedBy = "takeQuiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @Valid
+    private List<TakeQuizAnswer> givenAnswers = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "quiz_id")
+    @NotNull
+    @Valid
+    private Quiz quiz;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    @NotNull
+    @Valid
+    private User user;
 
 }

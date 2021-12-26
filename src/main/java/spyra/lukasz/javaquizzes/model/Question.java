@@ -2,7 +2,10 @@ package spyra.lukasz.javaquizzes.model;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @Entity
@@ -18,5 +21,17 @@ public class Question {
 
     @NotNull
     private String content;
+
+    @ManyToOne
+    @JoinColumn(name = "quiz_id")
+    @NotNull
+    @Valid
+    private Quiz quiz;
+
+
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @NotNull
+    @Valid
+    private List<Answer> answers = new ArrayList<>();
 
 }

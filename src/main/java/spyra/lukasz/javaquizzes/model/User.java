@@ -2,8 +2,11 @@ package spyra.lukasz.javaquizzes.model;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @Transactional
 @Entity
@@ -23,5 +26,9 @@ public class User {
 
     @NotNull
     private String password;
+
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @Valid
+    private List<TakeQuiz> takenQuizzes = new ArrayList<>();
 
 }
