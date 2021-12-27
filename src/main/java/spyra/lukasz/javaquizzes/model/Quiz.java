@@ -24,10 +24,10 @@ public class Quiz {
     private int score;
 
     @NotNull
-    private LocalDateTime createdAt;
+    private LocalDateTime created;
 
     @NotNull
-    private LocalDateTime updatedAt;
+    private LocalDateTime updated;
 
     @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
     @Valid
