@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../static/login/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="/login/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../static/login/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/login/css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../static/login/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/login/css/bootstrap.min.css">
     
     <!-- Style -->
-    <link rel="stylesheet" href="../static/login/css/style.css">
+    <link rel="stylesheet" href="/login/css/style.css">
 
     <title>Login #2</title>
   </head>
@@ -22,7 +22,7 @@
   
 
   <div class="d-lg-flex half">
-    <div class="bg order-1 order-md-2" style="background-image: url('../static/login/images/bg_1.jpg');"></div>
+    <div class="bg order-1 order-md-2" style="background-image: url('/login/images/bg_1.jpg');"></div>
     <div class="contents order-2 order-md-1">
 
       <div class="container">
@@ -61,9 +61,9 @@
     
     
 
-    <script src="../static/login/js/jquery-3.3.1.min.js"></script>
-    <script src="../static/login/js/popper.min.js"></script>
-    <script src="../static/login/js/bootstrap.min.js"></script>
-    <script src="../static/login/js/main.js"></script>
+    <script src="/login/js/jquery-3.3.1.min.js"></script>
+    <script src="/login/js/popper.min.js"></script>
+    <script src="/login/js/bootstrap.min.js"></script>
+    <script src="/login/js/main.js"></script>
   </body>
 </html>
