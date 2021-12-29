@@ -11,10 +11,19 @@ import java.io.UnsupportedEncodingException;
 public class Welcome {
 
     @GetMapping("/")
-    public String home(HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
+    public String login(HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
         resp.setContentType("text/html; charset=UTF-8");
         req.setCharacterEncoding("UTF-8");
 
         return "welcomeLogin";
     }
+
+    @GetMapping("/home")
+    public String home(HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
+        resp.setContentType("text/html; charset=UTF-8");
+        req.setCharacterEncoding("UTF-8");
+
+        return "home";
+    }
+
 }
