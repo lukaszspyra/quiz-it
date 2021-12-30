@@ -2,7 +2,6 @@ package spyra.lukasz.javaquizzes.quizselector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spyra.lukasz.javaquizzes.model.Quiz;
 
 import java.util.List;
 
@@ -12,9 +11,11 @@ public class QuizService {
     @Autowired
     private QuizRepository quizRepository;
 
-    List<Quiz> findAll(){
-        return quizRepository.findAll();
-    }
+    @Autowired
+    private QuizMapper quizMapper;
 
+    List<QuizView> findAll() {
+        return quizMapper.toView(quizRepository.findAll());
+    }
 
 }
