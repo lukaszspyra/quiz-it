@@ -15,7 +15,7 @@ public class Welcome {
         resp.setContentType("text/html; charset=UTF-8");
         req.setCharacterEncoding("UTF-8");
 
-        return "welcomeLogin";
+        return "login";
     }
 
     @GetMapping("/home")
