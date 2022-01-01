@@ -1,4 +1,7 @@
-package spyra.lukasz.javaquizzes.model;
+package spyra.lukasz.javaquizzes.userstatistics;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
@@ -11,6 +14,8 @@ import java.util.List;
 @Transactional
 @Entity
 @Table(name = "user")
+@Getter
+@Setter
 public class User {
 
     @Id

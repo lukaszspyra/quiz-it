@@ -1,7 +1,6 @@
 package spyra.lukasz.javaquizzes.quizselector;
 
 import org.springframework.stereotype.Component;
-import spyra.lukasz.javaquizzes.model.Quiz;
 
 import java.util.List;
 import java.util.stream.Collectors;

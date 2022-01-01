@@ -1,5 +1,7 @@
 package spyra.lukasz.javaquizzes.model;
 
+import spyra.lukasz.javaquizzes.quizselector.Quiz;
+
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.validation.Valid;

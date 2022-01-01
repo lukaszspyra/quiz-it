@@ -1,5 +1,7 @@
 package spyra.lukasz.javaquizzes.model;
 
+import spyra.lukasz.javaquizzes.userstatistics.TakeQuiz;
+
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -15,7 +17,7 @@ public class TakeQuizAnswer {
     private long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "takeQuiz_id")
+    @JoinColumn(name = "take_quiz_id")
     @NotNull
     @Valid
     private TakeQuiz takeQuiz;
