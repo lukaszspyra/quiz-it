@@ -1,10 +1,11 @@
-package spyra.lukasz.javaquizzes.userstatistics;
+package spyra.lukasz.javaquizzes.userstatistics.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import spyra.lukasz.javaquizzes.userstatistics.repository.UserRepository;
 
 @Service
-class UserService {
+public class UserService {
 
     @Autowired
     private UserRepository userRepository;
@@ -12,7 +13,7 @@ class UserService {
     @Autowired
     private UserMapper userMapper;
 
-    UserView getUserStatistics(String email) {
+    public UserView getUserStatistics(String email) {
         return userMapper.toView(userRepository.findUserByEmail(email));
     }
 

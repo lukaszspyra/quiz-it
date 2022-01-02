@@ -1,7 +1,8 @@
-package spyra.lukasz.javaquizzes.userstatistics;
+package spyra.lukasz.javaquizzes.model;
 
 import spyra.lukasz.javaquizzes.model.TakeQuizAnswer;
-import spyra.lukasz.javaquizzes.quizselector.Quiz;
+import spyra.lukasz.javaquizzes.quizselector.respository.Quiz;
+import spyra.lukasz.javaquizzes.userstatistics.repository.User;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;

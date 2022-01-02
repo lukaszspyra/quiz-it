@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.controller;
+package spyra.lukasz.javaquizzes.login;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,9 +8,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.UnsupportedEncodingException;
 
 @Controller
-public class Welcome {
+public class Login {
 
-    @GetMapping("/")
+    @GetMapping("/login")
     public String login(HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
         resp.setContentType("text/html; charset=UTF-8");
         req.setCharacterEncoding("UTF-8");

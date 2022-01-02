@@ -1,12 +1,13 @@
-package spyra.lukasz.javaquizzes.userstatistics;
+package spyra.lukasz.javaquizzes.userstatistics.service;
 
 import org.springframework.stereotype.Component;
+import spyra.lukasz.javaquizzes.userstatistics.repository.User;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class UserMapper {
+class UserMapper {
 
     List<UserView> toView(List<User> users) {
         return users.stream()

@@ -1,6 +1,7 @@
-package spyra.lukasz.javaquizzes.quizselector;
+package spyra.lukasz.javaquizzes.quizselector.service;
 
 import org.springframework.stereotype.Component;
+import spyra.lukasz.javaquizzes.quizselector.respository.Quiz;
 
 import java.util.List;
 import java.util.stream.Collectors;

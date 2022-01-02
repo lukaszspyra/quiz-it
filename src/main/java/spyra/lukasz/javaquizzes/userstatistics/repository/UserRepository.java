@@ -1,6 +1,7 @@
-package spyra.lukasz.javaquizzes.userstatistics;
+package spyra.lukasz.javaquizzes.userstatistics.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import spyra.lukasz.javaquizzes.userstatistics.repository.User;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;

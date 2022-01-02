@@ -1,7 +1,8 @@
-package spyra.lukasz.javaquizzes.userstatistics;
+package spyra.lukasz.javaquizzes.userstatistics.repository;
 
 import lombok.Getter;
 import lombok.Setter;
+import spyra.lukasz.javaquizzes.model.TakeQuiz;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;

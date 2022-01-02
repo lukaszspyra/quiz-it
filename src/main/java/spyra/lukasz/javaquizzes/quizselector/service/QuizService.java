@@ -1,7 +1,8 @@
-package spyra.lukasz.javaquizzes.quizselector;
+package spyra.lukasz.javaquizzes.quizselector.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import spyra.lukasz.javaquizzes.quizselector.respository.QuizRepository;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public class QuizService {
     @Autowired
     private QuizMapper quizMapper;
 
-    List<QuizView> findAll() {
+    public List<QuizView> findAll() {
         return quizMapper.toView(quizRepository.findAll());
     }
 

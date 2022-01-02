@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.quizselector;
+package spyra.lukasz.javaquizzes.quizselector.service;
 
 import java.time.LocalDateTime;
 

@@ -1,6 +1,6 @@
 package spyra.lukasz.javaquizzes.model;
 
-import spyra.lukasz.javaquizzes.quizselector.Quiz;
+import spyra.lukasz.javaquizzes.quizselector.respository.Quiz;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
