@@ -37,4 +37,9 @@ public class User {
     @Valid
     private List<TakeQuiz> takenQuizzes = new ArrayList<>();
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id")
+    @Valid
+    @NotNull
+    private Role role;
 }
