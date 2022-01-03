@@ -38,8 +38,11 @@ INSERT INTO answer (correct, content, question_id) VALUES (1, 'Q7-A2 - valid', 7
 INSERT INTO answer (correct, content, question_id) VALUES (1, 'Q8-A1 - valid', 8);
 INSERT INTO answer (correct, content, question_id) VALUES (1, 'Q8-A2 - valid', 8);
 
-INSERT INTO user (email, name, password) VALUES ('test1@test.pl', 'User1', 'Password1');
-INSERT INTO user (email, name, password) VALUES ('test2@test.pl', 'User2', 'Password2');
+INSERT INTO role (id, name) VALUES (1,'ADMIN');
+INSERT INTO role (id, name) VALUES (2, 'USER');
+
+INSERT INTO user (email, name, password, role_id) VALUES ('test1@test.pl', 'User1', 'Password1',1);
+INSERT INTO user (email, name, password, role_id) VALUES ('test2@test.pl', 'User2', 'Password2',2);
 
 INSERT INTO take_quiz (score, start, finish, quiz_id, user_id) VALUES (1, '2001-01-01 01:01:01', '2011-01-01 01:01:01', 1, 1);
 INSERT INTO take_quiz (score, start, finish, quiz_id, user_id) VALUES (1, '2001-01-01 01:01:01', '2011-01-01 01:01:01', 2, 1);
