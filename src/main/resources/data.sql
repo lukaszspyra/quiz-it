@@ -41,8 +41,8 @@ INSERT INTO answer (correct, content, question_id) VALUES (1, 'Q8-A2 - valid', 8
 INSERT INTO role (id, name) VALUES (1,'ADMIN');
 INSERT INTO role (id, name) VALUES (2, 'USER');
 
-INSERT INTO user (email, name, password, role_id) VALUES ('test1@test.pl', 'User1', 'Password1',1);
-INSERT INTO user (email, name, password, role_id) VALUES ('test2@test.pl', 'User2', 'Password2',2);
+INSERT INTO user (email, name, password, role_id) VALUES ('test1@test.pl', 'User1', '$2a$04$gb9XG47BMLY9w/jVGnSmuOThZW7Gx3hbn.V0qETeU3kWXX8ppXYt2',1);
+INSERT INTO user (email, name, password, role_id) VALUES ('test2@test.pl', 'User2', '$2a$04$6SDR9Hm53NTCXTWqPhJWiu.XyIJeCLKZwHdzbZuFICLbNP2BymSQa',2);
 
 INSERT INTO take_quiz (score, start, finish, quiz_id, user_id) VALUES (1, '2001-01-01 01:01:01', '2011-01-01 01:01:01', 1, 1);
 INSERT INTO take_quiz (score, start, finish, quiz_id, user_id) VALUES (1, '2001-01-01 01:01:01', '2011-01-01 01:01:01', 2, 1);
