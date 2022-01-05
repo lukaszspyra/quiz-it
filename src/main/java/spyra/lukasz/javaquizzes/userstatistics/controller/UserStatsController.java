@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import spyra.lukasz.javaquizzes.userstatistics.service.UserService;
+import spyra.lukasz.javaquizzes.userstatistics.service.StatsService;
 
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +15,7 @@ import java.io.UnsupportedEncodingException;
 class UserStatsController {
 
     @Autowired
-    private UserService userService;
+    private StatsService userService;
 
     @GetMapping("/home")
     public String home(Model model, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
