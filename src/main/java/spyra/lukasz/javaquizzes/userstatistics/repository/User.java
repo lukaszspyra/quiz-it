@@ -37,7 +37,7 @@ public class User {
     @Valid
     private List<TakeQuiz> takenQuizzes = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
     @JoinColumn(name = "role_id")
     @Valid
     @NotNull
