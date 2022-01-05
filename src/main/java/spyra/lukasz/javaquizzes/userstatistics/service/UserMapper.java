@@ -21,6 +21,7 @@ class UserMapper {
         view.setName(user.getName());
         view.setEmail(user.getEmail());
         view.setPassword(user.getPassword());
+        view.setRole(user.getRole());
         return view;
     }
 
