@@ -22,7 +22,7 @@ class UserStatsController {
         resp.setContentType("text/html; charset=UTF-8");
         req.setCharacterEncoding("UTF-8");
 
-        model.addAttribute("quizzes", userService.getUserStatistics("test1@test.pl"));
+        model.addAttribute("user", userService.getUserStatistics("test1@test.pl"));
         return "home";
     }
 
