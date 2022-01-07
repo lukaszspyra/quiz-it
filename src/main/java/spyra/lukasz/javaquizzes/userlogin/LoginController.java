@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.login;
+package spyra.lukasz.javaquizzes.userlogin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +20,7 @@ public class LoginController {
         return "admin";
     }
 
-    @GetMapping("/menu")
+    @GetMapping({"/", "/menu"})
     public String menu() {
         return "menu";
     }
