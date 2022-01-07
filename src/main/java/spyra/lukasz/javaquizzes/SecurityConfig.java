@@ -13,7 +13,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     String[] resources = new String[]{
-            "/userlogin/**", "/css/**", "/fonts/**", "/images/**", "/js/**", "/scss/**", "/icons/**", "/img/**"};
+            "/resources/**", "/userlogin/**", "/css/**", "/fonts/**", "/images/**", "/js/**", "/scss/**", "/icons/**", "/img/**"};
 
     @Bean
     PasswordEncoder getPasswordEncoder() {
@@ -25,7 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/menu").permitAll()
                 .antMatchers("/admin").hasAuthority("ADMIN")
                 .antMatchers("/user").hasAnyAuthority("USER", "ADMIN")
                 .anyRequest()
@@ -33,11 +32,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .and()
                 .formLogin()
-                .usernameParameter("username")
-                .passwordParameter("password")
+                .loginPage("/login")
                 .permitAll()
-                .defaultSuccessUrl("/menu");
-
+                .defaultSuccessUrl("/")
+                .and()
+                .logout()
+                .permitAll();
     }
 
 }
