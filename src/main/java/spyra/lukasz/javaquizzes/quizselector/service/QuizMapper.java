@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
-public class QuizMapper {
+class QuizMapper {
 
     List<QuizView> toView(List<Quiz> quizzes) {
         return quizzes.stream()
