@@ -6,10 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import spyra.lukasz.javaquizzes.quizselector.service.QuizService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
-
 @Controller
 public class QuizSelectController {
 
@@ -17,10 +13,7 @@ public class QuizSelectController {
     private QuizService quizService;
 
     @GetMapping("/quizzes")
-    public String home(Model model, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
-        resp.setContentType("text/html; charset=UTF-8");
-        req.setCharacterEncoding("UTF-8");
-
+    public String home(Model model) {
         model.addAttribute("quizzes", quizService.findAll());
         return "quizzes";
     }
