@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.model;
 
-import spyra.lukasz.javaquizzes.model.TakeQuizAnswer;
+import lombok.Getter;
+import lombok.Setter;
 import spyra.lukasz.javaquizzes.quizselector.respository.Quiz;
 import spyra.lukasz.javaquizzes.userstatistics.repository.User;
 
@@ -15,6 +16,8 @@ import java.util.List;
 @Transactional
 @Entity
 @Table(name = "take_quiz")
+@Getter
+@Setter
 public class TakeQuiz {
 
     @Id

@@ -22,6 +22,7 @@ class UserMapper {
         view.setEmail(user.getEmail());
         view.setPassword(user.getPassword());
         view.setRole(user.getRole());
+        view.setTakenQuizzes(user.getTakenQuizzes());
         return view;
     }
 

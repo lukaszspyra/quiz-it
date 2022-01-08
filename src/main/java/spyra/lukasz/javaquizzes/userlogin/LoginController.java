@@ -20,7 +20,7 @@ public class LoginController {
         return "admin";
     }
 
-    @GetMapping({"/", "/menu"})
+    @GetMapping({ "/menu"})
     public String menu() {
         return "menu";
     }
