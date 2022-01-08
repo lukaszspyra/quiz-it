@@ -6,10 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import spyra.lukasz.javaquizzes.userstatistics.service.StatsService;
 
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.UnsupportedEncodingException;
+import java.security.Principal;
 
 @Controller
 class UserStatsController {
@@ -17,12 +14,9 @@ class UserStatsController {
     @Autowired
     private StatsService userService;
 
-    @GetMapping("/home")
-    public String home(Model model, HttpServletRequest req, HttpServletResponse resp) throws UnsupportedEncodingException {
-        resp.setContentType("text/html; charset=UTF-8");
-        req.setCharacterEncoding("UTF-8");
-
-        model.addAttribute("user", userService.getUserStatistics("test1@test.pl"));
+    @GetMapping("/")
+    public String home(Principal principal, Model model) {
+        model.addAttribute("user", userService.getUserStatistics(principal.getName()));
         return "home";
     }
 
