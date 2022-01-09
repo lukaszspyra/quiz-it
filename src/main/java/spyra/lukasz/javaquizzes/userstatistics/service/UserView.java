@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 @Setter
-public class UserView {
+class UserView {
 
     private long id;
 

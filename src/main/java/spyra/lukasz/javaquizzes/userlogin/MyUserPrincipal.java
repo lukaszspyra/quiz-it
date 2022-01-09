@@ -3,48 +3,52 @@ package spyra.lukasz.javaquizzes.userlogin;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import spyra.lukasz.javaquizzes.model.TakeQuiz;
 import spyra.lukasz.javaquizzes.userstatistics.repository.User;
 
+import javax.persistence.Transient;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
+public class MyUserPrincipal implements UserDetails {
 
-class MyUserPrincipal implements UserDetails {
+    private long id;
+    private String name;
+    private String roleName;
+    private String email;
 
-    private User user;
+    @Transient
+    private String password;
 
     public MyUserPrincipal(User user) {
-        this.user = user;
+        this.id = user.getId();
+        this.name = user.getName();
+        this.roleName = user.getRole().getName();
+        this.email = user.getEmail();
+        this.password = user.getPassword();
     }
 
     public String getName() {
-        return user.getName();
-    }
-
-    public List<TakeQuiz> getTakenQuizzes() {
-        return user.getTakenQuizzes();
+        return name;
     }
 
     public long getId() {
-        return user.getId();
+        return id;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole().getName());
+        GrantedAuthority authority = new SimpleGrantedAuthority(roleName);
         return Collections.singleton(authority);
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return password;
     }
 
     @Override
     public String getUsername() {
-        return user.getEmail();
+        return email;
     }
 
     @Override

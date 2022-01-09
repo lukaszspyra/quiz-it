@@ -9,7 +9,7 @@ import spyra.lukasz.javaquizzes.userstatistics.repository.User;
 import spyra.lukasz.javaquizzes.userstatistics.repository.UserRepository;
 
 @Service
-public class UserLoginService implements UserDetailsService {
+class UserLoginService implements UserDetailsService {
 
 
     @Autowired
