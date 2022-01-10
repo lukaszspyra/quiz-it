@@ -1,63 +1,107 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/userlogin/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="/userlogin/css/owl.carousel.min.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/userlogin/css/bootstrap.min.css">
-    <!-- Style -->
-    <link rel="stylesheet" href="/userlogin/css/style.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Java Quizzes</title>
+    <!-- Custom styles -->
+    <link href="/assets/quizzes.css" rel="stylesheet">
+    <link href="/assets/navbar.css" rel="stylesheet">
+
+    <title>Quizzes</title>
 </head>
 <body>
 
-<div th:insert="fragments/navigation :: navigation"></div>
+<main>
 
+    <!--    <div th:insert="fragments/navigation :: navigation"></div>-->
+    <div id="bg">
+        <img src="/assets/vector-JUL-2021-72.jpg" alt="">
+    </div>
 
-<div class="container">
+    <div class="container">
 
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded" aria-label="Twelfth navbar example">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarsExample10" aria-controls="navbarsExample10" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-    <h1>Available quizzes</h1>
-
-
-    <tbody>
-
-    <tr th:each="quiz: ${quizzes}">
-        <div class="row">
-            <div class="col">
-                <td th:text="${quiz.title}"/>
+                <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Quizzes</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="col">
-                <td th:text="${quiz.score}"/>
-            </div>
-            <div class="col">
-                <td th:text="${quiz.created}"/>
-            </div>
-            <div class="col">
-                <td th:text="${quiz.updated}"/>
-            </div>
+        </nav>
+
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
+
+
+            <h1>Available Java quizzes</h1>
+
+
+            <table class="container table">
+                <tbody>
+
+<!--        iteration of quizzes with separete columns-->
+<!--                <tr th:each="quiz: ${quizzes}">-->
+<!--                    <div class="row">-->
+<!--                        <div class="col">-->
+<!--                            <td th:text="${quiz.title}"/>-->
+<!--                        </div>-->
+<!--                        <div class="col">-->
+<!--                            <td th:text="${quiz.score}"/>-->
+<!--                        </div>-->
+<!--                        <div class="col">-->
+<!--                            <td th:text="${quiz.created}"/>-->
+<!--                        </div>-->
+<!--                        <div class="col">-->
+<!--                            <td th:text="${quiz.updated}"/>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </tr>-->
+
+                <tr>
+                    <th scope="col">Quiz 1 description:
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ne amores quidem sanctos a
+                        sapiente alienos esse arbitrantur. Pungunt quasi aculeis interrogatiunculis
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">Quiz 2 description:
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ne amores quidem sanctos a
+                        sapiente alienos esse arbitrantur. Pungunt quasi aculeis interrogatiunculis
+                        angustis, quibus etiam qui assentiuntur nihil commutantur animo et idem abeunt, qui
+                        venerant. Sed est forma eius disciplinae, sicut fere ceterarum, triplex: una pars
+                        est naturae, disserendi altera, vivendi tertia. Hanc in motu voluptatem -sic enim
+                        has suaves et quasi dulces voluptates appellat-interdum ita extenuat, ut M. Duo
+                    </th>
+                </tr>
+                <tr>
+                    <th scope="col">Quiz 3 description:
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ne amores quidem sanctos a
+                    </th>
+                </tr>
+
+                </tbody>
+            </table>
         </div>
-    </tr>
-    <tbody/>
 
+    </div>
 
-</div>
+</main>
 
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 
-
-<script src="/userlogin/js/jquery-3.3.1.min.js"></script>
-<script src="/userlogin/js/popper.min.js"></script>
-<script src="/userlogin/js/bootstrap.min.js"></script>
-<script src="/userlogin/js/main.js"></script>
 </body>
 </html>
-
-
-
-
-

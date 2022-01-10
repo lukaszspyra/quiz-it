@@ -1,18 +1,20 @@
 <div class="container" th:fragment="navigation" xmlns:th="http://www.w3.org/1999/xhtml">
 
-    Common Side Menu:
-    - Home
-    - Choose quiz
-<br><br>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
 
-    <a href="javascript: document.logoutForm.submit()" role="menuitem"> Logout</a>
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse justify-content-md-center">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Quizzes</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-    <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
-        <input hidden type="submit" value="Sign Out"/>
-    </form>
+    </nav>
 
-    <a class="text-warning" href="/">Home</a>
-    <a class="text-warning" href="/quizzes">Quizzes</a>
-
-
-</div>
+    </div>
