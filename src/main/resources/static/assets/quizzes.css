@@ -39,3 +39,22 @@
 .container table {
     width: 100%;
 }
+
+tr:hover {
+    background: lightgray;
+}
+td a {
+    display: block;
+    padding: 16px;
+}
+
+a, a:link, a:visited {
+    text-decoration:none;
+    color: black;
+}
+
+table {
+    word-break: break-all;
+    width: 100%;
+    border-top: 4px solid;
+}
