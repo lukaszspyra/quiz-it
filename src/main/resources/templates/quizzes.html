@@ -30,14 +30,23 @@
 
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
 
-            <tbody>
+        <div class="container-fluid" style="text-align: center"><h1>Available Java quizzes</h1></div>
 
-            <div class="container-fluid" style="text-align: center"><h1>Available Java quizzes</h1></div>
+            <tbody>
 
 
             <table class="container table">
+           <tr>
+               <th><label class="tbl_head">Title</label></th>
+               <th><label class="tbl_head">Max score</label></th>
+               <th><label class="tbl_head">Created</label></th>
+               <th><label class="tbl_head">Updated</label></th>
 
-                <tr th:each="quiz: ${quizzes}">
+           </tr>
+
+
+
+                <tr class="row_hoover" th:each="quiz: ${quizzes}">
 
                     <td>
                         <a href="/home" th:text="${quiz.title}">
@@ -53,33 +62,6 @@
                     </td>
                     <td>
                         <a href="/home" th:text="${quiz.updated}">
-                        </a>
-                    </td>
-
-                </tr>
-
-
-                <tr>
-
-                    <td>
-                        <a href="/home">Quiz 3 description:
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ne amores quidem sanctos
-                            a
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/home">Quiz 3 description:
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ne amores quidem sanctos a
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/home">Quiz 3 description:
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ne amores quidem sanctos a
-                        </a>
-                    </td>
-                    <td>
-                        <a href="/home">Quiz 3 description:
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ne amores quidem sanctos a
                         </a>
                     </td>
 

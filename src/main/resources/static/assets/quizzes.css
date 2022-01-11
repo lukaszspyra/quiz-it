@@ -43,8 +43,15 @@
 tr:hover {
     background: lightgray;
 }
+tr:first-child:hover {
+    background: #f7f8fa;
+}
 td a {
     display: block;
+    padding: 16px;
+}
+
+.tbl_head {
     padding: 16px;
 }
 
