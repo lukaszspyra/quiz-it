@@ -1,66 +1,105 @@
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/userlogin/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="/userlogin/css/owl.carousel.min.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/userlogin/css/bootstrap.min.css">
-    <!-- Style -->
-    <link rel="stylesheet" href="/userlogin/css/style.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Java Quizzes</title>
+    <!-- Custom styles -->
+    <link href="/assets/quizzes.css" rel="stylesheet">
+    <link href="/assets/navbar.css" rel="stylesheet">
+
+    <title>Statistics</title>
 </head>
 <body>
 
-<div th:insert="fragments/navigation :: navigation"></div>
+<main>
 
+    <!--    Background picture-->
+    <div id="bg">
+        <img src="/assets/vector-JUL-2021-72.jpg" alt="">
+    </div>
 
-<div class="container">
+    <div class="container">
 
+        <div th:replace="fragments/navigation.html :: navigation"></div>
 
-    <h1>Personal Data</h1>
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
 
-
-    <tbody>
-
-    <td th:text="${user.getName()}"/>
-    <td th:text="${user.getEmail()}"/>
-    <td th:text="${user.getRole().getName()}"/>
-
-    <br>
-
-    <h1>Quizzes results</h1>
-
-    <tr th:each="takenQuiz: ${user.getTakenQuizzes()}">
-        <div class="row">
-            <div class="col">
-                <td th:text="${takenQuiz.getQuiz().getTitle()}"/>
+            <div class="container-fluid" style="text-align: center">
+<div class="row"><h1>Personal Data</h1></div>
+              <div class="row">
+                  <div class="col-md-3">
+                     <b>Name</b>
+                  </div>
+                  <div class="col-md-3">
+                      <b>Email</b>
+                  </div>
+                  <div class="col-md-3">
+                      <b>Quizzes taken</b>
+                  </div>
+                  <div class="col-md-3">
+                      <b>Registered as</b>
+                  </div>
+              </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label class="tbl_head" th:text="${user.getName()}"/>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="tbl_head" th:text="${user.getEmail()}"/>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="tbl_head" th:text="${user.getTakenQuizzes().size()}"/>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="tbl_head" th:text="${user.getRole().getName()}"/>
+                    </div>
+                </div>
             </div>
-            <div class="col">
-                <td th:text="${takenQuiz.score}"/>
-            </div>
-            <div class="col">
-                <td th:text="${takenQuiz.getFinish()}"/>
-            </div>
+
+            <div class="container-fluid" style="text-align: center"><h1>Your results</h1></div>
+            <table class="container table">
+                <tr>
+                    <th><label class="tbl_head">Quiz title</label></th>
+                    <th><label class="tbl_head">Points</label></th>
+                    <th><label class="tbl_head">Time spent</label></th>
+                    <th><label class="tbl_head">Quiz max points</label></th>
+                </tr>
+
+
+                <tr class="row_hoover" th:each="takenQuiz: ${user.getTakenQuizzes()}">
+                    <td>
+                        <a href="/home" th:text="${takenQuiz.getQuiz().getTitle()}">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/home" th:text="${takenQuiz.score}">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/home" th:text="${takenQuiz.getFinish()}">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="/home" th:text="${takenQuiz.quiz.getMaxScore()}">
+                        </a>
+                    </td>
+
+                </tr>
+
+            </table>
         </div>
-    </tr>
 
+    </div>
 
-    <tbody/>
+</main>
 
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 
-    <br>
-
-
-</div>
-
-<script src="/userlogin/js/jquery-3.3.1.min.js"></script>
-<script src="/userlogin/js/popper.min.js"></script>
-<script src="/userlogin/js/bootstrap.min.js"></script>
-<script src="/userlogin/js/main.js"></script>
 </body>
 </html>
