@@ -1,7 +1,7 @@
-INSERT INTO quiz (title, score, created, updated) VALUES ('Quiz1', 1, '2001-01-01 01:01:01', '2011-01-01 01:01:01');
-INSERT INTO quiz (title, score, created, updated) VALUES ('Quiz2', 2, '2002-01-01 01:01:01', '2012-01-01 01:01:01');
-INSERT INTO quiz (title, score, created, updated) VALUES ('Quiz3', 3, '2003-01-01 01:01:01', '2013-01-01 01:01:01');
-INSERT INTO quiz (title, score, created, updated) VALUES ('Quiz4', 4, '2004-01-01 01:01:01', '2014-01-01 01:01:01');
+INSERT INTO quiz (title, max_score, created, updated) VALUES ('Quiz1', 1, '2001-01-01 01:01:01', '2011-01-01 01:01:01');
+INSERT INTO quiz (title, max_score, created, updated) VALUES ('Quiz2', 2, '2002-01-01 01:01:01', '2012-01-01 01:01:01');
+INSERT INTO quiz (title, max_score, created, updated) VALUES ('Quiz3', 3, '2003-01-01 01:01:01', '2013-01-01 01:01:01');
+INSERT INTO quiz (title, max_score, created, updated) VALUES ('Quiz4', 4, '2004-01-01 01:01:01', '2014-01-01 01:01:01');
 
 
 

@@ -19,7 +19,7 @@ class QuizMapper {
         QuizView view = new QuizView();
         view.setId(quizz.getId());
         view.setTitle(quizz.getTitle());
-        view.setScore(quizz.getScore());
+        view.setScore(quizz.getMaxScore());
         view.setCreated(quizz.getCreated());
         view.setUpdated(quizz.getUpdated());
         return view;

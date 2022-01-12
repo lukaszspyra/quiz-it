@@ -26,7 +26,7 @@ public class Quiz {
     private String title;
 
     @NotNull
-    private int score;
+    private int maxScore;
 
     @NotNull
     private LocalDateTime created;
