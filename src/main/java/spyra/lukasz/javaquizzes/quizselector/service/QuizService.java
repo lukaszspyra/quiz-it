@@ -19,4 +19,8 @@ public class QuizService {
         return quizMapper.toView(quizRepository.findAll());
     }
 
+    public QuizView getById(long id){
+        return quizMapper.toView(quizRepository.getById(id));
+    }
+
 }
