@@ -13,9 +13,16 @@ public class QuizSelectController {
     private QuizService quizService;
 
     @GetMapping("/quizzes")
-    public String home(Model model) {
+    public String allQuizzes(Model model) {
         model.addAttribute("quizzes", quizService.findAll());
         return "quizzes";
+    }
+
+
+    @GetMapping("/quiz")
+    public String startSingleQuiz(Model model) {
+        model.addAttribute("quiz", quizService.getById(1));
+        return "quiz";
     }
 
 }

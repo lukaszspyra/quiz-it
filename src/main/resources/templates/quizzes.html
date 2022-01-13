@@ -19,7 +19,7 @@
 
 <main>
 
-    <!--    <div th:insert="fragments/navigation :: navigation"></div>-->
+    <!--    Background picture-->
     <div id="bg">
         <img src="/assets/vector-JUL-2021-72.jpg" alt="">
     </div>
@@ -30,20 +30,19 @@
 
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
 
-        <div class="container-fluid" style="text-align: center"><h1>Available Java quizzes</h1></div>
-
-            <tbody>
+            <div class="container-fluid" style="text-align: center"><h1>Available Java quizzes</h1></div>
 
 
             <table class="container table">
-           <tr>
-               <th><label class="tbl_head">Title</label></th>
-               <th><label class="tbl_head">Max score</label></th>
-               <th><label class="tbl_head">Created</label></th>
-               <th><label class="tbl_head">Updated</label></th>
 
-           </tr>
+                <tbody>
+                <tr>
+                    <th><label class="tbl_head">Title</label></th>
+                    <th><label class="tbl_head">Max score</label></th>
+                    <th><label class="tbl_head">Created</label></th>
+                    <th><label class="tbl_head">Updated</label></th>
 
+                </tr>
 
 
                 <tr class="row_hoover" th:each="quiz: ${quizzes}">
