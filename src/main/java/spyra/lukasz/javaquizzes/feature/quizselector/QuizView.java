@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.quizselector;
+package spyra.lukasz.javaquizzes.feature.quizselector;
 
 import lombok.Getter;
 import lombok.Setter;

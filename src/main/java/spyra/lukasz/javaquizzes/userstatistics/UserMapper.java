@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.userstatistics;
 
 import org.springframework.stereotype.Component;
+import spyra.lukasz.javaquizzes.shared.User;
 
 import java.util.List;
 import java.util.stream.Collectors;

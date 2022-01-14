@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.quizselector;
+package spyra.lukasz.javaquizzes.feature.quizselector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,9 +1,9 @@
-package spyra.lukasz.javaquizzes.login;
+package spyra.lukasz.javaquizzes.feature.login;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import spyra.lukasz.javaquizzes.userstatistics.User;
+import spyra.lukasz.javaquizzes.shared.User;
 
 import javax.persistence.Transient;
 import java.util.Collection;

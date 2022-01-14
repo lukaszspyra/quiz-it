@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.login;
+package spyra.lukasz.javaquizzes.feature.login;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
