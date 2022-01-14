@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.quizselector.service;
+package spyra.lukasz.javaquizzes.quizselector;
 
 import lombok.Getter;
 import lombok.Setter;

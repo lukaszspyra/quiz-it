@@ -5,7 +5,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import spyra.lukasz.javaquizzes.userlogin.MyUserPrincipal;
+import spyra.lukasz.javaquizzes.login.MyUserPrincipal;
 
 import java.security.Principal;
 

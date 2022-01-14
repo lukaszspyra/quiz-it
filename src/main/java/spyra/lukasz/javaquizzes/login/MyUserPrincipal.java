@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.userlogin;
+package spyra.lukasz.javaquizzes.login;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

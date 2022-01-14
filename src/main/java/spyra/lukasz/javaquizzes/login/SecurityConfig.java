@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.userlogin;
+package spyra.lukasz.javaquizzes.login;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,4 @@
-package spyra.lukasz.javaquizzes.model;
-
-import spyra.lukasz.javaquizzes.quizselector.respository.Quiz;
+package spyra.lukasz.javaquizzes.shared;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
@@ -12,7 +10,7 @@ import java.util.List;
 @Transactional
 @Entity
 @Table(name = "question")
-public class Question {
+class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +27,6 @@ public class Question {
     @NotNull
     @Valid
     private Quiz quiz;
-
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
     @NotNull

@@ -1,10 +1,9 @@
-package spyra.lukasz.javaquizzes.quizselector.controller;
+package spyra.lukasz.javaquizzes.quizselector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import spyra.lukasz.javaquizzes.quizselector.service.QuizService;
 
 @Controller
 public class QuizSelectController {

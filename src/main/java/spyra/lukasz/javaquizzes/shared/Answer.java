@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.model;
+package spyra.lukasz.javaquizzes.shared;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @Transactional
 @Entity
 @Table(name = "answer")
-public class Answer {
+class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
