@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.userstatistics;
+package spyra.lukasz.javaquizzes.feature.userdata;
 
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.User;

@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.userstatistics;
+package spyra.lukasz.javaquizzes.feature.userdata;
 
 import lombok.Getter;
 import lombok.Setter;
