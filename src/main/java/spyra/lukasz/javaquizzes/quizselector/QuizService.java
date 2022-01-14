@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class QuizService {
+class QuizService {
 
     @Autowired
     private QuizRepository quizRepository;
@@ -14,11 +14,11 @@ public class QuizService {
     @Autowired
     private QuizMapper quizMapper;
 
-    public List<QuizView> findAll() {
+    List<QuizView> findAll() {
         return quizMapper.toView(quizRepository.findAll());
     }
 
-    public QuizView getById(long id){
+    QuizView getById(long id){
         return quizMapper.toView(quizRepository.getById(id));
     }
 
