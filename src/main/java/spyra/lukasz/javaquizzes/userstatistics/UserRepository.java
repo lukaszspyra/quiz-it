@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.userstatistics.repository;
+package spyra.lukasz.javaquizzes.userstatistics;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

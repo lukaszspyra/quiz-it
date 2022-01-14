@@ -3,7 +3,7 @@ package spyra.lukasz.javaquizzes.model;
 import lombok.Getter;
 import lombok.Setter;
 import spyra.lukasz.javaquizzes.quizselector.respository.Quiz;
-import spyra.lukasz.javaquizzes.userstatistics.repository.User;
+import spyra.lukasz.javaquizzes.userstatistics.User;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;

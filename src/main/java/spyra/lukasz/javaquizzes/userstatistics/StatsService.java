@@ -1,9 +1,8 @@
-package spyra.lukasz.javaquizzes.userstatistics.service;
+package spyra.lukasz.javaquizzes.userstatistics;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import spyra.lukasz.javaquizzes.userstatistics.repository.UserRepository;
 
 @Service
 public class StatsService {

@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.userstatistics.repository;
+package spyra.lukasz.javaquizzes.userstatistics;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

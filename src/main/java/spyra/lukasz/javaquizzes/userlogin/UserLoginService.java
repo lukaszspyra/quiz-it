@@ -5,8 +5,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import spyra.lukasz.javaquizzes.userstatistics.repository.User;
-import spyra.lukasz.javaquizzes.userstatistics.repository.UserRepository;
+import spyra.lukasz.javaquizzes.userstatistics.User;
+import spyra.lukasz.javaquizzes.userstatistics.UserRepository;
 
 @Service
 class UserLoginService implements UserDetailsService {

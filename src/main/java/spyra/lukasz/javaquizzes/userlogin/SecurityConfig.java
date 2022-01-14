@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes;
+package spyra.lukasz.javaquizzes.userlogin;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     String[] resources = new String[]{
             "/resources/**", "/userlogin/**", "/css/**", "/fonts/**", "/images/**", "/js/**", "/scss/**", "/icons/**", "/img/**"};

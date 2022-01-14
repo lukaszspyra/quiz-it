@@ -1,9 +1,8 @@
-package spyra.lukasz.javaquizzes.userstatistics.service;
+package spyra.lukasz.javaquizzes.userstatistics;
 
 import lombok.Getter;
 import lombok.Setter;
 import spyra.lukasz.javaquizzes.model.TakeQuiz;
-import spyra.lukasz.javaquizzes.userstatistics.repository.Role;
 
 import java.util.List;
 
