@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>11</java.version>
-        <testng.version>7.4.0</testng.version>
+        <testng.version>7.5</testng.version>
     </properties>
 
     <dependencies>
@@ -90,6 +90,13 @@
             <version>${testng.version}</version>
             <scope>test</scope>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.13.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>
