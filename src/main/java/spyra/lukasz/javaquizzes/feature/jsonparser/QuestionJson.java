@@ -1,10 +1,10 @@
 package spyra.lukasz.javaquizzes.feature.jsonparser;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.AllArgsConstructor;
 
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@AllArgsConstructor
 class QuestionJson {
 
     private String title;

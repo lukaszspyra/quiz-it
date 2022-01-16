@@ -1,11 +1,11 @@
 package spyra.lukasz.javaquizzes.feature.jsonparser;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Setter
 class QuizJson {
 
     private String title;

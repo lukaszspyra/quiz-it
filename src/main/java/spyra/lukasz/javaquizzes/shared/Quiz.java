@@ -4,11 +4,8 @@ import lombok.Getter;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
-import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Transactional
 @Entity
@@ -31,13 +28,5 @@ public class Quiz {
 
     @NotNull
     private LocalDateTime updated;
-
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
-    @Valid
-    private List<TakeQuiz> takenQuizzes = new ArrayList<>();
-
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
-    @Valid
-    private List<Question> questions = new ArrayList<>();
 
 }
