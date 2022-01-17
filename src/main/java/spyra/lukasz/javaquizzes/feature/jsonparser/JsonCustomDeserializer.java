@@ -1,17 +1,17 @@
 package spyra.lukasz.javaquizzes.feature.jsonparser;
 
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
 import java.io.IOException;
-import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class JsonParser {
+class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
     public static final String TITLE = "title";
     public static final String MAX_SCORE = "maxScore";
@@ -22,8 +22,10 @@ public class JsonParser {
     public static final String ANSWERS = "answers";
     public static final String CORRECT = "correct";
 
-    public QuizJson parse(Path json) throws IOException {
-        JsonNode node = readTreeWithLocalDateTime(json);
+
+    @Override
+    public QuizJson deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
+        JsonNode node = jsonParser.readValueAsTree();
         QuizJson quizJson = new QuizJson();
         quizJson.setTitle(node.get(TITLE).textValue());
         quizJson.setMaxScore(node.get(MAX_SCORE).asInt());
@@ -33,12 +35,6 @@ public class JsonParser {
         List<QuestionJson> questionsJson = parseQuestions(jsonNodeQuestionsIterator);
         quizJson.setQuestions(questionsJson);
         return quizJson;
-    }
-
-    private JsonNode readTreeWithLocalDateTime(Path json) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
-        return mapper.readTree(json.toFile());
     }
 
     private List<QuestionJson> parseQuestions(Iterator<JsonNode> jsonNodeQuestionsIterator) {
@@ -67,5 +63,4 @@ public class JsonParser {
         }
         return answers;
     }
-
 }
