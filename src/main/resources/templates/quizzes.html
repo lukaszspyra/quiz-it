@@ -48,19 +48,19 @@
                 <tr class="row_hoover" th:each="quiz: ${quizzes}">
 
                     <td>
-                        <a href="/home" th:text="${quiz.title}">
+                        <a th:href="@{/quiz/{id} (id=${quiz.id})}" th:text="${quiz.title}">
                         </a>
                     </td>
                     <td>
-                        <a href="/home" th:text="${quiz.score}">
+                        <a th:href="@{/quiz/{id} (id=${quiz.id})}" th:text="${quiz.score}">
                         </a>
                     </td>
                     <td>
-                        <a href="/home" th:text="${quiz.created}">
+                        <a th:href="@{/quiz/{id} (id=${quiz.id})}" th:text="${quiz.created}">
                         </a>
                     </td>
                     <td>
-                        <a href="/home" th:text="${quiz.updated}">
+                        <a th:href="@{/quiz/{id} (id=${quiz.id})}" th:text="${quiz.updated}">
                         </a>
                     </td>
 
