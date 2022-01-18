@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 class QuizSelectController {
@@ -18,9 +19,9 @@ class QuizSelectController {
     }
 
 
-    @GetMapping("/quiz")
-    public String startSingleQuiz(Model model) {
-        model.addAttribute("quiz", quizService.getById(1));
+    @GetMapping("/quiz/{id}")
+    public String startSingleQuiz(Model model, @PathVariable long id) {
+        model.addAttribute("quiz", quizService.getById(id));
         return "quiz";
     }
 
