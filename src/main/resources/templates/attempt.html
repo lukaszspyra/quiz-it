@@ -26,7 +26,7 @@
 
     <div class="container">
 
-<!--        <div th:replace="fragments/navigation.html :: navigation"></div>-->
+        <!--        <div th:replace="fragments/navigation.html :: navigation"></div>-->
         <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark rounded" aria-label="navbar">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -54,7 +54,6 @@
             <div class="container-fluid" style="text-align: center">
 
 
-
                 <br>
 
                 <h1>Do your best, forget the rest!</h1>
@@ -63,37 +62,63 @@
 
                 <h5 th:text="${quiz.getTitle()}"></h5>
                 <br>
-                <a href="/start"><input type="button" value="Start the quiz" class="btn btn-block btn-primary" style="padding: 16px"></a>
-
-
-
+                <a href="/start"><input type="button" value="Start the quiz" class="btn btn-block btn-primary"
+                                        style="padding: 16px"></a>
 
 
             </div>
-
 
 
         </div>
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-dark">
-        <div class="container-fluid" >
+            <div class="container-fluid">
 
-            <div class="row">
+                <div class="row">
 
 
-<div class="col">
-                <a href="/start"><input type="button" value="Submit" class="btn btn-block btn-primary" style="padding: 16px"></a>
-            </div>
-
-                <div class="col" style="text-align: left">
-                <div id="app"></div>
+                    <div class="col">
+                        <a href="/start"><input type="button" value="Submit" class="btn btn-block btn-primary"
+                                                style="padding: 16px"></a>
+                    </div>
 
                 </div>
 
+
+                <div class="row">
+                    <div class="col white-text" style="text-align: left">
+                        <label style="float: right">Time remaining for question:</label>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="col white-text" style="text-align: left">
+                        <div id="app"></div>
+
+
+                    </div>
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col white-text" style="text-align: left">
+                        <div class="row justify-content-center mt-2">
+                            <p>
+                                Time remaining for quiz:
+                            </p>
+
+                        </div>
+                        <div class="row justify-content-center border rounded-pill text-white" id="countdown">
+
+                        </div>
+
+
+                    </div>
+
+                </div>
             </div>
-
-
-
-        </div>
         </div>
 
     </div>
@@ -102,7 +127,8 @@
 </main>
 
 <script src="../static/assets/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../static/assets/attempt.js"></script>
+<script src="../static/assets/countdown_round.js"></script>
+<script src="../static/assets/countdown_digits.js"></script>
 
 </body>
 </html>
