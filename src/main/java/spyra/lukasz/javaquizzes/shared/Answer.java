@@ -1,5 +1,8 @@
 package spyra.lukasz.javaquizzes.shared;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -7,7 +10,10 @@ import javax.validation.constraints.NotNull;
 
 @Transactional
 @Entity
+@Getter
+@Setter
 @Table(name = "answer")
+public
 class Answer {
 
     @Id
