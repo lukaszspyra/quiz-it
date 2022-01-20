@@ -15,13 +15,13 @@ class QuizMapper {
                 .collect(Collectors.toList());
     }
 
-    QuizView toView(Quiz quizz) {
+    QuizView toView(Quiz quiz) {
         QuizView view = new QuizView();
-        view.setId(quizz.getId());
-        view.setTitle(quizz.getTitle());
-        view.setScore(quizz.getMaxScore());
-        view.setCreated(quizz.getCreated());
-        view.setUpdated(quizz.getUpdated());
+        view.setId(quiz.getId());
+        view.setTitle(quiz.getTitle());
+        view.setScore(quiz.getMaxScore());
+        view.setCreated(quiz.getCreated());
+        view.setUpdated(quiz.getUpdated());
         return view;
     }
 

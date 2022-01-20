@@ -10,7 +10,7 @@ import java.util.List;
 @Transactional
 @Entity
 @Table(name = "question")
-class Question {
+public class Question {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
