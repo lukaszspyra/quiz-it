@@ -12,8 +12,9 @@
     <!-- Custom styles -->
     <link href="/assets/quizzes.css" rel="stylesheet">
     <link href="/assets/navbar.css" rel="stylesheet">
+    <link href="/assets/attempt.css" rel="stylesheet">
 
-    <title>Start</title>
+    <title>Result</title>
 </head>
 <body>
 
@@ -22,32 +23,26 @@
     <div id="bg">
         <img src="/assets/vector-JUL-2021-72.jpg" alt="">
     </div>
-
     <div class="container">
-
         <div th:replace="fragments/navigation.html :: navigation"></div>
-
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
-
             <div class="container-fluid" style="text-align: center">
-
-                <br>
-
-                <h1>Do your best, forget the rest!</h1>
-
-                <br><br>
-
-                <h5 th:text="${quiz.getTitle()}"></h5>
-                <br>
-                <a th:href="@{/quiz/start/{id} (id=${quiz.id})}"><input type="button" value="Start the quiz" class="btn btn-block btn-primary" style="padding: 16px"></a>
-
-
+                <div>
+                    <h5 th:text="Congrats! Here goes your score..."></h5>
+                </div>
             </div>
-
         </div>
 
-    </div>
 
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-dark">
+            <!--            <div class="container-fluid">-->
+            <div class="row">
+                <a th:href="/home">
+                    <input type="button" value="Your statistics" class="btn btn-block btn-primary" style="padding: 16px"></a>
+            </div>
+        </div>
+        <!--        </div>-->
+    </div>
 
 </main>
 
