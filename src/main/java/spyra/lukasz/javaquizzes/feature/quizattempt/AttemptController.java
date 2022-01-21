@@ -31,7 +31,7 @@ class AttemptController {
     private List<QuestionView> getQuestionsFromSession(long id, HttpSession session) {
         Object sessionQuestions = session.getAttribute("questions");
         if (sessionQuestions == null) {
-            return attemptService.getQuizById(id).getQuestions();
+            return attemptService.getQuizQuestionsRandomOrder(id);
         }
         return (List<QuestionView>) sessionQuestions;
     }
