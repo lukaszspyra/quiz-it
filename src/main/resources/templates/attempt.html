@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles -->
-    <link href="../static/assets/quizzes.css" rel="stylesheet">
-    <link href="../static/assets/navbar.css" rel="stylesheet">
-    <link href="../static/assets/attempt.css" rel="stylesheet">
+    <link href="/assets/quizzes.css" rel="stylesheet">
+    <link href="/assets/navbar.css" rel="stylesheet">
+    <link href="/assets/attempt.css" rel="stylesheet">
 
     <title>Start</title>
 </head>
@@ -21,114 +21,54 @@
 <main>
 
     <div id="bg">
-        <img src="../static/assets/vector-JUL-2021-72.jpg" alt="">
+        <img src="/assets/vector-JUL-2021-72.jpg" alt="">
     </div>
-
     <div class="container">
-
-        <!--        <div th:replace="fragments/navigation.html :: navigation"></div>-->
-        <nav th:fragment="navigation" class="navbar navbar-expand-lg navbar-dark bg-dark rounded" aria-label="navbar">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse justify-content-md-center" id="navbar">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/home">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/quizzes">Available Quizzes</a>
-                        </li>
-                    </ul>
+        <div th:replace="fragments/navigation.html :: navigation"></div>
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
+            <div class="container-fluid" style="text-align: center">
+                <div>
+                    <h5 th:text="${question.getContent()}"></h5>
                 </div>
             </div>
-        </nav>
-
-        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
-
-
-            <div class="container-fluid" style="text-align: center">
-
-
-                <br>
-
-                <h1>Do your best, forget the rest!</h1>
-
-                <br><br>
-
-                <h5 th:text="${quiz.getTitle()}"></h5>
-                <br>
-                <a href="/start"><input type="button" value="Start the quiz" class="btn btn-block btn-primary"
-                                        style="padding: 16px"></a>
-
-
-            </div>
-
-
         </div>
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-dark">
             <div class="container-fluid">
-
                 <div class="row">
-
-
                     <div class="col">
-                        <a href="/start"><input type="button" value="Submit" class="btn btn-block btn-primary"
-                                                style="padding: 16px"></a>
+                        <a th:href="@{/quiz/start/{id} (id=${quiz_id})}">
+                            <input type="button" value="Submit" class="btn btn-block btn-primary" style="padding: 16px"></a>
                     </div>
-
                 </div>
-
-
                 <div class="row">
                     <div class="col white-text" style="text-align: left">
                         <label style="float: right">Time remaining for question:</label>
-
                     </div>
-
                 </div>
-
                 <div class="row">
                     <div class="col white-text" style="text-align: left">
                         <div id="app"></div>
-
-
                     </div>
-
                 </div>
-
-
                 <div class="row">
                     <div class="col white-text" style="text-align: left">
                         <div class="row justify-content-center mt-2">
                             <p>
                                 Time remaining for quiz:
                             </p>
-
                         </div>
-                        <div class="row justify-content-center border rounded-pill text-white" id="countdown">
-
-                        </div>
-
-
+                        <div class="row justify-content-center border rounded-pill text-white" id="countdown"></div>
                     </div>
-
                 </div>
             </div>
         </div>
-
     </div>
-
 
 </main>
 
-<script src="../static/assets/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../static/assets/countdown_round.js"></script>
-<script src="../static/assets/countdown_digits.js"></script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/countdown_round.js"></script>
+<script src="/assets/countdown_digits.js"></script>
 
 </body>
 </html>

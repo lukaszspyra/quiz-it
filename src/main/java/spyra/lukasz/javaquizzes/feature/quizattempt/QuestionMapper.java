@@ -25,7 +25,7 @@ class QuestionMapper {
     List<QuestionView> toView(List<Question> questions) {
         return questions.stream()
                 .map(this::toView)
-                .collect(Collectors.toUnmodifiableList());
+                .collect(Collectors.toList());
 
     }
 }
