@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -15,14 +18,14 @@ class AttemptController {
     @Autowired
     private AttemptService attemptService;
 
-    @GetMapping("/quiz/start/{id}")
-    public String startSingleQuiz(Model model, @PathVariable long id, HttpSession session) {
-        List<QuestionView> questions = getQuestionsFromSession(id, session);
+    @GetMapping("/quiz/attempt/{quiz_id}")
+    String startSingleQuiz(Model model, @PathVariable(name = "quiz_id") long quizId, HttpSession session) {
+        List<QuestionView> questions = getQuestionsFromSession(quizId, session);
         if (questions.isEmpty()) {
             return "result";
         }
-        model.addAttribute("quiz_id", id);
-        model.addAttribute("question", questions.remove(0));
+        model.addAttribute("quiz_id", quizId);
+        model.addAttribute("question", questions.get(0));
         session.setAttribute("questions", questions);
         return "attempt";
     }
@@ -34,6 +37,14 @@ class AttemptController {
             return attemptService.getQuizQuestionsRandomOrder(id);
         }
         return (List<QuestionView>) sessionQuestions;
+    }
+
+    @PostMapping("/quiz/answer/{quiz_id}")
+    ModelAndView givenAnswers(@RequestParam(value = "given_answers", required = false) String[] answers, @PathVariable(value = "quiz_id") long quizId, Model model){
+
+
+
+        return new ModelAndView("redirect:/quiz/attempt/"+quizId );
     }
 
 }

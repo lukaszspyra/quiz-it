@@ -27,16 +27,40 @@
         <div th:replace="fragments/navigation.html :: navigation"></div>
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
             <div class="container-fluid" style="text-align: center">
-                <div>
-                    <h5 th:text="${question.getContent()}"></h5>
-                </div>
+
+                <form method="post" th:action="@{/quiz/answer/{id} (id=${quiz_id})}">
+
+                    <fieldset>
+                        <legend>
+
+                            <h5 th:text="${question.getContent()}"></h5>
+
+                        </legend>
+
+                            <div class="form-check" th:each="answer: ${question.getAnswers()}">
+                                <label style="text-align: left;margin-right: 10px" th:text="${answer.getContent()}">
+
+                                <input class="form-check-input" type="checkbox" name="given_answers"
+                                       th:value="${answer.getId()}">
+                                </label>
+                            </div>
+
+
+                        <br>
+                        <input type="submit" value="Submit now">
+
+                    </fieldset>
+
+
+                </form>
+
             </div>
         </div>
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-dark">
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        <a th:href="@{/quiz/start/{id} (id=${quiz_id})}">
+                        <a th:href="@{/quiz/attempt/{id} (id=${quiz_id})}">
                             <input type="button" value="Submit" class="btn btn-block btn-primary" style="padding: 16px"></a>
                     </div>
                 </div>
