@@ -18,29 +18,32 @@ class AttemptController {
     @Autowired
     private AttemptService attemptService;
 
+
+    @GetMapping("/quiz/start/{quiz_id}")
+    ModelAndView startSingleQuiz(Model model, @PathVariable(name = "quiz_id") long quizId, HttpSession session) {
+        List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
+        session.setAttribute("questions", questions);
+        return new ModelAndView("redirect:/quiz/attempt/"+quizId);
+    }
+
+
+    @SuppressWarnings("unchecked cast")
     @GetMapping("/quiz/attempt/{quiz_id}")
-    String startSingleQuiz(Model model, @PathVariable(name = "quiz_id") long quizId, HttpSession session) {
-        List<QuestionView> questions = getQuestionsFromSession(quizId, session);
+    String progressQuiz(Model model, @PathVariable(name = "quiz_id") long quizId, HttpSession session) {
+        List<QuestionView> questions = (List<QuestionView>) session.getAttribute("questions");
         if (questions.isEmpty()) {
+            session.removeAttribute("questions");
             return "result";
         }
         model.addAttribute("quiz_id", quizId);
-        model.addAttribute("question", questions.get(0));
+        model.addAttribute("question", questions.remove(0));
         session.setAttribute("questions", questions);
         return "attempt";
     }
 
-    @SuppressWarnings("unchecked cast")
-    private List<QuestionView> getQuestionsFromSession(long id, HttpSession session) {
-        Object sessionQuestions = session.getAttribute("questions");
-        if (sessionQuestions == null) {
-            return attemptService.getQuizQuestionsRandomOrder(id);
-        }
-        return (List<QuestionView>) sessionQuestions;
-    }
-
     @PostMapping("/quiz/answer/{quiz_id}")
-    ModelAndView givenAnswers(@RequestParam(value = "given_answers", required = false) String[] answers, @PathVariable(value = "quiz_id") long quizId, Model model){
+    ModelAndView givenAnswers(@RequestParam(value = "given_answers", required = false) long[] answers, @PathVariable(value = "quiz_id") long quizId, Model model){
+
 
 
 
