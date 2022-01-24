@@ -8,6 +8,7 @@ import javax.validation.constraints.NotNull;
 @Transactional
 @Entity
 @Table(name = "take_quiz_answers")
+public
 class TakeQuizAnswer {
 
     @Id
