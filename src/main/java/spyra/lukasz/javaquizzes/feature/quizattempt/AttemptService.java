@@ -9,7 +9,6 @@ import spyra.lukasz.javaquizzes.shared.*;
 import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 class AttemptService {
@@ -18,7 +17,7 @@ class AttemptService {
     private QuizRepository quizRepository;
 
     @Autowired
-    private AttemptMapper attemptMapper;
+    private QuestionRepository questionRepository;
 
     @Autowired
     private QuestionMapper questionMapper;
@@ -32,18 +31,13 @@ class AttemptService {
     @Autowired
     private TakeQuizAnswerRepository takeQuizAnswerRepository;
 
-    AttemptView getQuizById(long id) {
-        return attemptMapper.toView(quizRepository.getById(id));
-    }
-
     List<QuestionView> getQuizQuestionsRandomOrder(long id) {
         List<Question> questions = quizRepository.getById(id).getQuestions();
         Collections.shuffle(questions);
         return questionMapper.toView(questions);
     }
 
-
-    public TakeQuiz takeQuiz(long quizId, String userEmail) {
+    TakeQuiz takeQuiz(long quizId, String userEmail) {
         Quiz presentQuiz = quizRepository.getById(quizId);
         User activeUser = takeQuizRepository.findUserByEmail(userEmail).orElseThrow(() -> new UsernameNotFoundException("Not found"));
         TakeQuiz takeQuiz = new TakeQuiz();
@@ -51,5 +45,18 @@ class AttemptService {
         takeQuiz.setStart(LocalDateTime.now());
         takeQuiz.setUser(activeUser);
         return takeQuizRepository.save(takeQuiz);
+    }
+
+    void saveGivenAnswers(List<Long> answerIds, long takeQuizId, long questId) {
+        List<Answer> answered = answerRepository.findAllById(answerIds);
+        TakeQuiz takenQuiz = takeQuizRepository.getById(takeQuizId);
+        Question question = questionRepository.getById(questId);
+        for (var answer : answered) {
+            TakeQuizAnswer answerForSaving = new TakeQuizAnswer();
+            answerForSaving.setAnswer(answer);
+            answerForSaving.setTakeQuiz(takenQuiz);
+            answerForSaving.setQuestion(question);
+            takeQuizAnswerRepository.save(answerForSaving);
+        }
     }
 }
