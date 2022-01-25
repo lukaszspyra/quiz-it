@@ -27,7 +27,6 @@ public class TakeQuiz {
     @NotNull
     private LocalDateTime start;
 
-    @NotNull
     private LocalDateTime finish;
 
     @OneToMany(mappedBy = "takeQuiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})

@@ -1,5 +1,8 @@
 package spyra.lukasz.javaquizzes.shared;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.transaction.Transactional;
 import javax.validation.Valid;
@@ -8,8 +11,9 @@ import javax.validation.constraints.NotNull;
 @Transactional
 @Entity
 @Table(name = "take_quiz_answers")
-public
-class TakeQuizAnswer {
+@Getter
+@Setter
+public class TakeQuizAnswer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
