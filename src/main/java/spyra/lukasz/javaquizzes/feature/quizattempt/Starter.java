@@ -11,7 +11,7 @@ import spyra.lukasz.javaquizzes.shared.User;
 import java.time.LocalDateTime;
 
 @Component
-class QuizStarter {
+class Starter {
 
     @Autowired
     private QuizRepository quizRepository;

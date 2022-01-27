@@ -39,16 +39,4 @@ class AttemptService {
         return questionMapper.toView(questions);
     }
 
-    void saveGivenAnswers(List<Long> answerIds, long takeQuizId, long questId) {
-        List<Answer> answered = answerRepository.findAllById(answerIds);
-        TakeQuiz takenQuiz = takeQuizRepository.getById(takeQuizId);
-        Question question = questionRepository.getById(questId);
-        for (var answer : answered) {
-            TakeQuizAnswer answerForSaving = new TakeQuizAnswer();
-            answerForSaving.setAnswer(answer);
-            answerForSaving.setTakeQuiz(takenQuiz);
-            answerForSaving.setQuestion(question);
-            takeQuizAnswerRepository.save(answerForSaving);
-        }
-    }
 }
