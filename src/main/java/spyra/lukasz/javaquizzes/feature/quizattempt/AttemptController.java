@@ -16,6 +16,9 @@ import java.util.List;
 class AttemptController {
 
     @Autowired
+    private QuizStarter quizStarter;
+
+    @Autowired
     private AttemptService attemptService;
 
 
@@ -23,7 +26,7 @@ class AttemptController {
     ModelAndView startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
                                  Principal principal,
                                  HttpSession session) {
-        TakeQuiz takeQuiz = attemptService.takeQuiz(quizId, principal.getName());
+        TakeQuiz takeQuiz = quizStarter.takeQuiz(quizId, principal.getName());
         List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
         session.setAttribute("questions", questions);
         return new ModelAndView("redirect:/quiz/attempt/" + quizId, "take_quiz_id", takeQuiz.getId());
