@@ -41,7 +41,7 @@ class Progresser {
         }
     }
 
-    private TakeQuiz updateScore(long takeQuizId,int questionScore) {
+    private TakeQuiz updateScore(long takeQuizId, int questionScore) {
         TakeQuiz currentQuiz = takeQuizRepository.getById(takeQuizId);
         int updatedScore = currentQuiz.getScore() + questionScore;
         currentQuiz.setScore(updatedScore);
