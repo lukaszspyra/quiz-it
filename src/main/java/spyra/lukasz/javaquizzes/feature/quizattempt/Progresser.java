@@ -24,9 +24,13 @@ class Progresser {
     @Autowired
     private TakeQuizAnswerRepository takeQuizAnswerRepository;
 
+    @Autowired
+    private ScoreCounter scoreCounter;
+
     void saveGivenAnswers(List<Long> answerIds, long takeQuizId, long questId) {
         List<Answer> answered = answerRepository.findAllById(answerIds);
-        TakeQuiz takenQuiz = takeQuizRepository.getById(takeQuizId);
+        int questionScore = scoreCounter.count(answered);
+        TakeQuiz takenQuiz = updateScore(takeQuizId, questionScore);
         Question question = questionRepository.getById(questId);
         for (var answer : answered) {
             TakeQuizAnswer answerForSaving = new TakeQuizAnswer();
@@ -35,6 +39,13 @@ class Progresser {
             answerForSaving.setQuestion(question);
             takeQuizAnswerRepository.save(answerForSaving);
         }
+    }
+
+    private TakeQuiz updateScore(long takeQuizId,int questionScore) {
+        TakeQuiz currentQuiz = takeQuizRepository.getById(takeQuizId);
+        int updatedScore = currentQuiz.getScore() + questionScore;
+        currentQuiz.setScore(updatedScore);
+        return takeQuizRepository.save(currentQuiz);
     }
 
 }
