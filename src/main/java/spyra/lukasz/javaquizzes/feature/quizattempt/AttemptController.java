@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
@@ -22,44 +23,52 @@ class AttemptController {
     private Progresser progresser;
 
     @Autowired
+    private Finisher finisher;
+
+    @Autowired
     private AttemptService attemptService;
 
 
     @GetMapping("/quiz/start/{quiz_id}")
-    ModelAndView startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
+    String startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
                                  Principal principal,
-                                 HttpSession session) {
+                                 HttpSession session,
+                                 RedirectAttributes redirectAttr) {
         TakeQuiz takeQuiz = starter.takeQuiz(quizId, principal.getName());
         List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
         session.setAttribute("questions", questions);
-        return new ModelAndView("redirect:/quiz/attempt/" + quizId, "take_quiz_id", takeQuiz.getId());
+        redirectAttr.addFlashAttribute("take_quiz_id", takeQuiz.getId());
+        return "redirect:/quiz/attempt/{quiz_id}";
     }
 
 
     @SuppressWarnings("unchecked cast")
     @GetMapping("/quiz/attempt/{quiz_id}")
-    String progressQuiz(@ModelAttribute("take_quiz_id") long takeQuizId,
-                        @PathVariable(name = "quiz_id") long quizId,
+    String progressQuiz(@PathVariable(name = "quiz_id") long quizId,
                         Model model,
                         HttpSession session) {
         List<QuestionView> questions = (List<QuestionView>) session.getAttribute("questions");
         if (questions.isEmpty()) {
-            session.removeAttribute("questions");
+            TakeQuiz takeQuiz = finisher.finishQuizAttempt(session, (Long) model.getAttribute("take_quiz_id"));
+            model.addAttribute("result", takeQuiz);
             return "result";
         }
         model.addAttribute("quiz_id", quizId);
-        model.addAttribute("take_quiz_id", takeQuizId);
         model.addAttribute("question", questions.remove(0));
         return "attempt";
     }
 
     @PostMapping("/quiz/answer/{quiz_id}")
-    ModelAndView givenAnswers(@RequestParam(value = "given_answers", required = false) Long[] answerIds,
-                              @RequestParam(value = "question_id") long questionId,
-                              @RequestParam(value = "take_quiz_id") long takeQuizId,
-                              @PathVariable(value = "quiz_id") long quizId) {
-        progresser.saveGivenAnswers(Arrays.asList(answerIds), takeQuizId, questionId);
-        return new ModelAndView("redirect:/quiz/attempt/" + quizId, "take_quiz_id", takeQuizId);
-    }
+    String givenAnswers(@RequestParam(value = "given_answers", required = false) Long[] answerIds,
+                        @RequestParam(value = "question_id") long questionId,
+                        @RequestParam(value = "take_quiz_id") long takeQuizId,
+                        @PathVariable(value = "quiz_id") long quizId,
+                        RedirectAttributes redirectAttr) {
+        if(answerIds != null){
+            progresser.saveGivenAnswers(Arrays.asList(answerIds), takeQuizId, questionId);
+        }
 
+        redirectAttr.addFlashAttribute("take_quiz_id", takeQuizId);
+        return"redirect:/quiz/attempt/{quiz_id}";
+    }
 }

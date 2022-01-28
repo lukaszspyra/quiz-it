@@ -83,6 +83,12 @@
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/countdown_round.js"></script>
 <script src="/assets/countdown_digits.js"></script>
+<script>
+    $('form').submit(function() {
+        $(this).find("button[type='submit']").prop('disabled',true);
+    });
+</script>
+
 
 </body>
 </html>

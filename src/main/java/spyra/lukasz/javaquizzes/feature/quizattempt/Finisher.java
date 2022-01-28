@@ -13,7 +13,7 @@ class Finisher {
     @Autowired
     private TakeQuizRepository takeQuizRepository;
 
-    TakeQuiz finishQuizAttempt(HttpSession session, long takeQuizId) {
+    TakeQuiz finishQuizAttempt(HttpSession session, Long takeQuizId) {
         session.removeAttribute("questions");
         TakeQuiz byId = takeQuizRepository.getById(takeQuizId);
         byId.setFinish(LocalDateTime.now());
