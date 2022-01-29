@@ -3,6 +3,7 @@ package spyra.lukasz.javaquizzes.feature.quizselector;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,8 +21,9 @@ class QuizMapper {
         view.setId(quiz.getId());
         view.setTitle(quiz.getTitle());
         view.setScore(quiz.getMaxScore());
-        view.setCreated(quiz.getCreated());
-        view.setUpdated(quiz.getUpdated());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        view.setCreated(quiz.getCreated().format(formatter));
+        view.setUpdated(quiz.getUpdated().format(formatter));
         return view;
     }
 

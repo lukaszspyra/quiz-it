@@ -15,8 +15,8 @@ class QuizView {
 
     private int score;
 
-    private LocalDateTime created;
+    private String created;
 
-    private LocalDateTime updated;
+    private String updated;
 
 }
