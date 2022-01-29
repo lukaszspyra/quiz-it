@@ -3,13 +3,16 @@ package spyra.lukasz.javaquizzes.feature.quizattempt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,9 +34,9 @@ class AttemptController {
 
     @GetMapping("/quiz/start/{quiz_id}")
     String startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
-                                 Principal principal,
-                                 HttpSession session,
-                                 RedirectAttributes redirectAttr) {
+                           Principal principal,
+                           HttpSession session,
+                           RedirectAttributes redirectAttr) {
         TakeQuiz takeQuiz = starter.takeQuiz(quizId, principal.getName());
         List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
         session.setAttribute("questions", questions);
@@ -50,6 +53,9 @@ class AttemptController {
         List<QuestionView> questions = (List<QuestionView>) session.getAttribute("questions");
         if (questions.isEmpty()) {
             TakeQuiz takeQuiz = finisher.finishQuizAttempt(session, (Long) model.getAttribute("take_quiz_id"));
+            Duration duration = finisher.calcAttemptTime(takeQuiz);
+            model.addAttribute("minutes", duration.toMinutes());
+            model.addAttribute("seconds", duration.toSecondsPart());
             model.addAttribute("result", takeQuiz);
             return "result";
         }
@@ -64,11 +70,10 @@ class AttemptController {
                         @RequestParam(value = "take_quiz_id") long takeQuizId,
                         @PathVariable(value = "quiz_id") long quizId,
                         RedirectAttributes redirectAttr) {
-        if(answerIds != null){
+        if (answerIds != null) {
             progresser.saveGivenAnswers(Arrays.asList(answerIds), takeQuizId, questionId);
         }
-
         redirectAttr.addFlashAttribute("take_quiz_id", takeQuizId);
-        return"redirect:/quiz/attempt/{quiz_id}";
+        return "redirect:/quiz/attempt/{quiz_id}";
     }
 }
