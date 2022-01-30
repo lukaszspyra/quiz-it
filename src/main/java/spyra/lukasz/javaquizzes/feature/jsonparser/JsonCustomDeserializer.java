@@ -29,8 +29,9 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         QuizJson quizJson = new QuizJson();
         quizJson.setTitle(node.get(TITLE).textValue());
         quizJson.setMaxScore(node.get(MAX_SCORE).asInt());
-        quizJson.setCreated(LocalDateTime.parse(node.get(CREATED).asText()));
-        quizJson.setUpdated(LocalDateTime.parse(node.get(UPDATED).asText()));
+        LocalDateTime now = LocalDateTime.now();
+        quizJson.setCreated(LocalDateTime.parse(node.get(CREATED).asText(now.toString())));
+        quizJson.setUpdated(LocalDateTime.parse(node.get(UPDATED).asText(now.toString())));
         Iterator<JsonNode> jsonNodeQuestionsIterator = node.get(QUESTIONS).elements();
         List<QuestionJson> questionsJson = parseQuestions(jsonNodeQuestionsIterator);
         quizJson.setQuestions(questionsJson);
