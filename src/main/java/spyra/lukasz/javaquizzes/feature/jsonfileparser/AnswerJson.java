@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.jsonparser;
+package spyra.lukasz.javaquizzes.feature.jsonfileparser;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

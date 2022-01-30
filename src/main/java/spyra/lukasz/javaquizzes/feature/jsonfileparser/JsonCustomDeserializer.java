@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.jsonparser;
+package spyra.lukasz.javaquizzes.feature.jsonfileparser;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;

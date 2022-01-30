@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.jsonparser;
+package spyra.lukasz.javaquizzes.feature.jsonfileparser;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -13,11 +13,11 @@ import java.util.stream.Collectors;
 @Mapper(componentModel = "spring")
 public abstract class QuizMapperMapStruct {
 
-    abstract Quiz quizJsonToQuiz(QuizJson quizJson);
+    abstract Quiz quizJsonToQuiz(final QuizJson quizJson);
 
-    abstract List<Question> questionJsonToQuestion(List<QuestionJson> questionsJson);
+    abstract List<Question> questionJsonToQuestion(final List<QuestionJson> questionsJson);
 
-    abstract List<Answer> answerJsonToAnswer(List<AnswerJson> answersJson);
+    abstract List<Answer> answerJsonToAnswer(final List<AnswerJson> answersJson);
 
     @AfterMapping
     protected void bindQuestionsToQuiz(@MappingTarget Quiz quiz) {
