@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.shared;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import javax.transaction.Transactional;
@@ -14,6 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "quiz")
 @Getter
+@Setter
 public class Quiz {
 
     @Id
