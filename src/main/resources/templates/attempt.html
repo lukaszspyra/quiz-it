@@ -50,7 +50,8 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col">
-                        <input form="form_answer" type="submit" value="Submit now" class="btn btn-block btn-primary"
+                        <input id="form_answer_button" form="form_answer" type="submit" value="Submit now"
+                               class="btn btn-block btn-primary"
                                style="padding: 16px">
                     </div>
                 </div>
@@ -83,9 +84,12 @@
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/assets/countdown_round.js"></script>
 <script src="/assets/countdown_digits.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 <script>
-    $('form').submit(function() {
-        $(this).find("button[type='submit']").prop('disabled',true);
+    $(function () {
+        $("#form_answer").submit(function () {
+            $("#form_answer_button").attr("disabled", true);
+        })
     });
 </script>
 
