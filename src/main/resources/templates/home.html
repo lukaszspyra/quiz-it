@@ -74,19 +74,19 @@
 
                 <tr class="row_hoover" th:each="takenQuiz: ${user.getTakenQuizzes()}">
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getQuiz().getTitle()}">
+                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getQuizTitle()}">
                         </a>
                     </td>
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.score}">
+                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getScore()}">
                         </a>
                     </td>
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getFinish()}">
+                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getDuration()}">
                         </a>
                     </td>
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.quiz.getMaxScore()}">
+                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getQuizMaxScore()}">
                         </a>
                     </td>
 
