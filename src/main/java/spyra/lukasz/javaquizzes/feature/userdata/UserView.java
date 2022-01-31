@@ -19,7 +19,7 @@ class UserView {
 
     private String password;
 
-    private List<TakeQuiz> takenQuizzes;
+    private List<TakeQuizView> takenQuizzes;
 
     private Role role;
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring")
-public abstract class QuizMapperMapStruct {
+abstract class QuizMapperMapStruct {
 
     abstract Quiz quizJsonToQuiz(final QuizJson quizJson);
 
