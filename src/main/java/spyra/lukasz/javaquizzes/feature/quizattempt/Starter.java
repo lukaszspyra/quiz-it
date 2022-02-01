@@ -24,7 +24,9 @@ class Starter {
         User activeUser = takeQuizRepository.findUserByEmail(userEmail).orElseThrow(() -> new UsernameNotFoundException("Not found"));
         TakeQuiz takeQuiz = new TakeQuiz();
         takeQuiz.setQuiz(presentQuiz);
-        takeQuiz.setStart(LocalDateTime.now());
+        LocalDateTime now = LocalDateTime.now();
+        takeQuiz.setStart(now);
+        takeQuiz.setFinish(now);
         takeQuiz.setUser(activeUser);
         return takeQuizRepository.save(takeQuiz);
     }

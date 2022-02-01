@@ -7,6 +7,7 @@ import spyra.lukasz.javaquizzes.shared.Question;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 import spyra.lukasz.javaquizzes.shared.TakeQuizAnswer;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Component
@@ -27,25 +28,36 @@ class Progresser {
     @Autowired
     private ScoreCounter scoreCounter;
 
-    void saveGivenAnswers(List<Long> answerIds, long takeQuizId, long questId) {
+    void progressQuiz(final List<Long> answerIds, final long takeQuizId, final long questId) {
         List<Answer> answered = answerRepository.findAllById(answerIds);
-        int questionScore = scoreCounter.count(answered);
-        TakeQuiz takenQuiz = updateScore(takeQuizId, questionScore);
+        TakeQuiz currentQuiz = takeQuizRepository.getById(takeQuizId);
         Question question = questionRepository.getById(questId);
+        TakeQuiz updatedQuiz = updateQuiz(currentQuiz, scoreCounter.count(answered), LocalDateTime.now());
+        updateGivenAnswers(answered, question, updatedQuiz);
+    }
+
+    void updateGivenAnswers(List<Answer> answered, Question question, TakeQuiz updatedQuiz) {
         for (var answer : answered) {
             TakeQuizAnswer answerForSaving = new TakeQuizAnswer();
             answerForSaving.setAnswer(answer);
-            answerForSaving.setTakeQuiz(takenQuiz);
+            answerForSaving.setTakeQuiz(updatedQuiz);
             answerForSaving.setQuestion(question);
             takeQuizAnswerRepository.save(answerForSaving);
         }
     }
 
-    private TakeQuiz updateScore(long takeQuizId, int questionScore) {
-        TakeQuiz currentQuiz = takeQuizRepository.getById(takeQuizId);
-        int updatedScore = currentQuiz.getScore() + questionScore;
-        currentQuiz.setScore(updatedScore);
+    TakeQuiz updateQuiz(final TakeQuiz currentQuiz, final int questionScore, final LocalDateTime questFinishTime) {
+        updateScore(currentQuiz, questionScore);
+        updateFinishTime(currentQuiz, questFinishTime);
         return takeQuizRepository.save(currentQuiz);
     }
 
+    private void updateFinishTime(TakeQuiz currentQuiz, LocalDateTime questFinishTime) {
+        currentQuiz.setFinish(questFinishTime);
+    }
+
+    private void updateScore(TakeQuiz currentQuiz, int questionScore) {
+        int updatedScore = currentQuiz.getScore() + questionScore;
+        currentQuiz.setScore(updatedScore);
+    }
 }
