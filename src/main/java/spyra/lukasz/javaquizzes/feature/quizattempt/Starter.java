@@ -9,6 +9,7 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 import spyra.lukasz.javaquizzes.shared.User;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 @Component
 class Starter {
@@ -29,5 +30,9 @@ class Starter {
         takeQuiz.setFinish(now);
         takeQuiz.setUser(activeUser);
         return takeQuizRepository.save(takeQuiz);
+    }
+
+    long calcTimeForQuizInEpochSeconds(TakeQuiz takeQuiz, int minutesForWholeQuiz) {
+        return takeQuiz.getStart().atZone(ZoneId.systemDefault()).plusMinutes(minutesForWholeQuiz).toInstant().getEpochSecond();
     }
 }
