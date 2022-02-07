@@ -1,0 +1,37 @@
+<script th:fragment="countdown_digits">
+    var yourDateToGo = new Date([[${take_quiz_start}]]*1000);
+    var timing = setInterval( // you're making an interval - a thing, that is updating content after number of miliseconds, that you're writing after comma as second parameter
+        function () {
+
+            var currentDate = new Date().getTime(); //same thing as above
+            var timeLeft = yourDateToGo - currentDate; //difference between time you set and now in miliseconds
+
+            var minutes = Math.floor(timeLeft / (1000 * 60)); //conversion miliseconds on minutes - even if it is more than 60 minutes
+            if (minutes < 10) minutes = "0" + minutes;
+            var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);//conversion miliseconds on seconds - up to 60
+            if (seconds < 10) seconds = "0" + seconds;
+
+            document.getElementById("countdown").innerHTML = minutes + "m " + seconds + "s"; // putting number of minutes and seconds in div,
+            //which id is countdown
+
+            if (timeLeft <= 0) {
+                clearInterval(timing);
+
+                //TODO: add quiz end data
+                document.getElementById("form_answer").submit();
+
+                document.getElementById("countdown").innerHTML = "It's over"; //if there's no time left, programm in this 2 lines is clearing interval (nothing is counting now)
+                //and you see "It's over" instead of time left
+            }
+        }, 1000);
+</script>
+
+<script th:fragment="submitformactions_js">
+    $(function () {
+        $("#form_answer").submit(function () {
+            $("#form_answer_button").attr("disabled", true);
+            sessionStorage.removeItem('reloading');
+            sessionStorage.removeItem('passed');
+        })
+    });
+</script>
