@@ -25,7 +25,7 @@ function setConstant() {
     if(sessionStorage.getItem('passed') !== null){
         return Number(sessionStorage.getItem('passed'));
     } else {
-        return 120;
+        return 180;
     }
 }
 
