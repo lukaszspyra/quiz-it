@@ -24,11 +24,11 @@
 
             if (timeLeft <= 0) {
                 clearInterval(timing);
+                document.form_answer.action = "/quiz/"+ [[${quiz_id}]] +"/finish/" + [[${attempt_id}]];
 
-                //TODO: add quiz end data
                 document.getElementById("form_answer").submit();
-
-                document.getElementById("countdown").innerHTML = "It's over"; //if there's no time left, programm in this 2 lines is clearing interval (nothing is counting now)
+                sessionStorage.clear();
+                document.getElementById("countdown").innerHTML = "Time's up"; //if there's no time left, program in this 2 lines is clearing interval (nothing is counting now)
                 //and you see "It's over" instead of time left
             }
         }, 1000);

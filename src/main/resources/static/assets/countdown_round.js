@@ -63,24 +63,25 @@ startTimer();
 
 function onTimesUp() {
     sessionStorage.removeItem('passed');
-    clearInterval(timerInterval);
     document.getElementById("form_answer").submit();
+    clearInterval(timerInterval);
 }
 
 function startTimer() {
     timerInterval = setInterval(() => {
         timePassed = timePassed += 1;
         timeLeft = TIME_LIMIT - timePassed;
+
+        sessionStorage.setItem('passed', timeLeft);
+
         document.getElementById("base-timer-label").innerHTML = formatTime(
             timeLeft
         );
         setCircleDasharray();
         setRemainingPathColor(timeLeft);
-
         if (timeLeft === 0) {
             onTimesUp();
         }
-        sessionStorage.setItem('passed', timeLeft);
     }, 1000);
 }
 
