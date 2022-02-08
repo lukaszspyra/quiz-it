@@ -7,7 +7,7 @@
 
 
 <script th:fragment="countdown_digits">
-    var yourDateToGo = new Date([[${attempt_timer}]] * 1000);
+    var yourDateToGo = new Date([[${session.attempt_timer}]] * 1000);
     var timing = setInterval( // you're making an interval - a thing, that is updating content after number of miliseconds, that you're writing after comma as second parameter
         function () {
 

@@ -71,12 +71,10 @@ class AttemptController {
         if (questionsNotAnswered.isEmpty()) {
             TakeQuiz takeQuiz = finisher.finishQuizAttempt(session, attemptId);
             Duration duration = finisher.calcAttemptTime(takeQuiz);
-            model.addAttribute("minutes", duration.toMinutes());
-            model.addAttribute("seconds", duration.toSecondsPart());
             model.addAttribute("result", takeQuiz);
+            model.addAttribute("duration", duration);
             return "result";
         }
-        model.addAttribute("attempt_timer", session.getAttribute("attempt_timer"));
         model.addAttribute("attempt_id", attemptId);
         model.addAttribute("quiz_id", quizId);
         model.addAttribute("question", questionsNotAnswered.get(0));
