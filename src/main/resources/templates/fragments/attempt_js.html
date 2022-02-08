@@ -1,5 +1,13 @@
+<script th:fragment="submitformactions_js">
+    $("#form_answer").submit(function () {
+        sessionStorage.removeItem('passed');
+        $("#form_answer_button").attr("disabled", true);
+    });
+</script>
+
+
 <script th:fragment="countdown_digits">
-    var yourDateToGo = new Date([[${attempt_timer}]]*1000);
+    var yourDateToGo = new Date([[${attempt_timer}]] * 1000);
     var timing = setInterval( // you're making an interval - a thing, that is updating content after number of miliseconds, that you're writing after comma as second parameter
         function () {
 
@@ -24,14 +32,4 @@
                 //and you see "It's over" instead of time left
             }
         }, 1000);
-</script>
-
-<script th:fragment="submitformactions_js">
-    $(function () {
-        $("#form_answer").submit(function () {
-            $("#form_answer_button").attr("disabled", true);
-            sessionStorage.removeItem('reloading');
-            sessionStorage.removeItem('passed');
-        })
-    });
 </script>

@@ -24,11 +24,12 @@
         <img src="/assets/vector-JUL-2021-72.jpg" alt="">
     </div>
     <div class="container">
-<!--   No navigation during the quiz     -->
-<!--        <div th:replace="fragments/navigation.html :: navigation"></div>-->
+        <!--   No navigation during the quiz     -->
+        <!--        <div th:replace="fragments/navigation.html :: navigation"></div>-->
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
             <div class="container-fluid" style="text-align: center">
-                <form name="form_answer" id="form_answer" method="post" th:action="@{/quiz/{id}/answer/{attemptId} (id=${quiz_id}, attemptId=${attempt_id})}">
+                <form name="form_answer" id="form_answer" method="post"
+                      th:action="@{/quiz/{id}/answer/{attemptId} (id=${quiz_id}, attemptId=${attempt_id})}">
                     <fieldset>
                         <legend>
                             <h5 th:text="${question.getContent()}"></h5>
@@ -80,10 +81,11 @@
 
 </main>
 
-<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/assets/countdown_round.js"></script>
-<script th:replace="fragments/attempt_js.html :: countdown_digits"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 <script th:replace="fragments/attempt_js.html :: submitformactions_js"></script>
+<script th:replace="fragments/attempt_js.html :: countdown_digits"></script>
+<script src="/assets/countdown_round.js"></script>
+
 </body>
 </html>

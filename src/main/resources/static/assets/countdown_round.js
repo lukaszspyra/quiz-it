@@ -22,7 +22,8 @@ const COLOR_CODES = {
 const TIME_LIMIT = setConstant();
 
 function setConstant() {
-    if(sessionStorage.getItem('passed') !== null){
+    let sessionItem = Number(sessionStorage.getItem('passed'));
+    if(sessionItem !== null && sessionItem > 0){
         return Number(sessionStorage.getItem('passed'));
     } else {
         return 180;
@@ -61,6 +62,7 @@ document.getElementById("app").innerHTML = `
 startTimer();
 
 function onTimesUp() {
+    sessionStorage.removeItem('passed');
     clearInterval(timerInterval);
     document.getElementById("form_answer").submit();
 }
@@ -79,7 +81,6 @@ function startTimer() {
             onTimesUp();
         }
         sessionStorage.setItem('passed', timeLeft);
-        console.log('stored time passed');
     }, 1000);
 }
 
