@@ -2,10 +2,7 @@ package spyra.lukasz.javaquizzes.feature.quizattempt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import spyra.lukasz.javaquizzes.shared.Answer;
-import spyra.lukasz.javaquizzes.shared.Question;
-import spyra.lukasz.javaquizzes.shared.TakeQuiz;
-import spyra.lukasz.javaquizzes.shared.TakeQuizAnswer;
+import spyra.lukasz.javaquizzes.shared.*;
 
 import java.time.LocalDateTime;
 import java.util.List;

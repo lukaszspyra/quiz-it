@@ -11,7 +11,9 @@ class QuestionDetailsView {
 
     private long questionId;
 
-    private int questionScore;
+    private int questMaxScore;
+
+    private int questAwardedScore;
 
     private String content;
 

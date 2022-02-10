@@ -10,10 +10,12 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 interface AnswerMapStructMapper {
 
-    List<AnswerDetailsView> possibleAnsToDetailsViews(List<Answer> answers);
+    List<AnswerDetailsView> answersEntityToDetailsViews(List<Answer> answers);
+
+    List<Answer> detailsViewsToEntities(List<AnswerDetailsView> answerDetailsViews);
 
     @Mapping(source = "answer.id", target = "id")
     @Mapping(source = "answer.correct", target = "correct")
     @Mapping(source = "answer.content", target = "content")
-    List<AnswerDetailsView> markedAnsToDetailsView(List<TakeQuizAnswer> markedAnswers);
+    List<AnswerDetailsView> markedAnsEntityToDetailsView(List<TakeQuizAnswer> markedAnswers);
 }
