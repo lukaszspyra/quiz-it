@@ -31,21 +31,21 @@
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
 
             <div class="container-fluid" style="text-align: center">
-<div class="row"><h1>Personal Data</h1></div>
-              <div class="row">
-                  <div class="col-md-3">
-                     <b>Name</b>
-                  </div>
-                  <div class="col-md-3">
-                      <b>Email</b>
-                  </div>
-                  <div class="col-md-3">
-                      <b>Quizzes taken</b>
-                  </div>
-                  <div class="col-md-3">
-                      <b>Registered as</b>
-                  </div>
-              </div>
+                <div class="row"><h1>Personal Data</h1></div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <b>Name</b>
+                    </div>
+                    <div class="col-md-3">
+                        <b>Email</b>
+                    </div>
+                    <div class="col-md-3">
+                        <b>Quizzes taken</b>
+                    </div>
+                    <div class="col-md-3">
+                        <b>Registered as</b>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-3">
                         <label class="tbl_head" th:text="${user.getName()}"/>
@@ -74,19 +74,21 @@
 
                 <tr class="row_hoover" th:each="takenQuiz: ${user.getTakenQuizzes()}">
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getQuizTitle()}">
+                        <a th:href="@{/attempt/{id}/result/ (id=${takenQuiz.id})}"
+                           th:text="${takenQuiz.getQuizTitle()}">
                         </a>
                     </td>
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getScore()}">
+                        <a th:href="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" th:text="${takenQuiz.getScore()}">
                         </a>
                     </td>
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getDuration()}">
+                        <a th:href="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" th:text="${takenQuiz.getDuration()}">
                         </a>
                     </td>
                     <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getQuizMaxScore()}">
+                        <a th:href="@{/attempt/{id}/result/ (id=${takenQuiz.id})}"
+                           th:text="${takenQuiz.getQuizMaxScore()}">
                         </a>
                     </td>
 

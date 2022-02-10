@@ -15,8 +15,7 @@ class ResultDetailsController {
     @GetMapping("/attempt/{attempt_id}/result/")
     String showResultDetails(@PathVariable(value = "attempt_id") long attemptId,
                              Model model) {
-        model.addAttribute(service.quizAttemptDetails(attemptId));
+        model.addAttribute("result", service.quizAttemptDetails(attemptId));
         return "result-details";
     }
-
 }
