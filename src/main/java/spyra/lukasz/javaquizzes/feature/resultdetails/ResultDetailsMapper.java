@@ -3,6 +3,7 @@ package spyra.lukasz.javaquizzes.feature.resultdetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Question;
+import spyra.lukasz.javaquizzes.shared.ScoreCounter;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 import spyra.lukasz.javaquizzes.shared.TakeQuizAnswer;
 
@@ -16,10 +17,13 @@ import java.util.stream.Collectors;
 class ResultDetailsMapper {
 
     @Autowired
-    MarkedAnswerDetailsRepository uDetailAnsRepository;
+    private MarkedAnswerDetailsRepository uDetailAnsRepository;
 
     @Autowired
-    AnswerMapStructMapper aMapStructMapper;
+    private AnswerMapStructMapper ansMapStructMapper;
+
+    @Autowired
+    private ScoreCounter scoreCounter;
 
     AttemptDetailsView quizAttemptToDetailsView(final TakeQuiz takeQuiz) {
         AttemptDetailsView attemptDetailsView = new AttemptDetailsView();
@@ -51,11 +55,15 @@ class ResultDetailsMapper {
     private QuestionDetailsView mapQuestToDetailsView(Question question, long takeQuizId) {
         QuestionDetailsView questDetails = new QuestionDetailsView();
         questDetails.setQuestionId(question.getId());
-        questDetails.setQuestionScore(question.getScore());
-        questDetails.setPossibleAnswers(aMapStructMapper.possibleAnsToDetailsViews(question.getAnswers()));
+        questDetails.setQuestMaxScore(question.getScore());
+        questDetails.setContent(question.getContent());
+        questDetails.setPossibleAnswers(ansMapStructMapper.answersEntityToDetailsViews(question.getAnswers()));
 
         List<TakeQuizAnswer> ansMarkedAsTrue = uDetailAnsRepository.findTakeQuizAnswerByQuestionIdAndTakeQuizId(question.getId(), takeQuizId);
-        questDetails.setMarkedAnswers(aMapStructMapper.markedAnsToDetailsView(ansMarkedAsTrue));
+        List<AnswerDetailsView> markedEntitiesDetails = ansMapStructMapper.markedAnsEntityToDetailsView(ansMarkedAsTrue);
+        questDetails.setMarkedAnswers(markedEntitiesDetails);
+
+        questDetails.setQuestAwardedScore(scoreCounter.count(ansMapStructMapper.detailsViewsToEntities(markedEntitiesDetails)));
         return questDetails;
     }
 
