@@ -29,67 +29,69 @@
         <div th:replace="fragments/navigation.html :: navigation"></div>
 
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
-
-            <div class="container-fluid" style="text-align: center">
-<div class="row"><h1>Personal Data</h1></div>
-              <div class="row">
-                  <div class="col-md-3">
-                     <b>Name</b>
-                  </div>
-                  <div class="col-md-3">
-                      <b>Email</b>
-                  </div>
-                  <div class="col-md-3">
-                      <b>Quizzes taken</b>
-                  </div>
-                  <div class="col-md-3">
-                      <b>Registered as</b>
-                  </div>
-              </div>
-                <div class="row">
-                    <div class="col-md-3">
-                        <label class="tbl_head" th:text="${user.getName()}"/>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="tbl_head" th:text="${user.getEmail()}"/>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="tbl_head" th:text="${user.getTakenQuizzes().size()}"/>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="tbl_head" th:text="${user.getRole().getName()}"/>
-                    </div>
-                </div>
-            </div>
-
-            <div class="container-fluid" style="text-align: center"><h1>Your results</h1></div>
+            <div class="container-fluid" style="text-align: center"><h1>Quiz ${result.quizTitle} details</h1></div>
             <table class="container table">
                 <tr>
-                    <th><label class="tbl_head">Quiz title</label></th>
                     <th><label class="tbl_head">Points</label></th>
                     <th><label class="tbl_head">Time spent</label></th>
                     <th><label class="tbl_head">Quiz max points</label></th>
                 </tr>
+                <tr>
+                    <td>
+                    <span th:text="${result.score}">
+                    </span>
+                    </td>
+                    <td>
+                    <span th:text="${result.duration}">
+                    </span>
+                    </td>
+                    <td>
+                    <span th:text="${result.quizMaxScore}">
+                    </span>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
 
-                <tr class="row_hoover" th:each="takenQuiz: ${user.getTakenQuizzes()}">
-                    <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getQuizTitle()}">
-                        </a>
-                    </td>
-                    <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getScore()}">
-                        </a>
-                    </td>
-                    <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getDuration()}">
-                        </a>
-                    </td>
-                    <td>
-                        <a th:href="@{/quiz/{id} (id=${takenQuiz.id})}" th:text="${takenQuiz.getQuizMaxScore()}">
-                        </a>
-                    </td>
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
+            <div class="container-fluid" style="text-align: center"><h1>Quiz ${result.quizTitle} details:</h1></div>
+            <table class="container table">
+                <tr>
+                    <th><label class="tbl_head">No.</label></th>
+                    <th><label class="tbl_head">Question</label></th>
+                    <th><label class="tbl_head">All answers</label></th>
+                    <th><label class="tbl_head">Marked answers</label></th>
+                    <th><label class="tbl_head">Max score</label></th>
+                    <th><label class="tbl_head">Your score</label></th>
+                </tr>
 
+
+                <tr th:each="question: ${result.questionsSolved}">
+                    <td>
+                    <span th:text="${questionStat.count}">
+                    </span>
+                    </td>
+                    <td>
+                    <span th:text="${question.content}">
+                    </span>
+                    </td>
+                    <td>
+                    <span th:text="${question.possibleAnswers}">
+                    </span>
+                    </td>
+                    <td>
+                    <span th:text="${question.markedAnswers}">
+                    </span>
+                    </td>
+                    <td>
+                    <span th:text="${question.questMaxScore}">
+                    </span>
+                    </td>
+                    <td>
+                    <span th:text="${question.questAwardedScore}">
+                    </span>
+                    </td>
                 </tr>
 
             </table>
