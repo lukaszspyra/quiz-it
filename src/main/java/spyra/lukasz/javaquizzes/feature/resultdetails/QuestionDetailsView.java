@@ -9,9 +9,9 @@ import java.util.List;
 @Setter
 class QuestionDetailsView {
 
-    private long id;
+    private long questionId;
 
-    private int score;
+    private int questionScore;
 
     private String content;
 
