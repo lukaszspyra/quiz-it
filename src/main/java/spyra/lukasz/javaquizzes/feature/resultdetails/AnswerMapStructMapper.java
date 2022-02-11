@@ -14,8 +14,10 @@ interface AnswerMapStructMapper {
 
     List<Answer> detailsViewsToEntities(List<AnswerDetailsView> answerDetailsViews);
 
+    List<AnswerDetailsView> markedAnsEntitiesToDetailsViews(List<TakeQuizAnswer> markedAnswers);
+
     @Mapping(source = "answer.id", target = "id")
     @Mapping(source = "answer.correct", target = "correct")
     @Mapping(source = "answer.content", target = "content")
-    List<AnswerDetailsView> markedAnsEntityToDetailsView(List<TakeQuizAnswer> markedAnswers);
+    AnswerDetailsView markedAnsEntityToDetailsView(TakeQuizAnswer markedAnswer);
 }

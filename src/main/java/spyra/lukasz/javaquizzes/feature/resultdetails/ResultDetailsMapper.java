@@ -32,6 +32,7 @@ class ResultDetailsMapper {
         attemptDetailsView.setStart(localDateTimeToStringFormatter(takeQuiz.getStart()));
         attemptDetailsView.setFinish(localDateTimeToStringFormatter(takeQuiz.getFinish()));
         attemptDetailsView.setDuration(calcDuration(takeQuiz));
+        attemptDetailsView.setQuizTitle(takeQuiz.getQuiz().getTitle());
         attemptDetailsView.setQuizMaxScore(takeQuiz.getQuiz().getMaxScore());
         attemptDetailsView.setQuestionsSolved(mapQuestToDetailsView(takeQuiz.getQuiz().getQuestions(), takeQuiz.getId()));
         return attemptDetailsView;
@@ -60,7 +61,7 @@ class ResultDetailsMapper {
         questDetails.setPossibleAnswers(ansMapStructMapper.answersEntityToDetailsViews(question.getAnswers()));
 
         List<TakeQuizAnswer> ansMarkedAsTrue = uDetailAnsRepository.findTakeQuizAnswerByQuestionIdAndTakeQuizId(question.getId(), takeQuizId);
-        List<AnswerDetailsView> markedEntitiesDetails = ansMapStructMapper.markedAnsEntityToDetailsView(ansMarkedAsTrue);
+        List<AnswerDetailsView> markedEntitiesDetails = ansMapStructMapper.markedAnsEntitiesToDetailsViews(ansMarkedAsTrue);
         questDetails.setMarkedAnswers(markedEntitiesDetails);
 
         questDetails.setQuestAwardedScore(scoreCounter.count(ansMapStructMapper.detailsViewsToEntities(markedEntitiesDetails)));
