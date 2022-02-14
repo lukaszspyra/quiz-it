@@ -18,25 +18,24 @@
 <body>
 
 <main>
-
     <!--    Background picture-->
     <div id="bg">
         <img src="/assets/vector-JUL-2021-72.jpg" alt="">
     </div>
-
     <div class="container">
 
         <div th:replace="fragments/navigation.html :: navigation"></div>
 
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
-            <div class="container-fluid" style="text-align: center"><h1>Quiz ${result.quizTitle} details</h1></div>
+            <div class="container-fluid" style="text-align: center"><h1 th:inline="text">Quiz "[[${result.quizTitle}]]"
+                details:</h1></div>
             <table class="container table">
-                <tr>
+                <tr style="text-align: center; vertical-align: middle;">
                     <th><label class="tbl_head">Points</label></th>
                     <th><label class="tbl_head">Time spent</label></th>
                     <th><label class="tbl_head">Quiz max points</label></th>
                 </tr>
-                <tr>
+                <tr style="text-align: center; vertical-align: middle;">
                     <td>
                     <span th:text="${result.score}">
                     </span>
@@ -51,52 +50,53 @@
                     </td>
                 </tr>
             </table>
-        </div>
-
-
-        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
-            <div class="container-fluid" style="text-align: center"><h1>Quiz ${result.quizTitle} details:</h1></div>
             <table class="container table">
-                <tr>
-                    <th><label class="tbl_head">No.</label></th>
-                    <th><label class="tbl_head">Question</label></th>
-                    <th><label class="tbl_head">All answers</label></th>
-                    <th><label class="tbl_head">Marked answers</label></th>
-                    <th><label class="tbl_head">Max score</label></th>
-                    <th><label class="tbl_head">Your score</label></th>
+                <tr style="text-align: center; vertical-align: middle;">
+                    <th style="width: 5%; word-break: break-all; word-wrap:break-word;"><label
+                            class="tbl_head">No.</label></th>
+                    <th style="width: 32%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Question</label>
+                    </th>
+                    <th style="width: 24%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">All
+                        answers</label></th>
+                    <th style="width: 19%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Marked
+                        answers</label></th>
+                    <th style="width: 10%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Max
+                        score</label></th>
+                    <th style="width: 10%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Your
+                        score</label></th>
                 </tr>
-
-
                 <tr th:each="question: ${result.questionsSolved}">
-                    <td>
+                    <td style="text-align: center;">
                     <span th:text="${questionStat.count}">
                     </span>
                     </td>
-                    <td>
-                    <span th:text="${question.content}">
+                    <td style="text-align: center">
+                    <span style="word-break: break-all; word-wrap:break-word;" th:text="${question.content}">
                     </span>
                     </td>
                     <td>
-                    <span th:text="${question.possibleAnswers}">
-                    </span>
+                        <ul th:each="possibleAnswer: ${question.possibleAnswers}">
+                            <li th:text="${possibleAnswer.content}">
+                            </li>
+                        </ul>
                     </td>
                     <td>
-                    <span th:text="${question.markedAnswers}">
-                    </span>
+                        <ul th:each="markedAnswer: ${question.markedAnswers}">
+                            <li th:text="${markedAnswer.content}">
+                            </li>
+                        </ul>
                     </td>
-                    <td>
+                    <td style="text-align: center;">
                     <span th:text="${question.questMaxScore}">
                     </span>
                     </td>
-                    <td>
+                    <td style="text-align: center;">
                     <span th:text="${question.questAwardedScore}">
                     </span>
                     </td>
                 </tr>
-
             </table>
         </div>
-
     </div>
 
 </main>
