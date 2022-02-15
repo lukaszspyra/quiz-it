@@ -7,7 +7,6 @@ import spyra.lukasz.javaquizzes.shared.User;
 @Component
 class UserMapper {
 
-
     @Autowired
     private UserHomeMapper userHomeMapper;
 
