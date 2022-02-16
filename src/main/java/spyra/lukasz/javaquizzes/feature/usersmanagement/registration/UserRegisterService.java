@@ -17,10 +17,11 @@ class UserRegisterService {
      * Registers new {@link User} in database, with {@link spyra.lukasz.javaquizzes.shared.Role Role} set to "USER"
      *
      * @param userDto as data from view
+     * @param assignedRole assigned from available roles
      * @return registered user with generated id
      * @throws UserAlreadyExistsException when {@link User} with given email is already registered in database
      */
-    User registerAccount(NewUserDTO userDto) throws UserAlreadyExistsException {
+    User registerAccount(NewUserDTO userDto, AvailableRole assignedRole) throws UserAlreadyExistsException {
         if (isRegistered(userDto)) {
             throw new UserAlreadyExistsException("There is already registered user with that email address: " + userDto.getEmail());
         }
@@ -29,7 +30,7 @@ class UserRegisterService {
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
         user.setPassword(userDto.getPassword());
-        user.setRole(roleRepository.findByName("USER"));
+        user.setRole(roleRepository.findByName(assignedRole.name()));
         return registerRepository.save(user);
     }
 
