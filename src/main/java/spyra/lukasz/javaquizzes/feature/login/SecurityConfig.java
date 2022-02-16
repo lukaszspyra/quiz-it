@@ -7,13 +7,19 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import spyra.lukasz.javaquizzes.shared.AvailableRole;
+
+import java.util.Arrays;
 
 @Configuration
 @EnableWebSecurity
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    String[] resources = new String[]{
+    private final String[] resources = new String[]{
             "/resources/**", "/userlogin/**", "/css/**", "/fonts/**", "/images/**", "/js/**", "/scss/**", "/icons/**", "/img/**"};
+
+    private final String[] admins = new String[]{AvailableRole.SUPER_ADMIN.name(), AvailableRole.ADMIN.name()};
+    private final String[] users = Arrays.stream(AvailableRole.values()).map(AvailableRole::name).toArray(String[]::new);
 
     @Bean
     PasswordEncoder getPasswordEncoder() {
@@ -25,8 +31,9 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/admin").hasAuthority("ADMIN")
-                .antMatchers("/user").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/user/registration").permitAll()
+                .antMatchers("/admin").hasAnyAuthority(admins)
+                .antMatchers("/user").hasAnyAuthority(users)
                 .anyRequest()
                 .authenticated()
 
