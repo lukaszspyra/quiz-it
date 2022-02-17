@@ -12,7 +12,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="/userlogin/css/style.css">
 
-    <title>Java Quizzes</title>
+    <title>Login</title>
 </head>
 <body>
 
@@ -30,10 +30,9 @@
                 <img src="/userlogin/images/logo_java.png">
                 <div class="col-md-7">
 
-                    <h3 style="text-align: center">Login to check your Java knowledge</h3>
+                    <h3 style="text-align: center">Login to check your tech knowledge</h3>
                     <br>
-                    <p class="mb-4">Registration of the new learner is temporarily suspended. You can check the demo
-                        version.</p>
+                    <p class="mb-4">Questions of i.a. Linux/Bash/Java/PHP/Python/Cloud/DevOps</p>
 
                     <!--Alerts for wrong login/logout-->
                     <div th:if="${param.error}" class="alert alert-danger">
@@ -54,20 +53,13 @@
                         </div>
                         <input type="submit" value="Log In" class="btn btn-block btn-primary">
                     </form>
-
-
-                    <br><br>
-                    <input type="button" value="Demo" class="btn btn-block btn-primary" style="background: #0e2442">
-
-
+                    <form name="register" th:action="@{/user/register}" method="get">
+                        <input type="submit" value="Register" class="btn btn-block btn-secondary">
+                    </form>
                 </div>
-
             </div>
         </div>
-
     </div>
-
-
 </div>
 
 
