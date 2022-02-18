@@ -34,12 +34,14 @@
                     <br>
                     <p class="mb-4">Questions of i.a. Linux/Bash/Java/PHP/Python/Cloud/DevOps</p>
 
-                    <!--Alerts for wrong login/logout-->
+                    <!--Alerts for login/logout/registered-->
                     <div th:if="${param.error}" class="alert alert-danger">
                         Invalid username or password.
                     </div>
                     <div th:if="${param.logout}" class="alert alert-success">
                         You have been logged out.
+                    </div>
+                    <div th:if="${registrationsuccess}" th:text="${registrationsuccess}" class="alert alert-success">
                     </div>
 
                     <form name="f" th:action="@{/login}" method="post">
