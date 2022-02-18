@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.usersmanagement.registration;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.AvailableRole;
 import spyra.lukasz.javaquizzes.shared.User;
@@ -13,6 +14,9 @@ class UserRegisterService {
 
     @Autowired
     private RoleRepository roleRepository;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     /**
      * Registers new {@link User} in database, with {@link spyra.lukasz.javaquizzes.shared.Role Role} set to "USER"
@@ -30,9 +34,13 @@ class UserRegisterService {
         User user = new User();
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
-        user.setPassword(userDto.getPassword());
+        user.setPassword(encodePassword(userDto));
         user.setRole(roleRepository.findByName(assignedRole.name()));
         return registerRepository.save(user);
+    }
+
+    private String encodePassword(NewUserDTO userDto) {
+        return passwordEncoder.encode(userDto.getPassword());
     }
 
     private boolean isRegistered(NewUserDTO userDto) {
