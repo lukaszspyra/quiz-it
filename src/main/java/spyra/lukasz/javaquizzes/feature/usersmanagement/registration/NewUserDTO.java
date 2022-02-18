@@ -14,20 +14,21 @@ import javax.validation.constraints.NotNull;
 @PasswordMatches
 class NewUserDTO {
 
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Name can not be null")
+    @NotEmpty(message = "Name can not be empty")
     private String name;
 
-    @NotNull
-    @NotEmpty
-    private String password;
-
-    @NotNull
-    @NotEmpty
-    private String matchingPassword;
-
-    @NotNull
-    @NotEmpty
+    @NotNull(message = "Email can not be null")
+    @NotEmpty(message = "Email can not be empty")
     @Email
     private String email;
+
+    @NotNull(message = "Password can not be null")
+    @NotEmpty(message = "Password can not be empty")
+    private String password;
+
+    @NotNull(message = "Matching password can not be null")
+    @NotEmpty(message = "Matching password can not be empty")
+    private String matchingPassword;
+
 }
