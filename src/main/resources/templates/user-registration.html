@@ -39,7 +39,7 @@
                         <div class="form-group first">
                             <label for="new-user-name">Name</label>
                             <input type="text" th:field="*{name}" class="form-control" id="new-user-name"
-                                   name="new-user-name"/>
+                                   name="new-user-name" required/>
                             <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="fieldError">
                                 Incorrect name</p>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="form-group">
                             <label for="new-user-email">Email</label>
                             <input type="email" th:field="*{email}" class="form-control" id="new-user-email"
-                                   name="new-user-email"/>
+                                   name="new-user-email" required/>
                             <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}" th:errorclass="fieldError">
                                 Incorrect email</p>
                         </div>
@@ -55,7 +55,7 @@
                         <div class="form-group">
                             <label for="new-user-password">Password</label>
                             <input type="password" th:field="*{password}" class="form-control" id="new-user-password"
-                                   name="new-user-password"/>
+                                   name="new-user-password" required/>
                             <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
                                th:errorclass="fieldError">Password error</p>
                         </div>
@@ -63,7 +63,7 @@
                         <div class="form-group last mb-3">
                             <label for="new-user-m-password">Repeat password</label>
                             <input type="password" th:field="*{matchingPassword}" class="form-control"
-                                   id="new-user-m-password" name="new-user-m-password"/>
+                                   id="new-user-m-password" name="new-user-m-password" required/>
                             <p th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}"
                                th:errorclass="fieldError">Repeat Password error</p>
                             <p th:if="${#fields.hasErrors('global')}" th:errors="*{global}" th:errorclass="fieldError">
