@@ -7,10 +7,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import spyra.lukasz.javaquizzes.shared.AvailableRole;
-import spyra.lukasz.javaquizzes.shared.User;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
@@ -30,13 +27,12 @@ class RegistrationController {
     public String registerUserAccount(
             @Valid NewUserDTO newUserDTO,
             BindingResult bindingResult,
-            Model model){
+            Model model) {
         if (bindingResult.hasErrors()) {
             return "user-registration";
         }
-        User registered;
         try {
-            registered = registerService.registerAccount(newUserDTO, AvailableRole.USER);
+            registerService.registerAccount(newUserDTO, AvailableRole.USER);
         } catch (UserAlreadyExistsException ex) {
             bindingResult.rejectValue("email", "newUserDTO.email", ex.getMessage());
             return "user-registration";
