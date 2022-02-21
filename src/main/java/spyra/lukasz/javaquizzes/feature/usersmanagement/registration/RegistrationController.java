@@ -30,8 +30,7 @@ class RegistrationController {
     public String registerUserAccount(
             @Valid NewUserDTO newUserDTO,
             BindingResult bindingResult,
-            Model model,
-            HttpServletRequest httpServletRequest) throws ServletException {
+            Model model){
         if (bindingResult.hasErrors()) {
             return "user-registration";
         }
@@ -43,7 +42,6 @@ class RegistrationController {
             return "user-registration";
         }
         model.addAttribute("registrationsuccess", "You have been successfully registered.");
-        httpServletRequest.login(registered.getEmail(),registered.getPassword());
-        return "/";
+        return "/login";
     }
 }

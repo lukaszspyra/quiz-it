@@ -19,9 +19,10 @@ class UserRegisterService {
     private PasswordEncoder passwordEncoder;
 
     /**
-     * Registers new {@link User} in database, with {@link spyra.lukasz.javaquizzes.shared.Role Role} set to "USER"
+     * Registers new {@link User} in database, with {@link spyra.lukasz.javaquizzes.shared.Role Role} set to "USER".
+     * Password is encoded before saving by concrete implementation of {@link PasswordEncoder}
      *
-     * @param userDto as data from view
+     * @param userDto      as data from view
      * @param assignedRole assigned from available roles
      * @return registered user with generated id
      * @throws UserAlreadyExistsException when {@link User} with given email is already registered in database
