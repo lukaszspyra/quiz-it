@@ -1,0 +1,103 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap core CSS -->
+    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles -->
+    <link href="/assets/quizzes.css" rel="stylesheet">
+    <link href="/assets/navbar.css" rel="stylesheet">
+
+    <title>Super admin - authorities management</title>
+</head>
+<body>
+
+<main>
+
+    <!--    Background picture-->
+    <div id="bg">
+        <img src="/assets/vector-JUL-2021-72.jpg" alt="">
+    </div>
+
+    <div class="container">
+
+        <div th:replace="fragments/navigation.html :: navigation"></div>
+
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
+
+            <form method="post" th:action="@{/superadmin/authority/admin}">
+                <input type="hidden" name="_method" value="PUT" />
+                <label>Add ADMIN authority (by id): </label>
+                <input type="number" min="2" name="u">
+                <button type="submit" name="Add admin">Add authority</button>
+            </form>
+            <br>
+            <form method="post" th:action="@{/superadmin/authority/user}">
+                <input type="hidden" name="_method" value="PUT" />
+                <label>Remove ADMIN authority (by id): </label>
+                <input type="number" min="2" name="a">
+                <button type="submit" name="Remove admin">Remove authority</button>
+            </form>
+
+            <div class="container-fluid" style="text-align: center">
+                <div class="row"><h1>Registered Admins:</h1>
+                    <div class="col-md-1">
+                        <label class="tbl_head">Id</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label>Email</label>
+                    </div>
+                </div>
+                <div class="row" th:each="admin: ${registered.getAdmins()}">
+                    <div class="col-md-1">
+                        <label class="tbl_head" th:text="${admin.getId}">#Id</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="tbl_head" th:text="${admin.getName()}">#Name</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="tbl_head" th:text="${admin.getEmail()}">#Email</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container-fluid" style="text-align: center">
+                <table class="container table">
+                    <h1>Registered Users:</h1>
+                    <tr>
+                        <th><label class="tbl_head">Id</label></th>
+                        <th><label class="tbl_head">Name</label></th>
+                        <th><label class="tbl_head">Email</label></th>
+                        <th><label class="tbl_head">Authority</label></th>
+                    </tr>
+
+                    <tr th:each="user: ${registered.getUsers()}">
+                        <td>
+                            <label th:text="${user.getId()}">#Id</label>
+                        </td>
+                        <td>
+                            <label th:text="${user.getName()}">#Name</label>
+                        </td>
+                        <td>
+                            <label th:text="${user.getEmail()}">#Email</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

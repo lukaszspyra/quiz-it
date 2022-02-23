@@ -32,7 +32,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
                 .antMatchers("/user/register").permitAll()
-                .antMatchers("/admin").hasAnyAuthority(admins)
+                .antMatchers("/superadmin/**").hasAuthority(AvailableRole.SUPER_ADMIN.name())
+                .antMatchers("/admin/*").hasAnyAuthority(admins)
                 .antMatchers("/user").hasAnyAuthority(users)
                 .anyRequest()
                 .authenticated()
@@ -44,8 +45,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .and()
                 .logout()
-                .logoutSuccessUrl("/login?logout")
-                .permitAll();
+                .permitAll()
+                .logoutSuccessUrl("/login?logout");
     }
 
 }
