@@ -30,48 +30,37 @@
 
         <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
 
-            <form method="post" th:action="@{/superadmin/authority/admin}">
-                <input type="hidden" name="_method" value="PUT" />
-                <label>Add ADMIN authority (by id): </label>
-                <input type="number" min="2" name="id">
-                <button type="submit" name="Add admin">Add authority</button>
-            </form>
-            <br>
-            <form method="post" th:action="@{/superadmin/authority/user}">
-                <input type="hidden" name="_method" value="PUT" />
-                <label>Remove ADMIN authority (by id): </label>
-                <input type="number" min="2" name="id">
-                <button type="submit" name="Remove admin">Remove authority</button>
-            </form>
-
-            <div class="container-fluid" style="text-align: center">
-                <div class="row"><h1>Registered Admins:</h1>
-                    <div class="col-md-1">
-                        <label class="tbl_head">Id</label>
-                    </div>
-                    <div class="col-md-3">
-                        <label>Name</label>
-                    </div>
-                    <div class="col-md-3">
-                        <label>Email</label>
-                    </div>
-                </div>
-                <div class="row" th:each="admin: ${registered.getAdmins()}">
-                    <div class="col-md-1">
-                        <label class="tbl_head" th:text="${admin.getId}">#Id</label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="tbl_head" th:text="${admin.getName()}">#Name</label>
-                    </div>
-                    <div class="col-md-3">
-                        <label class="tbl_head" th:text="${admin.getEmail()}">#Email</label>
-                    </div>
-                </div>
+            <div class="container-fluid p-4" style="text-align: center">
+                <table style="border: none">
+                    <tr><h3>Update Admin authority:</h3></tr>
+                    <tr>
+                        <td>
+                            <form method="post" th:action="@{/superadmin/authority/admin}">
+                                <input type="hidden" name="_method" value="PUT"/>
+                                <label>
+                                    User ID:
+                                    <input type="number" min="2" name="id">
+                                </label>
+                                <button type="submit" name="Add admin">Add authority</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="post" th:action="@{/superadmin/authority/user}">
+                                <input type="hidden" name="_method" value="PUT"/>
+                                <label>
+                                    Admin ID:
+                                    <input type="number" min="2" name="id">
+                                </label>
+                                <button type="submit" name="Remove admin">Remove authority</button>
+                            </form>
+                        </td>
+                    </tr>
+                </table>
             </div>
 
-            <div class="container-fluid" style="text-align: center">
+            <div class="container-fluid p-3" style="text-align: center">
                 <table class="container table">
-                    <h1>Registered Users:</h1>
+                    <h3>Admins:</h3>
                     <tr>
                         <th><label class="tbl_head">Id</label></th>
                         <th><label class="tbl_head">Name</label></th>
@@ -79,19 +68,51 @@
                         <th><label class="tbl_head">Authority</label></th>
                     </tr>
 
-                    <tr th:each="user: ${registered.getUsers()}">
+                    <tr th:each="adm: ${ADMIN}">
                         <td>
-                            <label th:text="${user.getId()}">#Id</label>
+                            <label th:text="${adm.getId}">#Id</label>
                         </td>
                         <td>
-                            <label th:text="${user.getName()}">#Name</label>
+                            <label th:text="${adm.getName()}">#Name</label>
                         </td>
                         <td>
-                            <label th:text="${user.getEmail()}">#Email</label>
+                            <label th:text="${adm.getEmail()}">#Email</label>
+                        </td>
+                        <td>
+                            <label th:text="${adm.getRole()}">#Email</label>
                         </td>
                     </tr>
                 </table>
             </div>
+
+            <div class="container-fluid p-3" style="text-align: center">
+                <table class="container table">
+                    <h3>Users:</h3>
+                    <tr>
+                        <th><label class="tbl_head">Id</label></th>
+                        <th><label class="tbl_head">Name</label></th>
+                        <th><label class="tbl_head">Email</label></th>
+                        <th><label class="tbl_head">Authority</label></th>
+                    </tr>
+
+                    <tr th:each="usr: ${USER}">
+                        <td>
+                            <label th:text="${usr.getId()}">#Id</label>
+                        </td>
+                        <td>
+                            <label th:text="${usr.getName()}">#Name</label>
+                        </td>
+                        <td>
+                            <label th:text="${usr.getEmail()}">#Email</label>
+                        </td>
+                        <td>
+                            <label th:text="${usr.getRole}">#Role</label>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
         </div>
     </div>
 

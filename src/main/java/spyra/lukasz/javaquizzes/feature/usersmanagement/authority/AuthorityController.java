@@ -18,7 +18,7 @@ class AuthorityController {
     @PutMapping("/superadmin/authority/admin")
     String addAdminRole(@RequestParam(value = "id") long userId) {
         authorityService.changeRole(userId, AvailableRole.ADMIN);
-        return "/superadmin";
+        return "redirect:/superadmin";
     }
 
     @GetMapping("/superadmin")
