@@ -1,9 +1,9 @@
-package spyra.lukasz.javaquizzes.feature.usersmanagement.registration;
+package spyra.lukasz.javaquizzes.shared;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import spyra.lukasz.javaquizzes.shared.Role;
 
-interface RoleRepository extends JpaRepository<Role, Long> {
+public interface RoleRepository extends JpaRepository<Role, Long> {
 
     Role findByName(String roleName);
 }
