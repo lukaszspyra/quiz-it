@@ -24,7 +24,9 @@ class AuthorityService {
 
     ChangeUserRoleDTO changeRole(long userId, AvailableRole newRole) {
         User byId = userRepository.getById(userId);
-        byId.setRole(roleRepository.findByName(newRole.name()));
+        if (userId != 1) {
+            byId.setRole(roleRepository.findByName(newRole.name()));
+        }
         return mapper.toView(userRepository.save(byId));
     }
 
