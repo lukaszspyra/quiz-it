@@ -13,7 +13,7 @@
     <link href="/assets/quizzes.css" rel="stylesheet">
     <link href="/assets/navbar.css" rel="stylesheet">
 
-    <title>Super admin - authorities management</title>
+    <title>Super admin - users management</title>
 </head>
 <body>
 
@@ -32,26 +32,26 @@
 
             <div class="container-fluid p-4" style="text-align: center">
                 <table style="border: none">
-                    <tr><h3>Update Admin authority:</h3></tr>
+                    <tr><h3>Update authority:</h3></tr>
                     <tr>
                         <td>
-                            <form method="post" th:action="@{/superadmin/authority/admin}">
+                            <form method="post" th:action="@{/superadmin/management/authority/admin}">
                                 <input type="hidden" name="_method" value="PUT"/>
                                 <label>
                                     User ID:
                                     <input type="number" min="2" name="id">
                                 </label>
-                                <button type="submit" name="Add admin">Add authority</button>
+                                <button type="submit" name="Add admin">Add admin authority</button>
                             </form>
                         </td>
                         <td>
-                            <form method="post" th:action="@{/superadmin/authority/user}">
+                            <form method="post" th:action="@{/superadmin/management/authority/user}">
                                 <input type="hidden" name="_method" value="PUT"/>
                                 <label>
                                     Admin ID:
                                     <input type="number" min="2" name="id">
                                 </label>
-                                <button type="submit" name="Remove admin">Remove authority</button>
+                                <button type="submit" name="Remove admin">Remove admin authority</button>
                             </form>
                         </td>
                     </tr>
@@ -115,7 +115,6 @@
 
         </div>
     </div>
-
 </main>
 
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
