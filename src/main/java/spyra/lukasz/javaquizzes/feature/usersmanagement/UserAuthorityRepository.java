@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.usersmanagement.authority;
+package spyra.lukasz.javaquizzes.feature.usersmanagement;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.usersmanagement.authority;
+package spyra.lukasz.javaquizzes.feature.usersmanagement;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +12,7 @@ import spyra.lukasz.javaquizzes.shared.AvailableRole;
 
 @Controller
 @RequestMapping("/superadmin/management")
-class AuthorityController {
+class UsersManagementController {
 
     @Autowired
     private AuthorityService authorityService;

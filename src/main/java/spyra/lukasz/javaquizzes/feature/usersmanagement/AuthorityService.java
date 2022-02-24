@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.usersmanagement.authority;
+package spyra.lukasz.javaquizzes.feature.usersmanagement;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

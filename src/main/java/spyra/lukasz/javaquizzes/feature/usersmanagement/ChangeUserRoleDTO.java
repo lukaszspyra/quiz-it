@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.usersmanagement.authority;
+package spyra.lukasz.javaquizzes.feature.usersmanagement;
 
 import lombok.Getter;
 import lombok.Setter;
