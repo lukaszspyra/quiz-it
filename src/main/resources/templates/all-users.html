@@ -35,7 +35,7 @@
                     <tr><h3>Update authority:</h3></tr>
                     <tr>
                         <td>
-                            <form method="post" th:action="@{/superadmin/management/authority/admin}">
+                            <form method="post" th:action="@{/superadmin/user-management/users/authority/admin-role}">
                                 <input type="hidden" name="_method" value="PUT"/>
                                 <label>
                                     User ID:
@@ -45,7 +45,7 @@
                             </form>
                         </td>
                         <td>
-                            <form method="post" th:action="@{/superadmin/management/authority/user}">
+                            <form method="post" th:action="@{/superadmin/user-management/users/authority/user-role}">
                                 <input type="hidden" name="_method" value="PUT"/>
                                 <label>
                                     Admin ID:
