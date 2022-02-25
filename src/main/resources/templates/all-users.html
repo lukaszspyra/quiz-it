@@ -66,11 +66,12 @@
                         <th><label class="tbl_head">Name</label></th>
                         <th><label class="tbl_head">Email</label></th>
                         <th><label class="tbl_head">Authority</label></th>
+                        <th><label class="tbl_head">ACTION</label></th>
                     </tr>
 
                     <tr th:each="adm: ${ADMIN}">
                         <td>
-                            <label th:text="${adm.getId}">#Id</label>
+                            <label th:text="${adm.getId()}">#Id</label>
                         </td>
                         <td>
                             <label th:text="${adm.getName()}">#Name</label>
@@ -79,8 +80,13 @@
                             <label th:text="${adm.getEmail()}">#Email</label>
                         </td>
                         <td>
-                            <label th:text="${adm.getRole()}">#Email</label>
+                            <label th:text="${adm.getRole()}">#Authority</label>
                         </td>
+                        <form method="post" th:action="@{/superadmin/user-management/users}">
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <input type="hidden" th:value="${adm.getId()}">
+                            <button type="submit" name="Delete admin">Delete</button>
+                        </form>
                     </tr>
                 </table>
             </div>
@@ -93,6 +99,7 @@
                         <th><label class="tbl_head">Name</label></th>
                         <th><label class="tbl_head">Email</label></th>
                         <th><label class="tbl_head">Authority</label></th>
+                        <th><label class="tbl_head">ACTION</label></th>
                     </tr>
 
                     <tr th:each="usr: ${USER}">
@@ -108,11 +115,14 @@
                         <td>
                             <label th:text="${usr.getRole}">#Role</label>
                         </td>
+                        <form method="post" th:action="@{/superadmin/user-management/users}">
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <input type="hidden" th:value="${usr.getId()}">
+                            <button type="submit" name="Delete user">Delete</button>
+                        </form>
                     </tr>
                 </table>
             </div>
-
-
         </div>
     </div>
 </main>
