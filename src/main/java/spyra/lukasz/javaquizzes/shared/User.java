@@ -4,14 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional
 @Entity
 @Table(name = "user")
 @Getter
@@ -32,11 +30,11 @@ public class User {
     @NotNull
     private String password;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Valid
     private List<TakeQuiz> takenQuizzes = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "role_id")
     @Valid
     @NotNull
