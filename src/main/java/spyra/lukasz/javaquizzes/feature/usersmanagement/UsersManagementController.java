@@ -12,26 +12,31 @@ import spyra.lukasz.javaquizzes.shared.AvailableRole;
 class UsersManagementController {
 
     @Autowired
-    private AuthorityService authorityService;
+    private UserManagementService userManagementService;
 
     @PutMapping("/authority/admin-role")
     String addAdminRole(@RequestParam(value = "id") long userId) {
-        authorityService.changeRole(userId, AvailableRole.ADMIN);
+        userManagementService.changeRole(userId, AvailableRole.ADMIN);
         return "redirect:/superadmin/user-management/users";
     }
 
     @PutMapping("/authority/user-role")
     String removeAdminRole(@RequestParam(value = "id") long adminId) {
         //TODO: use Data from Optional or simplify to boolean flag
-        authorityService.changeRole(adminId, AvailableRole.USER);
+        userManagementService.changeRole(adminId, AvailableRole.USER);
         return "redirect:/superadmin/user-management/users";
     }
 
+    @DeleteMapping("/users")
+    String deleteUser(@RequestParam(value = "id") long idToDelete){
+        userManagementService.deleteById(idToDelete);
+        return "redirect:/superadmin/user-management/users";
+    }
 
     @GetMapping("/users")
     String showAllUsers(@RequestParam String success,
                         Model model) {
-        model.addAllAttributes(authorityService.showAllUsersGroupedByRole());
+        model.addAllAttributes(userManagementService.showAllUsersGroupedByRole());
         return "all-users";
     }
 }
