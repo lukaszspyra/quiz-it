@@ -7,5 +7,5 @@ import spyra.lukasz.javaquizzes.shared.User;
 import java.util.Optional;
 
 interface UserManagementRepository extends JpaRepository<User, Long> {
-    Optional<User> deleteUserById(long idToDelete);
+    Optional<User> deleteById(long idToDelete);
 }

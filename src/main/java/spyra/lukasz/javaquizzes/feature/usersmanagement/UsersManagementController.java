@@ -34,8 +34,7 @@ class UsersManagementController {
     }
 
     @GetMapping("/users")
-    String showAllUsers(@RequestParam String success,
-                        Model model) {
+    String showAllUsers(Model model) {
         model.addAllAttributes(userManagementService.showAllUsersGroupedByRole());
         return "all-users";
     }

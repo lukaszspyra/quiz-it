@@ -82,11 +82,13 @@
                         <td>
                             <label th:text="${adm.getRole()}">#Authority</label>
                         </td>
-                        <form method="post" th:action="@{/superadmin/user-management/users}">
-                            <input type="hidden" name="_method" value="DELETE"/>
-                            <input type="hidden" th:value="${adm.getId()}">
-                            <button type="submit" name="Delete admin">Delete</button>
-                        </form>
+                        <td>
+                            <form method="post" th:action="@{/superadmin/user-management/users}">
+                                <input type="hidden" name="_method" value="DELETE"/>
+                                <input type="hidden" name="id" th:value="${adm.getId()}">
+                                <button type="submit" name="Delete admin">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 </table>
             </div>
@@ -115,11 +117,13 @@
                         <td>
                             <label th:text="${usr.getRole}">#Role</label>
                         </td>
-                        <form method="post" th:action="@{/superadmin/user-management/users}">
-                            <input type="hidden" name="_method" value="DELETE"/>
-                            <input type="hidden" th:value="${usr.getId()}">
-                            <button type="submit" name="Delete user">Delete</button>
-                        </form>
+                        <td>
+                            <form method="post" th:action="@{/superadmin/user-management/users}">
+                                <input type="hidden" name="_method" value="DELETE"/>
+                                <input type="hidden" name="id" th:value="${usr.getId()}">
+                                <button type="submit" name="Delete user">Delete</button>
+                            </form>
+                        </td>
                     </tr>
                 </table>
             </div>
