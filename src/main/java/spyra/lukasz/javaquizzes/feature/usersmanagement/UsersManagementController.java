@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import spyra.lukasz.javaquizzes.shared.AvailableRole;
 
 @Controller
@@ -28,8 +29,11 @@ class UsersManagementController {
     }
 
     @DeleteMapping("/users")
-    String deleteUser(@RequestParam(value = "id") long idToDelete){
+    String deleteUser(@RequestParam(value = "id") long idToDelete,
+                      @RequestParam(value = "email") String emailToDelete,
+                      RedirectAttributes redirectAttributes) {
         userManagementService.deleteById(idToDelete);
+        redirectAttributes.addFlashAttribute("message", "Deleted learner with email: " + emailToDelete);
         return "redirect:/superadmin/user-management/users";
     }
 

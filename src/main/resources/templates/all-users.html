@@ -59,6 +59,13 @@
             </div>
 
             <div class="container-fluid p-3" style="text-align: center">
+                <table class="container table" th:if="${message}">
+                    <h3 th:text="${message}" class="alert alert-success">
+                    </h3>
+                </table>
+            </div>
+
+            <div class="container-fluid p-3" style="text-align: center">
                 <table class="container table">
                     <h3>Admins:</h3>
                     <tr>
@@ -86,6 +93,7 @@
                             <form method="post" th:action="@{/superadmin/user-management/users}">
                                 <input type="hidden" name="_method" value="DELETE"/>
                                 <input type="hidden" name="id" th:value="${adm.getId()}">
+                                <input type="hidden" name="email" th:value="${adm.getEmail()}">
                                 <button type="submit" name="Delete admin">Delete</button>
                             </form>
                         </td>
@@ -121,6 +129,7 @@
                             <form method="post" th:action="@{/superadmin/user-management/users}">
                                 <input type="hidden" name="_method" value="DELETE"/>
                                 <input type="hidden" name="id" th:value="${usr.getId()}">
+                                <input type="hidden" name="email" th:value="${usr.getEmail()}">
                                 <button type="submit" name="Delete user">Delete</button>
                             </form>
                         </td>
