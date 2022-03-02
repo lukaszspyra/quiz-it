@@ -41,7 +41,7 @@ class UserManagementService {
     }
 
     @Transactional
-    Optional<User> deleteById(long idToDelete) {
-        return userRepository.deleteById(idToDelete);
+    void deleteById(long idToDelete) {
+        userRepository.deleteById(idToDelete);
     }
 }
