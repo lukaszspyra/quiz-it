@@ -16,7 +16,7 @@ class UsersManagementController {
     @Autowired
     private UserManagementService userManagementService;
 
-    @PutMapping("/authority/admin-role")
+    @PutMapping("/users/authority/admin-role")
     String addAdminRole(@RequestParam(value = "id") long userId,
                         RedirectAttributes redirectAttributes) {
         final Optional<ChangeUserRoleDTO> roleChanged = userManagementService.changeRole(userId, AvailableRole.ADMIN);
@@ -24,7 +24,7 @@ class UsersManagementController {
         return "redirect:/superadmin/user-management/users";
     }
 
-    @PutMapping("/authority/user-role")
+    @PutMapping("/users/authority/user-role")
     String removeAdminRole(@RequestParam(value = "id") long adminId,
                            RedirectAttributes redirectAttributes) {
         final Optional<ChangeUserRoleDTO> roleChanged = userManagementService.changeRole(adminId, AvailableRole.USER);
