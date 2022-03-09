@@ -13,16 +13,21 @@ class QuizSelectController {
     private QuizService quizService;
 
     @GetMapping("/quizzes")
-    public String allQuizzes(Model model) {
+    public String allOpenQuizzes(Model model) {
         model.addAttribute("quizzes", quizService.findAll());
         return "quizzes";
     }
-
 
     @GetMapping("/quiz/{id}")
     public String startSingleQuiz(Model model, @PathVariable long id) {
         model.addAttribute("quiz", quizService.getById(id));
         return "quiz";
+    }
+
+    @GetMapping("/admin/java-quizzes")
+    public String adminJavaQuizzes(Model model) {
+
+        return "#";
     }
 
 }

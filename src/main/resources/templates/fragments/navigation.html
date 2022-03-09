@@ -12,7 +12,10 @@
                     <a class="nav-link active" aria-current="page" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="/quizzes">Available Quizzes</a>
+                    <a class="nav-link active" href="/quizzes">Technical Quizzes</a>
+                </li>
+                <li sec:authorize="hasAnyAuthority('SUPER_ADMIN', 'ADMIN')">
+                    <a class="nav-link active" href="/admin/java-quizzes">Java Quizzes</a>
                 </li>
                 <li sec:authorize="hasAuthority('SUPER_ADMIN')">
                     <a class="nav-link active" href="/superadmin/user-management/users">Users Management</a>
