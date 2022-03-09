@@ -20,7 +20,7 @@ class QuizSelectController {
 
     @GetMapping("/quiz/{id}")
     public String startSingleQuiz(Model model, @PathVariable long id) {
-        model.addAttribute("quiz", quizService.getById(id));
+        model.addAttribute("quiz", quizService.getByIdNotRestricted(id));
         return "quiz";
     }
 

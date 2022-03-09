@@ -18,7 +18,7 @@ class AttemptService {
     private QuestionMapper questionMapper;
 
     List<QuestionView> getQuizQuestionsRandomOrder(long id) {
-        List<Question> questions = quizRepository.getById(id).getQuestions();
+        List<Question> questions = quizRepository.findQuizByIdAndRestrictedFalse(id).getQuestions();
         Collections.shuffle(questions);
         return questionMapper.toView(questions);
     }

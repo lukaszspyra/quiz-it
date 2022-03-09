@@ -21,7 +21,7 @@ class Starter {
     private TakeQuizRepository takeQuizRepository;
 
     TakeQuiz takeQuiz(long quizId, String userEmail) {
-        Quiz presentQuiz = quizRepository.getById(quizId);
+        Quiz presentQuiz = quizRepository.findQuizByIdAndRestrictedFalse(quizId);
         User activeUser = takeQuizRepository.findUserByEmail(userEmail).orElseThrow(() -> new UsernameNotFoundException("Not found"));
         TakeQuiz takeQuiz = new TakeQuiz();
         takeQuiz.setQuiz(presentQuiz);
