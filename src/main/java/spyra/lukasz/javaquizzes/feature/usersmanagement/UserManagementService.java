@@ -25,13 +25,24 @@ class UserManagementService {
     private UserAuthorityMapStructMapper mapper;
 
     Optional<ChangeUserRoleDTO> changeRole(long userId, AvailableRole newRole) {
-        Optional<User> byId = userRepository.findById(userId);
-        if (byId.isPresent() && userId != 1) {
-            final User foundUser = byId.get();
-            foundUser.setRole(roleRepository.findByName(newRole.name()));
-            return Optional.of(mapper.toView(userRepository.save(foundUser)));
+        if (isSuperAdmin(userId)) {
+            return Optional.empty();
+        }
+        Optional<User> userById = userRepository.findByIdAndRoleNameNotLike(userId, newRole.name());
+        if (userById.isPresent()) {
+            return performRoleChange(userById.get(), newRole);
         }
         return Optional.empty();
+    }
+
+    private boolean isSuperAdmin(long userId) {
+        return userId == 1;
+    }
+
+    @Transactional
+    Optional<ChangeUserRoleDTO> performRoleChange(User foundUser, AvailableRole newRole) {
+        foundUser.setRole(roleRepository.findByName(newRole.name()));
+        return Optional.of(mapper.toView(userRepository.save(foundUser)));
     }
 
     Map<String, List<ChangeUserRoleDTO>> showAllUsersGroupedByRole() {
