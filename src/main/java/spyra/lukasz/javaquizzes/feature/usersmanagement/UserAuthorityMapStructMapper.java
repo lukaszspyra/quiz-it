@@ -6,6 +6,9 @@ import spyra.lukasz.javaquizzes.shared.User;
 
 import java.util.List;
 
+/**
+ * Maps List of {@link User} to {@link ChangeUserRoleDTO} using MapStructMapper
+ */
 @Mapper(componentModel = "spring")
 interface UserAuthorityMapStructMapper {
 

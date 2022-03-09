@@ -7,6 +7,9 @@ import spyra.lukasz.javaquizzes.shared.User;
 import javax.validation.constraints.NotNull;
 import java.util.Optional;
 
+/**
+ * CRUD operations on {@link User} entity
+ */
 interface UserManagementRepository extends JpaRepository<User, Long> {
 
     @Query("select u from User u join fetch u.role left join fetch u.takenQuizzes where u.id = ?1 and u.role.name <> ?2")

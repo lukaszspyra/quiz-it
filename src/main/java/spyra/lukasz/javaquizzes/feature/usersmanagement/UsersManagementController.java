@@ -9,6 +9,17 @@ import spyra.lukasz.javaquizzes.shared.AvailableRole;
 
 import java.util.Optional;
 
+/**
+ * Perform various data manipulation on existing Users:
+ *
+ * <p>
+ *     <ul>
+ * <li> changes User's {@link spyra.lukasz.javaquizzes.shared.Role}
+ * <li> deletes {@link spyra.lukasz.javaquizzes.shared.User}
+ * <li> presents all registered Users
+ *     </ul>
+ * </p>
+ */
 @Controller
 @RequestMapping("/superadmin/user-management")
 class UsersManagementController {
@@ -44,6 +55,6 @@ class UsersManagementController {
     @GetMapping("/users")
     String showAllUsers(Model model) {
         model.addAllAttributes(userManagementService.showAllUsersGroupedByRole());
-        return "all-users";
+        return "user-management";
     }
 }

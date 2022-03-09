@@ -3,8 +3,10 @@ package spyra.lukasz.javaquizzes.feature.usersmanagement;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.stereotype.Component;
-import spyra.lukasz.javaquizzes.shared.AvailableRole;
 
+/**
+ * DTO to send User details to SUPER_ADMIN user-management view
+ */
 @Component
 @Getter
 @Setter

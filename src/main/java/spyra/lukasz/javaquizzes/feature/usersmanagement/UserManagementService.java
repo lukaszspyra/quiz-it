@@ -12,6 +12,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * Contains logic for {@link User} management
+ */
 @Service
 class UserManagementService {
 
