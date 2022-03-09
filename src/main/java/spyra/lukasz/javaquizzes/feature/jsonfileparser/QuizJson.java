@@ -20,6 +20,8 @@ class QuizJson {
 
     private LocalDateTime updated;
 
+    private boolean restricted;
+
     private List<QuestionJson> questions;
 
 }

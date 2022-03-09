@@ -15,7 +15,7 @@ class QuizService {
     @Autowired
     private QuizMapper quizMapper;
 
-    List<QuizView> findAll() {
+    List<QuizView> findNotRestricted() {
         return quizMapper.toView(quizRepository.findAll());
     }
 

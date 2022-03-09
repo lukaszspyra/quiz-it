@@ -25,7 +25,6 @@ public class Quiz {
     @NotNull
     private String title;
 
-    @NotNull
     private int maxScore;
 
     @NotNull
@@ -33,6 +32,8 @@ public class Quiz {
 
     @NotNull
     private LocalDateTime updated;
+
+    private boolean restricted;
 
     @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
     @Valid

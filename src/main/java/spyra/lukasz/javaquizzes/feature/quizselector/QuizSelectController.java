@@ -14,7 +14,7 @@ class QuizSelectController {
 
     @GetMapping("/quizzes")
     public String allOpenQuizzes(Model model) {
-        model.addAttribute("quizzes", quizService.findAll());
+        model.addAttribute("quizzes", quizService.findNotRestricted());
         return "quizzes";
     }
 

@@ -3,6 +3,7 @@
   "maxScore": 10,
   "created": null,
   "updated": null,
+  "restricted": true,
   "questions": [
     {
       "title": "The Harvard architecture for micro-controllers added which additional bus?",
@@ -239,6 +240,7 @@
   "maxScore": 14,
   "created": "2020-05-28T17:39:44.578",
   "updated": "2020-05-28T17:39:44.937",
+  "restricted": false,
   "questions": [
     {
       "title": "Which internet company began life as an online bookstore called 'Cadabra'?",
