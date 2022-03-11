@@ -15,6 +15,7 @@ class QuizSelectController {
     @GetMapping("/quizzes")
     public String allOpenQuizzes(Model model) {
         model.addAttribute("quizzes", quizService.findNotRestricted());
+        model.addAttribute("msg", "IT Technical quizzes");
         return "quizzes";
     }
 
@@ -26,8 +27,14 @@ class QuizSelectController {
 
     @GetMapping("/admin/java-quizzes")
     public String adminJavaQuizzes(Model model) {
-
-        return "#";
+        model.addAttribute("quizzes", quizService.findRestricted());
+        model.addAttribute("msg", "Java Quizzes");
+        return "quizzes";
     }
 
+    @GetMapping("/admin/quiz/{id}")
+    public String startSingleRestrictedQuiz(Model model, @PathVariable long id) {
+        model.addAttribute("quiz", quizService.getByIdRestricted(id));
+        return "quiz";
+    }
 }

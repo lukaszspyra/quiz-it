@@ -9,4 +9,8 @@ public interface QuizRepository extends JpaRepository<Quiz, Long> {
     List<Quiz> findQuizzesByRestrictedFalse();
 
     Quiz findQuizByIdAndRestrictedFalse(long quizId);
+
+    List<Quiz> findQuizzesByRestrictedTrue();
+
+    Quiz findQuizByIdAndRestrictedTrue(long quizId);
 }
