@@ -20,21 +20,22 @@ class QuizSelectController {
     }
 
     @GetMapping("/quiz/{id}")
-    public String startSingleQuiz(Model model, @PathVariable long id) {
+    public String startQuiz(Model model, @PathVariable long id) {
         model.addAttribute("quiz", quizService.getByIdNotRestricted(id));
         return "quiz";
     }
 
     @GetMapping("/admin/java-quizzes")
-    public String adminJavaQuizzes(Model model) {
+    public String restrictedQuizzes(Model model) {
         model.addAttribute("quizzes", quizService.findRestricted());
         model.addAttribute("msg", "Java Quizzes");
         return "quizzes";
     }
 
     @GetMapping("/admin/quiz/{id}")
-    public String startSingleRestrictedQuiz(Model model, @PathVariable long id) {
+    public String startRestrictedQuiz(Model model, @PathVariable long id) {
         model.addAttribute("quiz", quizService.getByIdRestricted(id));
         return "quiz";
     }
+
 }
