@@ -27,13 +27,6 @@ public class MyUserPrincipal implements UserDetails {
         this.password = user.getPassword();
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public long getId() {
-        return id;
-    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

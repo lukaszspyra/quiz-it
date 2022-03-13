@@ -33,7 +33,7 @@ class AttemptController {
     private AttemptService attemptService;
 
 
-    @GetMapping("/quiz/{quiz_id}/start/")
+    @GetMapping("/quiz/{quiz_id}/start")
     String startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
                            Principal principal,
                            HttpSession session) {
