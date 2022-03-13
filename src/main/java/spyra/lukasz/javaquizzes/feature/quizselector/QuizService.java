@@ -9,24 +9,24 @@ import java.util.List;
 class QuizService {
 
     @Autowired
-    private QuizRepository quizRepository;
+    private QuizSelectRepository quizSelectRepository;
 
     @Autowired
     private QuizMapper quizMapper;
 
     List<QuizView> findNotRestricted() {
-        return quizMapper.toView(quizRepository.findQuizzesByRestrictedFalse());
+        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalse());
     }
 
     QuizView getByIdNotRestricted(long id) {
-        return quizMapper.toView(quizRepository.findQuizByIdAndRestrictedFalse(id));
+        return quizMapper.toView(quizSelectRepository.findQuizByIdAndRestrictedFalse(id));
     }
 
     QuizView getByIdRestricted(long id) {
-        return quizMapper.toView(quizRepository.findQuizByIdAndRestrictedTrue(id));
+        return quizMapper.toView(quizSelectRepository.findQuizByIdAndRestrictedTrue(id));
     }
 
     List<QuizView> findRestricted() {
-        return quizMapper.toView(quizRepository.findQuizzesByRestrictedTrue());
+        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrue());
     }
 }

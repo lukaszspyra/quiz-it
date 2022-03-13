@@ -11,13 +11,13 @@ import java.util.List;
 class AttemptService {
 
     @Autowired
-    private QuizRepository quizRepository;
+    private QuizProviderRepository quizProviderRepository;
 
     @Autowired
     private QuestionMapper questionMapper;
 
     List<QuestionView> getQuizQuestionsRandomOrder(long id) {
-        List<Question> questions = quizRepository.findQuizById(id).getQuestions();
+        List<Question> questions = quizProviderRepository.findQuizById(id).getQuestions();
         Collections.shuffle(questions);
         return questionMapper.toView(questions);
     }

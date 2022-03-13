@@ -5,7 +5,7 @@ import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import java.util.List;
 
-interface QuizRepository extends JpaRepository<Quiz, Long> {
+interface QuizSelectRepository extends JpaRepository<Quiz, Long> {
 
     List<Quiz> findQuizzesByRestrictedFalse();
 

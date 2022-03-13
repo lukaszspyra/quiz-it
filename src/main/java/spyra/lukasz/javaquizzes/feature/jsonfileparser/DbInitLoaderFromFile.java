@@ -20,7 +20,7 @@ class DbInitLoaderFromFile {
     private JsonMapper jsonMapper;
 
     @Autowired
-    private QuizRepository quizRepo;
+    private QuizInitRepository quizRepo;
 
     @PostConstruct
     void loadQuizzesFromFile() throws IOException {

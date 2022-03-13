@@ -14,13 +14,13 @@ import java.time.ZoneId;
 class Starter {
 
     @Autowired
-    private QuizRepository quizRepository;
+    private QuizProviderRepository quizProviderRepository;
 
     @Autowired
     private TakeQuizRepository takeQuizRepository;
 
     TakeQuiz takeQuiz(long quizId, String userEmail) {
-        Quiz presentQuiz = quizRepository.findQuizById(quizId);
+        Quiz presentQuiz = quizProviderRepository.findQuizById(quizId);
         User activeUser = takeQuizRepository.findUserByEmail(userEmail).orElseThrow(() -> new UsernameNotFoundException("Not found"));
         TakeQuiz takeQuiz = new TakeQuiz();
         takeQuiz.setQuiz(presentQuiz);
