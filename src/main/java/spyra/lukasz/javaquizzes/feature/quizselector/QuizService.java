@@ -18,15 +18,11 @@ class QuizService {
         return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalse());
     }
 
-    QuizView getByIdNotRestricted(long id) {
-        return quizMapper.toView(quizSelectRepository.findQuizByIdAndRestrictedFalse(id));
-    }
-
-    QuizView getByIdRestricted(long id) {
-        return quizMapper.toView(quizSelectRepository.findQuizByIdAndRestrictedTrue(id));
-    }
-
     List<QuizView> findRestricted() {
         return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrue());
+    }
+
+    QuizView getById(long id) {
+        return quizMapper.toView(quizSelectRepository.getQuizById(id));
     }
 }

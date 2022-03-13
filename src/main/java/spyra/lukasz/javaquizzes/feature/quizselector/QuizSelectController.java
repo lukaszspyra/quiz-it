@@ -13,16 +13,10 @@ class QuizSelectController {
     private QuizService quizService;
 
     @GetMapping("/quizzes")
-    public String allOpenQuizzes(Model model) {
+    public String openQuizzes(Model model) {
         model.addAttribute("quizzes", quizService.findNotRestricted());
         model.addAttribute("msg", "IT Technical quizzes");
         return "quizzes";
-    }
-
-    @GetMapping("/quiz/{id}")
-    public String startQuiz(Model model, @PathVariable long id) {
-        model.addAttribute("quiz", quizService.getByIdNotRestricted(id));
-        return "quiz";
     }
 
     @GetMapping("/admin/java-quizzes")
@@ -32,9 +26,9 @@ class QuizSelectController {
         return "quizzes";
     }
 
-    @GetMapping("/admin/quiz/{id}")
-    public String startRestrictedQuiz(Model model, @PathVariable long id) {
-        model.addAttribute("quiz", quizService.getByIdRestricted(id));
+    @GetMapping("/quiz/{id}")
+    public String confirmQuizStart(Model model, @PathVariable long id) {
+        model.addAttribute("quiz", quizService.getById(id));
         return "quiz";
     }
 
