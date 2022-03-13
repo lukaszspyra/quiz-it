@@ -1,10 +1,11 @@
-package spyra.lukasz.javaquizzes.shared;
+package spyra.lukasz.javaquizzes.feature.quizselector;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import java.util.List;
 
-public interface QuizRepository extends JpaRepository<Quiz, Long> {
+interface QuizRepository extends JpaRepository<Quiz, Long> {
 
     List<Quiz> findQuizzesByRestrictedFalse();
 

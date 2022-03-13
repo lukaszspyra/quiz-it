@@ -2,7 +2,6 @@ package spyra.lukasz.javaquizzes.feature.jsonfileparser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import spyra.lukasz.javaquizzes.shared.QuizRepository;
 
 import javax.annotation.PostConstruct;
 import java.io.IOException;

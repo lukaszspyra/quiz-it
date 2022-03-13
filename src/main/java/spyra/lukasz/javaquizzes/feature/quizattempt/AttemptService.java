@@ -2,7 +2,6 @@ package spyra.lukasz.javaquizzes.feature.quizattempt;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spyra.lukasz.javaquizzes.shared.QuizRepository;
 import spyra.lukasz.javaquizzes.shared.Question;
 
 import java.util.Collections;
@@ -18,7 +17,7 @@ class AttemptService {
     private QuestionMapper questionMapper;
 
     List<QuestionView> getQuizQuestionsRandomOrder(long id) {
-        List<Question> questions = quizRepository.findQuizByIdAndRestrictedFalse(id).getQuestions();
+        List<Question> questions = quizRepository.findQuizById(id).getQuestions();
         Collections.shuffle(questions);
         return questionMapper.toView(questions);
     }

@@ -2,7 +2,6 @@ package spyra.lukasz.javaquizzes.feature.quizselector;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spyra.lukasz.javaquizzes.shared.QuizRepository;
 
 import java.util.List;
 
