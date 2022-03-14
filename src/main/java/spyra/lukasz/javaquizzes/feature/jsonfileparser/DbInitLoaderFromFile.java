@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 class DbInitLoaderFromFile {
 
-    private static final Path filePath = Path.of("src/main/resources/quizzescontent/quizdatabase.json");
+    private static final Path FILE_PATH = Path.of("src/main/resources/quizzescontent/quizdatabase.json");
 
     @Autowired
     private JsonReader jsonReader;
@@ -24,7 +24,7 @@ class DbInitLoaderFromFile {
 
     @PostConstruct
     void loadQuizzesFromFile() throws IOException {
-        List<QuizJson> quizJsons = jsonReader.readJsonFile(filePath);
+        List<QuizJson> quizJsons = jsonReader.readJsonFile(FILE_PATH);
         quizJsons.stream()
                 .map(jsonMapper::toEntity)
                 .forEach(e -> quizRepo.save(e));
