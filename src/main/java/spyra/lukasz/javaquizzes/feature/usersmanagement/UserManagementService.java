@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spyra.lukasz.javaquizzes.shared.AvailableRole;
-import spyra.lukasz.javaquizzes.shared.RoleRepository;
 import spyra.lukasz.javaquizzes.shared.User;
 
 import java.util.List;

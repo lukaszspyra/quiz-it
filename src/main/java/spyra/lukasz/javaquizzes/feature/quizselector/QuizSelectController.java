@@ -13,9 +13,19 @@ class QuizSelectController {
     private QuizService quizService;
 
     @GetMapping("/quizzes")
-    public String openQuizzes(Model model) {
+    public String freeQuizzes(Model model) {
+        return "free-quizzes";
+    }
+
+    @GetMapping("/quizzes/random")
+    public String pickRandomQuiz(Model model) {
+        return  "random-quiz";
+    }
+
+    @GetMapping("/quizzes/predefined")
+    public String pickPredefinedQuiz(Model model) {
         model.addAttribute("quizzes", quizService.findNotRestricted());
-        model.addAttribute("msg", "IT Technical quizzes");
+        model.addAttribute("msg", "Predefined Quizzes");
         return "quizzes";
     }
 

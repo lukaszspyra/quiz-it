@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.AvailableRole;
-import spyra.lukasz.javaquizzes.shared.RoleRepository;
+import spyra.lukasz.javaquizzes.feature.usersmanagement.RoleRepository;
 import spyra.lukasz.javaquizzes.shared.User;
 
 @Service
