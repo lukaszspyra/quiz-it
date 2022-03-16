@@ -1,0 +1,642 @@
+[
+  {
+    "id": 455,
+    "question": "Which tag is used to create a checkbox in HTML?",
+    "description": null,
+    "answers": {
+      "answer_a": "<checkbox>",
+      "answer_b": "< Input type = \"checkbox\">",
+      "answer_c": "<cb>",
+      "answer_d": "< Input type  \"checkbox\">",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 480,
+    "question": "Which of the following attribute triggers event when an element gets user Input?",
+    "description": null,
+    "answers": {
+      "answer_a": "Ondata",
+      "answer_b": "Onloadeddata",
+      "answer_c": "Oninput",
+      "answer_d": "Onhaschange",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 498,
+    "question": "Which of the following attribute triggers event after the document is printed?",
+    "description": null,
+    "answers": {
+      "answer_a": "offlineprint",
+      "answer_b": "onbeforeprint",
+      "answer_c": "onafterprint",
+      "answer_d": "onprint",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 501,
+    "question": "Tags and text that are not directly displayed on the page are written in _____ section.",
+    "description": null,
+    "answers": {
+      "answer_a": "<html>",
+      "answer_b": "<body>",
+      "answer_c": "<title>",
+      "answer_d": "<head>",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 485,
+    "question": "Which HTML element is used to define the description Data?",
+    "description": null,
+    "answers": {
+      "answer_a": "<dt>",
+      "answer_b": "<dl>",
+      "answer_c": "<li>",
+      "answer_d": "<dd>",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 526,
+    "question": "When would you use path along with file name of a picture in an IMG tag?",
+    "description": null,
+    "answers": {
+      "answer_a": "path is optional and not necessary",
+      "answer_b": "when image file and html file both are on same location d.",
+      "answer_c": "path is always necessary when inserting image",
+      "answer_d": "when the location of image file and html file are different",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 453,
+    "question": "A simple text file which tells the browser what to cache Is known as a/an ________.",
+    "description": null,
+    "answers": {
+      "answer_a": "Input Files",
+      "answer_b": "HTML File",
+      "answer_c": "A Manifest File",
+      "answer_d": "Output Files",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 540,
+    "question": "What is the use of Canvas element in HTML5?",
+    "description": null,
+    "answers": {
+      "answer_a": "The canvas element is used to draw graphics by making use of CSS. It is defined with the <canvas> tag.",
+      "answer_b": "The canvas element is used to draw graphics by making use of JavaScript. It is defined with the <canvas> tag.",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 529,
+    "question": "The way the browser displays the object can be modified by _____",
+    "description": null,
+    "answers": {
+      "answer_a": "attributes",
+      "answer_b": "modifiers",
+      "answer_c": "parameters",
+      "answer_d": "None of above",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 534,
+    "question": "The _____ character tells browsers to stop tagging the text",
+    "description": null,
+    "answers": {
+      "answer_a": "?",
+      "answer_b": ">",
+      "answer_c": "%",
+      "answer_d": "/",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 457,
+    "question": "Which html attribute is used to provide an advisory text about an element or Its contents.",
+    "description": null,
+    "answers": {
+      "answer_a": "Dir",
+      "answer_b": "Title",
+      "answer_c": "Tooltip",
+      "answer_d": "None of the above",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 519,
+    "question": "What is the correct HTML for making a hyperlink?",
+    "description": null,
+    "answers": {
+      "answer_a": "<a href=\"http://mcqsets.com\">MCQ Sets Quiz</a>",
+      "answer_b": "<http://mcqsets.com</a>",
+      "answer_c": "<a name=\"http://mcqsets.com\">MCQ Sets Quiz</a>",
+      "answer_d": "url=\"http://mcqsets.com\">MCQ Sets Quiz",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 544,
+    "question": "What is MathML in HTML5?",
+    "description": null,
+    "answers": {
+      "answer_a": "The Mathematical Markup Language (MathML) is a markup language to show mathematical and scientific content on the Web.",
+      "answer_b": "The Memory Manipulation Language (MemoryML) is a markup language used to store content on the Web.",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 511,
+    "question": "Which tag is used to display the large font size?",
+    "description": null,
+    "answers": {
+      "answer_a": "<LARGE></LARGE>",
+      "answer_b": "<FONT></FONT>",
+      "answer_c": "< SIZE ></SIZE>",
+      "answer_d": "<BIG></BIG>",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 535,
+    "question": "Some tags enclose the text. Those tags are known as",
+    "description": null,
+    "answers": {
+      "answer_a": "Couple tags",
+      "answer_b": "Pair tags",
+      "answer_c": "Double tags",
+      "answer_d": "Single tags",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 496,
+    "question": "Which of the following is correct about geolocation api in HTML5?",
+    "description": null,
+    "answers": {
+      "answer_a": "HTML5 Geolocation API lets you share your location with your favorite web sites.",
+      "answer_b": "A Javascript can capture your latitude and longitude and can be sent to backend web server and do fancy location-aware things like finding local businesses or showing your location on a map.",
+      "answer_c": "Today most of the browsers and mobile devices support Geolocation API.",
+      "answer_d": "All of these",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 523,
+    "question": "Which attribute can be used with BODY tag to set background color green?",
+    "description": null,
+    "answers": {
+      "answer_a": "background=\"green\"",
+      "answer_b": "bgcolor=\"green\"",
+      "answer_c": "vlink=\"green\"",
+      "answer_d": "None of above",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 446,
+    "question": "All HTML Tags must be enclosed In?",
+    "description": null,
+    "answers": {
+      "answer_a": "? And !",
+      "answer_b": "# And #",
+      "answer_c": "{ And }",
+      "answer_d": "< And >",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 515,
+    "question": "Which of the following is not a pair tag?",
+    "description": null,
+    "answers": {
+      "answer_a": "<p>",
+      "answer_b": "<img>",
+      "answer_c": "<i>",
+      "answer_d": "< u >",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 458,
+    "question": "Which оf the following class centers tabs/pills?",
+    "description": null,
+    "answers": {
+      "answer_a": ".nav-justified",
+      "answer_b": ".nav.navbar-nav",
+      "answer_c": ".nav Nav-pills",
+      "answer_d": ".nav-stacked",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  }
+]

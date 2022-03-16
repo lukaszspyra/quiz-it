@@ -1,0 +1,642 @@
+[
+  {
+    "id": 563,
+    "question": "Which of the functions is used to sort an array in descending order?",
+    "description": null,
+    "answers": {
+      "answer_a": "asort()",
+      "answer_b": "dsort()",
+      "answer_c": "rsort()",
+      "answer_d": "sort()",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 781,
+    "question": "When is the switch statement used:",
+    "description": null,
+    "answers": {
+      "answer_a": "The switch statement is used to avoid long blocks of if..elseif..else code",
+      "answer_b": "The switch statement is used to avoid long blocks of loops like do...while code.",
+      "answer_c": "The switch statement is used when statements like if..elseif..else do not work.",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": null,
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 575,
+    "question": "What will be printed if we run the following code? <?php $var = 'false';  if ($var) { echo 'true'; } else { echo 'false'; }",
+    "description": null,
+    "answers": {
+      "answer_a": "True",
+      "answer_b": "False",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 780,
+    "question": "Which of the mentioned are valid PHP loops",
+    "description": null,
+    "answers": {
+      "answer_a": "for",
+      "answer_b": "while",
+      "answer_c": "do ... while",
+      "answer_d": "foreach",
+      "answer_e": "each",
+      "answer_f": "beforeeach"
+    },
+    "multiple_correct_answers": "true",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": null,
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 627,
+    "question": "How can we set infinite execution time for a PHP script?",
+    "description": null,
+    "answers": {
+      "answer_a": "Add set_time_limit() at the beginning of a script",
+      "answer_b": "Add set_time_limit(infinity) at the beginning of a script",
+      "answer_c": "Add set_time_limit(0) at the beginning of a script",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 778,
+    "question": "Which of the mentioned is NOT part of the $_SERVER variable",
+    "description": null,
+    "answers": {
+      "answer_a": "$_SERVER['PHP_SELF']",
+      "answer_b": "$_SERVER['SERVER_NAME']",
+      "answer_c": "$_SERVER['SERVER_ADDR']",
+      "answer_d": "$_SERVER['SCRIPT_TYPE']",
+      "answer_e": "$_SERVER['SERVER_TYPE']",
+      "answer_f": "$_SERVER['AUTH_TYPE']"
+    },
+    "multiple_correct_answers": "true",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": null,
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 610,
+    "question": "Is it possible to remove the HTML tags from passed data?",
+    "description": null,
+    "answers": {
+      "answer_a": "The stripTags() function enables us to clean a string from the HTML tags.",
+      "answer_b": "The strip_tags() function enables us to clean a string from the HTML tags.",
+      "answer_c": "The string_tags() function enables us to clean a string from the HTML tags.",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 555,
+    "question": "In which version of PHP E_STRICT Error level is introduced ?",
+    "description": null,
+    "answers": {
+      "answer_a": "PHP 4",
+      "answer_b": "PHP 7",
+      "answer_c": "PHP 5.2",
+      "answer_d": "PHP 5",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 626,
+    "question": "What does the PHP error 'Parse error in PHP - unexpected T_variable at line x' means?",
+    "description": null,
+    "answers": {
+      "answer_a": "This is a PHP syntax error expressing that a mistake at the line x stops parsing and executing the program.",
+      "answer_b": "This is a PHP logical error expressing that a mistake at the line x stops parsing and executing the program.",
+      "answer_c": "This is a PHP warning error expressing that a mistake at the line x stops parsing and executing the program.",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 630,
+    "question": "What is the use of the function 'imagetypes()'?",
+    "description": null,
+    "answers": {
+      "answer_a": "imagetypes() gives the image size and types supported by the current version of GH-PHP.",
+      "answer_b": "imagetypes() gives the image format and types supported by the current version of GD-PHP.",
+      "answer_c": "imagetypes() is not a real function",
+      "answer_d": "imagetypes() hasn't been used since PHP4 and it's not being supported.",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 586,
+    "question": "Is it possible to destroy a cookie?",
+    "description": null,
+    "answers": {
+      "answer_a": "True",
+      "answer_b": "False",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 600,
+    "question": "What does accessing a class via :: means?",
+    "description": null,
+    "answers": {
+      "answer_a": ":: is used to access static methods that do not require object initialization.",
+      "answer_b": ":: is used to access static methods that require object initialization.",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 588,
+    "question": "What is the difference between characters \\034 and \\x34?",
+    "description": null,
+    "answers": {
+      "answer_a": "\\034 is octal 34 and \\x34 is hex 34.",
+      "answer_b": "\\034 is hex 34 and \\x34 is octal 34.",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 564,
+    "question": "Which one of the following property scopes is not supported by PHP?",
+    "description": null,
+    "answers": {
+      "answer_a": "public",
+      "answer_b": "static",
+      "answer_c": "friendly",
+      "answer_d": "final",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 776,
+    "question": "Which of the mentioned is not part of the so called Superglobals variables which are automatically available in every scope.",
+    "description": null,
+    "answers": {
+      "answer_a": "$GLOBALS",
+      "answer_b": "$_SERVER",
+      "answer_c": "$_FILES",
+      "answer_d": "$_COOKIE",
+      "answer_e": "$FILES",
+      "answer_f": "$COOKIE"
+    },
+    "multiple_correct_answers": "true",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": null,
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 788,
+    "question": "How can we destroy a PHP session:",
+    "description": null,
+    "answers": {
+      "answer_a": "session_destroy()",
+      "answer_b": "destroy_session()",
+      "answer_c": "session()",
+      "answer_d": "startD()",
+      "answer_e": "sessionDestroy()",
+      "answer_f": "destroySession()"
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": null,
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 633,
+    "question": "What type of function is needed when passing values through a form or an URL?",
+    "description": null,
+    "answers": {
+      "answer_a": "htmlspecialchars()",
+      "answer_b": "urlencode()",
+      "answer_c": "Both of these",
+      "answer_d": "None of the mentioned",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 582,
+    "question": "Can I run several versions of PHP at the same time?",
+    "description": null,
+    "answers": {
+      "answer_a": "True",
+      "answer_b": "False",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 761,
+    "question": "Which of the following function is used to get the size of a file?",
+    "description": null,
+    "answers": {
+      "answer_a": "sizefile()",
+      "answer_b": "file_size()",
+      "answer_c": "filesize()",
+      "answer_d": "size_file()",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": null,
+    "explanation": "The files's length can be found using the filesize() function which takes the file name as its argument and returns the size of the file expressed in bytes.",
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 579,
+    "question": "____________ function in PHP Returns a list of response headers sent (or ready to send)",
+    "description": null,
+    "answers": {
+      "answer_a": "header()",
+      "answer_b": "header_send()",
+      "answer_c": "header_sent()",
+      "answer_d": "headers_list()",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  }
+]
