@@ -85,6 +85,21 @@ table {
     color: white;
 }
 
+.start_quiz_random {
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+    border: 3px solid #55D6FE;
+    width: 180px;
+    height: 45px;
+    border-radius: 12px;
+}
+
+.start_quiz_random:hover {
+    background-color: #55D6FE;
+    color: white;
+}
+
 .start_quiz_div{
     display: flex; align-items: center; justify-content: center;text-align: center;
 }

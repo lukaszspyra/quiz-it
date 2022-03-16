@@ -18,36 +18,55 @@
 <body>
 
 <main>
-
     <div id="bg">
         <img src="/assets/vector-JUL-2021-72.jpg" alt="">
     </div>
 
     <div class="container">
-
         <div th:replace="fragments/navigation.html :: navigation"></div>
 
-        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
+        <div class="container btn-group-vertical p-5 rounded border bg-light">
+            <div class="container" style="text-align: center"><h1>Do your best, forget the rest!</h1></div>
+            <p></p>
+            <p></p>
+            <p></p>
 
-            <div class="container-fluid" style="text-align: center">
+            <div class="container justify-content-md-center">
+                <form name="form_answer" id="form_answer" method="post"
+                      th:action="@{/quiz/{id}/answer/{attemptId} (id=${6}, attemptId=${6})}">
+                    <div class="row justify-content-md-center">
 
-                <br>
+                        <div class="mb-3 col-md-6">
+                            <label class="form-label">Category</label>
+                            <select class="mb-3 form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected>Linux</option>
+                                <option value="1">Bash</option>
+                                <option value="2">Kubernetes</option>
+                                <option value="3">HTML</option>
+                                <option value="4">JavaScript</option>
+                                <option value="5">PHP</option>
+                                <option value="6">SQL</option>
+                                <option value="7">WordPress</option>
+                            </select>
+                            <label class="form-label">Difficulty</label>
+                            <select class="mb-3 form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                                <option selected>Medium</option>
+                                <option value="1">Easy</option>
+                                <option value="2">Hard</option>
+                            </select>
+                        </div>
 
-                <h1>Do your best, forget the rest!</h1>
+                    </div>
 
-                <br><br>
-
-                <h1>Here you will choose:
-                    <li>category</li>
-                    <li>difficulty</li>
-                </h1>
+                    <div class="row justify-content-md-center">
+                        <div class="mb-3 col-6 justify-content-md-center">
+                            <input type="submit" class="start_quiz" value="Take quiz"/>
+                        </div>
+                    </div>
+                </form>
             </div>
-
         </div>
-
     </div>
-
-
 </main>
 
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
