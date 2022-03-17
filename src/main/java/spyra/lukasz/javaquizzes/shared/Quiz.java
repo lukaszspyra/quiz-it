@@ -35,7 +35,7 @@ public class Quiz {
 
     private boolean restricted;
 
-    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @ManyToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Valid
     private List<Question> questions = new ArrayList<>();
 }

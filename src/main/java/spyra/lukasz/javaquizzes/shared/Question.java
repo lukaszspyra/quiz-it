@@ -30,15 +30,16 @@ public class Question {
     @NotNull
     private String content;
 
-    @ManyToOne
-    @JoinColumn(name = "quiz_id")
+    @ManyToMany
+    @JoinTable(name = "quiz_question",
+            joinColumns = @JoinColumn(name = "quiz_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id", referencedColumnName = "id"))
     @NotNull
     @Valid
-    private Quiz quiz;
+    private List<Quiz> quiz;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
     @NotNull
     @Valid
     private List<Answer> answers = new ArrayList<>();
-
 }
