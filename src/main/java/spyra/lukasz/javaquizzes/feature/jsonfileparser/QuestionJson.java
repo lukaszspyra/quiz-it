@@ -9,9 +9,11 @@ import java.util.List;
 @Getter
 class QuestionJson {
 
-    private String content;
+    private long apiAdi;
 
     private int score;
+
+    private String content;
 
     private List<AnswerJson> answers;
 

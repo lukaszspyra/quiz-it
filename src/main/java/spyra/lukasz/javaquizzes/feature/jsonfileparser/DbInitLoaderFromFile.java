@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 class DbInitLoaderFromFile {
 
-    private static final Path FILE_PATH = Path.of("src/main/resources/quizzescontent/quizdatabase.json");
+    private static final Path FILE_PATH = Path.of("src/main/resources/quizzcontent/free/Linux.json");
 
     @Autowired
     private JsonReader jsonReader;

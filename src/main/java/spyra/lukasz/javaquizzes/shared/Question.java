@@ -22,6 +22,9 @@ public class Question {
     private long id;
 
     @NotNull
+    private long apiId;
+
+    @NotNull
     private int score;
 
     @NotNull
