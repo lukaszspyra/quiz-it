@@ -14,13 +14,11 @@ class QuizJson {
 
     private String title;
 
-    private int maxScore;
-
     private LocalDateTime created;
 
     private LocalDateTime updated;
 
-    private boolean restricted;
+    private int maxScore;
 
     private List<QuestionJson> questions;
 

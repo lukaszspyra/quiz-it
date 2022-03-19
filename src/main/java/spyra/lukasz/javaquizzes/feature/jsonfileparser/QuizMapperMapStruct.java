@@ -7,6 +7,7 @@ import spyra.lukasz.javaquizzes.shared.Answer;
 import spyra.lukasz.javaquizzes.shared.Question;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -23,7 +24,7 @@ abstract class QuizMapperMapStruct {
     protected void bindQuestionsToQuiz(@MappingTarget Quiz quiz) {
         List<Question> questNotBound = quiz.getQuestions();
         List<Question> questBound = questNotBound.stream()
-                .peek(q -> q.setQuiz(quiz))
+                .peek(q -> q.getQuizzes().add(quiz))
                 .map(this::bindAnswerToQuestion)
                 .collect(Collectors.toUnmodifiableList());
         quiz.setQuestions(questBound);

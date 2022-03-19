@@ -8,6 +8,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Transactional
@@ -36,10 +37,12 @@ public class Question {
             inverseJoinColumns = @JoinColumn(name = "question_id", referencedColumnName = "id"))
     @NotNull
     @Valid
-    private List<Quiz> quiz;
+    private List<Quiz> quizzes = new LinkedList<>();
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
     @NotNull
     @Valid
     private List<Answer> answers = new ArrayList<>();
+
+
 }

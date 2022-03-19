@@ -8,7 +8,7 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @Transactional
@@ -35,7 +35,7 @@ public class Quiz {
 
     private boolean restricted;
 
-    @ManyToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Valid
-    private List<Question> questions = new ArrayList<>();
+    private List<Question> questions = new LinkedList<>();
 }

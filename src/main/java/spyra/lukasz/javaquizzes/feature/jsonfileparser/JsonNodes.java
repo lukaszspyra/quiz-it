@@ -1,0 +1,14 @@
+package spyra.lukasz.javaquizzes.feature.jsonfileparser;
+
+enum JsonNodes {
+    TITLE("title"), CREATED("created"), UPDATED("updated"), RESTRICTED("restricted"), QUESTIONS("questions"), SCORE("score"), ANSWERS("answers"), CORRECT("correct"), TAGS("tags"), ID("id"), QUESTION("question"), CORRECT_ANSWERS("correct_answers");
+    private final String value;
+
+    public String getValue() {
+        return value;
+    }
+
+    JsonNodes(String value) {
+        this.value = value;
+    }
+}

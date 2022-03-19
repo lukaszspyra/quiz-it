@@ -13,13 +13,12 @@ import java.util.List;
 @Component
 class JsonReader {
 
-    public List<QuizJson> readJsonFile(final Path jsonPath) throws IOException {
+    public QuizJson readJsonFile(final Path jsonPath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
 
         JsonNode jsonNode = mapper.readTree(jsonPath.toFile());
-        return mapper.readValue(jsonNode.toString(), new TypeReference<>() {
-        });
+        return mapper.readValue(jsonNode.toString(), QuizJson.class);
     }
 
 }

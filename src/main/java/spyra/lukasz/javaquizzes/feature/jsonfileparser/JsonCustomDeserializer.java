@@ -9,59 +9,49 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 
 class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
-    public static final String TITLE = "title";
-    public static final String MAX_SCORE = "maxScore";
-    public static final String CREATED = "created";
-    public static final String UPDATED = "updated";
-    public static final String RESTRICTED = "restricted";
-    public static final String QUESTIONS = "questions";
-    public static final String SCORE = "score";
-    public static final String ANSWERS = "answers";
-    public static final String CORRECT = "correct";
-
-
+    //TODO:set quiz title and restricted, reuse existing questions in database
     @Override
     public QuizJson deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
-        JsonNode node = jsonParser.readValueAsTree();
         QuizJson quizJson = new QuizJson();
-        quizJson.setTitle(node.get(TITLE).textValue());
-        quizJson.setMaxScore(node.get(MAX_SCORE).asInt());
+        List<QuestionJson> questions = new LinkedList<>();
+        JsonNode node = jsonParser.readValueAsTree();
+        final Iterator<JsonNode> elements = node.elements();
+        while (elements.hasNext()) {
+            questions.add(parseQuestion(elements.next()));
+        }
+        quizJson.setQuestions(questions);
+        int totalScore = questions.parallelStream()
+                .reduce(0, (subtotal, element) -> subtotal + element.getScore(), Integer::sum);
+        quizJson.setMaxScore(totalScore);
         LocalDateTime now = LocalDateTime.now();
-        quizJson.setCreated(LocalDateTime.parse(node.get(CREATED).asText(now.toString())));
-        quizJson.setUpdated(LocalDateTime.parse(node.get(UPDATED).asText(now.toString())));
-        quizJson.setRestricted(node.get(RESTRICTED).asBoolean());
-        Iterator<JsonNode> jsonNodeQuestionsIterator = node.get(QUESTIONS).elements();
-        List<QuestionJson> questionsJson = parseQuestions(jsonNodeQuestionsIterator);
-        quizJson.setQuestions(questionsJson);
+        quizJson.setCreated(LocalDateTime.parse(now.toString()));
+        quizJson.setUpdated(LocalDateTime.parse(now.toString()));
         return quizJson;
     }
 
-    private List<QuestionJson> parseQuestions(Iterator<JsonNode> jsonNodeQuestionsIterator) {
-        List<QuestionJson> questionsJson = new ArrayList<>();
-        while (jsonNodeQuestionsIterator.hasNext()) {
-            JsonNode nextQuestion = jsonNodeQuestionsIterator.next();
-            String title = nextQuestion.get(TITLE).asText();
-            int score = nextQuestion.get(SCORE).asInt();
-            Iterator<JsonNode> jsonNodeAnswersIterator = nextQuestion.get(ANSWERS).elements();
-            List<AnswerJson> answers = parseAnswers(jsonNodeAnswersIterator);
-            QuestionJson questionJson = new QuestionJson(title, score, answers);
-            questionsJson.add(questionJson);
+    private QuestionJson parseQuestion(JsonNode node) {
+        final long apiId = node.get(JsonNodes.ID.getValue()).asLong();
+        final String content = node.get(JsonNodes.QUESTION.getValue()).asText();
+        List<AnswerJson> answers = parseAnswers(node);
+        final int score = Math.toIntExact(answers.stream()
+                .filter(AnswerJson::isCorrect)
+                .count());
 
-        }
-        return questionsJson;
+        return new QuestionJson(apiId, score, content, answers);
     }
 
-    private List<AnswerJson> parseAnswers(Iterator<JsonNode> jsonNodeAnswersIterator) {
+    private List<AnswerJson> parseAnswers(JsonNode node) {
+        final Iterator<JsonNode> answersIterator = node.get(JsonNodes.ANSWERS.getValue()).elements();
+        final Iterator<JsonNode> isCorrectIterator = node.get(JsonNodes.CORRECT_ANSWERS.getValue()).elements();
         List<AnswerJson> answers = new ArrayList<>();
-        while (jsonNodeAnswersIterator.hasNext()) {
-            JsonNode nextAnswer = jsonNodeAnswersIterator.next();
-            String ansTitle = nextAnswer.get(TITLE).asText();
-            boolean isCorrect = nextAnswer.get(CORRECT).asBoolean();
-            AnswerJson answerJson = new AnswerJson(ansTitle, isCorrect);
+        while (answersIterator.hasNext()) {
+            String answerContent = answersIterator.next().asText();
+            AnswerJson answerJson = new AnswerJson(answerContent, isCorrectIterator.next().asBoolean());
             answers.add(answerJson);
         }
         return answers;
