@@ -1,20 +1,74 @@
 package spyra.lukasz.javaquizzes.feature.jsonfileparser;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 import java.util.List;
 
-@AllArgsConstructor
 @Getter
 class QuestionJson {
 
-    private long apiAdi;
+    private QuestionJson(QuestionJson.Builder builder) {
+        this.apiId = builder.apiId;
+        this.score = builder.score;
+        this.content = builder.content;
+        this.answers = builder.answers;
+        this.tags = builder.tags;
+        this.restricted = builder.restricted;
+    }
 
-    private int score;
+    private final long apiId;
 
-    private String content;
+    private final int score;
 
-    private List<AnswerJson> answers;
+    private final String content;
 
+    private final List<AnswerJson> answers;
+
+    private final List<String> tags;
+
+    private final boolean restricted;
+
+    static class Builder {
+
+        private long apiId;
+
+        private int score;
+
+        private String content;
+
+        private List<AnswerJson> answers;
+
+        private List<String> tags;
+
+        boolean restricted;
+
+        void withApiId(long apiId) {
+            this.apiId = apiId;
+        }
+
+        void withScore(int score) {
+            this.score = score;
+        }
+
+        void withContent(String content) {
+            this.content = content;
+        }
+
+        void withAnswers(List<AnswerJson> answers) {
+            this.answers = answers;
+        }
+
+        void withTags(List<String> tags) {
+            this.tags = tags;
+        }
+
+        void withRestricted() {
+            this.restricted = true;
+        }
+
+        QuestionJson build() {
+            return new QuestionJson(this);
+        }
+        
+    }
 }

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
@@ -31,18 +32,34 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         LocalDateTime now = LocalDateTime.now();
         quizJson.setCreated(LocalDateTime.parse(now.toString()));
         quizJson.setUpdated(LocalDateTime.parse(now.toString()));
+        quizJson.setTitle(createTitle(questions));
         return quizJson;
     }
 
+    private String createTitle(List<QuestionJson> questions) {
+        return questions.stream()
+                .flatMap(quest -> quest.getTags().stream())
+                .collect(Collectors.joining("-"));
+    }
+
     private QuestionJson parseQuestion(JsonNode node) {
-        final long apiId = node.get(JsonNodes.ID.getValue()).asLong();
-        final String content = node.get(JsonNodes.QUESTION.getValue()).asText();
-        List<AnswerJson> answers = parseAnswers(node);
-        final int score = Math.toIntExact(answers.stream()
+        final QuestionJson.Builder builder = new QuestionJson.Builder();
+        builder.withApiId(node.get(JsonNodes.ID.getValue()).asLong());
+        builder.withContent(node.get(JsonNodes.QUESTION.getValue()).asText());
+        final List<AnswerJson> answers = parseAnswers(node);
+        builder.withAnswers(answers);
+        builder.withTags(node.findValuesAsText(JsonNodes.TAGS.getValue()));
+        builder.withScore(questionScore(answers));
+        if (node.get(JsonNodes.RESTRICTED.getValue()) != null) {
+            builder.withRestricted();
+        }
+        return builder.build();
+    }
+
+    private int questionScore(List<AnswerJson> answers) {
+        return Math.toIntExact(answers.stream()
                 .filter(AnswerJson::isCorrect)
                 .count());
-
-        return new QuestionJson(apiId, score, content, answers);
     }
 
     private List<AnswerJson> parseAnswers(JsonNode node) {
