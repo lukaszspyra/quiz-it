@@ -39,7 +39,8 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
     private String createTitle(List<QuestionJson> questions) {
         return questions.stream()
                 .flatMap(quest -> quest.getTags().stream())
-                .collect(Collectors.joining("-"));
+                .distinct()
+                .collect(Collectors.joining("-", "", questions.get(0).getDifficulty()));
     }
 
     private QuestionJson parseQuestion(JsonNode node) {
@@ -48,12 +49,22 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         builder.withContent(node.get(JsonNodes.QUESTION.getValue()).asText());
         final List<AnswerJson> answers = parseAnswers(node);
         builder.withAnswers(answers);
-        builder.withTags(node.findValuesAsText(JsonNodes.TAGS.getValue()));
+        builder.withTags(parseTags(node));
         builder.withScore(questionScore(answers));
+        builder.withDifficulty("-" + node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase());
         if (node.get(JsonNodes.RESTRICTED.getValue()) != null) {
             builder.withRestricted();
         }
         return builder.build();
+    }
+
+    private List<String> parseTags(JsonNode node) {
+        List<String> tags = new ArrayList<>();
+        final Iterator<JsonNode> elements = node.get(JsonNodes.TAGS.getValue()).elements();
+        while (elements.hasNext()) {
+            tags.add(elements.next().get(JsonNodes.NAME.getValue()).asText());
+        }
+        return tags;
     }
 
     private int questionScore(List<AnswerJson> answers) {
