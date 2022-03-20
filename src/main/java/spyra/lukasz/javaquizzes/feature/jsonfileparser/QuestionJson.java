@@ -14,6 +14,7 @@ class QuestionJson {
         this.answers = builder.answers;
         this.tags = builder.tags;
         this.restricted = builder.restricted;
+        this.difficulty = builder.difficulty;
     }
 
     private final long apiId;
@@ -25,6 +26,8 @@ class QuestionJson {
     private final List<AnswerJson> answers;
 
     private final List<String> tags;
+
+    private final String difficulty;
 
     private final boolean restricted;
 
@@ -40,7 +43,9 @@ class QuestionJson {
 
         private List<String> tags;
 
-        boolean restricted;
+        private String difficulty;
+
+        private boolean restricted;
 
         void withApiId(long apiId) {
             this.apiId = apiId;
@@ -62,10 +67,13 @@ class QuestionJson {
             this.tags = tags;
         }
 
+        void withDifficulty(String difficulty){
+            this.difficulty = difficulty;
+        }
+
         void withRestricted() {
             this.restricted = true;
         }
-
         QuestionJson build() {
             return new QuestionJson(this);
         }
