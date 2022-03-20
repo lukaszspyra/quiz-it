@@ -10,9 +10,11 @@ enum JsonNodes {
     ANSWERS("answers"),
     CORRECT("correct"),
     TAGS("tags"),
+    NAME("name"),
     ID("id"),
     QUESTION("question"),
-    CORRECT_ANSWERS("correct_answers");
+    CORRECT_ANSWERS("correct_answers"),
+    DIFFICULTY("difficulty");
 
     private final String value;
 
