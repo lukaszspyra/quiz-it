@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.JsonNodeType;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -78,7 +79,11 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         final Iterator<JsonNode> isCorrectIterator = node.get(JsonNodes.CORRECT_ANSWERS.getValue()).elements();
         List<AnswerJson> answers = new ArrayList<>();
         while (answersIterator.hasNext()) {
-            String answerContent = answersIterator.next().asText();
+            final JsonNode answer = answersIterator.next();
+            if (answer.getNodeType() == JsonNodeType.NULL){
+                continue;
+            }
+            String answerContent = answer.asText();
             AnswerJson answerJson = new AnswerJson(answerContent, isCorrectIterator.next().asBoolean());
             answers.add(answerJson);
         }
