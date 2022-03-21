@@ -15,7 +15,6 @@ import java.util.stream.Collectors;
 
 class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
-    //TODO:set quiz title and restricted, reuse existing questions in database
     @Override
     public QuizJson deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
         QuizJson quizJson = new QuizJson();
@@ -45,13 +44,14 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
     private QuestionJson parseQuestion(JsonNode node) {
         final QuestionJson.Builder builder = new QuestionJson.Builder();
-        builder.withApiId(node.get(JsonNodes.ID.getValue()).asLong());
-        builder.withContent(node.get(JsonNodes.QUESTION.getValue()).asText());
         final List<AnswerJson> answers = parseAnswers(node);
-        builder.withAnswers(answers);
-        builder.withTags(parseTags(node));
-        builder.withScore(questionScore(answers));
-        builder.withDifficulty("-" + node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase());
+        builder.withApiId(node.get(JsonNodes.ID.getValue()).asLong())
+                .withContent(node.get(JsonNodes.QUESTION.getValue()).asText())
+                .withAnswers(answers)
+                .withTags(parseTags(node))
+                .withScore(questionScore(answers))
+                .withDifficulty("-" + node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase());
+
         if (node.get(JsonNodes.RESTRICTED.getValue()) != null) {
             builder.withRestricted();
         }

@@ -27,7 +27,6 @@ class DbInitLoaderFromFile {
     void loadQuizzesFromFile() throws IOException {
         final QuizJson quizJson = jsonReader.readJsonFile(FILE_PATH);
         final Quiz quiz = jsonMapper.toEntity(quizJson);
-        quiz.setTitle(PREDEFINED);
         quizRepo.save(quiz);
     }
 }

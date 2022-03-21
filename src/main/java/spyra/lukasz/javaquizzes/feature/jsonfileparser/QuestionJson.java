@@ -47,33 +47,41 @@ class QuestionJson {
 
         private boolean restricted;
 
-        void withApiId(long apiId) {
+        Builder withApiId(long apiId) {
             this.apiId = apiId;
+            return this;
         }
 
-        void withScore(int score) {
+        Builder withScore(int score) {
             this.score = score;
+            return this;
         }
 
-        void withContent(String content) {
+        Builder withContent(String content) {
             this.content = content;
+            return this;
         }
 
-        void withAnswers(List<AnswerJson> answers) {
+        Builder withAnswers(List<AnswerJson> answers) {
             this.answers = answers;
+            return this;
         }
 
-        void withTags(List<String> tags) {
+        Builder withTags(List<String> tags) {
             this.tags = tags;
+            return this;
         }
 
-        void withDifficulty(String difficulty){
+        Builder withDifficulty(String difficulty){
             this.difficulty = difficulty;
+            return this;
         }
 
-        void withRestricted() {
+        Builder withRestricted() {
             this.restricted = true;
+            return this;
         }
+
         QuestionJson build() {
             return new QuestionJson(this);
         }
