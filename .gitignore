@@ -53,3 +53,4 @@ buildNumber.properties
 .mvn/wrapper/maven-wrapper.jar
 
 src/main/resources/quizzcontent/restricted
+src/main/resources/settings.properties
