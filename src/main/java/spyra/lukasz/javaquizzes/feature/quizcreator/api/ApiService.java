@@ -42,7 +42,7 @@ class ApiService {
                 .append(propertiesReader.readProperty("questions_number", "settings.properties"))
                 .append("&difficulty=")
                 .append(difficulty)
-                .append("t&ags=")
+                .append("&tags=")
                 .append(tag)
                 .toString();
     }

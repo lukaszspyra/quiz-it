@@ -15,12 +15,12 @@ class ApiController {
     @Autowired
     private ApiService apiService;
 
-    @GetMapping("/quizzes/random/pick")
+    @GetMapping("/quizzes/random")
     String chooseRandomQuiz() {
         return "random-quiz";
     }
 
-    @PostMapping("/quizzes/random/pick")
+    @PostMapping("/quizzes/random")
     String generateRandomQuiz(@PathParam(value = "tag") String tag,
                               @PathParam(value = "difficulty") String difficulty) throws IOException, InterruptedException {
         final Quiz createdQuiz = apiService.getRandomQuizFromApi(tag, difficulty);
