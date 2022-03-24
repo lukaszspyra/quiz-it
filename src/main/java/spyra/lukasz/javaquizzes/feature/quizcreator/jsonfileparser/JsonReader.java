@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -17,11 +18,22 @@ public class JsonReader {
     private JsonMapper jsonMapper;
 
     Quiz readJsonFile(final Path jsonPath) throws IOException {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.registerModule(new JavaTimeModule());
+        ObjectMapper mapper = createObjectMapperWithTimeModule();
 
         JsonNode jsonNode = mapper.readTree(jsonPath.toFile());
         return jsonMapper.toEntity(mapper.readValue(jsonNode.toString(), QuizJson.class));
+    }
+
+    private ObjectMapper createObjectMapperWithTimeModule() {
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        return mapper;
+    }
+
+    public Quiz readJsonString(final String json) throws JsonProcessingException {
+        final ObjectMapper mapper = createObjectMapperWithTimeModule();
+        mapper.readTree(json);
+        return jsonMapper.toEntity(mapper.readValue(mapper.readTree(json).toString(), QuizJson.class));
     }
 
 }
