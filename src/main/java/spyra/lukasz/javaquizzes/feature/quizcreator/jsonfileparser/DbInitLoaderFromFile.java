@@ -13,8 +13,7 @@ import java.util.stream.Stream;
 @Component
 class DbInitLoaderFromFile {
 
-    private static final Path FILES_PATH = Path.of("src/main/resources/quizzcontent/free");
-    public static final String PREDEFINED = "Predefined";
+    private static final Path FILES_PATH = Path.of("src/main/resources/quizcontent/free");
 
     @Autowired
     private JsonReader jsonReader;

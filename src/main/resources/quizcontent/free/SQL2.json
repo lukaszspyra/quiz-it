@@ -1,0 +1,642 @@
+[
+  {
+    "id": 332,
+    "question": "What will happen if some of the columns in a table are of char datatype and others are of varchar datatype?",
+    "description": null,
+    "answers": {
+      "answer_a": "Nothing will happen",
+      "answer_b": "MySQL will generate an error",
+      "answer_c": "MySQL will convert all varchar datatypes into char",
+      "answer_d": "MySQL will convert all char datatypes into varchar",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 353,
+    "question": "A one to many relationship can only contain multiple entries of both primary and foreign keys.",
+    "description": null,
+    "answers": {
+      "answer_a": "True",
+      "answer_b": "False",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 354,
+    "question": "Which of the following SQL statements will generate an error when executed.",
+    "description": null,
+    "answers": {
+      "answer_a": "CREATE DATABASE students",
+      "answer_b": "IF NOT EXISTS CREATE DATABASE `STUDENTS`;",
+      "answer_c": "CREATE DATABASE students;",
+      "answer_d": "create database if not exists students",
+      "answer_e": "select * from students where student_id=%23;",
+      "answer_f": "select * from students student_id=23;"
+    },
+    "multiple_correct_answers": "true",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "true",
+      "answer_f_correct": "true"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+{
+    "id": 207,
+    "question": "DISTINCT keyword is used for:",
+    "description": null,
+    "answers": {
+      "answer_a": "There is no such keyword",
+      "answer_b": "For selecting only unique records by a specific field",
+      "answer_c": "To reduce the load on the server with loss of query performance",
+      "answer_d": "To speed up the selection for a specific field",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+{
+    "id": 421,
+    "question": "In a LIKE clause, you can could ask for any value ending in \"qpt\" by writing",
+    "description": null,
+    "answers": {
+      "answer_a": "LIKE %qpt",
+      "answer_b": "LIKE ^.*ton$",
+      "answer_c": "LIKE ton$",
+      "answer_d": "LIKE *ton",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 380,
+    "question": "The query SELECT name, (SELECT study_program FROM programs) study_program FROM students will return the student name and the program that the student is studying.",
+    "description": null,
+    "answers": {
+      "answer_a": "True",
+      "answer_b": "False",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 326,
+    "question": "Which of the queries below will return 0 (false)?",
+    "description": null,
+    "answers": {
+      "answer_a": "SELECT \"EXPERTRATING\" LIKE \"EXP%\"",
+      "answer_b": "SELECT \"EXPERTRATING\" LIKE \"Exp%\"",
+      "answer_c": "SELECT BINARY \"EXPERTRATING\" LIKE \"EXP%\"",
+      "answer_d": "SELECT BINARY \"EXPERTRATING\" LIKE \"Exp%\"",
+      "answer_e": "All those will return 1 (true)",
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 359,
+    "question": "What will be the output of the following query. SELECT * FROM `sales` WHERE amount > 200.",
+    "description": null,
+    "answers": {
+      "answer_a": "the query will display all the sales records with amounts starting from 200 and above",
+      "answer_b": "the query will output sales records with the amount equal to 200.",
+      "answer_c": "the query will display all the sales records with amounts less than 200",
+      "answer_d": "the query will display all the sales records with amounts greater than 200",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 410,
+    "question": "The SQL keyword BETWEEN is used?",
+    "description": null,
+    "answers": {
+      "answer_a": "To Limit The Columns Displayed",
+      "answer_b": "None Of The Above",
+      "answer_c": "For Ranges",
+      "answer_d": "As A Wildcard",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 393,
+    "question": "The \"father\" Of MySQL Is ______.",
+    "description": null,
+    "answers": {
+      "answer_a": "Bill Joy",
+      "answer_b": "Stephanie Wall",
+      "answer_c": "Bill Gates",
+      "answer_d": "Michael Widenius",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 395,
+    "question": "The main MySQL program that does all the data handling is called",
+    "description": null,
+    "answers": {
+      "answer_a": "Mysql",
+      "answer_b": "Mysqld",
+      "answer_c": "Httpd",
+      "answer_d": "Mysql.exe",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 208,
+    "question": "INSERT keyword is used for:",
+    "description": null,
+    "answers": {
+      "answer_a": "adding data",
+      "answer_b": "manage users",
+      "answer_c": "to select data",
+      "answer_d": "to change data",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 382,
+    "question": "The UNION command is used to combine result sets from more than one query into a single result set",
+    "description": null,
+    "answers": {
+      "answer_a": "True",
+      "answer_b": "False",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 370,
+    "question": "What will be the output of the query SELECT MINIMUM (amount) FROM sales;",
+    "description": null,
+    "answers": {
+      "answer_a": "return the lowest sales value",
+      "answer_b": "the query will generate an error",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 411,
+    "question": "Which of the following is an aggregate function in MySQL?",
+    "description": null,
+    "answers": {
+      "answer_a": "LIKE",
+      "answer_b": "MAX",
+      "answer_c": "Group By",
+      "answer_d": "Union",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 416,
+    "question": "The maximum length of the varchar columns Is",
+    "description": null,
+    "answers": {
+      "answer_a": "Upto 65, 535 Bytes",
+      "answer_b": "Upto 65, 567 Bytes",
+      "answer_c": "Upto 256 Bytes",
+      "answer_d": "None Of The Mentioned",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 417,
+    "question": "Which \"text Type\" has the maximum number of bytes?",
+    "description": null,
+    "answers": {
+      "answer_a": "Long Text",
+      "answer_b": "Text",
+      "answer_c": "Tiny Text",
+      "answer_d": "Medium Text",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 249,
+    "question": "Which query will return values containing strings \"apple\", \"banana\" or \"orange\" in the database?",
+    "description": null,
+    "answers": {
+      "answer_a": "SELECT * FROM table WHERE field REGEXP ‘apple|banana|orange’;",
+      "answer_b": "SELECT * FROM table WHERE field LIKE ‘%apple%’ OR field LIKE ‘%banana%’ OR field LIKE ‘%orange%’;",
+      "answer_c": "SELECT * FROM table WHERE field = ‘%apple%’ OR field = ‘%banana%’ OR field = ‘%orange%’;",
+      "answer_d": "SELECT * FROM table WHERE field = ‘?apple?’ OR field = ‘?banana?’ OR field = ‘?orange?’;",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 437,
+    "question": "What is called if a value shouldn't be greater than 100?",
+    "description": null,
+    "answers": {
+      "answer_a": "Integrity constraint",
+      "answer_b": "Feasible constraint",
+      "answer_c": "Over-defined constraint",
+      "answer_d": "Referential constraint",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 414,
+    "question": "Character data can be stored as",
+    "description": null,
+    "answers": {
+      "answer_a": "Both fixed or variable length strings",
+      "answer_b": "Variable length strings",
+      "answer_c": "Fixed length strings",
+      "answer_d": "None of the mentioned",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  }
+]

@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 @Component
-class JsonReader {
+public class JsonReader {
 
-    public QuizJson readJsonFile(final Path jsonPath) throws IOException {
+    QuizJson readJsonFile(final Path jsonPath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
 

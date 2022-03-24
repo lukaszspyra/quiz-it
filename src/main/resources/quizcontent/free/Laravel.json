@@ -1,0 +1,322 @@
+[
+  {
+    "id": 1061,
+    "question": "Which of the following are true for Controllers in Laravel?",
+    "description": null,
+    "answers": {
+      "answer_a": "You should avoid using controllers as it is considered bad practice.",
+      "answer_b": "Controllers are stored in the app/Http/Controllers directory.",
+      "answer_c": "Controllers can group related request handling logic into a single class.",
+      "answer_d": "A controller is the \"C\" in the \"MVC\" (Model-View-Controller) architecture, which is what Laravel is based on.",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1059,
+    "question": "What is HTTP middleware in Laravel?",
+    "description": null,
+    "answers": {
+      "answer_a": "HTTP middleware is a technique for installing Laravel via HTTP.",
+      "answer_b": "HTTP middleware is a technique for filtering HTTP requests.",
+      "answer_c": "HTTP middleware is a technique for updating Laravel via HTTP.",
+      "answer_d": "HTTP middleware is a web server used by Laravel similar to Apache and Nginx.",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1062,
+    "question": "Which artisan command would you use to create a new Laravel Controller?",
+    "description": null,
+    "answers": {
+      "answer_a": "php artisan make:controller controller_name",
+      "answer_b": "php artisan create:controller controller_name",
+      "answer_c": "php artisan controller create controller_name",
+      "answer_d": "php artisan controller:make controller_name",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1064,
+    "question": "Which artisan command would you use to create a new Laravel Model?",
+    "description": null,
+    "answers": {
+      "answer_a": "php artisan create:model ModelName",
+      "answer_b": "php artisan model:make ModelName",
+      "answer_c": "php artisan model create ModelName",
+      "answer_d": "php artisan make:model ModelName",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1067,
+    "question": "Which artisan command will you used to enable maintenance mode in Laravel?",
+    "description": null,
+    "answers": {
+      "answer_a": "php artisan maintenance",
+      "answer_b": "php artisan down",
+      "answer_c": "php artisan stop",
+      "answer_d": "php artisan pause",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1058,
+    "question": "What is Laravel?",
+    "description": null,
+    "answers": {
+      "answer_a": "Laravel is an open-source widely used PHP framework.",
+      "answer_b": "Laravel is an open-source widely used JavaScript framework.",
+      "answer_c": "Laravel is an open-source widely used Python framework.",
+      "answer_d": "Laravel is an open-source widely used Ruby framework.",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1060,
+    "question": "Which of the following are true for routes in Laravel?",
+    "description": null,
+    "answers": {
+      "answer_a": "You can not pass any arguments to your routes.",
+      "answer_b": "Routes can point to a method on a controller and also dictate which HTTP methods are able to hit that URI.",
+      "answer_c": "A route is an endpoint specified by a URI (Uniform Resource Identifier).",
+      "answer_d": "Routes can only handle GET requests",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1065,
+    "question": "What is the name of the Template Engine utilized by Laravel?",
+    "description": null,
+    "answers": {
+      "answer_a": "Blade",
+      "answer_b": "Twig",
+      "answer_c": "Pug",
+      "answer_d": "Squirrelly",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1063,
+    "question": "What is service container in Laravel?",
+    "description": null,
+    "answers": {
+      "answer_a": "Service container is a tool used for performing dependency injection in Laravel.",
+      "answer_b": "Dockerized Laravel applications are called service containers.",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1066,
+    "question": "Which artisan command would you use to create a new Laravel Migration?",
+    "description": null,
+    "answers": {
+      "answer_a": "php artisan make:migrations create_users_table",
+      "answer_b": "php artisan create:migrations create_users_table",
+      "answer_c": "php artisan make:migration create_users_table",
+      "answer_d": "php artisan make:migrations create_users_table",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Laravel"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Easy"
+  }
+]

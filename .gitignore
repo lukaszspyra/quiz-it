@@ -52,5 +52,5 @@ buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
 
-src/main/resources/quizzcontent/restricted
+src/main/resources/quizcontent/restricted
 src/main/resources/settings.properties
