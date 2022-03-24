@@ -2,6 +2,9 @@ package spyra.lukasz.javaquizzes.feature.quizcreator.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser.JsonReader;
+import spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser.QuizInitRepository;
+import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import java.io.IOException;
 import java.net.URI;
@@ -15,13 +18,20 @@ class ApiService {
     private static final String API_URL = "https://quizapi.io/api/v1/questions?apiKey=";
 
     @Autowired
+    private JsonReader jsonReader;
+
+    @Autowired
     private PropertiesReader propertiesReader;
 
-    String getRandomQuizFromApi(final String tag, final String difficulty) throws IOException, InterruptedException {
+    @Autowired
+    private QuizInitRepository repository;
+
+    Quiz getRandomQuizFromApi(final String tag, final String difficulty) throws IOException, InterruptedException {
         String uri = generateUri(tag, difficulty);
         final HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(createRequest(uri), HttpResponse.BodyHandlers.ofString());
-        return response.body();
+        final Quiz quizFromApi = jsonReader.readJsonString(response.body());
+        return repository.save(quizFromApi);
     }
 
     private String generateUri(final String tag, final String difficulty) throws IOException {
