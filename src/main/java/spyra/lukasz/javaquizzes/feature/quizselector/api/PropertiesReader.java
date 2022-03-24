@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizselector;
+package spyra.lukasz.javaquizzes.feature.quizselector.api;
 
 import org.springframework.stereotype.Component;
 
