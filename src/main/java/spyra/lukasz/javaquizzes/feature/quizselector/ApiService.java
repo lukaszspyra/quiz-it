@@ -24,19 +24,12 @@ class ApiService {
         return response.body();
     }
 
-    private HttpRequest createRequest(final String uri) {
-        return HttpRequest.newBuilder()
-                .uri(URI.create(uri))
-                .GET()
-                .build();
-    }
-
     private String generateUri(final String tag, final String difficulty) throws IOException {
         final StringBuilder builder = new StringBuilder();
         return builder.append(API_URL)
-                .append(propertiesReader.readProperty("api_key"))
+                .append(propertiesReader.readProperty("api_key", "settings.properties"))
                 .append("&")
-                .append(propertiesReader.readProperty("questions_number"))
+                .append(propertiesReader.readProperty("questions_number", "settings.properties"))
                 .append("&difficulty=")
                 .append(difficulty)
                 .append("t&ags=")
@@ -44,5 +37,11 @@ class ApiService {
                 .toString();
     }
 
+    private HttpRequest createRequest(final String uri) {
+        return HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .GET()
+                .build();
+    }
 
 }

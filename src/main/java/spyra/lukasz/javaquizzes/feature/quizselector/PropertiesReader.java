@@ -10,8 +10,8 @@ import java.util.Properties;
 @Component
 final class PropertiesReader {
 
-    String readProperty(String propertyName) throws IOException {
-        return loadProperties("settings.properties").getProperty(propertyName);
+    String readProperty(String propertyName, String fileName) throws IOException {
+        return loadProperties(fileName).getProperty(propertyName);
     }
 
     private Properties loadProperties(String fileName) throws IOException {
