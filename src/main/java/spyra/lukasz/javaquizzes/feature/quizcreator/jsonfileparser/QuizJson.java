@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.jsonfileparser;
+package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Getter;

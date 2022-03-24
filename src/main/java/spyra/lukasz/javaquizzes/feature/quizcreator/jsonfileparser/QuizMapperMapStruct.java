@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.jsonfileparser;
+package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
 
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
@@ -7,7 +7,6 @@ import spyra.lukasz.javaquizzes.shared.Answer;
 import spyra.lukasz.javaquizzes.shared.Question;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
-import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
