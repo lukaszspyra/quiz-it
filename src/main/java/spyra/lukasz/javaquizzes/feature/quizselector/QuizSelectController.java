@@ -13,31 +13,26 @@ class QuizSelectController {
     private QuizService quizService;
 
     @GetMapping("/quizzes")
-    public String freeQuizzes(Model model) {
+    String freeQuizzes(Model model) {
         return "free-quizzes";
     }
 
-    @GetMapping("/quizzes/random")
-    public String pickRandomQuiz(Model model) {
-        return  "random-quiz";
-    }
-
     @GetMapping("/quizzes/predefined")
-    public String pickPredefinedQuiz(Model model) {
+    String pickPredefinedQuiz(Model model) {
         model.addAttribute("quizzes", quizService.findNotRestricted());
         model.addAttribute("msg", "Predefined Quizzes");
         return "quizzes";
     }
 
     @GetMapping("/admin/java-quizzes")
-    public String restrictedQuizzes(Model model) {
+    String restrictedQuizzes(Model model) {
         model.addAttribute("quizzes", quizService.findRestricted());
         model.addAttribute("msg", "Java Quizzes");
         return "quizzes";
     }
 
     @GetMapping("/quiz/{id}")
-    public String confirmQuizStart(Model model, @PathVariable long id) {
+    String confirmQuizStart(Model model, @PathVariable long id) {
         model.addAttribute("quiz", quizService.getById(id));
         return "quiz";
     }
