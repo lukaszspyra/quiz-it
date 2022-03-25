@@ -12,6 +12,10 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
+/**
+ * Gets random {@link Quiz} from API call.
+ * @see <a href="https://quizapi.io/">quizapi.io</a>
+ */
 @Service
 class ApiService {
 
@@ -26,6 +30,14 @@ class ApiService {
     @Autowired
     private QuizInitRepository repository;
 
+    /**
+     * Gets {@link Quiz} form API call, based on tag and difficulty choosen by the user.
+     * @param tag Category tag of the quiz
+     * @param difficulty of the quiz
+     * @return parsed and saved quiz from database
+     * @throws IOException when {@link java.util.Properties} file is not found
+     * @throws InterruptedException when there is API connection issue with sending request
+     */
     Quiz getRandomQuizFromApi(final String tag, final String difficulty) throws IOException, InterruptedException {
         String uri = generateUri(tag, difficulty);
         final HttpClient client = HttpClient.newHttpClient();

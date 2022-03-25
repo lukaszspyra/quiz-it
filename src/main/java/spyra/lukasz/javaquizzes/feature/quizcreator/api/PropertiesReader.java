@@ -7,9 +7,20 @@ import java.io.IOException;
 import java.util.Objects;
 import java.util.Properties;
 
+/**
+ * Reads {@link Properties} and returns its value
+ */
 @Component
 final class PropertiesReader {
 
+    /**
+     * Reads given {@link Properties} from given file.
+     *
+     * @param propertyName key in Properties file
+     * @param fileName     name of given file.properties
+     * @return String value of the property key
+     * @throws IOException when Property file is not found
+     */
     String readProperty(String propertyName, String fileName) throws IOException {
         return loadProperties(fileName).getProperty(propertyName);
     }
