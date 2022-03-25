@@ -42,7 +42,7 @@ class ApiService {
         String uri = generateUri(tag, difficulty);
         final HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(createRequest(uri), HttpResponse.BodyHandlers.ofString());
-        final Quiz quizFromApi = jsonReader.readJsonString(response.body());
+        final Quiz quizFromApi = jsonReader.parseApiJson(response.body());
         return repository.save(quizFromApi);
     }
 

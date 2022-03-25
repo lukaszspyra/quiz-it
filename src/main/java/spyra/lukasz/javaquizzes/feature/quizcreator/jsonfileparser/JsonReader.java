@@ -30,9 +30,8 @@ public class JsonReader {
         return mapper;
     }
 
-    public Quiz readJsonString(final String json) throws JsonProcessingException {
+    public Quiz parseApiJson(final String json) throws JsonProcessingException {
         final ObjectMapper mapper = createObjectMapperWithTimeModule();
-        mapper.readTree(json);
         return jsonMapper.toEntity(mapper.readValue(mapper.readTree(json).toString(), QuizJson.class));
     }
 

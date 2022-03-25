@@ -35,6 +35,8 @@ public class Quiz {
 
     private boolean restricted;
 
+    private boolean predefined;
+
     @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Valid
     private List<Question> questions = new LinkedList<>();
