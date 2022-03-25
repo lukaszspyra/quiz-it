@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 1073,
     "question": "What is the default priority of the swap partition",
     "description": null,

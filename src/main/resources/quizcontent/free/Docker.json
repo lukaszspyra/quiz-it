@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 869,
     "question": "A Docker container is an instance of an image with a specific configuration.",
     "description": null,

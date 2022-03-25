@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 311,
     "question": "What are template tags in WordPress?",
     "description": null,

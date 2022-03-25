@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 524,
     "question": "Which attribute is used with an img tag to display the text if image could not load in browser?",
     "description": null,

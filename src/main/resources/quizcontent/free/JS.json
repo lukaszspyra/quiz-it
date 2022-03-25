@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 988,
     "question": "How do you round the number 7.25, to the nearest integer?",
     "description": null,

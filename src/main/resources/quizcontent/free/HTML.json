@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 455,
     "question": "Which tag is used to create a checkbox in HTML?",
     "description": null,

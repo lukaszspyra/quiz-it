@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 410,
     "question": "The SQL keyword BETWEEN is used?",
     "description": null,

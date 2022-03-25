@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 706,
     "question": "What is the purpose of ‘at’ command?",
     "description": null,

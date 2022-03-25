@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 583,
     "question": "What is the purpose of $_SESSION[]?",
     "description": null,

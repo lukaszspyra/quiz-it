@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 937,
     "question": "What is a deployment in Kubernetes?",
     "description": null,

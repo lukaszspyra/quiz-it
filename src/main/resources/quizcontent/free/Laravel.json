@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 1061,
     "question": "Which of the following are true for Controllers in Laravel?",
     "description": null,

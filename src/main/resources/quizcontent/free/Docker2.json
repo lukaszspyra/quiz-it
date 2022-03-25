@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 877,
     "question": "Why wouldn't you see Docker in Plesk installer's list of components?",
     "description": null,

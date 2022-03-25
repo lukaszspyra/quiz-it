@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 332,
     "question": "What will happen if some of the columns in a table are of char datatype and others are of varchar datatype?",
     "description": null,

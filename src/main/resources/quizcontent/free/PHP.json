@@ -1,5 +1,9 @@
 [
   {
+    "restricted": false,
+    "predefined": true
+  },
+  {
     "id": 563,
     "question": "Which of the functions is used to sort an array in descending order?",
     "description": null,
