@@ -13,7 +13,6 @@ class QuestionJson {
         this.content = builder.content;
         this.answers = builder.answers;
         this.tags = builder.tags;
-        this.restricted = builder.restricted;
         this.difficulty = builder.difficulty;
     }
 
@@ -29,8 +28,6 @@ class QuestionJson {
 
     private final String difficulty;
 
-    private final boolean restricted;
-
     static class Builder {
 
         private long apiId;
@@ -44,8 +41,6 @@ class QuestionJson {
         private List<String> tags;
 
         private String difficulty;
-
-        private boolean restricted;
 
         Builder withApiId(long apiId) {
             this.apiId = apiId;
@@ -74,11 +69,6 @@ class QuestionJson {
 
         Builder withDifficulty(String difficulty){
             this.difficulty = difficulty;
-            return this;
-        }
-
-        Builder withRestricted() {
-            this.restricted = true;
             return this;
         }
 

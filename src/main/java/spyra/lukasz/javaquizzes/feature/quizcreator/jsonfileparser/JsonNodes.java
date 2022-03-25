@@ -14,7 +14,8 @@ enum JsonNodes {
     ID("id"),
     QUESTION("question"),
     CORRECT_ANSWERS("correct_answers"),
-    DIFFICULTY("difficulty");
+    DIFFICULTY("difficulty"),
+    PREDEFINED("predefined");
 
     private final String value;
 

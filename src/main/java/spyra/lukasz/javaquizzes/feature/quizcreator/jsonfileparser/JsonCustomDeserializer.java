@@ -18,29 +18,41 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
     @Override
     public QuizJson deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
-        QuizJson quizJson = new QuizJson();
         List<QuestionJson> questions = new LinkedList<>();
-        JsonNode node = jsonParser.readValueAsTree();
-        final Iterator<JsonNode> elements = node.elements();
+        JsonNode nodes = jsonParser.readValueAsTree();
+        final Iterator<JsonNode> elements = nodes.elements();
+        boolean restricted = false;
+        boolean predefined = false;
+        if (nodes.findValue("restricted") != null) {
+            final JsonNode firstNode = elements.next();
+            restricted = firstNode.get(JsonNodes.RESTRICTED.getValue()).asBoolean();
+            predefined = firstNode.get(JsonNodes.PREDEFINED.getValue()).asBoolean();
+        }
         while (elements.hasNext()) {
             questions.add(parseQuestion(elements.next()));
         }
-        quizJson.setQuestions(questions);
         int totalScore = questions.parallelStream()
                 .reduce(0, (subtotal, element) -> subtotal + element.getScore(), Integer::sum);
-        quizJson.setMaxScore(totalScore);
         LocalDateTime now = LocalDateTime.now();
-        quizJson.setCreated(LocalDateTime.parse(now.toString()));
-        quizJson.setUpdated(LocalDateTime.parse(now.toString()));
-        quizJson.setTitle(createTitle(questions));
-        return quizJson;
+        return new QuizJson.QuizJsonBuilder().setTitle(createTitle(predefined, questions))
+                .setRestricted(restricted)
+                .setPredefined(predefined)
+                .setMaxScore(totalScore)
+                .setCreated(LocalDateTime.parse(now.toString()))
+                .setUpdated(LocalDateTime.parse(now.toString()))
+                .setQuestions(questions)
+                .createQuizJson();
     }
 
-    private String createTitle(List<QuestionJson> questions) {
+    private String createTitle(final boolean predefined, final List<QuestionJson> questions) {
+        String prefix = "";
+        if (!predefined) {
+            prefix = "Random-";
+        }
         return questions.stream()
                 .flatMap(quest -> quest.getTags().stream())
                 .distinct()
-                .collect(Collectors.joining("-", "", questions.get(0).getDifficulty()));
+                .collect(Collectors.joining("", prefix, "-" + questions.get(0).getDifficulty()));
     }
 
     private QuestionJson parseQuestion(JsonNode node) {
@@ -51,11 +63,7 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
                 .withAnswers(answers)
                 .withTags(parseTags(node))
                 .withScore(questionScore(answers))
-                .withDifficulty("-" + node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase());
-
-        if (node.get(JsonNodes.RESTRICTED.getValue()) != null) {
-            builder.withRestricted();
-        }
+                .withDifficulty(node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase());
         return builder.build();
     }
 
@@ -80,7 +88,7 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         List<AnswerJson> answers = new ArrayList<>();
         while (answersIterator.hasNext()) {
             final JsonNode answer = answersIterator.next();
-            if (answer.getNodeType() == JsonNodeType.NULL){
+            if (answer.getNodeType() == JsonNodeType.NULL) {
                 continue;
             }
             String answerContent = answer.asText();
