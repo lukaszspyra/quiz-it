@@ -8,7 +8,7 @@ import java.util.List;
 
 interface QuizSelectRepository extends JpaRepository<Quiz, Long> {
 
-    List<Quiz> findQuizzesByRestrictedFalse();
+    List<Quiz> findQuizzesByRestrictedFalseAndPredefinedTrue();
 
     List<Quiz> findQuizzesByRestrictedTrue();
 
