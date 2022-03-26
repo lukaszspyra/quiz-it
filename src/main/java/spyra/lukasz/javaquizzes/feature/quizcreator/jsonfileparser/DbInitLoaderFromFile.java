@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 @Component
 class DbInitLoaderFromFile {
 
-    private static final Path FILES_PATH = Path.of("src/main/resources/quizcontent/free");
+    private static final Path FILES_PATH = Path.of("src/main/resources/quizcontent/");
 
     @Autowired
     private JsonReader jsonReader;
@@ -24,8 +24,9 @@ class DbInitLoaderFromFile {
 
     @PostConstruct
     void loadQuizzesFromFile() throws IOException {
-        try (Stream<Path> files = Files.list(FILES_PATH)){
+        try (Stream<Path> files = Files.walk(FILES_PATH)) {
             files
+                    .filter(file -> !Files.isDirectory(file))
                     .map(this::getQuizFromJson)
                     .forEach(quizRepo::save);
         }
