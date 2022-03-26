@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizcreator.api;
+package spyra.lukasz.javaquizzes.feature.quizcreator.apiparser;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,10 +25,11 @@ class ApiController {
 
     /**
      * Passes required parameters for creating random quiz. Result database id is returned to view controller
-     * @param tag describes category for the generated quiz
+     *
+     * @param tag        describes category for the generated quiz
      * @param difficulty for the generated quiz
      * @return redirects to AttemptController with quiz id from database
-     * @throws IOException when {@link java.util.Properties} file is not found
+     * @throws IOException          when {@link java.util.Properties} file is not found
      * @throws InterruptedException when there is API connection issue with sending request
      */
     @PostMapping("/quizzes/random")
