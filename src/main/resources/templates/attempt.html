@@ -23,52 +23,56 @@
     <div id="bg">
         <img src="/assets/vector-JUL-2021-72.jpg" alt="">
     </div>
-
     <div class="container">
-        <div class="container btn-group-vertical p-5 rounded border bg-light" style="text-align: center">
-            <form name="form_answer" id="form_answer" method="post"
-                  th:action="@{/quiz/{id}/answer/{attemptId} (id=${quiz_id}, attemptId=${attempt_id})}">
-                <fieldset>
-                    <legend>
-                        <h5 th:text="${question.getContent()}"></h5>
-                    </legend>
-                    <div class="form-check" th:each="answer: ${question.getAnswers()}">
-                        <input class="form-check-input" type="checkbox" name="given_answers"
-                               th:value="${answer.getId()}">
-                        <label class="container-fluid" style="text-align: left;margin-right: 10px"
-                               th:text="${answer.getContent()}">
-                        </label>
-                    </div>
-                    <input type="hidden" name="question_id" th:value="${question.getId()}">
-                </fieldset>
-            </form>
+
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
+            <div class="container-fluid" style="text-align: center">
+                <form name="form_answer" id="form_answer" method="post"
+                      th:action="@{/quiz/{id}/answer/{attemptId} (id=${quiz_id}, attemptId=${attempt_id})}">
+                    <fieldset>
+                        <legend>
+                            <h5 th:text="${question.getContent()}"></h5>
+                        </legend>
+                        <div class="form-check" th:each="answer: ${question.getAnswers()}">
+                            <input class="form-check-input" type="checkbox" name="given_answers"
+                                   th:value="${answer.getId()}">
+                            <label class="container-fluid" style="text-align: left;margin-right: 10px"
+                                   th:text="${answer.getContent()}">
+                            </label>
+                        </div>
+                        <input type="hidden" name="question_id" th:value="${question.getId()}">
+                    </fieldset>
+                </form>
+            </div>
         </div>
-        <div class="container btn-group-vertical p-5 rounded border bg-dark">
-            <div class="row">
-                <div class="col">
-                    <input id="form_answer_button" form="form_answer" type="submit" value="Submit now"
-                           class="btn btn-block btn-primary"
-                           style="padding: 16px">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col white-text" style="text-align: left">
-                    <label style="float: right">Time remaining for question:</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col white-text" style="text-align: left">
-                    <div id="app"></div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col white-text" style="text-align: left">
-                    <div class="row justify-content-center mt-2">
-                        <p>
-                            Time remaining for quiz:
-                        </p>
+        <div class="container-fluid btn-group-vertical p-5 rounded border bg-dark">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col">
+                        <input id="form_answer_button" form="form_answer" type="submit" value="Submit now"
+                               class="btn btn-block btn-primary"
+                               style="padding: 16px">
                     </div>
-                    <div class="row justify-content-center border rounded-pill text-white" id="countdown"></div>
+                </div>
+                <div class="row">
+                    <div class="col white-text" style="text-align: left">
+                        <label style="float: right">Time remaining for question:</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col white-text" style="text-align: left">
+                        <div id="app"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col white-text" style="text-align: left">
+                        <div class="row justify-content-center mt-2">
+                            <p>
+                                Time remaining for quiz:
+                            </p>
+                        </div>
+                        <div class="row justify-content-center border rounded-pill text-white" id="countdown"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -80,7 +84,7 @@
 <script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
 <script th:replace="fragments/attempt_js.html :: submitformactions_js"></script>
 <script th:replace="fragments/attempt_js.html :: countdown_digits"></script>
-<script src="/assets/countdown_round.js"></script>
+<script th:replace="fragments/attempt_js.html :: countdown_round"></script>
 
 </body>
 </html>
