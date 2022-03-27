@@ -52,7 +52,7 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         return questions.stream()
                 .flatMap(quest -> quest.getTags().stream())
                 .distinct()
-                .collect(Collectors.joining("", prefix, "-" + questions.get(0).getDifficulty()));
+                .collect(Collectors.joining("-", prefix, "-" + questions.get(0).getDifficulty()));
     }
 
     private QuestionJson parseQuestion(JsonNode node) {
