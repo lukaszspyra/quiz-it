@@ -15,11 +15,11 @@ class QuizService {
     private QuizMapper quizMapper;
 
     List<QuizView> findPredefinedNotRestricted() {
-        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalseAndPredefinedTrue());
+        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalseAndPredefinedTrueOrderByTitleAsc());
     }
 
     List<QuizView> findRestricted() {
-        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrue());
+        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrueOrderByTitleAsc());
     }
 
     QuizView getById(long id) {

@@ -8,9 +8,9 @@ import java.util.List;
 
 interface QuizSelectRepository extends JpaRepository<Quiz, Long> {
 
-    List<Quiz> findQuizzesByRestrictedFalseAndPredefinedTrue();
+    List<Quiz> findQuizzesByRestrictedFalseAndPredefinedTrueOrderByTitleAsc();
 
-    List<Quiz> findQuizzesByRestrictedTrue();
+    List<Quiz> findQuizzesByRestrictedTrueOrderByTitleAsc();
 
     @PostAuthorize("returnObject.restricted == true ? hasAnyAuthority('ADMIN', 'SUPER_ADMIN') : true")
     Quiz getQuizById(long id);
