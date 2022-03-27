@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.security.Principal;
 import java.time.Duration;
 import java.util.ArrayList;
@@ -32,14 +33,19 @@ class AttemptController {
     @Autowired
     private AttemptService attemptService;
 
+    @Autowired
+    private QuestionTimeReader propertyReader;
+
 
     @GetMapping("/quiz/{quiz_id}/start")
     String startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
                            Principal principal,
-                           HttpSession session) {
+                           HttpSession session) throws IOException {
         TakeQuiz takeQuiz = starter.takeQuiz(quizId, principal.getName());
         List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
-        long attemptTimer = starter.calcTimeForQuizInEpochSeconds(takeQuiz, 2);
+        int questionTimer = Integer.parseInt(propertyReader.readProperty("question_time", "settings.properties"));
+        long attemptTimer = starter.calcTimeForQuizInEpochSeconds(takeQuiz, questions.size() * questionTimer);
+        session.setAttribute("question_timer", questionTimer);
         session.setAttribute("questions", questions);
         session.setAttribute("attempt_timer", attemptTimer);
         return "redirect:/quiz/{quiz_id}/attempt/" + takeQuiz.getId();
