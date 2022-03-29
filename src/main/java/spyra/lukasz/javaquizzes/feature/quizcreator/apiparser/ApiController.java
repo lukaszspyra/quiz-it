@@ -27,15 +27,15 @@ class ApiController {
      * Passes required parameters for creating random quiz. Result database id is returned to view controller
      *
      * @param tag        describes category for the generated quiz
-     * @param questionNumber for the generated quiz
+     * @param questions for the generated quiz
      * @return redirects to AttemptController with quiz id from database
      * @throws IOException          when {@link java.util.Properties} file is not found
      * @throws InterruptedException when there is API connection issue with sending request
      */
     @PostMapping("/quizzes/random")
     String generateRandomQuiz(@PathParam(value = "tag") String tag,
-                              @PathParam(value = "no_of_questions") String questionNumber) throws IOException, InterruptedException {
-        final Quiz createdQuiz = apiService.getRandomQuizFromApi(tag, questionNumber);
+                              @PathParam(value = "questions") String questions) throws IOException, InterruptedException {
+        final Quiz createdQuiz = apiService.getRandomQuizFromApi(tag, questions);
         return "redirect:/quiz/" + createdQuiz.getId();
     }
 }
