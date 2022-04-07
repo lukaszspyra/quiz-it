@@ -9,15 +9,20 @@ import javax.persistence.Transient;
 import java.util.Collection;
 import java.util.Collections;
 
+/**
+ * Provides custom implementation of UserDetails interface used by Spring.
+ *
+ * {@link MyUserPrincipal#getUsername()} returns {@link MyUserPrincipal#email} in order for Spring to use it as User's login.
+ */
 public class MyUserPrincipal implements UserDetails {
 
-    private long id;
-    private String name;
-    private String roleName;
-    private String email;
+    private final long id;
+    private final String name;
+    private final String roleName;
+    private final String email;
 
     @Transient
-    private String password;
+    private final String password;
 
     public MyUserPrincipal(User user) {
         this.id = user.getId();

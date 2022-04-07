@@ -8,6 +8,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 class WebMvcConfiguration implements WebMvcConfigurer {
 
+    /**
+     * Registers custom login page to be used by Spring
+     *
+     * @param registry used by Spring
+     */
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
