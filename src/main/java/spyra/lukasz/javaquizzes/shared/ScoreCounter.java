@@ -1,7 +1,6 @@
 package spyra.lukasz.javaquizzes.shared;
 
 import org.springframework.stereotype.Component;
-import spyra.lukasz.javaquizzes.shared.Answer;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ public class ScoreCounter {
      * @param answered list of all answers given by user
      * @return calculated score for given answers
      */
-    public int count(List<Answer> answered){
+    public int count(List<Answer> answered) {
         int allAnswers = answered.size();
         int correctAnswers = Math.toIntExact(answered.stream()
                 .filter(Answer::isCorrect)

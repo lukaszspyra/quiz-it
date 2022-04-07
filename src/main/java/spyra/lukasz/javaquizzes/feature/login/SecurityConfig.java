@@ -21,7 +21,9 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/resources/**", "/userlogin/**", "/css/**", "/fonts/**", "/images/**", "/js/**", "/scss/**", "/icons/**", "/img/**"};
 
     private final String[] admins = new String[]{AvailableRole.SUPER_ADMIN.name(), AvailableRole.ADMIN.name()};
-    private final String[] users = Arrays.stream(AvailableRole.values()).map(AvailableRole::name).toArray(String[]::new);
+    private final String[] users = Arrays.stream(AvailableRole.values())
+            .map(AvailableRole::name)
+            .toArray(String[]::new);
 
     @Bean
     PasswordEncoder getPasswordEncoder() {

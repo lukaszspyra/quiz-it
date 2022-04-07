@@ -40,4 +40,5 @@ public class Quiz {
     @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Valid
     private List<Question> questions = new LinkedList<>();
+
 }

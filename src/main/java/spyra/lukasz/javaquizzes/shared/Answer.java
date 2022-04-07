@@ -13,8 +13,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Table(name = "answer")
-public
-class Answer {
+public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
