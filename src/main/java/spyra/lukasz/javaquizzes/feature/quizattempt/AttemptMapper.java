@@ -7,6 +7,9 @@ import spyra.lukasz.javaquizzes.shared.Quiz;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Maps {@link Quiz} to {@link AttemptView}
+ */
 @Component
 public class AttemptMapper {
 

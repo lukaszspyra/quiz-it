@@ -16,8 +16,13 @@ class AttemptService {
     @Autowired
     private QuestionMapper questionMapper;
 
-    List<QuestionView> getQuizQuestionsRandomOrder(long id) {
-        List<Question> questions = quizProviderRepository.findQuizById(id).getQuestions();
+    /**
+     * Retrieves quiz questions and returns them shuffled and mapped
+     * @param quizId given quiz id
+     * @return questions
+     */
+    List<QuestionView> getQuizQuestionsRandomOrder(long quizId) {
+        List<Question> questions = quizProviderRepository.findQuizById(quizId).getQuestions();
         Collections.shuffle(questions);
         return questionMapper.toView(questions);
     }

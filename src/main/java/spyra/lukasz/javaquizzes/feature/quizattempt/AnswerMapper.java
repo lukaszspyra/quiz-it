@@ -6,6 +6,9 @@ import spyra.lukasz.javaquizzes.shared.Answer;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Maps {@link Answer} entity to view
+ */
 @Component
 class AnswerMapper {
 
