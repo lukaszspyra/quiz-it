@@ -7,6 +7,9 @@ import spyra.lukasz.javaquizzes.shared.Question;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Maps Question entity to QuestionView
+ */
 @Component
 class QuestionMapper {
 

@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * DTO to sent question data to view
+ */
 @Getter
 @Setter
 public class QuestionView {
