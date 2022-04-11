@@ -5,14 +5,21 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * Gets mapped {@link spyra.lukasz.javaquizzes.shared.Quiz} entities to DTO {@link QuizView} from database
+ */
 @Service
 class QuizService {
 
-    @Autowired
-    private QuizSelectRepository quizSelectRepository;
+    private final QuizSelectRepository quizSelectRepository;
+
+    private final QuizMapper quizMapper;
 
     @Autowired
-    private QuizMapper quizMapper;
+    QuizService(final QuizSelectRepository quizSelectRepository, final QuizMapper quizMapper) {
+        this.quizSelectRepository = quizSelectRepository;
+        this.quizMapper = quizMapper;
+    }
 
     List<QuizView> findPredefinedNotRestricted() {
         return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalseAndPredefinedTrueOrderByTitleAsc());

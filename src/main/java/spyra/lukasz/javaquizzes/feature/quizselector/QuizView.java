@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+/**
+ * DTO for quiz entity used to present details in controller
+ */
 @Getter
 @Setter
 class QuizView {

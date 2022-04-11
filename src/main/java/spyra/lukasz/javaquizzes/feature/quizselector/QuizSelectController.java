@@ -6,11 +6,20 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+/**
+ * Returns view with quizzes chosen by the user
+ *
+ * Results are presented and user can choose given quiz to run
+ */
 @Controller
 class QuizSelectController {
 
+    private final QuizService quizService;
+
     @Autowired
-    private QuizService quizService;
+    QuizSelectController(final QuizService quizService) {
+        this.quizService = quizService;
+    }
 
     @GetMapping("/quizzes")
     String freeQuizzes(Model model) {
