@@ -1,9 +1,13 @@
 package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
 
 import lombok.Getter;
+import spyra.lukasz.javaquizzes.shared.Question;
 
 import java.util.List;
 
+/**
+ * DTO for {@link Question} entity read from available JSON format
+ */
 @Getter
 class QuestionJson {
 

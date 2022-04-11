@@ -6,6 +6,11 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * DTO for Quiz entity read from available JSON format
+ *
+ * Uses custom deserializer for proper mapping. Due to large amount of parameters, Builder pattern implemented by static class.
+ */
 @JsonDeserialize(using = JsonCustomDeserializer.class)
 @Getter
 final class QuizJson {

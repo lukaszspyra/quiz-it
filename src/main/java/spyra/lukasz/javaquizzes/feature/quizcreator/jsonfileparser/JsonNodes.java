@@ -1,5 +1,8 @@
 package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
 
+/**
+ * Node values used in available JSON formatted quizzes
+ */
 enum JsonNodes {
     TITLE("title"),
     CREATED("created"),

@@ -14,6 +14,9 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Custom deserializer implemented to read values of API delivered JSON format
+ */
 class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
     @Override
