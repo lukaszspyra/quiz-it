@@ -12,16 +12,26 @@ import java.io.IOException;
 import java.nio.file.Path;
 
 @Component
-public class JsonReader {
+public final class JsonReader {
+
+    private final QuizMapperMapStruct jsonMapper;
 
     @Autowired
-    private JsonMapper jsonMapper;
+    JsonReader(final QuizMapperMapStruct jsonMapper) {
+        this.jsonMapper = jsonMapper;
+    }
 
+    /**
+     * Reads JSON file content to {@link Quiz} entity
+     *
+     * @param jsonPath to JSON file with quiz contents
+     * @return complete entity
+     * @throws IOException when file with content not found
+     */
     Quiz readJsonFile(final Path jsonPath) throws IOException {
         ObjectMapper mapper = createObjectMapperWithTimeModule();
-
         JsonNode jsonNode = mapper.readTree(jsonPath.toFile());
-        return jsonMapper.toEntity(mapper.readValue(jsonNode.toString(), QuizJson.class));
+        return jsonMapper.quizJsonToQuiz(mapper.readValue(jsonNode.toString(), QuizJson.class));
     }
 
     private ObjectMapper createObjectMapperWithTimeModule() {
@@ -30,9 +40,16 @@ public class JsonReader {
         return mapper;
     }
 
+    /**
+     * Parses JSON String to {@link Quiz} entity
+     *
+     * @param json formatted string
+     * @return complete Quiz entity
+     * @throws JsonProcessingException thrown during Jackson's readTree()
+     */
     public Quiz parseApiJson(final String json) throws JsonProcessingException {
         final ObjectMapper mapper = createObjectMapperWithTimeModule();
-        return jsonMapper.toEntity(mapper.readValue(mapper.readTree(json).toString(), QuizJson.class));
+        return jsonMapper.quizJsonToQuiz(mapper.readValue(mapper.readTree(json).toString(), QuizJson.class));
     }
 
 }
