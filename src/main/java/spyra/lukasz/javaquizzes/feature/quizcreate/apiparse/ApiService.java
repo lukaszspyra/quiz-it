@@ -22,14 +22,18 @@ class ApiService {
 
     private static final String API_URL = "https://quizapi.io/api/v1/questions?apiKey=";
 
-    @Autowired
-    private JsonReader jsonReader;
+    private final JsonReader jsonReader;
+
+    private final PropertiesReader propertiesReader;
+
+    private final QuizInitRepository repository;
 
     @Autowired
-    private PropertiesReader propertiesReader;
-
-    @Autowired
-    private QuizInitRepository repository;
+    ApiService(JsonReader jsonReader, PropertiesReader propertiesReader, QuizInitRepository repository) {
+        this.jsonReader = jsonReader;
+        this.propertiesReader = propertiesReader;
+        this.repository = repository;
+    }
 
     /**
      * Gets {@link Quiz} form API call, based on tag and questionNumber chosen by the user.

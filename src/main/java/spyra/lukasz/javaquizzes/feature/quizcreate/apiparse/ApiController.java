@@ -15,8 +15,12 @@ import java.io.IOException;
 @Controller
 class ApiController {
 
+    private final ApiService apiService;
+
     @Autowired
-    private ApiService apiService;
+    ApiController(ApiService apiService) {
+        this.apiService = apiService;
+    }
 
     @GetMapping("/quizzes/random")
     String chooseRandomQuiz() {
