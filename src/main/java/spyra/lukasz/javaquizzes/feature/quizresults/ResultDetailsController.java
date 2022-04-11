@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.resultdetails;
+package spyra.lukasz.javaquizzes.feature.quizresults;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

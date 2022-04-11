@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.resultdetails;
+package spyra.lukasz.javaquizzes.feature.quizresults;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;

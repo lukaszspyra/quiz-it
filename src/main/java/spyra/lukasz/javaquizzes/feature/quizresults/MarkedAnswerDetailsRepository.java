@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.resultdetails;
+package spyra.lukasz.javaquizzes.feature.quizresults;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import spyra.lukasz.javaquizzes.shared.TakeQuizAnswer;
