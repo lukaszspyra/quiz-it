@@ -19,17 +19,21 @@ class DbInitLoaderFromFile {
 
     private static final Path FILES_PATH = Path.of("src/main/resources/quizcontent/");
 
-    @Autowired
-    private JsonReader jsonReader;
+    private final JsonReader jsonReader;
+
+    private final QuizInitRepository quizRepo;
 
     @Autowired
-    private QuizInitRepository quizRepo;
+    public DbInitLoaderFromFile(JsonReader jsonReader, QuizInitRepository quizRepo) {
+        this.jsonReader = jsonReader;
+        this.quizRepo = quizRepo;
+    }
 
     /**
      * Called upon bean init completion, loads quizzes from all files in given {@link DbInitLoaderFromFile#FILES_PATH}
      * and saves in database
      *
-     * @throws IOException
+     * @throws IOException when error reading from given file
      */
     @PostConstruct
     void loadQuizzesFromFile() throws IOException {

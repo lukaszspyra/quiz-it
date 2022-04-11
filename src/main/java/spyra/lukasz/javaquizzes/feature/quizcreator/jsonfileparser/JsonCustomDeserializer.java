@@ -61,13 +61,13 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
     private QuestionJson parseQuestion(JsonNode node) {
         final QuestionJson.Builder builder = new QuestionJson.Builder();
         final List<AnswerJson> answers = parseAnswers(node);
-        builder.withApiId(node.get(JsonNodes.ID.getValue()).asLong())
+        return builder.withApiId(node.get(JsonNodes.ID.getValue()).asLong())
                 .withContent(node.get(JsonNodes.QUESTION.getValue()).asText())
                 .withAnswers(answers)
                 .withTags(parseTags(node))
                 .withScore(questionScore(answers))
-                .withDifficulty(node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase());
-        return builder.build();
+                .withDifficulty(node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase())
+                .build();
     }
 
     private List<String> parseTags(JsonNode node) {
