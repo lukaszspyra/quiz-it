@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizselector;
+package spyra.lukasz.javaquizzes.feature.quizselect;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.access.prepost.PostAuthorize;

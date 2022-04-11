@@ -1,9 +1,7 @@
-package spyra.lukasz.javaquizzes.feature.quizselector;
+package spyra.lukasz.javaquizzes.feature.quizselect;
 
 import lombok.Getter;
 import lombok.Setter;
-
-import java.time.LocalDateTime;
 
 /**
  * DTO for quiz entity used to present details in controller
