@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
+package spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

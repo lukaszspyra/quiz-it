@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
+package spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse;
 
 /**
  * Node values used in available JSON formatted quizzes

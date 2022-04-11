@@ -1,9 +1,9 @@
-package spyra.lukasz.javaquizzes.feature.quizcreator.apiparser;
+package spyra.lukasz.javaquizzes.feature.quizcreate.apiparse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser.JsonReader;
-import spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser.QuizInitRepository;
+import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.JsonReader;
+import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.QuizInitRepository;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizcreator.apiparser;
+package spyra.lukasz.javaquizzes.feature.quizcreate.apiparse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

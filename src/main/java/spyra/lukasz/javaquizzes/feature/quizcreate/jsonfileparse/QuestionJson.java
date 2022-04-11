@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
+package spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse;
 
 import lombok.Getter;
 import spyra.lukasz.javaquizzes.shared.Question;

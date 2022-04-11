@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.quizcreator.jsonfileparser;
+package spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import spyra.lukasz.javaquizzes.shared.Quiz;
