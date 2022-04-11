@@ -6,6 +6,11 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 interface ResultDetailsRepository extends JpaRepository<TakeQuiz, Long> {
 
+    /**
+     * Secured to check if {@link TakeQuiz} belongs to currently logged in {@link spyra.lukasz.javaquizzes.shared.User}
+     * @param id
+     * @return
+     */
     @PostAuthorize("returnObject.user.email == authentication.principal.getUsername()")
     TakeQuiz getById(long id);
 }

@@ -4,15 +4,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
+/**
+ * Gets {@link AttemptDetailsView} DTO based on required quiz attempt id
+ */
 @Service
 class ResultDetailsService {
 
-    @Autowired
-    private ResultDetailsRepository repository;
+    private final ResultDetailsRepository repository;
+
+    private final ResultDetailsMapper resultDetailsMapper;
 
     @Autowired
-    private ResultDetailsMapper resultDetailsMapper;
+    ResultDetailsService(final ResultDetailsRepository repository, final ResultDetailsMapper resultDetailsMapper) {
+        this.repository = repository;
+        this.resultDetailsMapper = resultDetailsMapper;
+    }
 
+    /**
+     * Searches for entity with given id and returns corresponding DTO
+     *
+     * Uses repository layer and mapper
+     *
+     * @param attemptId to be searched for
+     * @return AttemptDetailsView
+     */
     AttemptDetailsView quizAttemptDetails(long attemptId){
         TakeQuiz attemptById = repository.getById(attemptId);
         return resultDetailsMapper.quizAttemptToDetailsView(attemptById);

@@ -6,11 +6,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+/**
+ * Presents quiz attempt results
+ */
 @Controller
 class ResultDetailsController {
 
+    private final ResultDetailsService service;
+
     @Autowired
-    private ResultDetailsService service;
+    ResultDetailsController(ResultDetailsService service) {
+        this.service = service;
+    }
 
     @GetMapping("/attempt/{attempt_id}/result/")
     String showResultDetails(@PathVariable(value = "attempt_id") long attemptId,

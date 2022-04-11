@@ -3,6 +3,9 @@ package spyra.lukasz.javaquizzes.feature.quizresults;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * DTO for answer details presented for user
+ */
 @Getter
 @Setter
 class AnswerDetailsView {

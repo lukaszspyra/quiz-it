@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * DTO for attempt details presented for the user
+ */
 @Getter
 @Setter
 class AttemptDetailsView {

@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * DTO for question presentation
+ */
 @Getter
 @Setter
 class QuestionDetailsView {

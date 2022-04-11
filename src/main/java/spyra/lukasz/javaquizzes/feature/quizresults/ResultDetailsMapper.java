@@ -13,17 +13,24 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Maps {@link TakeQuiz} entity to {@link AttemptDetailsView} DTO
+ */
 @Component
 class ResultDetailsMapper {
 
-    @Autowired
-    private MarkedAnswerDetailsRepository uDetailAnsRepository;
+    private final MarkedAnswerDetailsRepository uDetailAnsRepository;
+
+    private final AnswerMapStructMapper ansMapStructMapper;
+
+    private final ScoreCounter scoreCounter;
 
     @Autowired
-    private AnswerMapStructMapper ansMapStructMapper;
-
-    @Autowired
-    private ScoreCounter scoreCounter;
+    ResultDetailsMapper(final MarkedAnswerDetailsRepository uDetailAnsRepository, final AnswerMapStructMapper ansMapStructMapper,final ScoreCounter scoreCounter) {
+        this.uDetailAnsRepository = uDetailAnsRepository;
+        this.ansMapStructMapper = ansMapStructMapper;
+        this.scoreCounter = scoreCounter;
+    }
 
     AttemptDetailsView quizAttemptToDetailsView(final TakeQuiz takeQuiz) {
         AttemptDetailsView attemptDetailsView = new AttemptDetailsView();
