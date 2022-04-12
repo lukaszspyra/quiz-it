@@ -6,6 +6,5 @@ import spyra.lukasz.javaquizzes.shared.User;
 import java.util.Optional;
 
 interface UserRegisterRepository extends JpaRepository<User, Long> {
-
     Optional<User> findByEmail(String email);
 }

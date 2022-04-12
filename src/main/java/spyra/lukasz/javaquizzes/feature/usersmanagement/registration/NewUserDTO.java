@@ -8,6 +8,11 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+/**
+ * DTO for new {@link spyra.lukasz.javaquizzes.shared.User} registration.
+ *
+ * All data is validated by javax validators and custom {@link PasswordMatches} validating annotation
+ */
 @Component
 @Getter
 @Setter

@@ -10,19 +10,33 @@ import spyra.lukasz.javaquizzes.shared.AvailableRole;
 
 import javax.validation.Valid;
 
+/**
+ * Responsible for registration of new Users
+ */
 @Controller
 class RegistrationController {
 
-    @Autowired
-    private UserRegisterService registerService;
+    private final UserRegisterService registerService;
 
+    @Autowired
+    RegistrationController(UserRegisterService registerService) {
+        this.registerService = registerService;
+    }
 
     @GetMapping("/user/register")
     public String showRegistrationForm(NewUserDTO newUserDTO) {
         return "user-registration";
     }
 
-
+    /**
+     * Registers new User based on form data received by POST
+     *
+     * If there are validating errors in the filled up form, or User already exists, returns to registration with proper message.
+     * @param newUserDTO tied to DTO object {@link NewUserDTO}
+     * @param bindingResult results of validated data
+     * @param model passes successful registration message
+     * @return proper view (login/registration on success/failure of registration process)
+     */
     @PostMapping("/user/register")
     public String registerUserAccount(
             @Valid NewUserDTO newUserDTO,
