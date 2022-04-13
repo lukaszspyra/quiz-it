@@ -3,6 +3,9 @@ package spyra.lukasz.javaquizzes.feature.userdata;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * DTO for quiz attempt details presentation
+ */
 @Getter
 @Setter
 class TakeQuizView {

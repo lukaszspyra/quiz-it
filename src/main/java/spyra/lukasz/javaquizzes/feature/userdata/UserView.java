@@ -7,6 +7,9 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import java.util.List;
 
+/**
+ * DTO for User data presentation
+ */
 @Getter
 @Setter
 class UserView {
