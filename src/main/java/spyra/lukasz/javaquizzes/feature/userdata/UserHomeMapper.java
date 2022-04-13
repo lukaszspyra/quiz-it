@@ -6,11 +6,23 @@ import spyra.lukasz.javaquizzes.shared.User;
 
 import java.time.Duration;
 
+/**
+ * MapStruct mapper with default implementation of {@link TakeQuiz} to {@link TakeQuizView} mapping
+ */
 @Mapper(componentModel = "spring")
 interface UserHomeMapper {
 
     UserView from(User user);
 
+    /**
+     * Default implementation of mapping between entity and DTO
+     * <p>
+     * For presentation purpose, the duration of the quiz attempt is calculateda and formatted, based on start and finish
+     * moments saved in database
+     *
+     * @param takeQuiz entity from database
+     * @return DTO with quiz attempt duration
+     */
     default TakeQuizView from(TakeQuiz takeQuiz) {
         TakeQuizView takeQuizView = new TakeQuizView();
         takeQuizView.setId(takeQuiz.getId());
