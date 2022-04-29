@@ -60,17 +60,7 @@ class Progresser {
     }
 
     private TakeQuiz updateQuiz(final TakeQuiz currentQuiz, final int questionScore, final LocalDateTime questFinishTime) {
-        updateScore(currentQuiz, questionScore);
-        updateFinishTime(currentQuiz, questFinishTime);
-        return takeQuizRepository.save(currentQuiz);
+        return takeQuizRepository.save(currentQuiz.progressQuizAttempt(questionScore, questFinishTime));
     }
 
-    private void updateFinishTime(TakeQuiz currentQuiz, LocalDateTime questFinishTime) {
-        currentQuiz.setFinish(questFinishTime);
-    }
-
-    private void updateScore(TakeQuiz currentQuiz, int questionScore) {
-        int updatedScore = currentQuiz.getScore() + questionScore;
-        currentQuiz.setScore(updatedScore);
-    }
 }

@@ -43,4 +43,35 @@ public class TakeQuiz {
     @Valid
     private User user;
 
+    /**
+     * Updates {@link TakeQuiz} attempt with last question score and time of answer
+     *
+     * Score is add to existing score, whilst updated time replaces existing finish time
+     *
+     * @param questionScore received for the last question
+     * @param questFinishTIme time of completion of the last question`
+     * @return updated TakeQuiz attempt object
+     */
+    public TakeQuiz progressQuizAttempt(final int questionScore, final LocalDateTime questFinishTIme){
+        updateScore(questionScore);
+        updateFinishTime(questFinishTIme);
+        return this;
+    }
+
+    /**
+     * Updates finish time with next question answer time
+     * @param updatedTime after each question answer
+     *
+     * If User decides to stop the quiz before reaching the end, finish time is set to last question answer
+     */
+    private void updateFinishTime(LocalDateTime updatedTime) {
+        finish = updatedTime;
+    }
+
+    /**
+     * {@link TakeQuiz#score} is updated by adding last question result to existing sum of results
+     */
+    private void updateScore(int questionScore) {
+        score = score + questionScore;
+    }
 }
