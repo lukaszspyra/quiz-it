@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.shared;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -10,8 +11,13 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "take_quiz_answers")
 @Getter
-@Setter
-public class TakeQuizAnswer {
+public final class TakeQuizAnswer {
+
+    public TakeQuizAnswer(TakeQuiz takeQuiz, Question question, Answer answer) {
+        this.takeQuiz = takeQuiz;
+        this.question = question;
+        this.answer = answer;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
