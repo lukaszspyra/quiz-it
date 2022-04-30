@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import java.util.List;
 @Table(name = "take_quiz")
 @Getter
 @Setter
-public class TakeQuiz {
+public final class TakeQuiz {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,5 +74,14 @@ public class TakeQuiz {
      */
     private void updateScore(int questionScore) {
         score = score + questionScore;
+    }
+
+    /**
+     * Calculates latest available quiz end time moment in epoch second
+     * @param minutesForWholeQuiz minutes available for the quiz attempt
+     * @return time moment in Java epoch, when the quiz must end
+     */
+    public long calcTimeForQuizInEpochSeconds(int minutesForWholeQuiz) {
+        return start.atZone(ZoneId.systemDefault()).plusMinutes(minutesForWholeQuiz).toInstant().getEpochSecond();
     }
 }

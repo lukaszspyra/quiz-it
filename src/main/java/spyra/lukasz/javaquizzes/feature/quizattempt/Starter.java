@@ -8,7 +8,6 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 import spyra.lukasz.javaquizzes.shared.User;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 /**
  * Starts the quiz attempt.
@@ -16,11 +15,15 @@ import java.time.ZoneId;
 @Component
 class Starter {
 
-    @Autowired
-    private QuizProviderRepository quizProviderRepository;
+    private final QuizProviderRepository quizProviderRepository;
+
+    private final TakeQuizRepository takeQuizRepository;
 
     @Autowired
-    private TakeQuizRepository takeQuizRepository;
+    public Starter(QuizProviderRepository quizProviderRepository, TakeQuizRepository takeQuizRepository) {
+        this.quizProviderRepository = quizProviderRepository;
+        this.takeQuizRepository = takeQuizRepository;
+    }
 
     /**
      * Creates quiz attempt for logged in {@link User}.
@@ -42,13 +45,4 @@ class Starter {
         return takeQuizRepository.save(takeQuiz);
     }
 
-    /**
-     * Calculates latest available quiz end time moment in epoch second
-     * @param takeQuiz current started quiz attempt
-     * @param minutesForWholeQuiz minutes available for the quiz attempt
-     * @return time moment in Java epoch, when the quiz must end
-     */
-    long calcTimeForQuizInEpochSeconds(TakeQuiz takeQuiz, int minutesForWholeQuiz) {
-        return takeQuiz.getStart().atZone(ZoneId.systemDefault()).plusMinutes(minutesForWholeQuiz).toInstant().getEpochSecond();
-    }
 }

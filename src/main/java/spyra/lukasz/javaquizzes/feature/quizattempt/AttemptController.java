@@ -57,7 +57,7 @@ class AttemptController {
         TakeQuiz takeQuiz = starter.takeQuiz(quizId, principal.getName());
         List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
         int questionTimer = Integer.parseInt(propertyReader.readProperty("question_time", "settings.properties"));
-        long attemptTimer = starter.calcTimeForQuizInEpochSeconds(takeQuiz, questions.size() * questionTimer);
+        long attemptTimer = takeQuiz.calcTimeForQuizInEpochSeconds(questions.size() * questionTimer);
         session.setAttribute("question_timer", questionTimer);
         session.setAttribute("questions", questions);
         session.setAttribute("attempt_timer", attemptTimer);
