@@ -25,7 +25,6 @@ class ResultDetailsMapper {
 
     private final ScoreCounter scoreCounter;
 
-    @Autowired
     ResultDetailsMapper(final MarkedAnswerDetailsRepository uDetailAnsRepository, final AnswerMapStructMapper ansMapStructMapper,final ScoreCounter scoreCounter) {
         this.uDetailAnsRepository = uDetailAnsRepository;
         this.ansMapStructMapper = ansMapStructMapper;

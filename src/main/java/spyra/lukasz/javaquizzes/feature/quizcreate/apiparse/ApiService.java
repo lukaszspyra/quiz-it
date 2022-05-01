@@ -28,7 +28,6 @@ class ApiService {
 
     private final QuizInitRepository repository;
 
-    @Autowired
     ApiService(JsonReader jsonReader, PropertiesReader propertiesReader, QuizInitRepository repository) {
         this.jsonReader = jsonReader;
         this.propertiesReader = propertiesReader;

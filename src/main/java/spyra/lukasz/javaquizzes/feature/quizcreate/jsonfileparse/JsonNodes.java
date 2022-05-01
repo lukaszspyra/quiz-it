@@ -22,7 +22,7 @@ enum JsonNodes {
 
     private final String value;
 
-    public String getValue() {
+    String getValue() {
         return value;
     }
 

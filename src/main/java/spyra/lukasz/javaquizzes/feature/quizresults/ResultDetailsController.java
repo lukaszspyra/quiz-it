@@ -14,7 +14,6 @@ class ResultDetailsController {
 
     private final ResultDetailsService service;
 
-    @Autowired
     ResultDetailsController(ResultDetailsService service) {
         this.service = service;
     }

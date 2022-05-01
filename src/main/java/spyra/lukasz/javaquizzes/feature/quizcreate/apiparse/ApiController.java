@@ -17,7 +17,6 @@ class ApiController {
 
     private final ApiService apiService;
 
-    @Autowired
     ApiController(ApiService apiService) {
         this.apiService = apiService;
     }

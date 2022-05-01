@@ -13,8 +13,11 @@ import java.util.stream.Collectors;
 @Component
 class QuestionMapper {
 
-    @Autowired
-    private AnswerMapper answerMapper;
+    private final AnswerMapper answerMapper;
+
+    QuestionMapper(AnswerMapper answerMapper) {
+        this.answerMapper = answerMapper;
+    }
 
     QuestionView toView(Question question) {
         QuestionView view = new QuestionView();
