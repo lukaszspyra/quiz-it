@@ -20,14 +20,14 @@ class QuizMapper {
     }
 
     QuizView toView(Quiz quiz) {
-        QuizView view = new QuizView();
-        view.setId(quiz.getId());
-        view.setTitle(quiz.getTitle());
-        view.setScore(quiz.getMaxScore());
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
-        view.setCreated(quiz.getCreated().format(formatter));
-        view.setUpdated(quiz.getUpdated().format(formatter));
-        return view;
+        QuizView.Builder viewBuilder = new QuizView.Builder();
+        return viewBuilder.withId(quiz.getId())
+                .withTitle(quiz.getTitle())
+                .withScore(quiz.getMaxScore())
+                .withCreated(quiz.getCreated().format(formatter))
+                .withUpdated(quiz.getUpdated().format(formatter))
+                .build();
     }
 
 }

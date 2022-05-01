@@ -1,23 +1,66 @@
 package spyra.lukasz.javaquizzes.feature.quizselect;
 
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * DTO for quiz entity used to present details in controller
  */
 @Getter
-@Setter
-class QuizView {
+final class QuizView {
 
-    private long id;
+    private final long id;
 
-    private String title;
+    private final String title;
 
-    private int score;
+    private final int score;
 
-    private String created;
+    private final String created;
 
-    private String updated;
+    private final String updated;
 
+    private QuizView(final QuizView.Builder builder) {
+        this.id = builder.id;
+        this.title = builder.title;
+        this.score = builder.score;
+        this.created = builder.created;
+        this.updated = builder.updated;
+    }
+
+    static class Builder {
+
+        private long id;
+        private String title;
+        private int score;
+        private String created;
+        private String updated;
+
+        Builder withId(long id) {
+            this.id = id;
+            return this;
+        }
+
+        Builder withTitle(String title) {
+            this.title = title;
+            return this;
+        }
+
+        Builder withScore(int score) {
+            this.score = score;
+            return this;
+        }
+
+        Builder withCreated(String created) {
+            this.created = created;
+            return this;
+        }
+
+        Builder withUpdated(String updated) {
+            this.updated = updated;
+            return this;
+        }
+
+        QuizView build() {
+            return new QuizView(this);
+        }
+    }
 }
