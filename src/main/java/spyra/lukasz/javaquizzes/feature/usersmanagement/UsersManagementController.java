@@ -31,7 +31,7 @@ class UsersManagementController {
     String addAdminRole(@RequestParam(value = "id") long userId,
                         RedirectAttributes redirectAttributes) {
         final Optional<ChangeUserRoleDTO> roleChanged = userManagementService.changeRole(userId, AvailableRole.ADMIN);
-        roleChanged.ifPresent(newAdmin -> redirectAttributes.addFlashAttribute("message", "Admin role set for learner: " + newAdmin.getEmail()));
+        roleChanged.ifPresent(newAdmin -> redirectAttributes.addFlashAttribute("message", "Admin role will be set after re-login, for learner: " + newAdmin.getEmail()));
         return "redirect:/superadmin/user-management/users";
     }
 
@@ -39,7 +39,7 @@ class UsersManagementController {
     String removeAdminRole(@RequestParam(value = "id") long adminId,
                            RedirectAttributes redirectAttributes) {
         final Optional<ChangeUserRoleDTO> roleChanged = userManagementService.changeRole(adminId, AvailableRole.USER);
-        roleChanged.ifPresent(newUser -> redirectAttributes.addFlashAttribute("message", "User role set for learner: " + newUser.getEmail()));
+        roleChanged.ifPresent(newUser -> redirectAttributes.addFlashAttribute("message", "User role will be set after re-login,for learner: " + newUser.getEmail()));
         return "redirect:/superadmin/user-management/users";
     }
 

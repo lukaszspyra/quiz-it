@@ -17,14 +17,17 @@ import java.util.stream.Collectors;
 @Service
 class UserManagementService {
 
-    @Autowired
-    private UserManagementRepository userRepository;
+    private final UserManagementRepository userRepository;
 
-    @Autowired
-    private RoleRepository roleRepository;
+    private final RoleRepository roleRepository;
 
-    @Autowired
-    private UserAuthorityMapStructMapper mapper;
+    private final UserAuthorityMapStructMapper mapper;
+
+    public UserManagementService(UserManagementRepository userRepository, RoleRepository roleRepository, UserAuthorityMapStructMapper mapper) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.mapper = mapper;
+    }
 
     Optional<ChangeUserRoleDTO> changeRole(long userId, AvailableRole newRole) {
         if (isSuperAdmin(userId)) {

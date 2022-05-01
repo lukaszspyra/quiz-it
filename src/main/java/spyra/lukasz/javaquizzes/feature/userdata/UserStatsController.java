@@ -18,9 +18,6 @@ class UserStatsController {
     @GetMapping({"/", "home"})
     public String home(Principal principal, Authentication authentication, Model model) {
         model.addAttribute("user", userService.getUserDataByEmail(principal.getName()));
-        //TODO: for research purposes: check user data saved in session after modification in database. After checks
-        //MyUserPrincipal can be pacakge-private
-        MyUserPrincipal test = (MyUserPrincipal) authentication.getPrincipal();
         return "home";
     }
 
