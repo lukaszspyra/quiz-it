@@ -1,6 +1,5 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
@@ -13,8 +12,11 @@ import java.util.stream.Collectors;
 @Component
 public class AttemptMapper {
 
-    @Autowired
-    private QuestionMapper questionMapper;
+    private final QuestionMapper questionMapper;
+
+    public AttemptMapper(QuestionMapper questionMapper) {
+        this.questionMapper = questionMapper;
+    }
 
     List<AttemptView> toView(List<Quiz> quizzes) {
         return quizzes.stream()

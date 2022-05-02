@@ -1,6 +1,5 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,21 +23,23 @@ import java.util.List;
 @Controller
 class AttemptController {
 
-    @Autowired
-    private Starter starter;
+    private final Starter starter;
 
-    @Autowired
-    private Progresser progresser;
+    private final Progresser progresser;
 
-    @Autowired
-    private Finisher finisher;
+    private final Finisher finisher;
 
-    @Autowired
-    private AttemptService attemptService;
+    private final AttemptService attemptService;
 
-    @Autowired
-    private QuestionTimeReader propertyReader;
+    private final QuestionTimeReader propertyReader;
 
+    AttemptController(Starter starter, Progresser progresser, Finisher finisher, AttemptService attemptService, QuestionTimeReader propertyReader) {
+        this.starter = starter;
+        this.progresser = progresser;
+        this.finisher = finisher;
+        this.attemptService = attemptService;
+        this.propertyReader = propertyReader;
+    }
 
     /**
      * Starts quiz attempt based on the PathVariable with quiz id
@@ -119,9 +120,10 @@ class AttemptController {
 
     /**
      * Process quiz end
+     *
      * @param attemptId currently finished quiz attempt
-     * @param model with attempt results
-     * @param session cleaned from questions variable
+     * @param model     with attempt results
+     * @param session   cleaned from questions variable
      * @return result view
      */
     @GetMapping("/quiz/{quiz_id}/finish/{attempt_id}")
@@ -129,7 +131,7 @@ class AttemptController {
                       Model model,
                       HttpSession session) {
         TakeQuiz takeQuiz = finisher.finishQuizAttempt(session, attemptId);
-        Duration duration = finisher.calcAttemptTime(takeQuiz);
+        Duration duration = takeQuiz.calcAttemptTime();
         model.addAttribute("result", takeQuiz);
         model.addAttribute("duration", duration);
         return "result";
@@ -137,10 +139,11 @@ class AttemptController {
 
     /**
      * Called when total time of quiz passed
-     * @param answerIds any marked answers
+     *
+     * @param answerIds  any marked answers
      * @param questionId current quiz question
-     * @param attemptId current attempt
-     * @param quizId base for attempt
+     * @param attemptId  current attempt
+     * @param quizId     base for attempt
      * @return redirects to {@link AttemptController#finishQuiz(long, Model, HttpSession)}
      */
     @PostMapping("/quiz/{quiz_id}/finish/{attempt_id}")

@@ -1,6 +1,5 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Quiz;
@@ -19,17 +18,17 @@ class Starter {
 
     private final TakeQuizRepository takeQuizRepository;
 
-    @Autowired
-    public Starter(QuizProviderRepository quizProviderRepository, TakeQuizRepository takeQuizRepository) {
+    Starter(QuizProviderRepository quizProviderRepository, TakeQuizRepository takeQuizRepository) {
         this.quizProviderRepository = quizProviderRepository;
         this.takeQuizRepository = takeQuizRepository;
     }
 
     /**
      * Creates quiz attempt for logged in {@link User}.
-     *
+     * <p>
      * New quiz attempt is created for saved quiz and user, start and finish time is set, complete entity is saved to database.
-     * @param quizId currently taken quiz
+     *
+     * @param quizId    currently taken quiz
      * @param userEmail currently logged in {@link User}
      * @return created quiz attempt
      */

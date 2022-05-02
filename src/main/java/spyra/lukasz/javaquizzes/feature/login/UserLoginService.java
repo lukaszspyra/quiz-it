@@ -1,6 +1,5 @@
 package spyra.lukasz.javaquizzes.feature.login;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -10,8 +9,11 @@ import spyra.lukasz.javaquizzes.shared.User;
 @Service
 class UserLoginService implements UserDetailsService {
 
-    @Autowired
-    private LoginUserRepository repository;
+    private final LoginUserRepository repository;
+
+    UserLoginService(LoginUserRepository repository) {
+        this.repository = repository;
+    }
 
     /**
      * Delivers custom implementation of Spring's UserDetails interface, used for login process.

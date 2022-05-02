@@ -1,6 +1,5 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.Question;
 
@@ -10,14 +9,18 @@ import java.util.List;
 @Service
 class AttemptService {
 
-    @Autowired
-    private QuizProviderRepository quizProviderRepository;
+    private final QuizProviderRepository quizProviderRepository;
 
-    @Autowired
-    private QuestionMapper questionMapper;
+    private final QuestionMapper questionMapper;
+
+    public AttemptService(QuizProviderRepository quizProviderRepository, QuestionMapper questionMapper) {
+        this.quizProviderRepository = quizProviderRepository;
+        this.questionMapper = questionMapper;
+    }
 
     /**
      * Retrieves quiz questions and returns them shuffled and mapped
+     *
      * @param quizId given quiz id
      * @return questions
      */
