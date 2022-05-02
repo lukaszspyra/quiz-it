@@ -1,11 +1,9 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
-import java.time.Duration;
 import java.time.LocalDateTime;
 
 /**
@@ -14,12 +12,16 @@ import java.time.LocalDateTime;
 @Component
 class Finisher {
 
-    @Autowired
-    private TakeQuizRepository takeQuizRepository;
+    private final TakeQuizRepository takeQuizRepository;
+
+    Finisher(TakeQuizRepository takeQuizRepository) {
+        this.takeQuizRepository = takeQuizRepository;
+    }
 
     /**
      * Finish the quiz attempt by saving finish time
-     * @param session for cleanign of questions
+     *
+     * @param session    for cleanign of questions
      * @param takeQuizId to be ended
      * @return saved finished quiz attempt
      */
@@ -30,14 +32,4 @@ class Finisher {
         return takeQuizRepository.save(byId);
     }
 
-    /**
-     * Calculates total time used for quiz
-     * @param takeQuiz given attempt
-     * @return difference between start and finish quiz times
-     */
-    Duration calcAttemptTime(TakeQuiz takeQuiz){
-        var start = takeQuiz.getStart();
-        var finish = takeQuiz.getFinish();
-        return Duration.between(start, finish);
-    }
 }

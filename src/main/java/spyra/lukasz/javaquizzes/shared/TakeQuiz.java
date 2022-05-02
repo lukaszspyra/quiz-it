@@ -6,6 +6,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -83,5 +84,14 @@ public final class TakeQuiz {
      */
     public long calcTimeForQuizInEpochSeconds(int minutesForWholeQuiz) {
         return start.atZone(ZoneId.systemDefault()).plusMinutes(minutesForWholeQuiz).toInstant().getEpochSecond();
+    }
+
+    /**
+     * Calculates total time used for quiz
+     *
+     * @return difference between start and finish quiz times
+     */
+    public Duration calcAttemptTime() {
+        return Duration.between(start, finish);
     }
 }
