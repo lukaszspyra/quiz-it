@@ -4,6 +4,7 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 import spyra.lukasz.javaquizzes.shared.Answer;
 
+@Test(groups = "Mapper")
 public class AnswerMapperTest {
 
     @Test(dataProvider = "answersWithCorrespondingDTOs", dataProviderClass = AttemptDataProvider.class)
