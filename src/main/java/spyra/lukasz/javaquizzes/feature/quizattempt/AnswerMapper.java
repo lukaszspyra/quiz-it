@@ -13,11 +13,7 @@ import java.util.stream.Collectors;
 class AnswerMapper {
 
     AnswerView toView(Answer answer) {
-        AnswerView view = new AnswerView();
-        view.setId(answer.getId());
-        view.setCorrect(answer.isCorrect());
-        view.setContent(answer.getContent());
-        return view;
+        return new AnswerView(answer.getId(), answer.isCorrect(), answer.getContent());
     }
 
     List<AnswerView> toView(List<Answer> answers) {

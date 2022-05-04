@@ -1,6 +1,8 @@
 package spyra.lukasz.javaquizzes.shared;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -13,6 +15,8 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 @Table(name = "answer")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Answer {
 
     @Id
