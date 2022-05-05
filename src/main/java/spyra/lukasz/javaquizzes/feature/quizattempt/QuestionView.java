@@ -1,7 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
@@ -10,6 +9,9 @@ import java.util.List;
  */
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class QuestionView {
 
     private long id;

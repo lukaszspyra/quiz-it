@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import spyra.lukasz.javaquizzes.shared.Answer;
@@ -11,6 +12,7 @@ import spyra.lukasz.javaquizzes.shared.Answer;
 @Getter
 @Setter
 @AllArgsConstructor
+@EqualsAndHashCode
 class AnswerView {
 
     private long id;

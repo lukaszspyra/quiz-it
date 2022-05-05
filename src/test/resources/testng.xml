@@ -13,6 +13,7 @@
         </groups>
         <classes>
             <class name="spyra.lukasz.javaquizzes.feature.quizattempt.AnswerMapperTest"/>
+            <class name="spyra.lukasz.javaquizzes.feature.quizattempt.QuestionMapperTest"/>
         </classes>
     </test>
 </suite>
