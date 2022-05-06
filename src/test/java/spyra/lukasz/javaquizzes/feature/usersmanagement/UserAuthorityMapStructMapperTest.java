@@ -19,4 +19,17 @@ public class UserAuthorityMapStructMapperTest {
         //then
         assertEquals(dto, result);
     }
+
+    @Test(description = "Shall fail to return proper DTO, but it did not", dataProvider = "usersWithDifferentAuthorityDTOs", dataProviderClass = UserManagementDataProvider.class)
+    public void shallNotMapUserToAuthorityChangeDTO(User user, ChangeUserRoleDTO dto) {
+        //given
+        UserAuthorityMapStructMapper mapper = new UserAuthorityMapStructMapperImpl();
+
+        //when
+        final ChangeUserRoleDTO result = mapper.toView(user);
+
+        //then
+        assertNotEquals(dto, result);
+    }
+
 }

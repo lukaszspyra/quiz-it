@@ -22,4 +22,13 @@ public class UserManagementDataProvider {
                 {user3, view3}
         };
     }
+
+    @DataProvider
+    public static Object[][] usersWithDifferentAuthorityDTOs() {
+        return new Object[][]{
+                {user1, view2},
+                {user2, view3},
+                {user3, view1}
+        };
+    }
 }
