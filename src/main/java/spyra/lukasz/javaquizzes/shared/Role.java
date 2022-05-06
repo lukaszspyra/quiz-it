@@ -1,5 +1,8 @@
 package spyra.lukasz.javaquizzes.shared;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -8,6 +11,8 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "role")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Role {
 
     @Id
