@@ -61,4 +61,13 @@ public class AttemptDataProvider {
                 {quiz3, attemptView3}
         };
     }
+
+    @DataProvider
+    public static Object[][] quizzesWithRandomAttemptDTOs() {
+        return new Object[][]{
+                {quiz1, attemptView2},
+                {quiz2, attemptView3},
+                {quiz3, attemptView1}
+        };
+    }
 }
