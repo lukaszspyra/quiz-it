@@ -1,7 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -11,6 +10,9 @@ import java.util.List;
  */
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode
 class AttemptView {
 
     private long id;
