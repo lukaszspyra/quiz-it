@@ -21,7 +21,7 @@ public class UserAuthorityMapStructMapperTest {
     }
 
     @Test(description = "Shall fail to return proper DTO, but it did not", dataProvider = "usersWithDifferentAuthorityDTOs", dataProviderClass = UserManagementDataProvider.class)
-    public void shallNotMapUserToAuthorityChangeDTO(User user, ChangeUserRoleDTO dto) {
+    public void shallNotMapUserToRandomAuthorityChangeDTO(User user, ChangeUserRoleDTO dto) {
         //given
         UserAuthorityMapStructMapper mapper = new UserAuthorityMapStructMapperImpl();
 
