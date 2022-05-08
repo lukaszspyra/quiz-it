@@ -45,11 +45,29 @@ public class AttemptDataProvider {
     }
 
     @DataProvider
+    public static Object[][] answersWithRandomDTOs() {
+        return new Object[][]{
+                {answer1, answerView3},
+                {answer2, answerView1},
+                {answer3, answerView1},
+        };
+    }
+
+    @DataProvider
     public static Object[][] questionsWithCorrespondingDTOs() {
         return new Object[][]{
                 {question1, questionView1},
                 {question2, questionView2},
                 {question3, questionView3}
+        };
+    }
+
+    @DataProvider
+    public static Object[][] questionsWithRandomDTOs() {
+        return new Object[][]{
+                {question1, questionView2},
+                {question2, questionView3},
+                {question3, questionView2}
         };
     }
 
