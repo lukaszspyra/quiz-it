@@ -14,6 +14,8 @@
         <classes>
             <class name="spyra.lukasz.javaquizzes.feature.quizattempt.AnswerMapperTest"/>
             <class name="spyra.lukasz.javaquizzes.feature.quizattempt.QuestionMapperTest"/>
+            <class name="spyra.lukasz.javaquizzes.feature.quizattempt.AttemptMapperTest"/>
+            <class name="spyra.lukasz.javaquizzes.feature.usersmanagement.UserAuthorityMapStructMapperTest"/>
         </classes>
     </test>
 </suite>
