@@ -35,6 +35,9 @@ public class Question {
     @NotNull
     private String content;
 
+    @NotNull
+    private String difficulty;
+
     @ManyToMany
     @JoinTable(name = "quiz_question",
             joinColumns = @JoinColumn(name = "quiz_id", referencedColumnName = "id"),
