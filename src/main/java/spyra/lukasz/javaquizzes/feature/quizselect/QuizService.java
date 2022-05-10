@@ -13,23 +13,23 @@ class QuizService {
 
     private final QuizSelectRepository quizSelectRepository;
 
-    private final QuizMapper quizMapper;
+    private final QuizToViewMapper quizToViewMapper;
 
     @Autowired
-    QuizService(final QuizSelectRepository quizSelectRepository, final QuizMapper quizMapper) {
+    QuizService(final QuizSelectRepository quizSelectRepository, final QuizToViewMapper quizToViewMapper) {
         this.quizSelectRepository = quizSelectRepository;
-        this.quizMapper = quizMapper;
+        this.quizToViewMapper = quizToViewMapper;
     }
 
     List<QuizView> findPredefinedNotRestricted() {
-        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalseAndPredefinedTrueOrderByTitleAsc());
+        return quizToViewMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalseAndPredefinedTrueOrderByTitleAsc());
     }
 
     List<QuizView> findRestricted() {
-        return quizMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrueOrderByTitleAsc());
+        return quizToViewMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrueOrderByTitleAsc());
     }
 
     QuizView getById(long id) {
-        return quizMapper.toView(quizSelectRepository.getQuizById(id));
+        return quizToViewMapper.toView(quizSelectRepository.getQuizById(id));
     }
 }

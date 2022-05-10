@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * Maps {@link Quiz} to {@link QuizView}
  */
 @Component
-class QuizMapper {
+class QuizToViewMapper {
 
     List<QuizView> toView(List<Quiz> quizzes) {
         return quizzes.stream()
