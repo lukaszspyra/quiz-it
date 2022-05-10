@@ -55,7 +55,7 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         return questions.stream()
                 .flatMap(quest -> quest.getTags().stream())
                 .distinct()
-                .collect(Collectors.joining("-", prefix, "-" + questions.get(0).getDifficulty()));
+                .collect(Collectors.joining("-", prefix, ""));
     }
 
     private QuestionJson parseQuestion(JsonNode node) {
@@ -66,7 +66,7 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
                 .withAnswers(answers)
                 .withTags(parseTags(node))
                 .withScore(questionScore(answers))
-                .withDifficulty(node.get(JsonNodes.DIFFICULTY.getValue()).asText().toLowerCase())
+                .withDifficulty(node.get(JsonNodes.DIFFICULTY.getValue()).asText().toUpperCase())
                 .build();
     }
 

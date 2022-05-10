@@ -24,6 +24,7 @@ class QuestionMapper {
         view.setId(question.getId());
         view.setContent(question.getContent());
         view.setScore(question.getScore());
+        view.setDifficulty(question.getDifficulty());
         view.setAnswers(answerMapper.toView(question.getAnswers()));
         return view;
     }

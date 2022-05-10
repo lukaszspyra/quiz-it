@@ -20,12 +20,12 @@ public class AttemptDataProvider {
     private static AnswerView answerView2 = new AnswerView(2, true, "answer2");
     private static AnswerView answerView3 = new AnswerView(3, false, "answer3");
 
-    private static Question question1 = new Question(7, 0, 1, "question1", null, List.of(answer1));
-    private static Question question2 = new Question(8, 0, 2, "question2", null, List.of(answer1, answer2));
-    private static Question question3 = new Question(9, 0, 3, "question3", null, List.of(answer1, answer2, answer3));
-    private static QuestionView questionView1 = new QuestionView(7, 1, "question1", List.of(answerView1));
-    private static QuestionView questionView2 = new QuestionView(8, 2, "question2", List.of(answerView1, answerView2));
-    private static QuestionView questionView3 = new QuestionView(9, 3, "question3", List.of(answerView1, answerView2, answerView3));
+    private static Question question1 = new Question(7, 0, 1, "question1", "Medium", null, List.of(answer1));
+    private static Question question2 = new Question(8, 0, 2, "question2", "Hard", null, List.of(answer1, answer2));
+    private static Question question3 = new Question(9, 0, 3, "question3", "Easy", null, List.of(answer1, answer2, answer3));
+    private static QuestionView questionView1 = new QuestionView(7, 1, "question1", "Medium", List.of(answerView1));
+    private static QuestionView questionView2 = new QuestionView(8, 2, "question2", "Hard", List.of(answerView1, answerView2));
+    private static QuestionView questionView3 = new QuestionView(9, 3, "question3", "Easy", List.of(answerView1, answerView2, answerView3));
 
     private static AttemptView attemptView1 = new AttemptView(0, "attempt1", 10, MOCKED_DATE_TIME_1, MOCKED_DATE_TIME_1, List.of(questionView1));
     private static AttemptView attemptView2 = new AttemptView(1, "attempt2", 12, MOCKED_DATE_TIME_2, MOCKED_DATE_TIME_2, List.of(questionView1, questionView2));

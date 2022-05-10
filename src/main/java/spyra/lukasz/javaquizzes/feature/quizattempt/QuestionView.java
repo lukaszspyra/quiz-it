@@ -20,6 +20,8 @@ public class QuestionView {
 
     private String content;
 
+    private String difficulty;
+
     private List<AnswerView> answers;
 
 }
