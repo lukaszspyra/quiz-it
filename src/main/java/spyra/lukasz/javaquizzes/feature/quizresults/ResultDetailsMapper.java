@@ -64,6 +64,7 @@ class ResultDetailsMapper {
         questDetails.setQuestionId(question.getId());
         questDetails.setQuestMaxScore(question.getScore());
         questDetails.setContent(question.getContent());
+        questDetails.setDifficulty(questDetails.getDifficulty());
         questDetails.setPossibleAnswers(ansMapStructMapper.answersEntityToDetailsViews(question.getAnswers()));
 
         List<TakeQuizAnswer> ansMarkedAsTrue = uDetailAnsRepository.findTakeQuizAnswerByQuestionIdAndTakeQuizId(question.getId(), takeQuizId);

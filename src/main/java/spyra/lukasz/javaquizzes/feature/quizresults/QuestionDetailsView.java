@@ -20,6 +20,8 @@ class QuestionDetailsView {
 
     private String content;
 
+    private String difficulty;
+
     private List<AnswerDetailsView> possibleAnswers;
 
     private List<AnswerDetailsView> markedAnswers;
