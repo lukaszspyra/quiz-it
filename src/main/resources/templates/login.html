@@ -1,38 +1,46 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="IT technical quizzes">
+    <meta name="keywords" content="education, quiz, information technology, programming, study, knowledge">
+    <meta name="author" content="Themefisher.com">
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/userlogin/fonts/icomoon/style.css">
-    <link rel="stylesheet" href="/userlogin/css/owl.carousel.min.css">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="/userlogin/css/bootstrap.min.css">
-    <!-- Style -->
-    <link rel="stylesheet" href="/userlogin/css/style.css">
+    <title>QuizIT - your IT knowledge testing space </title>
 
-    <title>Login</title>
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="modern/plugins/bootstrap/css/bootstrap.css">
+    <!-- Icofont Css -->
+    <link rel="stylesheet" href="modern/plugins/fontawesome/css/all.css">
+    <!-- animate.css -->
+    <link rel="stylesheet" href="modern/plugins/animate-css/animate.css">
+    <!-- Icofont -->
+    <link rel="stylesheet" href="modern/plugins/icofont/icofont.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="modern/css/style.css">
+
 </head>
-<body>
+
+<body data-spy="scroll" data-target=".fixed-top">
 
 
-<div class="d-lg-flex half">
-
-    <div class="bg order-1 order-md-2" style="background-image: url('/userlogin/images/bg_1.jpg')"></div>
-
-    <div class="contents order-2 order-md-1">
-
-        <div class="container">
+<!-- NAVIGATION TEMPLATE -->
+<div th:replace="fragments/nav.html :: navigation"></div>
 
 
-            <div class="row align-items-center justify-content-center">
-                <img src="/userlogin/images/logo_java.png">
-                <div class="col-md-7">
-
-                    <h3 style="text-align: center">Login to check your tech knowledge</h3>
-                    <br>
-                    <p class="mb-4">Questions of i.a. Linux/Bash/Java/PHP/Python/Cloud/DevOps</p>
+<!--MAIN BANNER AREA START -->
+<div class="page-banner-area page-contact" id="page-banner">
+    <div class="overlay dark-overlay"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
+                <div class="banner-content content-padding">
+                    <h1 class="text-white">Login to your quizIT account</h1>
+                    <p><a href="#" style="color:white">Not registered yet?</a></p>
 
                     <!--Alerts for login/logout/registered-->
                     <div th:if="${param.error}" class="alert alert-danger">
@@ -44,30 +52,50 @@
                     <div th:if="${registrationsuccess}" th:text="${registrationsuccess}" class="alert alert-success">
                     </div>
 
-                    <form name="f" th:action="@{/login}" method="post">
-                        <div class="form-group first">
-                            <label for="username">Email</label>
-                            <input type="text" class="form-control" id="username" name="username">
+                    <form name="f" class="contact__form" method="post" th:action="@{/login}" >
+                        <div class="row justify-content-center">
+                            <div class="col-7 form-group">
+                                <input name="username" type="email" class="form-control" placeholder="Email" required>
+                            </div>
+                            <div class="col-7 form-group">
+                                <input name="password" type="password" class="form-control" placeholder="Password"
+                                       required>
+                            </div>
+                            <div class="col-8 form-group">
+                                <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Log In">
+                            </div>
                         </div>
-                        <div class="form-group last mb-3">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" name="password">
-                        </div>
-                        <input type="submit" value="Log In" class="btn btn-block btn-primary">
                     </form>
-                    <form name="register" th:action="@{/user/register}" method="get">
-                        <input type="submit" value="Register" class="btn btn-block btn-secondary">
-                    </form>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!--MAIN HEADER AREA END -->
 
 
-<script src="/userlogin/js/jquery-3.3.1.min.js"></script>
-<script src="/userlogin/js/popper.min.js"></script>
-<script src="/userlogin/js/bootstrap.min.js"></script>
-<script src="/userlogin/js/main.js"></script>
+<!--  FOOTER AREA INSERTED -->
+<div th:replace="fragments/footer.html :: footer"></div>
+
+
+<!--
+    Essential Scripts
+    =====================================-->
+<!-- Main jQuery -->
+<script src="modern/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4.3.1 -->
+<script src="modern/plugins/bootstrap/js/popper.min.js"></script>
+<script src="modern/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Woow animtaion -->
+<script src="modern/plugins/counterup/wow.min.js"></script>
+<script src="modern/plugins/counterup/jquery.easing.1.3.js"></script>
+<!-- Counterup -->
+<script src="modern/plugins/counterup/jquery.waypoints.js"></script>
+<script src="modern/plugins/counterup/jquery.counterup.min.js"></script>
+<!-- Contact Form -->
+<script src="modern/plugins/jquery/contact.js"></script>
+<script src="modern/js/custom.js"></script>
+
 </body>
 </html>
