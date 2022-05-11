@@ -99,7 +99,7 @@
                     </div>
                     <div class="service-inner">
                         <h3 style="min-height: 73px" th:text=" ${takenQuiz.getQuizTitle()}">'No data'</h3>
-                        <text>Difficulty: <br></text>
+                        <text>Difficulty: <span th:text="${takenQuiz.getDifficulty()}">'No data'</span><br></text>
                         <text>Time spent: <span th:text="${takenQuiz.getDuration()}">'No data'</span></text>
                         <p>Max points: <span th:text="${takenQuiz.getQuizMaxScore()}">'No data'</span></p>
                         <a th:href="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" class="btn btn-black btn-circled">details</a>
