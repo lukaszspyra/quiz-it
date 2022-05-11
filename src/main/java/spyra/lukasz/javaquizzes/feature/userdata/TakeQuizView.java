@@ -19,4 +19,6 @@ class TakeQuizView {
     private String quizTitle;
 
     private int quizMaxScore;
+
+    private String difficulty;
 }
