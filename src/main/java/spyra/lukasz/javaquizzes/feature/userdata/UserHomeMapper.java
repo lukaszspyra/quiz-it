@@ -30,6 +30,7 @@ interface UserHomeMapper {
         takeQuizView.setDuration(calcAttemptTime(takeQuiz));
         takeQuizView.setQuizMaxScore(takeQuiz.getQuiz().getMaxScore());
         takeQuizView.setQuizTitle(takeQuiz.getQuiz().getTitle());
+        takeQuizView.setDifficulty(takeQuiz.getQuiz().getQuestions().get(0).getDifficulty());
         return takeQuizView;
     }
 
