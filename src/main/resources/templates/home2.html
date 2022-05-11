@@ -39,170 +39,100 @@
             <div class="col-lg-3 col-md-6">
                 <div class="banner-content section-padding text-center">
                     <h3 class="text-white">Username</h3>
-                    <p th:text="${user.getName()}">Stranger</p>
+                    <p th:text="${user.getName()}">'No data'</p>
                 </div>
             </div>
             <div class=" col-lg-3 col-md-6">
-                    <div class="banner-content section-padding text-center">
-                        <h3 class="text-white">Email</h3>
-                        <p th:text="${user.getEmail()}">Anonymous</p>
-                    </div>
+                <div class="banner-content section-padding text-center">
+                    <h3 class="text-white">Email</h3>
+                    <p th:text="${user.getEmail()}">'No data'</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="banner-content section-padding text-center">
-                        <h3 class="text-white">Quizzes solved</h3>
-                        <p th:text="${user.getTakenQuizzes().size()}">No data</p>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="banner-content section-padding text-center">
+                    <h3 class="text-white">Quizzes solved</h3>
+                    <p th:text="${user.getTakenQuizzes().size()}">'No data'</p>
                 </div>
-                <div class="col-lg-3 col-md-6">
-                    <div class="banner-content section-padding text-center">
-                        <h3 class="text-white">Registered as</h3>
-                        <p th:text="${user.getRole().getName()}">No role</p>
-                    </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="banner-content section-padding text-center">
+                    <h3 class="text-white">Registered as</h3>
+                    <p th:text="${user.getRole().getName()}">'No data'</p>
                 </div>
-                <div class="col-lg-12 col-md-12">
-                    <div class="banner-content text-center" style="padding: 20px 0px 100px">
-                        <h3 class="text-white">Your results</h3>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="banner-content text-center" style="padding: 20px 0px 100px">
+                    <h3 class="text-white">Your results</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--MAIN HEADER AREA END -->
 
+
+<!--  SERVICE AREA START  -->
+<section id="service">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <!--        ONLY IF NO QUIZ ATTEMPT YET-->
+            <div class="col-sm-6 col-md-6" th:if="${user.getTakenQuizzes().isEmpty()}">
+                <div class="service-box">
+                    <div class="service-img-icon">
+                        <h1>?</h1>
+                    </div>
+                    <div class="service-inner">
+                        <h4>You have no quiz attempt yet.</h4>
+                        <h4>Let's give it a try. It will be fun!</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--        ONLY IF THERE ARE SOME QUIZ ATTEMPTS-->
+            <div class="col-sm-6 col-md-6" th:classappend="${user.getTakenQuizzes().size < 3 ? 'col-lg-6' : 'col-lg-3'}"
+                 th:each="takenQuiz: ${user.getTakenQuizzes()}">
+                <div class="service-box">
+                    <div class="service-img-icon">
+                        <h1 th:text="${takenQuiz.getScore()}">?</h1>
+                    </div>
+                    <div class="service-inner">
+                        <h3 style="min-height: 73px" th:text=" ${takenQuiz.getQuizTitle()}">'No data'</h3>
+                        <text>Difficulty: <br></text>
+                        <text>Time spent: <span th:text="${takenQuiz.getDuration()}">'No data'</span></text>
+                        <p>Max points: <span th:text="${takenQuiz.getQuizMaxScore()}">'No data'</span></p>
+                        <a th:href="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" class="btn btn-black btn-circled">details</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!--MAIN HEADER AREA END -->
+</section>
+<!--  SERVICE AREA END  -->
 
 
-    <!--  SERVICE AREA START  -->
-    <section id="service">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="service-img-icon">
-                            <h1>20</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>Linux-Bash-Medium</h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled">details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="service-box ">
-                        <div class="service-img-icon">
-                            <h1>0</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>Sql-Medium-#1</h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled" style="border-color:#635CDB">details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="service-img-icon">
-                            <h1>-28</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>SEO optimization</h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled">details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="service-img-icon">
-                            <h1>100</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>Custom Website</h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled">details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="service-img-icon">
-                            <h1>-2</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>Content Growth</h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled">details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="service-img-icon">
-                            <h1>-15</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>Link Building </h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled">details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="service-img-icon">
-                            <h1>-15</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>Link Building </h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled">details</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="service-box">
-                        <div class="service-img-icon">
-                            <h1>-15</h1>
-                        </div>
-                        <div class="service-inner">
-                            <h4>Link Building </h4>
-                            <text>Time spent: 2h04m22s</text>
-                            <p>Max points: 30</p>
-                            <a href="#" class="btn btn-black btn-circled">details</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--  SERVICE AREA END  -->
+<!--  FOOTER AREA INSERTED -->
+<div th:replace="fragments/footer.html :: footer"></div>
 
 
-    <!--
+<!--
     Essential Scripts
     =====================================-->
-    <!-- Main jQuery -->
-    <script src="modern/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4.3.1 -->
-    <script src="modern/plugins/bootstrap/js/popper.min.js"></script>
-    <script src="modern/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Woow animtaion -->
-    <script src="modern/plugins/counterup/wow.min.js"></script>
-    <script src="modern/plugins/counterup/jquery.easing.1.3.js"></script>
-    <!-- Counterup -->
-    <script src="modern/plugins/counterup/jquery.waypoints.js"></script>
-    <script src="modern/plugins/counterup/jquery.counterup.min.js"></script>
-    <!-- Contact Form -->
-    <script src="modern/plugins/jquery/contact.js"></script>
-    <script src="modern/js/custom.js"></script>
+<!-- Main jQuery -->
+<script src="modern/plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap 4.3.1 -->
+<script src="modern/plugins/bootstrap/js/popper.min.js"></script>
+<script src="modern/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- Woow animtaion -->
+<script src="modern/plugins/counterup/wow.min.js"></script>
+<script src="modern/plugins/counterup/jquery.easing.1.3.js"></script>
+<!-- Counterup -->
+<script src="modern/plugins/counterup/jquery.waypoints.js"></script>
+<script src="modern/plugins/counterup/jquery.counterup.min.js"></script>
+<!-- Contact Form -->
+<script src="modern/plugins/jquery/contact.js"></script>
+<script src="modern/js/custom.js"></script>
 
 </body>
 </html>
