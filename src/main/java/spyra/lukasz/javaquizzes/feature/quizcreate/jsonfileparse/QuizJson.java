@@ -15,13 +15,14 @@ import java.util.List;
 @Getter
 final class QuizJson {
 
-    private QuizJson(String title, boolean restricted, boolean predefined, int maxScore, LocalDateTime created, LocalDateTime updated, List<QuestionJson> questions) {
+    private QuizJson(String title, boolean restricted, boolean predefined, int maxScore, LocalDateTime created, LocalDateTime updated, String difficulty, List<QuestionJson> questions) {
         this.title = title;
         this.restricted = restricted;
         this.predefined = predefined;
         this.maxScore = maxScore;
         this.created = created;
         this.updated = updated;
+        this.difficulty = difficulty;
         this.questions = questions;
     }
 
@@ -37,6 +38,8 @@ final class QuizJson {
 
     private final LocalDateTime updated;
 
+    private final String difficulty;
+
     private final List<QuestionJson> questions;
 
     static final class QuizJsonBuilder {
@@ -47,6 +50,7 @@ final class QuizJson {
         private int maxScore;
         private LocalDateTime created;
         private LocalDateTime updated;
+        private String difficulty;
         private List<QuestionJson> questions;
 
         QuizJsonBuilder setTitle(String title) {
@@ -84,8 +88,13 @@ final class QuizJson {
             return this;
         }
 
+        QuizJsonBuilder setDifficulty(String difficulty){
+            this.difficulty = difficulty;
+            return this;
+        }
+
         QuizJson createQuizJson() {
-            return new QuizJson(title, restricted, predefined, maxScore, created, updated, questions);
+            return new QuizJson(title, restricted, predefined, maxScore, created, updated, difficulty, questions);
         }
     }
 
