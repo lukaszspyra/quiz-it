@@ -23,9 +23,9 @@ class RegistrationController {
         this.registerService = registerService;
     }
 
-    @GetMapping("/user/register")
+    @GetMapping("/register")
     public String showRegistrationForm(NewUserDTO newUserDTO) {
-        return "user-registration";
+        return "register";
     }
 
     /**
@@ -37,21 +37,21 @@ class RegistrationController {
      * @param model passes successful registration message
      * @return proper view (login/registration on success/failure of registration process)
      */
-    @PostMapping("/user/register")
+    @PostMapping("/register")
     public String registerUserAccount(
             @Valid NewUserDTO newUserDTO,
             BindingResult bindingResult,
             Model model) {
         if (bindingResult.hasErrors()) {
-            return "user-registration";
+            return "register";
         }
         try {
             registerService.registerAccount(newUserDTO, AvailableRole.USER);
         } catch (UserAlreadyExistsException ex) {
             bindingResult.rejectValue("email", "newUserDTO.email", ex.getMessage());
-            return "user-registration";
+            return "register";
         }
-        model.addAttribute("registrationsuccess", "You have been successfully registered.");
+        model.addAttribute("registrationsuccess", "You have been successfully registered");
         return "/login";
     }
 }
