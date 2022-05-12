@@ -40,17 +40,17 @@
             <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
                 <div class="banner-content content-padding">
                     <h1 class="text-white">Login to your quizIT account</h1>
-                    <p><a href="#" style="color:white">Not registered yet?</a></p>
+                    <p><a href="/register" style="color:white">Register new account?</a></p>
 
                     <!--Alerts for login/logout/registered-->
                     <div th:if="${param.error}" class="alert alert-danger">
-                        Invalid username or password.
+                        Invalid username or password
                     </div>
                     <div th:if="${param.logout}" class="alert alert-success">
-                        Logout successful.
+                        Logout successful
                     </div>
                     <div th:if="${registrationsuccess}" th:text="${registrationsuccess}" class="alert alert-success">
-                        Register successful.
+                        Register successful
                     </div>
 
                     <form name="f" class="contact__form" method="post" th:action="@{/login}" >
