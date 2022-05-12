@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
-    <!-- Required meta tags -->
+    <!--/* Required meta tags */-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="IT technical quizzes">
@@ -11,16 +11,16 @@
 
     <title>QuizIT - your IT knowledge testing space </title>
 
-    <!-- bootstrap.min css -->
+    <!--/* bootstrap.min css */-->
     <link rel="stylesheet" href="modern/plugins/bootstrap/css/bootstrap.css">
-    <!-- Icofont Css -->
+    <!--/* Icofont Css */-->
     <link rel="stylesheet" href="modern/plugins/fontawesome/css/all.css">
-    <!-- animate.css -->
+    <!--/* animate.css */-->
     <link rel="stylesheet" href="modern/plugins/animate-css/animate.css">
-    <!-- Icofont -->
+    <!--/* Icofont */-->
     <link rel="stylesheet" href="modern/plugins/icofont/icofont.css">
 
-    <!-- Main Stylesheet -->
+    <!--/* Main Stylesheet */-->
     <link rel="stylesheet" href="modern/css/style.css">
 
 </head>
@@ -28,11 +28,11 @@
 <body data-spy="scroll" data-target=".fixed-top">
 
 
-<!-- NAVIGATION TEMPLATE -->
+<!--/* NAVIGATION TEMPLATE */-->
 <div th:replace="fragments/nav.html :: navigation"></div>
 
 
-<!--MAIN BANNER AREA START -->
+<!--/*MAIN BANNER AREA START */-->
 <div class="page-banner-area page-contact" id="page-banner">
     <div class="overlay dark-overlay"></div>
     <div class="container">
@@ -41,80 +41,81 @@
                 <div class="banner-content content-padding">
                     <h1 class="text-white">Register personal account with quizIT</h1>
                     <p>To get access to result, stats and variety of bespoke quizzes.</p>
-
-
                     <form th:object="${newUserDTO}" th:action="@{/register}" name="register" class="contact__form"
                           method="post">
+
+                        <!--/* Alerts for validation not passed */-->
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
+                             th:errorclass="fieldError">
+                            Invalid name
+                        </div>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                             th:errorclass="fieldError">
+                            Invalid email
+                        </div>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                             th:errorclass="fieldError">
+                            Invalid password
+                        </div>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('matchingPassword')}"
+                             th:errors="*{matchingPassword}" th:errorclass="fieldError">
+                            Invalid matching password
+                        </div>
+                        <div class="alert alert-danger" th:if="${#fields.hasErrors('global')}"
+                             th:errors="*{global}" th:errorclass="fieldError">
+                            Non-matching passwords
+                        </div>
+
+                        <!--/* Registration form */-->
                         <div class="row justify-content-center">
                             <div class="col-7 form-group">
                                 <input th:field="*{name}" name="username" type="text" class="form-control"
                                        placeholder="Name" minlength="2" required>
-                                <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-                                     th:errorclass="fieldError">
-                                    Invalid name
-                                </div>
                             </div>
                             <div class="col-7 form-group">
                                 <input th:field="*{email}" name="email" type="email" class="form-control"
                                        placeholder="Email" minlength="7" required>
-                                <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-                                     th:errorclass="fieldError">
-                                    Invalid email
-                                </div>
                             </div>
                             <div class="col-7 form-group">
                                 <input th:field="*{password}" name="password" type="password" class="form-control"
                                        placeholder="Password" minlength="3" required>
-                                <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-                                     th:errorclass="fieldError">
-                                    Invalid password
-                                </div>
                             </div>
                             <div class="col-7 form-group">
                                 <input th:field="*{matchingPassword}" name="matching-password" type="password"
                                        class="form-control" placeholder="Repeat Password" minlength="3" required>
-                                <div class="alert alert-danger" th:if="${#fields.hasErrors('matchingPassword')}"
-                                     th:errors="*{matchingPassword}" th:errorclass="fieldError">
-                                    Invalid matching password
-                                </div>
-                                <div class="alert alert-danger" th:if="${#fields.hasErrors('global')}"
-                                     th:errors="*{global}" th:errorclass="fieldError">
-                                    Non-matching passwords
-                                </div>
                             </div>
                             <div class="col-8 form-group">
                                 <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Register">
                             </div>
                         </div>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!--MAIN HEADER AREA END -->
+<!--/*MAIN HEADER AREA END */-->
 
 
-<!--  FOOTER AREA INSERTED -->
+<!--/*  FOOTER AREA INSERTED */-->
 <div th:replace="fragments/footer.html :: footer"></div>
 
 
-<!--
+<!--/*
     Essential Scripts
-    =====================================-->
-<!-- Main jQuery -->
+    =====================================*/-->
+<!--/* Main jQuery */-->
 <script src="modern/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4.3.1 -->
+<!--/* Bootstrap 4.3.1 */-->
 <script src="modern/plugins/bootstrap/js/popper.min.js"></script>
 <script src="modern/plugins/bootstrap/js/bootstrap.min.js"></script>
-<!-- Woow animtaion -->
+<!--/* Woow animtaion */-->
 <script src="modern/plugins/counterup/wow.min.js"></script>
 <script src="modern/plugins/counterup/jquery.easing.1.3.js"></script>
-<!-- Counterup -->
+<!--/* Counterup */-->
 <script src="modern/plugins/counterup/jquery.waypoints.js"></script>
 <script src="modern/plugins/counterup/jquery.counterup.min.js"></script>
-<!-- Contact Form -->
+<!--/* Contact Form */-->
 <script src="modern/plugins/jquery/contact.js"></script>
 <script src="modern/js/custom.js"></script>
 
