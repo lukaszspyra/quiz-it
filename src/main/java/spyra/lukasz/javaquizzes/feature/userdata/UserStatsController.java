@@ -15,10 +15,15 @@ class UserStatsController {
     @Autowired
     private UserDataService userService;
 
-    @GetMapping({"/", "home"})
-    public String home(Principal principal, Authentication authentication, Model model) {
+    @GetMapping({ "home"})
+    public String userHome(Principal principal, Authentication authentication, Model model) {
         model.addAttribute("user", userService.getUserDataByEmail(principal.getName()));
         return "home";
+    }
+
+    @GetMapping({"/","/index"})
+    public String commonIndex() {
+        return "index";
     }
 
 }
