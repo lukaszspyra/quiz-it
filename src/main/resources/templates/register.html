@@ -39,31 +39,45 @@
         <div class="row justify-content-center">
             <div class="col-lg-8 m-auto text-center col-sm-12 col-md-12">
                 <div class="banner-content content-padding">
-                    <h1 class="text-white">Login to your quizIT account</h1>
-                    <p><a href="#" style="color:white">Not registered yet?</a></p>
+                    <h1 class="text-white">Register personal account with quizIT</h1>
+                    <p>To get access to result, stats and variety of bespoke quizzes.</p>
 
-                    <!--Alerts for login/logout/registered-->
-                    <div th:if="${param.error}" class="alert alert-danger">
-                        Invalid username or password.
-                    </div>
-                    <div th:if="${param.logout}" class="alert alert-success">
-                        Logout successful.
-                    </div>
-                    <div th:if="${registrationsuccess}" th:text="${registrationsuccess}" class="alert alert-success">
-                        Register successful.
-                    </div>
 
-                    <form name="f" class="contact__form" method="post" th:action="@{/login}" >
+                    <form th:object="${newUserDTO}" th:action="@{/register}" name="register" class="contact__form"
+                          method="post">
                         <div class="row justify-content-center">
                             <div class="col-7 form-group">
-                                <input name="username" type="email" class="form-control" placeholder="Email" required>
+                                <input th:field="*{name}" name="username" type="text" class="form-control"
+                                       placeholder="Name" required>
+                                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}" th:errorclass="fieldError">
+                                    Incorrect name</p>
                             </div>
                             <div class="col-7 form-group">
-                                <input name="password" type="password" class="form-control" placeholder="Password"
+                                <input th:field="*{email}" name="email" type="email" class="form-control"
+                                       placeholder="Email" required>
+                                <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                                   th:errorclass="fieldError">
+                                    Incorrect email</p>
+                            </div>
+                            <div class="col-7 form-group">
+                                <input th:field="*{password}" name="password" type="password" class="form-control"
+                                       placeholder="Password"
                                        required>
+                                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                                   th:errorclass="fieldError">Password error</p>
+                            </div>
+                            <div class="col-7 form-group">
+                                <input th:field="*{matchingPassword}" name="matching-password" type="password"
+                                       class="form-control" placeholder="Repeat Password"
+                                       required>
+                                <p th:if="${#fields.hasErrors('matchingPassword')}" th:errors="*{matchingPassword}"
+                                   th:errorclass="fieldError">Repeat Password error</p>
+                                <p th:if="${#fields.hasErrors('global')}" th:errors="*{global}"
+                                   th:errorclass="fieldError">
+                                    Non-matching passwords</p>
                             </div>
                             <div class="col-8 form-group">
-                                <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Log In">
+                                <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Register">
                             </div>
                         </div>
                     </form>
