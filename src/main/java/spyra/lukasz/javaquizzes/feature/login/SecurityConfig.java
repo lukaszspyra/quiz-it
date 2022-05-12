@@ -36,7 +36,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/index").permitAll()
+                .antMatchers("/","/home").permitAll()
+                .antMatchers("/demo").permitAll()
                 .antMatchers("/register").permitAll()
 
                 .antMatchers("/superadmin/**").hasAuthority(AvailableRole.SUPER_ADMIN.name())
