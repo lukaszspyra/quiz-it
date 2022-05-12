@@ -28,17 +28,17 @@ class NewUserDTO {
     @NotNull(message = "Email can not be null")
     @NotEmpty(message = "Email can not be empty")
     @Email
-    @Size(min = 2, max = 50, message = "Email must be between 2 and 50 characters")
+    @Size(min = 7, max = 50, message = "Email must be between 7 and 50 characters")
     private String email;
 
     @NotNull(message = "Password can not be null")
     @NotEmpty(message = "Password can not be empty")
-    @Size(min = 2, max = 50, message = "Password must be between 2 and 50 characters")
+    @Size(min = 3, max = 50, message = "Password must be between 3 and 50 characters")
     private String password;
 
     @NotNull(message = "Matching password can not be null")
     @NotEmpty(message = "Matching password can not be empty")
-    @Size(min = 2, max = 50, message = "Password must be between 2 and 50 characters")
+    @Size(min = 3, max = 50, message = "Password must be between 3 and 50 characters")
     private String matchingPassword;
 
 }
