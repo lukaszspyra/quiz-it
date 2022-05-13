@@ -76,7 +76,7 @@
     <div class="container">
         <div class="row justify-content-center">
 
-            <!--/*        ONLY IF NO QUIZ ATTEMPT YET*/-->
+            <!--/*        ONLY IF NO QUIZ ATTEMPT YET */-->
             <div class="col-sm-6 col-md-6" th:if="${user.getTakenQuizzes().isEmpty()}">
                 <div class="service-box">
                     <div class="service-img-icon">
@@ -90,7 +90,7 @@
             </div>
 
 
-            <!--/*        ONLY IF THERE ARE SOME QUIZ ATTEMPTS*/-->
+            <!--/*        ONLY IF THERE ARE SOME QUIZ ATTEMPTS */-->
             <div class="col-sm-6 col-md-6" th:classappend="${user.getTakenQuizzes().size < 3 ? 'col-lg-6' : 'col-lg-3'}"
                  th:each="takenQuiz: ${user.getTakenQuizzes()}">
                 <div class="service-box">
@@ -116,10 +116,11 @@
 <div th:replace="fragments/footer.html :: footer"></div>
 
 
-<!--/*
+<!--/*-->
     Essential Scripts
-    =====================================*/-->
-<!--/*/* Main jQuery */-->
+    =====================================
+<!--*/-->
+<!--/* Main jQuery */-->
 <script src="modern/plugins/jquery/jquery.min.js"></script>
 <!--/* Bootstrap 4.3.1 */-->
 <script src="modern/plugins/bootstrap/js/popper.min.js"></script>

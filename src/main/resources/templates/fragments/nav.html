@@ -58,11 +58,19 @@
                 </li>
 
                 <!--/* Only for logged in */-->
-                <li sec:authorize="hasAnyAuthority('SUPER_ADMIN', 'ADMIN', 'USER')" class="nav-item">
-                    <a class="nav-link smoth-scroll" href="javascript: document.logoutForm.submit()">Logout</a>
-                    <form name="logoutForm" action="#" th:action="@{/logout}" method="post" hidden>
-                        <input hidden type="submit" class="nav-link" value="Log out">
-                    </form>
+                <li sec:authorize="hasAnyAuthority('SUPER_ADMIN', 'ADMIN', 'USER')" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarWelcome" role="button" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        Logout
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarWelcome">
+                        <a class="dropdown-item" href="javascript: document.logout.submit()">
+                            Logout
+                        </a>
+                        <form name="logout" action="#" th:action="@{/logout}" method="post" hidden>
+                            <input hidden type="submit" class="nav-link" value="Log out">
+                        </form>
+                    </div>
                 </li>
 
             </ul>
