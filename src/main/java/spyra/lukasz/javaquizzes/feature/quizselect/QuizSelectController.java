@@ -1,6 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizselect;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,26 +8,16 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 /**
  * Returns view with quizzes chosen by the user
- *
+ * <p>
  * Results are presented and user can choose given quiz to run
  */
 @Controller
+@RequiredArgsConstructor
 class QuizSelectController {
-
     private final QuizService quizService;
 
-    @Autowired
-    QuizSelectController(final QuizService quizService) {
-        this.quizService = quizService;
-    }
-
     @GetMapping("/quizzes")
-    String freeQuizzes(Model model) {
-        return "free-quizzes";
-    }
-
-    @GetMapping("/quizzes/predefined")
-    String pickPredefinedQuiz(Model model) {
+    String notRestrictedQuizzes(Model model) {
         model.addAttribute("quizzes", quizService.findPredefinedNotRestricted());
         model.addAttribute("msg", "Predefined Quizzes");
         return "quizzes";
