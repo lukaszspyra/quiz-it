@@ -37,32 +37,32 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-3 col-md-6">
-                <div class="banner-content section-padding text-center">
+                <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Username</h3>
                     <p th:text="${user.getName()}">'No data'</p>
                 </div>
             </div>
             <div class=" col-lg-3 col-md-6">
-                <div class="banner-content section-padding text-center">
+                <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Email</h3>
                     <p th:text="${user.getEmail()}">'No data'</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="banner-content section-padding text-center">
+                <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Quizzes solved</h3>
                     <p th:text="${user.getTakenQuizzes().size()}">'No data'</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6">
-                <div class="banner-content section-padding text-center">
+                <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Registered as</h3>
                     <p th:text="${user.getRole().getName()}">'No data'</p>
                 </div>
             </div>
             <div class="col-lg-12 col-md-12">
                 <div class="banner-content text-center" style="padding: 20px 0px 100px">
-                    <h3 class="text-white">Your results</h3>
+                    <h2 class="text-white">Your results</h2>
                 </div>
             </div>
         </div>
@@ -132,7 +132,6 @@
 <script src="modern/plugins/counterup/jquery.waypoints.js"></script>
 <script src="modern/plugins/counterup/jquery.counterup.min.js"></script>
 <!--/* Contact Form */-->
-<script src="modern/plugins/jquery/contact.js"></script>
 <script src="modern/js/custom.js"></script>
 
 </body>
