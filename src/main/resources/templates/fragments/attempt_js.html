@@ -24,7 +24,7 @@
 
             if (timeLeft <= 0) {
                 clearInterval(timing);
-                document.form_answer.action = "/quiz/"+ [[${quiz_id}]] +"/finish/" + [[${attempt_id}]];
+                document.form_answer.action = "/quiz/" + [[${quiz_id}]] + "/finish/" + [[${attempt_id}]];
 
                 document.getElementById("form_answer").submit();
                 sessionStorage.clear();
@@ -61,7 +61,7 @@
 
     function setConstant() {
         let sessionItem = Number(sessionStorage.getItem('passed'));
-        if(sessionItem !== null && sessionItem > 0){
+        if (sessionItem !== null && sessionItem > 0) {
             return Number(sessionStorage.getItem('passed'));
         } else {
             return Number([[${session.question_timer}]]) * 60;
@@ -135,7 +135,7 @@
     }
 
     function setRemainingPathColor(timeLeft) {
-        const { alert, warning, info } = COLOR_CODES;
+        const {alert, warning, info} = COLOR_CODES;
         if (timeLeft <= alert.threshold) {
             document
                 .getElementById("base-timer-path-remaining")
