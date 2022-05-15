@@ -2,6 +2,7 @@ package spyra.lukasz.javaquizzes.shared;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "take_quiz_answers")
 @Getter
+@NoArgsConstructor
 public final class TakeQuizAnswer {
 
     public TakeQuizAnswer(TakeQuiz takeQuiz, Question question, Answer answer) {
