@@ -67,13 +67,44 @@
                     <div class="service-img-icon">
                         <img src="/modern/images/icon/001-quiz.png" alt="service-icon" class="img-fluid">
                     </div>
-                    <a style="color: lightgray" target="_blank" href="https://icons8.com">Icon by Icons8</a>
+                    <p>
+                        <a style="color: lightgray" target="_blank" href="https://icons8.com">Icon by Icons8</a>
+                    </p>
                     <div class="service-inner">
                         <h4 th:text="${quiz.getTitle()}">No data</h4>
-                        <p>Max points:
-                            <text th:text="${quiz.getScore()}"> No data</text>
-                        </p>
-                        <a th:href="@{/quiz/{id}/start (id=${quiz.id})}" class="btn btn-hero btn-circled">lets start</a>
+
+
+                        <form name="random_quiz" id="form_answer" method="post" th:action="@{/quizzes/random}">
+                            <div class="row justify-content-center">
+                                <div class="col">
+                                    <label class="form-label">Category</label>
+                                    <div class="row justify-content-center">
+                                        <select name="tag" class="form-group">
+                                            <option value="Linux" selected>Linux</option>
+                                            <option value="Bash">Bash</option>
+                                            <option value="Kubernetes">Kubernetes</option>
+                                            <option value="HTML">HTML</option>
+                                            <option value="JavaScript">JavaScript</option>
+                                            <option value="PHP">PHP</option>
+                                            <option value="SQL">SQL</option>
+                                            <option value="WordPress">WordPress</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <label>Questions</label>
+                                    <div class="row justify-content-center">
+                                        <select name="questions" class="form-group w-50">
+                                            <option value="20">20</option>
+                                            <option value="15">15</option>
+                                            <option value="10" selected>10</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <input type="submit" class="btn btn-hero btn-circled" value="lets start"/>
+                        </form>
                     </div>
                 </div>
             </div>
