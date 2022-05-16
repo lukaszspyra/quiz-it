@@ -39,6 +39,6 @@ class ApiController {
     String generateRandomQuiz(@RequestParam(value = "tag") String tag,
                               @RequestParam(value = "questions") String questionsNumber) throws IOException, InterruptedException {
         final Quiz createdQuiz = apiService.getRandomQuizFromApi(tag, questionsNumber);
-        return "redirect:/quiz/" + createdQuiz.getId();
+        return "redirect:/quiz/" + createdQuiz.getId() + "/start";
     }
 }
