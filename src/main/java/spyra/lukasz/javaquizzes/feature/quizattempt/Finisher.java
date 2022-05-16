@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
@@ -10,26 +11,25 @@ import java.time.LocalDateTime;
  * Process quiz end
  */
 @Component
+@RequiredArgsConstructor
 class Finisher {
 
     private final TakeQuizRepository takeQuizRepository;
+    private final FinalResultMapper mapper;
 
-    Finisher(TakeQuizRepository takeQuizRepository) {
-        this.takeQuizRepository = takeQuizRepository;
-    }
 
     /**
      * Finish the quiz attempt by saving finish time
      *
-     * @param session    for cleanign of questions
+     * @param session    for cleaning of questions
      * @param takeQuizId to be ended
-     * @return saved finished quiz attempt
+     * @return saved finished quiz attempt mapped to view
      */
-    TakeQuiz finishQuizAttempt(HttpSession session, Long takeQuizId) {
+    FinalResultView finishQuizAttempt(HttpSession session, Long takeQuizId) {
         session.removeAttribute("questions");
         TakeQuiz byId = takeQuizRepository.getById(takeQuizId);
         byId.setFinish(LocalDateTime.now());
-        return takeQuizRepository.save(byId);
+        return mapper.toFinalResultView(takeQuizRepository.save(byId));
     }
 
 }

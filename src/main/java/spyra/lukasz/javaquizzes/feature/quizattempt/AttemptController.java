@@ -130,10 +130,8 @@ class AttemptController {
     String finishQuiz(@PathVariable(value = "attempt_id") long attemptId,
                       Model model,
                       HttpSession session) {
-        TakeQuiz takeQuiz = finisher.finishQuizAttempt(session, attemptId);
-        Duration duration = takeQuiz.calcAttemptTime();
+        FinalResultView takeQuiz = finisher.finishQuizAttempt(session, attemptId);
         model.addAttribute("result", takeQuiz);
-        model.addAttribute("duration", duration);
         return "result";
     }
 
