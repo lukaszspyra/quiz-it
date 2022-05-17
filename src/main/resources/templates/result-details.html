@@ -1,107 +1,153 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <head>
+    <!--/* Required meta tags */-->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="IT technical quizzes">
+    <meta name="keywords" content="education, quiz, information technology, programming, study, knowledge">
+    <meta name="author" content="Themefisher.com">
 
-    <!-- Bootstrap core CSS -->
-    <link href="/assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Result details</title>
 
-    <!-- Custom styles -->
-    <link href="/assets/quizzes.css" rel="stylesheet">
-    <link href="/assets/navbar.css" rel="stylesheet">
+    <!--/* bootstrap.min css */-->
+    <link rel="stylesheet" href="/modern/plugins/bootstrap/css/bootstrap.css">
+    <!--/* Icofont Css */-->
+    <link rel="stylesheet" href="/modern/plugins/fontawesome/css/all.css">
+    <!--/* animate.css */-->
+    <link rel="stylesheet" href="/modern/plugins/animate-css/animate.css">
+    <!--/* Icofont */-->
+    <link rel="stylesheet" href="/modern/plugins/icofont/icofont.css">
 
-    <title>Statistics</title>
+    <!--/* Main Stylesheet */-->
+    <link rel="stylesheet" href="/modern/css/style.css">
+
 </head>
-<body>
 
-<main>
-    <!--    Background picture-->
-    <div id="bg">
-        <img src="/assets/vector-JUL-2021-72.jpg" alt="">
-    </div>
+<body data-spy="scroll" data-target=".fixed-top">
+
+<!--/* NAVIGATION TEMPLATE */-->
+<div th:replace="fragments/nav.html :: navigation"></div>
+
+
+<!--/*MAIN BANNER AREA START */-->
+<div class="page-banner-area page-service" id="page-banner">
+    <div class="overlay dark-overlay"></div>
     <div class="container">
-
-        <div th:replace="fragments/navigation.html :: navigation"></div>
-
-        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
-            <div class="container-fluid" style="text-align: center"><h1 th:inline="text">Quiz "[[${result.quizTitle}]]"
-                details:</h1></div>
-            <table class="container table">
-                <tr style="text-align: center; vertical-align: middle;">
-                    <th><label class="tbl_head">Points</label></th>
-                    <th><label class="tbl_head">Time spent</label></th>
-                    <th><label class="tbl_head">Quiz max points</label></th>
-                </tr>
-                <tr style="text-align: center; vertical-align: middle;">
-                    <td>
-                    <span th:text="${result.score}">
-                    </span>
-                    </td>
-                    <td>
-                    <span th:text="${result.duration}">
-                    </span>
-                    </td>
-                    <td>
-                    <span th:text="${result.quizMaxScore}">
-                    </span>
-                    </td>
-                </tr>
-            </table>
-            <table class="container table">
-                <tr style="text-align: center; vertical-align: middle;">
-                    <th style="width: 5%; word-break: break-all; word-wrap:break-word;"><label
-                            class="tbl_head">No.</label></th>
-                    <th style="width: 32%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Question</label>
-                    </th>
-                    <th style="width: 24%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">All
-                        answers</label></th>
-                    <th style="width: 19%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Marked
-                        answers</label></th>
-                    <th style="width: 10%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Max
-                        score</label></th>
-                    <th style="width: 10%; word-break: break-all; word-wrap:break-word;"><label class="tbl_head">Your
-                        score</label></th>
-                </tr>
-                <tr th:each="question: ${result.questionsSolved}">
-                    <td style="text-align: center;">
-                    <span th:text="${questionStat.count}">
-                    </span>
-                    </td>
-                    <td style="text-align: center">
-                    <span style="word-break: break-all; word-wrap:break-word;" th:text="${question.content}">
-                    </span>
-                    </td>
-                    <td>
-                        <ul th:each="possibleAnswer: ${question.possibleAnswers}">
-                            <li th:text="${possibleAnswer.content}">
-                            </li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul th:each="markedAnswer: ${question.markedAnswers}">
-                            <li th:text="${markedAnswer.content}">
-                            </li>
-                        </ul>
-                    </td>
-                    <td style="text-align: center;">
-                    <span th:text="${question.questMaxScore}">
-                    </span>
-                    </td>
-                    <td style="text-align: center;">
-                    <span th:text="${question.questAwardedScore}">
-                    </span>
-                    </td>
-                </tr>
-            </table>
+        <div class="row justify-content-center">
+            <div class="col-lg-3 col-md-6">
+                <div class="banner-content content-padding text-center">
+                    <h3 class="text-white">Score</h3>
+                    <p th:text="${result.score}">'No data'</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="banner-content content-padding text-center">
+                    <h3 class="text-white">Max score</h3>
+                    <p th:text="${result.quizMaxScore}">'No data'</p>
+                </div>
+            </div>
+            <div class=" col-lg-3 col-md-6">
+                <div class="banner-content content-padding text-center">
+                    <h3 class="text-white">Duration</h3>
+                    <p th:text="${result.duration}">'No data'</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="banner-content content-padding text-center">
+                    <h3 class="text-white">Attempt date</h3>
+                    <p th:text="${result.duration}">'No data'</p>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12">
+                <div class="banner-content text-center" style="padding: 20px 0px 100px">
+                    <h2 class="text-white">Answer details</h2>
+                </div>
+            </div>
         </div>
     </div>
+</div>
+<!--/*MAIN HEADER AREA END */-->
 
-</main>
 
-<script src="/assets/dist/js/bootstrap.bundle.min.js"></script>
+<!--/*  SERVICE AREA START  */-->
+<section id="service">
+    <div class="container">
+        <div th:each="question: ${result.questionsSolved}" class="row justify-content-center">
+            <div class="col-12">
+                <div class="service-box">
+                    <div class="service-inner">
+                        <div class="row">
+                            <div class="col-1">
+                                <text>No:
+                                    <span th:text="${questionStat.count}">'No data'</span><br>
+                                </text>
+                            </div>
+                            <div class="col-3">
+                                <text> Question:
+                                    <span th:text=" ${question.content}">'No data'</span><br>
+                                </text>
+                            </div>
+                            <div class="col-3">
+
+                                <text>Available answers:
+
+                                    <ul th:each="possibleAnswer: ${question.possibleAnswers}">
+                                        <li th:text="${possibleAnswer.content}">
+                                        </li>
+                                    </ul>
+                                </text>
+
+                            </div>
+                            <div class="col-3">
+                                <text>Marked answers:
+
+                                    <ul th:each="markedAnswer: ${question.markedAnswers}">
+                                        <li th:text="${markedAnswer.content}">
+                                        </li>
+                                    </ul>
+                                </text>
+                            </div>
+                            <div class="col-1">
+                                <text>Your score: <span th:text="${question.questAwardedScore}">'No data'</span></text>
+                            </div>
+                            <div class="col-1">
+                                <text>Max score: <span th:text="${question.questMaxScore}">'No data'</span></text>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/*  SERVICE AREA END  */-->
+
+
+<!--/*  FOOTER AREA INSERTED */-->
+<div th:replace="fragments/footer.html :: footer"></div>
+
+
+<!--/*-->
+Essential Scripts
+=====================================
+<!--*/-->
+<!--/* Main jQuery */-->
+<script src="/modern/plugins/jquery/jquery.min.js"></script>
+<!--/* Bootstrap 4.3.1 */-->
+<script src="/modern/plugins/bootstrap/js/popper.min.js"></script>
+<script src="/modern/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!--/* Woow animtaion */-->
+<script src="/modern/plugins/counterup/wow.min.js"></script>
+<script src="/modern/plugins/counterup/jquery.easing.1.3.js"></script>
+<!--/* Counterup */-->
+<script src="/modern/plugins/counterup/jquery.waypoints.js"></script>
+<script src="/modern/plugins/counterup/jquery.counterup.min.js"></script>
+<!--/* Contact Form */-->
+<script src="/modern/js/custom.js"></script>
 
 </body>
 </html>
+   
