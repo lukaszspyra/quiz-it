@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizresults;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,13 +11,10 @@ import org.springframework.web.bind.annotation.PathVariable;
  * Presents quiz attempt results
  */
 @Controller
+@RequiredArgsConstructor
 class ResultDetailsController {
 
     private final ResultDetailsService service;
-
-    ResultDetailsController(ResultDetailsService service) {
-        this.service = service;
-    }
 
     @GetMapping("/attempt/{attempt_id}/result/")
     String showResultDetails(@PathVariable(value = "attempt_id") long attemptId,

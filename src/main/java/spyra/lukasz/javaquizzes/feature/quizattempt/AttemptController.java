@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +22,7 @@ import java.util.List;
  * Controls quiz attempt taken by the {@link spyra.lukasz.javaquizzes.shared.User}
  */
 @Controller
+@RequiredArgsConstructor
 class AttemptController {
 
     private final Starter starter;
@@ -32,14 +34,6 @@ class AttemptController {
     private final AttemptService attemptService;
 
     private final QuestionTimeReader propertyReader;
-
-    AttemptController(Starter starter, Progresser progresser, Finisher finisher, AttemptService attemptService, QuestionTimeReader propertyReader) {
-        this.starter = starter;
-        this.progresser = progresser;
-        this.finisher = finisher;
-        this.attemptService = attemptService;
-        this.propertyReader = propertyReader;
-    }
 
     /**
      * Starts quiz attempt based on the PathVariable with quiz id

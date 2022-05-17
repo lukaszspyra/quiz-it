@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizcreate.apiparse;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,13 +14,10 @@ import java.io.IOException;
  * Handles data required for generating random {@link Quiz} from API
  */
 @Controller
+@RequiredArgsConstructor
 class ApiController {
 
     private final ApiService apiService;
-
-    ApiController(ApiService apiService) {
-        this.apiService = apiService;
-    }
 
     @GetMapping("/quizzes/random")
     String chooseRandomQuiz() {

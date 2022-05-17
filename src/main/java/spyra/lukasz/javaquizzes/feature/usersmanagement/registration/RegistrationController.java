@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.usersmanagement.registration;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,14 +15,10 @@ import javax.validation.Valid;
  * Responsible for registration of new Users
  */
 @Controller
+@RequiredArgsConstructor
 class RegistrationController {
 
     private final UserRegisterService registerService;
-
-    @Autowired
-    RegistrationController(UserRegisterService registerService) {
-        this.registerService = registerService;
-    }
 
     @GetMapping("/register")
     public String showRegistrationForm(NewUserDTO newUserDTO) {
