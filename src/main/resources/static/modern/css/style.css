@@ -1689,4 +1689,17 @@ BLOG SINGLE
   }
 }
 
+/*--------------
+  CUSTOM FOR QUIZ DETAILS
+  ----------------*/
+.result-padding {
+  padding: 10px 0px;
+}
+.text-correct {
+  color: #34ce57;
+}
+.text-incorrect {
+  color: red;
+}
+
 /*# sourceMappingURL=maps/style.css.map */
