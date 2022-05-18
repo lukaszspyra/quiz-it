@@ -36,16 +36,22 @@
     <div class="overlay dark-overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-1 col-md-6">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Score</h3>
                     <p th:text="${result.score}">'No data'</p>
                 </div>
             </div>
+            <div class="col-lg-2 col-md-6">
+                <div class="banner-content content-padding text-center">
+                    <h3 class="text-white">Max</h3>
+                    <p th:text="${result.quizMaxScore}">'No data'</p>
+                </div>
+            </div>
             <div class="col-lg-3 col-md-6">
                 <div class="banner-content content-padding text-center">
-                    <h3 class="text-white">Max score</h3>
-                    <p th:text="${result.quizMaxScore}">'No data'</p>
+                    <h3 class="text-white">Difficulty</h3>
+                    <p th:text="${result.difficulty}">'No data'</p>
                 </div>
             </div>
             <div class=" col-lg-3 col-md-6">
@@ -60,9 +66,11 @@
                     <p th:text="${result.finish}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12">
-                <div class="banner-content text-center" style="padding: 20px 0px 100px">
-                    <h2 class="text-white">Your answers</h2>
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <div class="banner-content text-center" style="padding: 20px 0px 100px">
+                        <h2 class="text-white">Your answers</h2>
+                    </div>
                 </div>
             </div>
         </div>
@@ -106,15 +114,24 @@
                                 <text th:text=" ${question.content}"></text>
                             </div>
                             <div class="col-3">
-                                <ul style="list-style-type:lower-alpha" th:each="possibleAnswer: ${question.possibleAnswers}">
-                                    <li class="text-break" th:text="${possibleAnswer.content}">
-                                    </li>
+                                <ul>
+                                    <th:block th:each="possibleAnswer: ${question.possibleAnswers}">
+                                        <li style="word-break:break-word;" class="text-break"
+                                            th:text="${possibleAnswer.content}">
+                                        </li>
+                                        <br th:if="${possibleAnswerStat.last} == false">
+                                    </th:block>
                                 </ul>
                             </div>
                             <div class="col-3">
-                                <ul style="list-style-type:lower-alpha" th:classappend="${markedAnswer.isCorrect() ? 'text-correct' : 'text-incorrect'}" th:each="markedAnswer: ${question.markedAnswers}">
-                                    <li class="text-break" th:text="${markedAnswer.content}">
-                                    </li>
+                                <ul>
+                                    <th:block th:each="markedAnswer: ${question.markedAnswers}">
+                                        <li style="word-break:break-word" class="text-break"
+                                            th:classappend="${markedAnswer.isCorrect() ? 'text-correct' : 'text-incorrect'}"
+                                            th:text="${markedAnswer.content}">
+                                        </li>
+                                        <br th:if="${markedAnswerStat.last} == false">
+                                    </th:block>
                                 </ul>
                             </div>
                             <div class="col-1">

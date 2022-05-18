@@ -40,7 +40,7 @@ class UsersManagementController {
     String removeAdminRole(@RequestParam(value = "id") long adminId,
                            RedirectAttributes redirectAttributes) {
         final Optional<ChangeUserRoleDTO> roleChanged = userManagementService.changeRole(adminId, AvailableRole.USER);
-        roleChanged.ifPresent(newUser -> redirectAttributes.addFlashAttribute("message", "User role will be set after re-login,for learner: " + newUser.getEmail()));
+        roleChanged.ifPresent(newUser -> redirectAttributes.addFlashAttribute("message", "User role will be set after re-login, for learner: " + newUser.getEmail()));
         return "redirect:/superadmin/user-management/users";
     }
 

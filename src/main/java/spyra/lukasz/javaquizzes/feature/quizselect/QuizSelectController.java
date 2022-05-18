@@ -31,7 +31,7 @@ class QuizSelectController {
     @GetMapping("/quiz/{id}")
     String confirmQuizStart(Model model, @PathVariable long id) {
         model.addAttribute("quiz", quizService.getById(id));
-        return "quiz";
+        return "quiz-start";
     }
 
 }
