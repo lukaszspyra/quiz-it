@@ -40,8 +40,8 @@ public class Question {
 
     @ManyToMany
     @JoinTable(name = "quiz_question",
-            joinColumns = @JoinColumn(name = "quiz_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "question_id", referencedColumnName = "id"))
+            joinColumns = @JoinColumn(name = "question_id"),
+            inverseJoinColumns = @JoinColumn(name = "quiz_id"))
     @NotNull
     @Valid
     private List<Quiz> quizzes = new LinkedList<>();
