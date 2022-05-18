@@ -8,10 +8,7 @@ import com.fasterxml.jackson.databind.node.JsonNodeType;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -36,6 +33,7 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         }
         int totalScore = questions.parallelStream()
                 .reduce(0, (subtotal, element) -> subtotal + element.getScore(), Integer::sum);
+        String quizDifficulty = getMostFrequentQuestionDifficulty(questions);
         LocalDateTime now = LocalDateTime.now();
         return new QuizJson.QuizJsonBuilder().setTitle(createTitle(predefined, questions))
                 .setRestricted(restricted)
@@ -43,8 +41,19 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
                 .setMaxScore(totalScore)
                 .setCreated(LocalDateTime.parse(now.toString()))
                 .setUpdated(LocalDateTime.parse(now.toString()))
+                .setDifficulty(quizDifficulty)
                 .setQuestions(questions)
                 .createQuizJson();
+    }
+
+    private String getMostFrequentQuestionDifficulty(List<QuestionJson> questions) {
+        return questions.stream()
+                .collect(Collectors.groupingBy(QuestionJson::getDifficulty, Collectors.counting()))
+                .entrySet()
+                .stream()
+                .max(Comparator.comparingLong(Map.Entry::getValue))
+                .get()
+                .getKey();
     }
 
     private String createTitle(final boolean predefined, final List<QuestionJson> questions) {
