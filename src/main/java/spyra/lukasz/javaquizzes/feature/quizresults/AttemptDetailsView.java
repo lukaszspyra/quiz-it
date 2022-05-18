@@ -26,5 +26,7 @@ class AttemptDetailsView {
 
     private int quizMaxScore;
 
+    private String difficulty;
+
     private List<QuestionDetailsView> questionsSolved;
 }

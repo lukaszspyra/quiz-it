@@ -40,6 +40,7 @@ class ResultDetailsMapper {
         attemptDetailsView.setDuration(calcDuration(takeQuiz));
         attemptDetailsView.setQuizTitle(takeQuiz.getQuiz().getTitle());
         attemptDetailsView.setQuizMaxScore(takeQuiz.getQuiz().getMaxScore());
+        attemptDetailsView.setDifficulty(takeQuiz.getQuiz().getDifficulty());
         attemptDetailsView.setQuestionsSolved(mapQuestToDetailsView(takeQuiz.getQuiz().getQuestions(), takeQuiz.getId()));
         return attemptDetailsView;
     }
