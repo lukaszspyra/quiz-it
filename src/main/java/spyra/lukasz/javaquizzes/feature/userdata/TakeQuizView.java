@@ -21,4 +21,6 @@ class TakeQuizView {
     private int quizMaxScore;
 
     private String difficulty;
+
+    private String attemptTime;
 }
