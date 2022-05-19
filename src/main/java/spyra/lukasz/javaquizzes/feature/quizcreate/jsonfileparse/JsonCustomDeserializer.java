@@ -18,32 +18,65 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
 
     @Override
     public QuizJson deserialize(JsonParser jsonParser, DeserializationContext ctxt) throws IOException {
-        List<QuestionJson> questions = new LinkedList<>();
         JsonNode nodes = jsonParser.readValueAsTree();
         final Iterator<JsonNode> elements = nodes.elements();
         boolean restricted = false;
         boolean predefined = false;
+        LocalDateTime created = LocalDateTime.now();
         if (nodes.findValue("restricted") != null) {
             final JsonNode firstNode = elements.next();
-            restricted = firstNode.get(JsonNodes.RESTRICTED.getValue()).asBoolean();
-            predefined = firstNode.get(JsonNodes.PREDEFINED.getValue()).asBoolean();
+            restricted = extractBooleanTagFromNode(firstNode, JsonNodes.RESTRICTED);
+            predefined = extractBooleanTagFromNode(firstNode, JsonNodes.PREDEFINED);
+            created = LocalDateTime.parse(firstNode.get(JsonNodes.CREATED.getValue()).asText());
         }
-        while (elements.hasNext()) {
-            questions.add(parseQuestion(elements.next()));
+        List<QuestionJson> questions = parseQuestionList(elements);
+        int totalScore = calculateQuizTotalScore(questions);
+        String quizTitle;
+        final String tag = ctxt.findInjectableValue("tag", null, null).toString();
+        if (tag.isEmpty()) {
+            quizTitle = createPredefinedTitle(questions);
+        } else {
+            quizTitle = createTitle(tag);
         }
-        int totalScore = questions.parallelStream()
-                .reduce(0, (subtotal, element) -> subtotal + element.getScore(), Integer::sum);
         String quizDifficulty = getMostFrequentQuestionDifficulty(questions);
-        LocalDateTime now = LocalDateTime.now();
-        return new QuizJson.QuizJsonBuilder().setTitle(createTitle(predefined, questions))
+        return new QuizJson.QuizJsonBuilder()
+                .setTitle(quizTitle)
                 .setRestricted(restricted)
                 .setPredefined(predefined)
                 .setMaxScore(totalScore)
-                .setCreated(LocalDateTime.parse(now.toString()))
-                .setUpdated(LocalDateTime.parse(now.toString()))
+                .setCreated(created)
+                .setUpdated(LocalDateTime.now())
                 .setDifficulty(quizDifficulty)
                 .setQuestions(questions)
                 .createQuizJson();
+    }
+
+    private boolean extractBooleanTagFromNode(JsonNode firstNode, JsonNodes jsonNode) {
+        return firstNode.get(jsonNode.getValue()).asBoolean();
+    }
+
+    private String createPredefinedTitle(List<QuestionJson> questions) {
+        return questions.stream()
+                .flatMap(quest -> quest.getTags().stream())
+                .distinct()
+                .collect(Collectors.joining("-"));
+    }
+
+    private String createTitle(final String tag) {
+        return "Random-" + tag;
+    }
+
+    private List<QuestionJson> parseQuestionList(Iterator<JsonNode> elements) {
+        List<QuestionJson> questions = new LinkedList<>();
+        while (elements.hasNext()) {
+            questions.add(parseQuestion(elements.next()));
+        }
+        return questions;
+    }
+
+    private int calculateQuizTotalScore(List<QuestionJson> questions) {
+        return questions.parallelStream()
+                .reduce(0, (subtotal, element) -> subtotal + element.getScore(), Integer::sum);
     }
 
     private String getMostFrequentQuestionDifficulty(List<QuestionJson> questions) {
@@ -56,16 +89,6 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
                 .getKey();
     }
 
-    private String createTitle(final boolean predefined, final List<QuestionJson> questions) {
-        String prefix = "";
-        if (!predefined) {
-            prefix = "Random-";
-        }
-        return questions.stream()
-                .flatMap(quest -> quest.getTags().stream())
-                .distinct()
-                .collect(Collectors.joining("-", prefix, ""));
-    }
 
     private QuestionJson parseQuestion(JsonNode node) {
         final QuestionJson.Builder builder = new QuestionJson.Builder();
