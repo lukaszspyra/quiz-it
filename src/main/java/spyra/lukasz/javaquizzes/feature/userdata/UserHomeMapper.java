@@ -5,6 +5,8 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 import spyra.lukasz.javaquizzes.shared.User;
 
 import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * MapStruct mapper with default implementation of {@link TakeQuiz} to {@link TakeQuizView} mapping
@@ -31,7 +33,7 @@ interface UserHomeMapper {
         takeQuizView.setQuizMaxScore(takeQuiz.getQuiz().getMaxScore());
         takeQuizView.setQuizTitle(takeQuiz.getQuiz().getTitle());
         takeQuizView.setDifficulty(takeQuiz.getQuiz().getDifficulty());
-        takeQuizView.setAttemptTime(takeQuiz.getFinish().toString());
+        takeQuizView.setAttemptTime(localDateTimeToStringFormatter(takeQuiz.getFinish()));
         return takeQuizView;
     }
 
@@ -43,5 +45,10 @@ interface UserHomeMapper {
                 "m : " +
                 duration.toSecondsPart() +
                 "s";
+    }
+
+    private String localDateTimeToStringFormatter(final LocalDateTime localDateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+        return localDateTime.format(formatter);
     }
 }
