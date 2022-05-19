@@ -1,6 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizcreate.apiparse;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.JsonReader;
 import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.QuizInitRepository;
@@ -18,9 +18,8 @@ import java.net.http.HttpResponse;
  * @see <a href="https://quizapi.io/">quizapi.io</a>
  */
 @Service
+@RequiredArgsConstructor
 class ApiService {
-
-    private static final String API_URL = "https://quizapi.io/api/v1/questions?apiKey=";
 
     private final JsonReader jsonReader;
 
@@ -28,16 +27,11 @@ class ApiService {
 
     private final QuizInitRepository repository;
 
-    ApiService(JsonReader jsonReader, PropertiesReader propertiesReader, QuizInitRepository repository) {
-        this.jsonReader = jsonReader;
-        this.propertiesReader = propertiesReader;
-        this.repository = repository;
-    }
 
     /**
      * Gets {@link Quiz} form API call, based on tag and questionNumber chosen by the user.
      *
-     * @param tag        Category tag of the quiz
+     * @param tag            Category tag of the quiz
      * @param questionNumber of the quiz
      * @return parsed and saved quiz from database
      * @throws IOException          when {@link java.util.Properties} file is not found
@@ -47,13 +41,13 @@ class ApiService {
         String uri = generateUri(tag, questionNumber);
         final HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(createRequest(uri), HttpResponse.BodyHandlers.ofString());
-        final Quiz quizFromApi = jsonReader.parseApiJson(response.body());
+        final Quiz quizFromApi = jsonReader.parseApiJson(response.body(), tag);
         return repository.save(quizFromApi);
     }
 
     private String generateUri(final String tag, final String questionNumber) throws IOException {
         final StringBuilder builder = new StringBuilder();
-        return builder.append(API_URL)
+        return builder.append(propertiesReader.readProperty("api_URL", "settings.properties"))
                 .append(propertiesReader.readProperty("api_key", "settings.properties"))
                 .append("&limit=")
                 .append(questionNumber)
