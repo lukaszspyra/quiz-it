@@ -11,7 +11,7 @@ import java.util.List;
  */
 interface QuizSelectRepository extends JpaRepository<Quiz, Long> {
 
-    List<Quiz> findQuizzesByRestrictedFalseAndPredefinedTrueOrderByTitleAsc();
+    List<Quiz> findQuizzesByRestrictedFalseAndPredefinedTrueAndDemoOrderByTitleAsc(boolean demo);
 
     List<Quiz> findQuizzesByRestrictedTrueOrderByTitleAsc();
 

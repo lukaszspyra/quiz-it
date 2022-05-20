@@ -18,7 +18,7 @@ class QuizSelectController {
 
     @GetMapping("/quizzes")
     String notRestrictedQuizzes(Model model) {
-        model.addAttribute("quizzes", quizService.findPredefinedNotRestricted());
+        model.addAttribute("quizzes", quizService.findPredefinedNotRestrictedNotDemo());
         return "quizzes";
     }
 
