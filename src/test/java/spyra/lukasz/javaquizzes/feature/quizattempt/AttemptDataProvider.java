@@ -30,9 +30,9 @@ public class AttemptDataProvider {
     private static AttemptView attemptView1 = new AttemptView(0, "attempt1", 10, MOCKED_DATE_TIME_1, MOCKED_DATE_TIME_1, List.of(questionView1));
     private static AttemptView attemptView2 = new AttemptView(1, "attempt2", 12, MOCKED_DATE_TIME_2, MOCKED_DATE_TIME_2, List.of(questionView1, questionView2));
     private static AttemptView attemptView3 = new AttemptView(2, "attempt3", 15, MOCKED_DATE_TIME_1, MOCKED_DATE_TIME_2, List.of(questionView1, questionView2, questionView3));
-    private static Quiz quiz1 = new Quiz(0, "attempt1", 10, MOCKED_DATE_TIME_1, MOCKED_DATE_TIME_1, false, false, "Easy", List.of(question1));
-    private static Quiz quiz2 = new Quiz(1, "attempt2", 12, MOCKED_DATE_TIME_2, MOCKED_DATE_TIME_2, false, false, "Medium", List.of(question1, question2));
-    private static Quiz quiz3 = new Quiz(2, "attempt3", 15, MOCKED_DATE_TIME_1, MOCKED_DATE_TIME_2, false, false, "Hard", List.of(question1, question2, question3));
+    private static Quiz quiz1 = new Quiz(0, "attempt1", 10, MOCKED_DATE_TIME_1, MOCKED_DATE_TIME_1, false, false, false, "Easy", List.of(question1));
+    private static Quiz quiz2 = new Quiz(1, "attempt2", 12, MOCKED_DATE_TIME_2, MOCKED_DATE_TIME_2, false, false, false, "Medium", List.of(question1, question2));
+    private static Quiz quiz3 = new Quiz(2, "attempt3", 15, MOCKED_DATE_TIME_1, MOCKED_DATE_TIME_2, false, false, true, "Hard", List.of(question1, question2, question3));
 
 
     @DataProvider
