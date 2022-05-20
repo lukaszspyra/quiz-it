@@ -21,19 +21,3 @@ h1 {
     font-size: 50px;
 }
 
-.message {
-    display: inline-block;
-    line-height: 1.2;
-    transition: line-height .2s, width .2s;
-    overflow: hidden;
-}
-
-.message,
-.hidden {
-    font-family: 'Roboto Slab', serif;
-    font-size: 18px;
-}
-
-.hidden {
-    color: #FFF;
-}
