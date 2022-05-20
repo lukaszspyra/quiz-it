@@ -22,11 +22,13 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
         final Iterator<JsonNode> elements = nodes.elements();
         boolean restricted = false;
         boolean predefined = false;
+        boolean demo = false;
         LocalDateTime created = LocalDateTime.now();
         if (nodes.findValue("restricted") != null) {
             final JsonNode firstNode = elements.next();
             restricted = extractBooleanTagFromNode(firstNode, JsonNodes.RESTRICTED);
             predefined = extractBooleanTagFromNode(firstNode, JsonNodes.PREDEFINED);
+            demo = extractBooleanTagFromNode(firstNode, JsonNodes.DEMO);
             created = LocalDateTime.parse(firstNode.get(JsonNodes.CREATED.getValue()).asText());
         }
         List<QuestionJson> questions = parseQuestionList(elements);
@@ -43,6 +45,7 @@ class JsonCustomDeserializer extends JsonDeserializer<QuizJson> {
                 .setTitle(quizTitle)
                 .setRestricted(restricted)
                 .setPredefined(predefined)
+                .setDemo(demo)
                 .setMaxScore(totalScore)
                 .setCreated(created)
                 .setUpdated(LocalDateTime.now())

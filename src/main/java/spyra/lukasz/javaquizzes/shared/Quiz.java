@@ -41,6 +41,8 @@ public class Quiz {
 
     private boolean predefined;
 
+    private boolean demo;
+
     private String difficulty;
 
     @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
