@@ -1,0 +1,167 @@
+[
+  {
+    "restricted": false,
+    "predefined": true,
+    "created": "2022-05-19T19:37:29"
+  },
+  {
+    "id": 61,
+    "question": "All variables in PHP start with which symbol?",
+    "description": null,
+    "answers": {
+      "answer_a": "&",
+      "answer_b": "!",
+      "answer_c": "#",
+      "answer_d": "$",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_d",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 77,
+    "question": "Which one of these variables has an illegal name?",
+    "description": null,
+    "answers": {
+      "answer_a": "$myVar",
+      "answer_b": "$my_Var",
+      "answer_c": "$my-Var",
+      "answer_d": "$MyVar",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 791,
+    "question": "How to get current year in PHP ?",
+    "description": null,
+    "answers": {
+      "answer_a": "year = date(\"Year\");",
+      "answer_b": "year = date(\"Y\");",
+      "answer_c": "year = $date_(\"Y\");",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_b",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 576,
+    "question": "How can we add comments in PHP?",
+    "description": null,
+    "answers": {
+      "answer_a": "// commented code to end of line",
+      "answer_b": "/* commented code here */",
+      "answer_c": "# commented code to end of line",
+      "answer_d": "all of the above",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_d",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+{
+    "id": 561,
+    "question": "Which of the following PHP functions accepts any number of parameters?",
+    "description": null,
+    "answers": {
+      "answer_a": "func_get_args()",
+      "answer_b": "get_argc()",
+      "answer_c": "get_argv()",
+      "answer_d": "func_get_argv()",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "PHP"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  }
+]

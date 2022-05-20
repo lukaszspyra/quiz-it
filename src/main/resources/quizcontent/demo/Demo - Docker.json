@@ -1,0 +1,167 @@
+[
+  {
+    "restricted": false,
+    "predefined": true,
+    "created": "2022-05-19T19:42:13"
+  },
+  {
+    "id": 811,
+    "question": "How to delete a stopped container?",
+    "description": null,
+    "answers": {
+      "answer_a": "$ docker ---rm <container id>",
+      "answer_b": "$ docker rm -n <container id>",
+      "answer_c": "$ docker rm <container id>",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Docker"
+      }
+    ],
+    "category": "Docker",
+    "difficulty": "Medium"
+  },
+{
+    "id": 796,
+    "question": "What is a Dockerfile?",
+    "description": null,
+    "answers": {
+      "answer_a": "Docker cannot be build images automatically by reading the instructions from a file called Dockerfile.",
+      "answer_b": "Docker can build audio automatically by reading the instructions from a file called Dockerfile.",
+      "answer_c": "Docker can build images automatically by reading the instructions from a file called Dockerfile.",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Docker"
+      }
+    ],
+    "category": "Docker",
+    "difficulty": "Medium"
+  },
+{
+    "id": 839,
+    "question": "Following Docker command: eval $(docker-machine env default)  is used to:",
+    "description": null,
+    "answers": {
+      "answer_a": "Activate default VM machine",
+      "answer_b": "Build an image",
+      "answer_c": "Access a running container",
+      "answer_d": "Commit changes done in a Docker image",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Docker"
+      }
+    ],
+    "category": "Docker",
+    "difficulty": "Medium"
+  },
+{
+    "id": 843,
+    "question": "Following Docker command: docker push user_name/repository_name  is used to:",
+    "description": null,
+    "answers": {
+      "answer_a": "Activate default VM machine",
+      "answer_b": "Commit changes done in a Docker image",
+      "answer_c": "Push changes done in an docker image into Docker Hub",
+      "answer_d": "Build an image",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Docker"
+      }
+    ],
+    "category": "Docker",
+    "difficulty": "Medium"
+  },
+{
+    "id": 799,
+    "question": "How do you get the number of containers running, paused and stopped?",
+    "description": null,
+    "answers": {
+      "answer_a": "docker info",
+      "answer_b": "sudo --docker info",
+      "answer_c": "docker --info",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Docker"
+      }
+    ],
+    "category": "Docker",
+    "difficulty": "Medium"
+  }
+]

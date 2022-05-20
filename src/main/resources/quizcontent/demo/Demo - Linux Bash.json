@@ -1,0 +1,176 @@
+[
+  {
+    "restricted": false,
+    "predefined": true,
+    "created": "2022-05-19T19:51:35"
+  },
+  {
+    "id": 753,
+    "question": "How do you write the contents of 3 files into a single file?",
+    "description": null,
+    "answers": {
+      "answer_a": "cat file1 file2 file3 > file",
+      "answer_b": "cat file1 > file && cat file2 >> file && cat file3 >> file",
+      "answer_c": "cat file1 >> file; cat file2 >> file; cat file3 >> file",
+      "answer_d": "cat file1 > file && cat file2 > file && cat file3 > file",
+      "answer_e": "cat file1 > file || cat file2 > file || cat file3 > file",
+      "answer_f": "cat file1 > file; cat file2 > file; cat file3 > file"
+    },
+    "multiple_correct_answers": "true",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "BASH"
+      },
+      {
+        "name": "Linux"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+{
+    "id": 699,
+    "question": "How are devices represented in UNIX/Linux?",
+    "description": null,
+    "answers": {
+      "answer_a": "For UNIX/Linux every device is a file and are typically located in the directory /dev.",
+      "answer_b": "For UNIX/Linux every device is a block and are typically located in the directory /dev.",
+      "answer_c": "For UNIX/Linux every device is a file and are typically located in the directory /proc.",
+      "answer_d": "For UNIX/Linux every device is a block and are typically located in the directory /proc.",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "BASH"
+      },
+      {
+        "name": "Linux"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+{
+    "id": 1076,
+    "question": "If you execute the command `umask 0002`, what will happen",
+    "description": null,
+    "answers": {
+      "answer_a": "Next time when we create a file using the chmod command, the permissions of will be 664",
+      "answer_b": "Next time when we create a file using the chmod command, the permissions of will be 666",
+      "answer_c": "Next time when we create a file using the chmod command, the permissions of will be 002",
+      "answer_d": "None of the mentioned",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+{
+    "id": 674,
+    "question": "Which of the following command can give documentation of a command?",
+    "description": null,
+    "answers": {
+      "answer_a": "man",
+      "answer_b": "info",
+      "answer_c": "doc",
+      "answer_d": "show",
+      "answer_e": "help",
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "BASH"
+      },
+      {
+        "name": "Linux"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+{
+    "id": 681,
+    "question": "Who designed the Linux OS?",
+    "description": null,
+    "answers": {
+      "answer_a": "Linus Torvalds",
+      "answer_b": "Steve Jobs",
+      "answer_c": "Steve Wozniak",
+      "answer_d": "Steve Linus",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  }
+]

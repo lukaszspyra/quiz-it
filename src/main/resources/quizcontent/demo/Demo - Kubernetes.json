@@ -1,0 +1,167 @@
+[
+  {
+    "restricted": false,
+    "predefined": true,
+    "created": "2022-05-19T21:39:21"
+  },
+  {
+    "id": 718,
+    "question": "Which command is used to create a Kubernetes service?",
+    "description": null,
+    "answers": {
+      "answer_a": "kubectl set service",
+      "answer_b": "kubectl create service",
+      "answer_c": "kubectl deploy service",
+      "answer_d": "kubectl expose",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_d",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Kubernetes"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+{
+    "id": 911,
+    "question": "Kubernetes cluster data is stored in which of the following?",
+    "description": null,
+    "answers": {
+      "answer_a": "Kube-apiserver",
+      "answer_b": "Kubelet",
+      "answer_c": "Etcd",
+      "answer_d": "None of the above",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Kubernetes"
+      }
+    ],
+    "category": "DevOps",
+    "difficulty": "Medium"
+  },
+{
+    "id": 744,
+    "question": "How to mark a node called my-node as schedulable in Kubernetes?",
+    "description": null,
+    "answers": {
+      "answer_a": "kubectl schedulable my-node",
+      "answer_b": "kubectl up my-node",
+      "answer_c": "kubectl available my-node",
+      "answer_d": "kubectl uncordon my-node",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_d",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Kubernetes"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+{
+    "id": 907,
+    "question": "This volume type can be used to share contents within containers in a pod, but will not persist beyond the life of a pod.",
+    "description": null,
+    "answers": {
+      "answer_a": "EmptyDir",
+      "answer_b": "Local",
+      "answer_c": "ConfigMap",
+      "answer_d": "FlexVolume",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Kubernetes"
+      }
+    ],
+    "category": "DevOps",
+    "difficulty": "Easy"
+  },
+{
+    "id": 969,
+    "question": "What is the function of labels?",
+    "description": null,
+    "answers": {
+      "answer_a": "To classify functions",
+      "answer_b": "To tag containers and link them together in groups",
+      "answer_c": "To assign functions to pods",
+      "answer_d": "To be ignored by millennials",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_b",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Kubernetes"
+      }
+    ],
+    "category": "DevOps",
+    "difficulty": "Medium"
+  }
+]

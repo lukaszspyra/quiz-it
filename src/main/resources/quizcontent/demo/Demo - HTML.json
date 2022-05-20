@@ -1,0 +1,167 @@
+[
+  {
+    "restricted": false,
+    "predefined": true,
+    "created": "2022-05-19T21:30:34"
+  },
+  {
+    "id": 507,
+    "question": "Which is not a domain name extension",
+    "description": null,
+    "answers": {
+      "answer_a": ".mil",
+      "answer_b": ".com",
+      "answer_c": ".int",
+      "answer_d": ".org",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+{
+    "id": 523,
+    "question": "Which attribute can be used with BODY tag to set background color green?",
+    "description": null,
+    "answers": {
+      "answer_a": "background=\"green\"",
+      "answer_b": "bgcolor=\"green\"",
+      "answer_c": "vlink=\"green\"",
+      "answer_d": "None of above",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_b",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "Code",
+    "difficulty": "Medium"
+  },
+{
+    "id": 126,
+    "question": "What is the correct HTML element for inserting a line break?",
+    "description": null,
+    "answers": {
+      "answer_a": "<break>",
+      "answer_b": "<br>",
+      "answer_c": "<lb>",
+      "answer_d": "<bl>",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_b",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "",
+    "difficulty": "Easy"
+  },
+{
+    "id": 139,
+    "question": "What is the correct HTML for making a drop-down list?",
+    "description": null,
+    "answers": {
+      "answer_a": "<input type=\"dropdown\">",
+      "answer_b": "<input type=\"list\">",
+      "answer_c": "<select>",
+      "answer_d": "<list>",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "",
+    "difficulty": "Medium"
+  },
+{
+    "id": 125,
+    "question": "Choose the correct HTML element for the largest heading:",
+    "description": null,
+    "answers": {
+      "answer_a": "<heading>",
+      "answer_b": "<head>",
+      "answer_c": "<h1>",
+      "answer_d": "<h6>",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "HTML"
+      }
+    ],
+    "category": "",
+    "difficulty": "Easy"
+  }
+]

@@ -1,0 +1,167 @@
+[
+  {
+    "restricted": false,
+    "predefined": true,
+    "created": "2022-05-19T21:38:14"
+  },
+  {
+    "id": 215,
+    "question": "Which command is used to modify column names or table structure?",
+    "description": null,
+    "answers": {
+      "answer_a": "MODIFY",
+      "answer_b": "ADD",
+      "answer_c": "CHANGE",
+      "answer_d": "ALTER",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_d",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Easy"
+  },
+{
+    "id": 362,
+    "question": "What command is used to permanently remove a record from a database table?",
+    "description": null,
+    "answers": {
+      "answer_a": "DROP",
+      "answer_b": "REMOVE",
+      "answer_c": "DELETE",
+      "answer_d": "CUT",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_c",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  },
+{
+    "id": 252,
+    "question": "Which of the following is the best way to modify a table to allow null values?",
+    "description": null,
+    "answers": {
+      "answer_a": "ALTER TABLE table MODIFY column varchar(255) null",
+      "answer_b": "ALTER TABLE table MODIFY column VARCHAR(255)",
+      "answer_c": "ALTER TABLE table CHANGE column column type DEFAULT NULL",
+      "answer_d": "ALTER table MODIFY column varchar(255) null",
+      "answer_e": "None of the above",
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_a",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Hard"
+  },
+{
+    "id": 356,
+    "question": "The WHERE clause is mandatory when using the SELECT command",
+    "description": null,
+    "answers": {
+      "answer_a": "True",
+      "answer_b": "False",
+      "answer_c": null,
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_b",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Easy"
+  },
+{
+    "id": 359,
+    "question": "What will be the output of the following query. SELECT * FROM `sales` WHERE amount > 200.",
+    "description": null,
+    "answers": {
+      "answer_a": "the query will display all the sales records with amounts starting from 200 and above",
+      "answer_b": "the query will output sales records with the amount equal to 200.",
+      "answer_c": "the query will display all the sales records with amounts less than 200",
+      "answer_d": "the query will display all the sales records with amounts greater than 200",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "multiple_correct_answers": "false",
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "correct_answer": "answer_d",
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "MySQL"
+      }
+    ],
+    "category": "SQL",
+    "difficulty": "Medium"
+  }
+]
