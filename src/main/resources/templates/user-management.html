@@ -32,7 +32,6 @@
 <div th:replace="fragments/nav.html :: navigation"></div>
 
 
-
 <!--/* MAIN BANNER AREA START  */-->
 <div class="banner-area banner-2">
     <div class="d-table">
@@ -52,120 +51,119 @@
 <!--/* MAIN BANNER AREA END  */-->
 
 
-    <div class="container">
+<div class="container">
 
-        <div th:replace="fragments/nav.html :: navigation"></div>
-        <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
+    <div th:replace="fragments/nav.html :: navigation"></div>
+    <div class="container-fluid btn-group-vertical p-5 rounded border bg-light">
 
-            <div class="container-fluid p-4" style="text-align: center">
-                <table style="border: none">
-                    <tr><h3>Update authority:</h3></tr>
-                    <tr>
-                        <td>
-                            <form method="post" th:action="@{/superadmin/user-management/users/authority/admin-role}">
-                                <input type="hidden" name="_method" value="PUT"/>
-                                <label>
-                                    User ID:
-                                    <input type="number" min="2" name="id">
-                                </label>
-                                <button type="submit" name="Add admin">Add admin authority</button>
-                            </form>
-                        </td>
-                        <td>
-                            <form method="post" th:action="@{/superadmin/user-management/users/authority/user-role}">
-                                <input type="hidden" name="_method" value="PUT"/>
-                                <label>
-                                    Admin ID:
-                                    <input type="number" min="2" name="id">
-                                </label>
-                                <button type="submit" name="Remove admin">Remove admin authority</button>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+        <div class="container-fluid p-4" style="text-align: center">
+            <table style="border: none">
+                <tr><h3>Update authority:</h3></tr>
+                <tr>
+                    <td>
+                        <form method="post" th:action="@{/superadmin/user-management/users/authority/admin-role}">
+                            <input type="hidden" name="_method" value="PUT"/>
+                            <label>
+                                User ID:
+                                <input type="number" min="2" name="id">
+                            </label>
+                            <button type="submit" name="Add admin">Add admin authority</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" th:action="@{/superadmin/user-management/users/authority/user-role}">
+                            <input type="hidden" name="_method" value="PUT"/>
+                            <label>
+                                Admin ID:
+                                <input type="number" min="2" name="id">
+                            </label>
+                            <button type="submit" name="Remove admin">Remove admin authority</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-            <div class="container-fluid p-3" style="text-align: center" th:if="${message}">
-                <table class="container table">
-                    <h4 th:text="${message}" class="alert alert-success">
-                    </h4>
-                </table>
-            </div>
+        <div class="container-fluid p-3" style="text-align: center" th:if="${message}">
+            <table class="container table">
+                <h4 th:text="${message}" class="alert alert-success">
+                </h4>
+            </table>
+        </div>
 
-            <div class="container-fluid p-3" style="text-align: center">
-                <table class="container table">
-                    <h3>Admins:</h3>
-                    <tr>
-                        <th><label class="tbl_head">Id</label></th>
-                        <th><label class="tbl_head">Name</label></th>
-                        <th><label class="tbl_head">Email</label></th>
-                        <th><label class="tbl_head">Authority</label></th>
-                        <th><label class="tbl_head">ACTION</label></th>
-                    </tr>
+        <div class="container-fluid p-3" style="text-align: center">
+            <table class="container table">
+                <h3>Admins:</h3>
+                <tr>
+                    <th><label class="tbl_head">Id</label></th>
+                    <th><label class="tbl_head">Name</label></th>
+                    <th><label class="tbl_head">Email</label></th>
+                    <th><label class="tbl_head">Authority</label></th>
+                    <th><label class="tbl_head">ACTION</label></th>
+                </tr>
 
-                    <tr th:each="adm: ${ADMIN}">
-                        <td>
-                            <label th:text="${adm.getId()}">#Id</label>
-                        </td>
-                        <td>
-                            <label th:text="${adm.getName()}">#Name</label>
-                        </td>
-                        <td>
-                            <label th:text="${adm.getEmail()}">#Email</label>
-                        </td>
-                        <td>
-                            <label th:text="${adm.getRole()}">#Authority</label>
-                        </td>
-                        <td>
-                            <form method="post" th:action="@{/superadmin/user-management/users}">
-                                <input type="hidden" name="_method" value="DELETE"/>
-                                <input type="hidden" name="id" th:value="${adm.getId()}">
-                                <input type="hidden" name="email" th:value="${adm.getEmail()}">
-                                <button type="submit" name="Delete admin">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                <tr th:each="adm: ${ADMIN}">
+                    <td>
+                        <label th:text="${adm.getId()}">#Id</label>
+                    </td>
+                    <td>
+                        <label th:text="${adm.getName()}">#Name</label>
+                    </td>
+                    <td>
+                        <label th:text="${adm.getEmail()}">#Email</label>
+                    </td>
+                    <td>
+                        <label th:text="${adm.getRole()}">#Authority</label>
+                    </td>
+                    <td>
+                        <form method="post" th:action="@{/superadmin/user-management/users}">
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <input type="hidden" name="id" th:value="${adm.getId()}">
+                            <input type="hidden" name="email" th:value="${adm.getEmail()}">
+                            <button type="submit" name="Delete admin">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-            <div class="container-fluid p-3" style="text-align: center">
-                <table class="container table">
-                    <h3>Users:</h3>
-                    <tr>
-                        <th><label class="tbl_head">Id</label></th>
-                        <th><label class="tbl_head">Name</label></th>
-                        <th><label class="tbl_head">Email</label></th>
-                        <th><label class="tbl_head">Authority</label></th>
-                        <th><label class="tbl_head">ACTION</label></th>
-                    </tr>
+        <div class="container-fluid p-3" style="text-align: center">
+            <table class="container table">
+                <h3>Users:</h3>
+                <tr>
+                    <th><label class="tbl_head">Id</label></th>
+                    <th><label class="tbl_head">Name</label></th>
+                    <th><label class="tbl_head">Email</label></th>
+                    <th><label class="tbl_head">Authority</label></th>
+                    <th><label class="tbl_head">ACTION</label></th>
+                </tr>
 
-                    <tr th:each="usr: ${USER}">
-                        <td>
-                            <label th:text="${usr.getId()}">#Id</label>
-                        </td>
-                        <td>
-                            <label th:text="${usr.getName()}">#Name</label>
-                        </td>
-                        <td>
-                            <label th:text="${usr.getEmail()}">#Email</label>
-                        </td>
-                        <td>
-                            <label th:text="${usr.getRole}">#Role</label>
-                        </td>
-                        <td>
-                            <form method="post" th:action="@{/superadmin/user-management/users}">
-                                <input type="hidden" name="_method" value="DELETE"/>
-                                <input type="hidden" name="id" th:value="${usr.getId()}">
-                                <input type="hidden" name="email" th:value="${usr.getEmail()}">
-                                <button type="submit" name="Delete user">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                <tr th:each="usr: ${USER}">
+                    <td>
+                        <label th:text="${usr.getId()}">#Id</label>
+                    </td>
+                    <td>
+                        <label th:text="${usr.getName()}">#Name</label>
+                    </td>
+                    <td>
+                        <label th:text="${usr.getEmail()}">#Email</label>
+                    </td>
+                    <td>
+                        <label th:text="${usr.getRole}">#Role</label>
+                    </td>
+                    <td>
+                        <form method="post" th:action="@{/superadmin/user-management/users}">
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <input type="hidden" name="id" th:value="${usr.getId()}">
+                            <input type="hidden" name="email" th:value="${usr.getEmail()}">
+                            <button type="submit" name="Delete user">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            </table>
         </div>
     </div>
-</main>
+</div>
 
 <!--/*  FOOTER AREA INSERTED */-->
 <div th:replace="fragments/footer.html :: footer"></div>
