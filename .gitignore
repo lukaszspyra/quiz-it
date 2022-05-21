@@ -54,3 +54,4 @@ buildNumber.properties
 
 src/main/resources/quizcontent/restricted
 src/main/resources/settings.properties
+src/main/resources/static/restricted
