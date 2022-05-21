@@ -42,6 +42,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 
                 .antMatchers("/superadmin/**").hasAuthority(AvailableRole.SUPER_ADMIN.name())
                 .antMatchers("/admin/**").hasAnyAuthority(admins)
+                .antMatchers("/restricted/**").hasAnyAuthority(admins)
                 .antMatchers("/user").hasAnyAuthority(users)
                 .anyRequest()
                 .authenticated()
