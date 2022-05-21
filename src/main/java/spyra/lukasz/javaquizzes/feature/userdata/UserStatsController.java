@@ -5,7 +5,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import spyra.lukasz.javaquizzes.feature.login.MyUserPrincipal;
 
 import java.security.Principal;
 
@@ -19,16 +18,6 @@ class UserStatsController {
     public String userProfile(Principal principal, Authentication authentication, Model model) {
         model.addAttribute("user", userService.getUserDataByEmail(principal.getName()));
         return "profile";
-    }
-
-    @GetMapping({"/", "/home"})
-    public String commonIndex() {
-        return "index";
-    }
-
-    @GetMapping("/demo")
-    public String demo() {
-        return "demo";
     }
 
 }

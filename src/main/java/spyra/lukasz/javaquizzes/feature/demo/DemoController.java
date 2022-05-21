@@ -1,0 +1,16 @@
+package spyra.lukasz.javaquizzes.feature.demo;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+class DemoController {
+
+
+    @GetMapping("/demo")
+    public String demo() {
+        return "demo";
+    }
+
+
+}
