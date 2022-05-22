@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
@@ -10,13 +11,10 @@ import java.util.stream.Collectors;
  * Maps {@link Quiz} to {@link AttemptView}
  */
 @Component
+@RequiredArgsConstructor
 public class AttemptMapper {
 
     private final QuestionMapper questionMapper;
-
-    public AttemptMapper(QuestionMapper questionMapper) {
-        this.questionMapper = questionMapper;
-    }
 
     List<AttemptView> toView(List<Quiz> quizzes) {
         return quizzes.stream()

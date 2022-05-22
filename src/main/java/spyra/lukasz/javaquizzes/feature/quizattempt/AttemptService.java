@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.Question;
 
@@ -7,16 +8,12 @@ import java.util.Collections;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 class AttemptService {
 
     private final QuizProviderRepository quizProviderRepository;
 
     private final QuestionMapper questionMapper;
-
-    public AttemptService(QuizProviderRepository quizProviderRepository, QuestionMapper questionMapper) {
-        this.quizProviderRepository = quizProviderRepository;
-        this.questionMapper = questionMapper;
-    }
 
     /**
      * Retrieves quiz questions and returns them shuffled and mapped

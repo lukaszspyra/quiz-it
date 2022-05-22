@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.usersmanagement.registration;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -8,6 +9,7 @@ import spyra.lukasz.javaquizzes.feature.usersmanagement.RoleRepository;
 import spyra.lukasz.javaquizzes.shared.User;
 
 @Service
+@RequiredArgsConstructor
 class UserRegisterService {
 
     private final UserRegisterRepository registerRepository;
@@ -16,12 +18,6 @@ class UserRegisterService {
 
     private final PasswordEncoder passwordEncoder;
 
-    @Autowired
-    UserRegisterService(UserRegisterRepository registerRepository, RoleRepository roleRepository, PasswordEncoder passwordEncoder) {
-        this.registerRepository = registerRepository;
-        this.roleRepository = roleRepository;
-        this.passwordEncoder = passwordEncoder;
-    }
 
     /**
      * Registers new {@link User} in database, with {@link spyra.lukasz.javaquizzes.shared.Role Role} set to "USER".

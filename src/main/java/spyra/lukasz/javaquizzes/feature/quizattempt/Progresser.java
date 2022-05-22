@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.*;
@@ -12,7 +13,7 @@ import java.util.List;
  * Progresses quiz with each question answered.
  */
 @Component
-@AllArgsConstructor
+@RequiredArgsConstructor
 class Progresser {
 
     private final AnswerRepository answerRepository;

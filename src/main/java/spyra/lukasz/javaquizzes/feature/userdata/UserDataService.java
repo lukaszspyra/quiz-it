@@ -1,21 +1,17 @@
 package spyra.lukasz.javaquizzes.feature.userdata;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 class UserDataService {
 
     private final UserRepository userRepository;
 
     private final UserHomeMapper userMapper;
-
-    @Autowired
-    UserDataService(UserRepository userRepository, UserHomeMapper userMapper) {
-        this.userRepository = userRepository;
-        this.userMapper = userMapper;
-    }
 
     /**
      * Gets data from database and sends to view mapped as DTO

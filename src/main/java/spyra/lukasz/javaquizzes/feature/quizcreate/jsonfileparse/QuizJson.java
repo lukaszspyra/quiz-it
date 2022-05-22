@@ -15,16 +15,16 @@ import java.util.List;
 @Getter
 final class QuizJson {
 
-    private QuizJson(String title, boolean restricted, boolean predefined, boolean demo, int maxScore, LocalDateTime created, LocalDateTime updated, String difficulty, List<QuestionJson> questions) {
-        this.title = title;
-        this.restricted = restricted;
-        this.predefined = predefined;
-        this.demo = demo;
-        this.maxScore = maxScore;
-        this.created = created;
-        this.updated = updated;
-        this.difficulty = difficulty;
-        this.questions = questions;
+    private QuizJson(QuizJsonBuilder builder) {
+        this.title = builder.title;
+        this.restricted = builder.restricted;
+        this.predefined = builder.predefined;
+        this.demo = builder.demo;
+        this.maxScore = builder.maxScore;
+        this.created = builder.created;
+        this.updated = builder.updated;
+        this.difficulty = builder.difficulty;
+        this.questions = builder.questions;
     }
 
     private final String title;
@@ -103,7 +103,7 @@ final class QuizJson {
         }
 
         QuizJson createQuizJson() {
-            return new QuizJson(title, restricted, predefined, demo, maxScore, created, updated, difficulty, questions);
+            return new QuizJson(this);
         }
     }
 

@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizresults;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Question;
@@ -17,6 +18,7 @@ import java.util.stream.Collectors;
  * Maps {@link TakeQuiz} entity to {@link AttemptDetailsView} DTO
  */
 @Component
+@RequiredArgsConstructor
 class ResultDetailsMapper {
 
     private final MarkedAnswerDetailsRepository uDetailAnsRepository;
@@ -25,11 +27,6 @@ class ResultDetailsMapper {
 
     private final ScoreCounter scoreCounter;
 
-    ResultDetailsMapper(final MarkedAnswerDetailsRepository uDetailAnsRepository, final AnswerMapStructMapper ansMapStructMapper,final ScoreCounter scoreCounter) {
-        this.uDetailAnsRepository = uDetailAnsRepository;
-        this.ansMapStructMapper = ansMapStructMapper;
-        this.scoreCounter = scoreCounter;
-    }
 
     AttemptDetailsView quizAttemptToDetailsView(final TakeQuiz takeQuiz) {
         AttemptDetailsView attemptDetailsView = new AttemptDetailsView();

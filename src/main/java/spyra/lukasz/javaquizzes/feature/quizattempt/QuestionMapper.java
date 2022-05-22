@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Question;
@@ -11,13 +12,10 @@ import java.util.stream.Collectors;
  * Maps Question entity to QuestionView
  */
 @Component
+@RequiredArgsConstructor
 class QuestionMapper {
 
     private final AnswerMapper answerMapper;
-
-    QuestionMapper(AnswerMapper answerMapper) {
-        this.answerMapper = answerMapper;
-    }
 
     QuestionView toView(Question question) {
         QuestionView view = new QuestionView();

@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Quiz;
@@ -12,16 +13,12 @@ import java.time.LocalDateTime;
  * Starts the quiz attempt.
  */
 @Component
+@RequiredArgsConstructor
 class Starter {
 
     private final QuizProviderRepository quizProviderRepository;
 
     private final TakeQuizRepository takeQuizRepository;
-
-    Starter(QuizProviderRepository quizProviderRepository, TakeQuizRepository takeQuizRepository) {
-        this.quizProviderRepository = quizProviderRepository;
-        this.takeQuizRepository = takeQuizRepository;
-    }
 
     /**
      * Creates quiz attempt for logged in {@link User}.

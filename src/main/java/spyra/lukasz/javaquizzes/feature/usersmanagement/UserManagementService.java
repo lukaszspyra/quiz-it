@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.usersmanagement;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import java.util.stream.Collectors;
  * Contains logic for {@link User} management
  */
 @Service
+@RequiredArgsConstructor
 class UserManagementService {
 
     private final UserManagementRepository userRepository;
@@ -23,11 +25,6 @@ class UserManagementService {
 
     private final UserAuthorityMapStructMapper mapper;
 
-    public UserManagementService(UserManagementRepository userRepository, RoleRepository roleRepository, UserAuthorityMapStructMapper mapper) {
-        this.userRepository = userRepository;
-        this.roleRepository = roleRepository;
-        this.mapper = mapper;
-    }
 
     Optional<ChangeUserRoleDTO> changeRole(long userId, AvailableRole newRole) {
         if (isSuperAdmin(userId)) {

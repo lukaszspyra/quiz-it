@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.login;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -7,13 +8,10 @@ import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.User;
 
 @Service
+@RequiredArgsConstructor
 class UserLoginService implements UserDetailsService {
 
     private final LoginUserRepository repository;
-
-    UserLoginService(LoginUserRepository repository) {
-        this.repository = repository;
-    }
 
     /**
      * Delivers custom implementation of Spring's UserDetails interface, used for login process.

@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.quizresults;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
@@ -8,17 +9,12 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
  * Gets {@link AttemptDetailsView} DTO based on required quiz attempt id
  */
 @Service
+@RequiredArgsConstructor
 class ResultDetailsService {
 
     private final ResultDetailsRepository repository;
 
     private final ResultDetailsMapper resultDetailsMapper;
-
-    @Autowired
-    ResultDetailsService(final ResultDetailsRepository repository, final ResultDetailsMapper resultDetailsMapper) {
-        this.repository = repository;
-        this.resultDetailsMapper = resultDetailsMapper;
-    }
 
     /**
      * Searches for entity with given id and returns corresponding DTO
