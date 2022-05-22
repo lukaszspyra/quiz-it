@@ -18,8 +18,8 @@ import java.util.Arrays;
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final String[] resources = new String[]{
-            "/resources/**", "/css/**", "/fonts/**", "/images/**", "/js/**", "/scss/**", "/icons/**",
-            "/img/**", "/plugins/**", "/modern/**"};
+            "/modern/**", "/css/**", "/images/**", "/js/**", "/plugins/**", "/scss/**", "/fonts/**", "/icons/**"
+    };
 
     private final String[] admins = new String[]{AvailableRole.SUPER_ADMIN.name(), AvailableRole.ADMIN.name()};
     private final String[] users = Arrays.stream(AvailableRole.values())
@@ -36,13 +36,12 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/","/home").permitAll()
-                .antMatchers("/demo").permitAll()
+                .antMatchers("/", "/home").permitAll()
+                .antMatchers("/demo/**").permitAll()
                 .antMatchers("/register").permitAll()
 
                 .antMatchers("/superadmin/**").hasAuthority(AvailableRole.SUPER_ADMIN.name())
-                .antMatchers("/admin/**").hasAnyAuthority(admins)
-                .antMatchers("/restricted/**").hasAnyAuthority(admins)
+                .antMatchers("/admin/**", "/restricted/**").hasAnyAuthority(admins)
                 .antMatchers("/user").hasAnyAuthority(users)
                 .anyRequest()
                 .authenticated()
