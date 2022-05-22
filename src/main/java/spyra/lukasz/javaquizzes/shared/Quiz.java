@@ -10,8 +10,8 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.LinkedList;
+import java.util.List;
 
 @Transactional
 @Entity
@@ -47,6 +47,6 @@ public class Quiz {
 
     @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
     @Valid
-    private Set<Question> questions = new HashSet<>();
+    private List<Question> questions = new LinkedList<>();
 
 }

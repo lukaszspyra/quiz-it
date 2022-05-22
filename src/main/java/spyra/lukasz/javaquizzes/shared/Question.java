@@ -10,9 +10,8 @@ import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
-import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
 
 @Transactional
 @Entity
@@ -45,7 +44,7 @@ public class Question {
             inverseJoinColumns = @JoinColumn(name = "quiz_id"))
     @NotNull
     @Valid
-    private Set<Quiz> quizzes = new HashSet<>();
+    private List<Quiz> quizzes = new LinkedList<>();
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
     @NotNull
