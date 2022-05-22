@@ -111,7 +111,14 @@
                                 <text th:text="${questionStat.count}"></text>
                             </div>
                             <div class="col-3">
-                                <text th:text=" ${question.content}"></text>
+
+                                <!--/*Displays <img> or <h2> depending on content*/-->
+                                <th:block th:switch="${#strings.startsWith(question.getContent(), '/restricted/')}">
+                                    <img th:case="${true}" th:src="@{${question.getContent()}}"/>
+                                    <text th:case="*" th:text="${question.getContent()}">
+                                        <!--/*style="height: 300px"*/--></text>
+                                </th:block>
+
                             </div>
                             <div class="col-3">
                                 <ul>
