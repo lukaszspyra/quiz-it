@@ -15,4 +15,8 @@ class DemoService {
     List<Quiz> findDemosByTitle(String title) {
         return repository.findAllByDemoTrueAndTitleEqualsIgnoreCase(title);
     }
+
+    Quiz getById(long id) {
+        return repository.getById(id);
+    }
 }
