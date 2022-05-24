@@ -48,7 +48,7 @@ public final class TakeQuiz {
     /**
      * Updates {@link TakeQuiz} attempt with last question score and time of answer
      *
-     * Score is add to existing score, whilst updated time replaces existing finish time
+     * Score is added to existing score, whilst updated time replaces existing finish time
      *
      * @param questionScore received for the last question
      * @param questFinishTIme time of completion of the last question`
