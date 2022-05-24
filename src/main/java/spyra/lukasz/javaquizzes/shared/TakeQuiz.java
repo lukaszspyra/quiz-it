@@ -94,4 +94,12 @@ public final class TakeQuiz {
     public Duration calcAttemptTime() {
         return Duration.between(start, finish);
     }
+
+    /**
+     * Shows questions to answer in given attempt
+     * @return list of questions for given quiz attempt
+     */
+    public List<Question> questionsToAnswer(){
+        return quiz.getQuestions();
+    }
 }
