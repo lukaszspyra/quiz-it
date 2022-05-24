@@ -12,6 +12,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Transactional
 @Entity
@@ -50,5 +51,19 @@ public class Question {
     @NotNull
     @Valid
     private List<Answer> answers = new ArrayList<>();
+
+
+    /**
+     * Filters available answers based on Ids
+     *
+     * @param selectedIds for answers filtering
+     * @return list of answers filtered by selected Ids
+     */
+    public List<Answer> selectAnswers(List<Long> selectedIds){
+        return answers.stream()
+                .filter(q -> selectedIds.contains(q.getId()))
+                .collect(Collectors.toUnmodifiableList());
+    }
+
 
 }
