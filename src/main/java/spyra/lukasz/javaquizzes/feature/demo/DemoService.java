@@ -12,8 +12,10 @@ class DemoService {
 
     private final DemoRepository repository;
 
-    List<Quiz> findDemosByTitle(String title) {
-        return repository.findAllByDemoTrueAndTitleEqualsIgnoreCase(title);
+    private final DemoToViewMapper mapper;
+
+    List<DemoView> findDemosByTitle(String title) {
+        return mapper.toView(repository.findAllByDemoTrueAndTitleEqualsIgnoreCase(title));
     }
 
     Quiz getById(long id) {
