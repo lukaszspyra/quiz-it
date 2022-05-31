@@ -5,7 +5,7 @@ import org.mapstruct.Mapping;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 @Mapper(componentModel = "spring")
-interface FinalResultMapper {
+interface DemoResultMapper {
 
     @Mapping(target = "attemptTime", expression = "java(takeQuiz.calcAttemptTime())")
     FinalResultView toFinalResultView(TakeQuiz takeQuiz);

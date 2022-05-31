@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 final class DemoFinisher {
 
-    private final FinalResultMapper mapper;
+    private final DemoResultMapper mapper;
 
     FinalResultView finishQuizAttempt(HttpSession session) {
         final TakeQuiz demo = (TakeQuiz) session.getAttribute("demo");
