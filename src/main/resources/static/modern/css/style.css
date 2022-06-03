@@ -222,6 +222,13 @@ h5.subtitle {
   color: #fff;
 }
 
+.btn-white-not-active{
+  background-color: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.85);
+  border-color: rgba(255, 255, 255, 0.12);
+  cursor: default!important;
+}
+
 .btn-white {
   background-color: rgba(255, 255, 255, 0.95);
   color: rgba(0, 0, 0, 0.85);

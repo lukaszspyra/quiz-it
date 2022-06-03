@@ -46,13 +46,14 @@
                             <h2 class="banner-title">Your score:</h2>
                             <div class="line"></div>
                             <h4 class="banner-title" th:text="${result.getScore()}"></h4>
+                            <p>
                             <h2 class="banner-title">Time taken:</h2>
                             <div class="line"></div>
                             <h4 class="banner-title"
                                 th:text="${result.getAttemptTime().toMinutes() + 'm : ' + result.getAttemptTime().toSecondsPart() + 's'}"></h4>
                             <a th:href="@{/attempt/{id}/result/ (id=${result.getId()})}" class="btn btn-white btn-circled">attempt
                                 details</a>
-                            </p>
+                            <p>
                         </div>
                     </div>
                 </div>

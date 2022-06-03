@@ -46,12 +46,13 @@
                             <h2 class="banner-title">Your score:</h2>
                             <div class="line"></div>
                             <h4 class="banner-title" th:text="${result.getScore()}"></h4>
+                            <p>
                             <h2 class="banner-title">Time taken:</h2>
                             <div class="line"></div>
                             <h4 class="banner-title"
                                 th:text="${result.getAttemptTime().toMinutes() + 'm : ' + result.getAttemptTime().toSecondsPart() + 's'}"></h4>
-                            <a href="#" class="btn btn-white btn-circled">details not available for demo</a>
-                            </p>
+                            <div class="btn btn-white-not-active btn-circled">details not available for demo</div>
+                            <p>
                         </div>
                     </div>
                 </div>
