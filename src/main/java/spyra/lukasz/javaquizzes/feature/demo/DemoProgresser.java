@@ -22,14 +22,16 @@ class DemoProgresser {
     /**
      * Make progress of demo quiz attempt by updating {@link TakeQuiz} with given list of {@link Answer}
      *
+     * As it is demo feature, previous answers are not saved, but score is updated.
+     *
      * @param question    during attempt
      * @param markedIds   selected answers Ids
      * @param currentDemo current {@link TakeQuiz} attempt instance
      */
-    void progressQuiz(Question question, List<Long> markedIds, TakeQuiz currentDemo) {
+    void progressQuiz(final Question question, final List<Long> markedIds, final TakeQuiz currentDemo) {
         final List<Answer> answered = question.selectAnswers(markedIds);
         final TakeQuiz updatedDemo = currentDemo.progressQuizAttempt(scoreCounter.count(answered), LocalDateTime.now());
-        updatedDemo.setGivenAnswers(updateGivenAnswers(answered, question, updatedDemo));
+        updatedDemo.setGivenAnswers(createGivenAnswers(answered, question, updatedDemo));
     }
 
     /**
@@ -40,7 +42,7 @@ class DemoProgresser {
      * @param updatedQuiz current demo quiz attempt
      * @return list of created {@link TakeQuizAnswer}
      */
-    private List<TakeQuizAnswer> updateGivenAnswers(List<Answer> answered, Question question, TakeQuiz updatedQuiz) {
+    private List<TakeQuizAnswer> createGivenAnswers(List<Answer> answered, Question question, TakeQuiz updatedQuiz) {
         List<TakeQuizAnswer> takeQuizAnswers = new ArrayList<>();
         for (var answer : answered) {
             takeQuizAnswers.add(new TakeQuizAnswer(updatedQuiz, question, answer));
