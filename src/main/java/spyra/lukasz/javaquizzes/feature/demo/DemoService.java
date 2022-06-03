@@ -18,7 +18,7 @@ class DemoService {
         return mapper.toView(repository.findAllByDemoTrueAndTitleEqualsIgnoreCase(title));
     }
 
-    Quiz getById(long id) {
-        return repository.getById(id);
+    Quiz getDemoById(long id) {
+        return repository.getDemoById(id);
     }
 }

@@ -25,7 +25,7 @@ class DemoStarter {
      * @return instance of {@link TakeQuiz}
      */
     TakeQuiz takeQuiz(long demoId) {
-        Quiz presentQuiz = service.getById(demoId);
+        Quiz presentQuiz = service.getDemoById(demoId);
         TakeQuiz takeQuiz = new TakeQuiz();
         takeQuiz.setQuiz(presentQuiz);
         LocalDateTime now = LocalDateTime.now();
