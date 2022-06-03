@@ -6,11 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
-@Transactional
 @Entity
 @Getter
 @Setter
@@ -23,13 +21,12 @@ public class Answer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
     private boolean correct;
 
     @NotNull
     private String content;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "question_id")
     @NotNull
     @Valid

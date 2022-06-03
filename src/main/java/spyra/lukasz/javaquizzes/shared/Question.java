@@ -6,7 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import javax.transaction.Transactional;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
@@ -14,7 +13,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Transactional
 @Entity
 @Getter
 @Setter
@@ -47,7 +45,7 @@ public class Question {
     @Valid
     private List<Quiz> quizzes = new LinkedList<>();
 
-    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = {CascadeType.ALL, CascadeType.MERGE})
+    @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @NotNull
     @Valid
     private List<Answer> answers = new ArrayList<>();
@@ -59,11 +57,10 @@ public class Question {
      * @param selectedIds for answers filtering
      * @return list of answers filtered by selected Ids
      */
-    public List<Answer> selectAnswers(List<Long> selectedIds){
+    public List<Answer> selectAnswers(List<Long> selectedIds) {
         return answers.stream()
                 .filter(q -> selectedIds.contains(q.getId()))
                 .collect(Collectors.toUnmodifiableList());
     }
-
 
 }

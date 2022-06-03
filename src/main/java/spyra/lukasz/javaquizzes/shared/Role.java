@@ -1,7 +1,9 @@
 package spyra.lukasz.javaquizzes.shared;
 
 import lombok.AllArgsConstructor;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,6 +15,8 @@ import javax.validation.constraints.NotNull;
 @Table(name = "role")
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
 public class Role {
 
     @Id
@@ -22,20 +26,5 @@ public class Role {
     @NotNull
     private String name;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
 }

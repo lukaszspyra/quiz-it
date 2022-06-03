@@ -13,7 +13,6 @@ import java.time.LocalDateTime;
 import java.util.LinkedList;
 import java.util.List;
 
-@Transactional
 @Entity
 @Table(name = "quiz")
 @Getter
@@ -45,7 +44,7 @@ public class Quiz {
 
     private String difficulty;
 
-    @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = {CascadeType.ALL})
+    @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Valid
     private List<Question> questions = new LinkedList<>();
 

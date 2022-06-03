@@ -39,7 +39,7 @@ public final class TakeQuiz {
     @Valid
     private Quiz quiz;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     @NotNull
     @Valid
