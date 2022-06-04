@@ -26,10 +26,16 @@ class Finisher {
      * @return saved finished quiz attempt mapped to view
      */
     FinalResultView finishQuizAttempt(HttpSession session, Long takeQuizId) {
-        session.removeAttribute("questions");
+        cleanUpSession(session);
         TakeQuiz byId = takeQuizRepository.getById(takeQuizId);
         byId.setFinish(LocalDateTime.now());
         return mapper.toFinalResultView(takeQuizRepository.save(byId));
+    }
+
+    private void cleanUpSession(HttpSession session) {
+        session.removeAttribute("questions");
+        session.removeAttribute("question_timer");
+        session.removeAttribute("attempt_timer");
     }
 
 }
