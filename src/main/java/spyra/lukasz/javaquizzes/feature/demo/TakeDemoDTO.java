@@ -3,6 +3,7 @@ package spyra.lukasz.javaquizzes.feature.demo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -18,12 +19,15 @@ final class TakeDemoDTO {
 
     private LocalDateTime finish;
 
-    private List<TakeDemoAnswerDTO> givenAnswers;
+    private List<QuestionDTO> questionDTOs;
 
-    private List<QuestionDTO> remainingQuestions;
-
-    List<QuestionDTO> questionsToAnswer() {
-        return remainingQuestions;
+    /**
+     * Calculates for view layer, total time used for demo
+     *
+     * @return difference between start and finish demo times
+     */
+    public Duration calcAttemptTime() {
+        return Duration.between(start, finish);
     }
 
 }
