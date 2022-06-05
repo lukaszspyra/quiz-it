@@ -2,7 +2,6 @@ package spyra.lukasz.javaquizzes.feature.demo;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
@@ -14,13 +13,11 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 final class DemoFinisher {
 
-    private final DemoResultMapper mapper;
-
-    FinalResultView finishQuizAttempt(HttpSession session) {
-        final TakeQuiz demo = (TakeQuiz) session.getAttribute("demo");
+    TakeDemoDTO finishQuizAttempt(HttpSession session) {
+        final TakeDemoDTO demoDTO = (TakeDemoDTO) session.getAttribute("demo");
         cleanUpSession(session);
-        demo.setFinish(LocalDateTime.now());
-        return mapper.toFinalResultView(demo);
+        demoDTO.setFinish(LocalDateTime.now());
+        return demoDTO;
     }
 
     private void cleanUpSession(HttpSession session) {

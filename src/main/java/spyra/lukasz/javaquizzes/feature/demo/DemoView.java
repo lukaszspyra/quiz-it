@@ -12,7 +12,7 @@ final class DemoView {
 
     private final String title;
 
-    private final int score;
+    private final int maxScore;
 
     private final String created;
 
@@ -21,7 +21,7 @@ final class DemoView {
     private DemoView(final DemoView.Builder builder) {
         this.id = builder.id;
         this.title = builder.title;
-        this.score = builder.score;
+        this.maxScore = builder.score;
         this.created = builder.created;
         this.updated = builder.updated;
     }

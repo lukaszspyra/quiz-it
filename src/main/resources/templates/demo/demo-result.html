@@ -50,7 +50,7 @@
                             <h2 class="banner-title">Time taken:</h2>
                             <div class="line"></div>
                             <h4 class="banner-title"
-                                th:text="${result.getAttemptTime().toMinutes() + 'm : ' + result.getAttemptTime().toSecondsPart() + 's'}"></h4>
+                                th:text="${result.calcAttemptTime().toMinutes() + 'm : ' + result.calcAttemptTime().toSecondsPart() + 's'}"></h4>
                             <div class="btn btn-white-not-active btn-circled">details not available for demo</div>
                             <p>
                         </div>
