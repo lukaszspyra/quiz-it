@@ -69,11 +69,11 @@
                     </div>
                     <a style="color: lightgray" target="_blank" href="https://icons8.com">Icon by Icons8</a>
                     <div class="service-inner">
-                        <h4 th:text="${demo.getTitle()}">No data</h4>
+                        <h4 th:text="${demoView.getTitle()}">No data</h4>
                         <p>Max points:
-                            <text th:text="${demo.getScore()}"> No data</text>
+                            <text th:text="${demoView.getMaxScore()}"> No data</text>
                         </p>
-                        <a th:href="@{/demo/{id}/start (id=${demo.id})}" class="btn btn-hero btn-circled">lets start</a>
+                        <a th:href="@{/demo/{id}/start (id=${demoView.id})}" class="btn btn-hero btn-circled">lets start</a>
                     </div>
                 </div>
             </div>
