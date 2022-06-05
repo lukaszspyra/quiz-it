@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import spyra.lukasz.javaquizzes.shared.Question;
-import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
 import java.util.Arrays;
@@ -42,16 +40,15 @@ class DemoController {
         if (demos.isEmpty()) {
             return "demo";
         }
-        model.addAttribute("demo", demos.get(0));
+        model.addAttribute("demoView", demos.get(0));
         return "/demo/demo-start";
     }
 
     @GetMapping("/demo/{demo_id}/start")
     String startDemo(@PathVariable(name = "demo_id") long demoId,
                      HttpSession session) {
-        final TakeQuiz takeQuiz = starter.takeQuiz(demoId);
-        session.setAttribute("questions", takeQuiz.questionsToAnswer());
-        session.setAttribute("demo", takeQuiz);
+        final TakeDemoDTO takeDemoDTO = starter.takeQuiz(demoId);
+        session.setAttribute("demo", takeDemoDTO);
         return "redirect:/demo/{demo_id}/attempt";
     }
 
@@ -59,7 +56,7 @@ class DemoController {
     String nextDemoQuestion(@PathVariable(name = "demo_id") long demoId,
                             Model model,
                             HttpSession session) {
-        List<Question> questionsNotAnswered = (List<Question>) session.getAttribute("questions");
+        List<QuestionDTO> questionsNotAnswered = ((TakeDemoDTO) session.getAttribute("demo")).getQuestionDTOs();
         if (questionsNotAnswered.isEmpty()) {
             return "redirect:/demo/{demo_id}/finish/";
         }
@@ -69,12 +66,13 @@ class DemoController {
     }
 
     @PostMapping("/demo/{demo_id}/answer")
-    String giveDemoAnswers(@RequestParam(value = "given_answers", required = false) Long[] answerIds,
-                           HttpSession session) {
+    String submitDemoAnswers(@RequestParam(value = "given_answers", required = false) Long[] answerIds,
+                             HttpSession session) {
         List<Long> markedIds = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
-        final Question question = (Question) session.getAttribute("question");
-        final TakeQuiz demo = (TakeQuiz) session.getAttribute("demo");
-        progresser.progressQuiz(question, markedIds, demo);
+        final QuestionDTO question = (QuestionDTO) session.getAttribute("question");
+        final TakeDemoDTO demo = (TakeDemoDTO) session.getAttribute("demo");
+        final TakeDemoDTO updatedDemo = progresser.progressQuiz(question, markedIds, demo);
+        session.setAttribute("demo", updatedDemo);
         return "redirect:/demo/{demo_id}/attempt";
     }
 
