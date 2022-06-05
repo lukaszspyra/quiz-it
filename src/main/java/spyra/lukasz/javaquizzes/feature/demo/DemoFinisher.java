@@ -21,7 +21,6 @@ final class DemoFinisher {
     }
 
     private void cleanUpSession(HttpSession session) {
-        session.removeAttribute("questions");
         session.removeAttribute("question");
         session.removeAttribute("demo");
     }

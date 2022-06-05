@@ -22,9 +22,9 @@ class DemoProgresser {
     private final TakeDemoMapper mapper;
 
     /**
-     * Make progress of demo quiz attempt by updating {@link TakeQuiz} with given list of {@link Answer}
+     * Make progress of demo quiz attempt by updating {@link TakeQuiz}
      * <p>
-     * As it is demo feature, previous answers are not saved, but score is updated.
+     * As it is demo feature, answers are not saved, but score is updated. Returned instance is mapped to DTO.
      *
      * @param questionDTO during attempt
      * @param markedIds   selected answers Ids

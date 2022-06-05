@@ -6,6 +6,9 @@ import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import java.util.List;
 
+/**
+ * Delivers quiz demo instances mapped to DTO.
+ */
 @Service
 @RequiredArgsConstructor
 class DemoService {

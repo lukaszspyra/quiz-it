@@ -3,7 +3,7 @@ package spyra.lukasz.javaquizzes.feature.demo;
 import lombok.Getter;
 
 /**
- * DTO for demo quiz entity used to present details in controller
+ * DTO for demo quiz entity used to present details in controller for demo selection
  */
 @Getter
 final class DemoView {

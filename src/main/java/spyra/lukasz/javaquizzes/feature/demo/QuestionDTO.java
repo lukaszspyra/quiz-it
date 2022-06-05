@@ -5,6 +5,9 @@ import lombok.Setter;
 
 import java.util.List;
 
+/**
+ * DTO for {@link spyra.lukasz.javaquizzes.shared.Question} entity
+ */
 @Getter
 @Setter
 final class QuestionDTO {

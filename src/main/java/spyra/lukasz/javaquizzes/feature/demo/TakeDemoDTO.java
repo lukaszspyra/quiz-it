@@ -7,6 +7,9 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
 
+/**
+ * DTO for {@link spyra.lukasz.javaquizzes.shared.TakeQuiz} entity
+ */
 @Getter
 @Setter
 final class TakeDemoDTO {

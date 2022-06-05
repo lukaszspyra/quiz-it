@@ -13,6 +13,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * Performs demo quiz attempts
+ */
 @Controller
 @RequiredArgsConstructor
 class DemoController {

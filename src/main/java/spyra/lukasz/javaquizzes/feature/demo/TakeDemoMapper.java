@@ -6,6 +6,9 @@ import spyra.lukasz.javaquizzes.shared.Answer;
 import spyra.lukasz.javaquizzes.shared.Question;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
+/**
+ * MapStruct interface to deep map {@link TakeQuiz} to {@link TakeDemoDTO}
+ */
 @Mapper(componentModel = "spring")
 interface TakeDemoMapper {
 
