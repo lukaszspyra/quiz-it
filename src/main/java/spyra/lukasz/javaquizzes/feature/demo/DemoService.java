@@ -19,6 +19,6 @@ class DemoService {
     }
 
     Quiz getDemoById(long id) {
-        return repository.getDemoById(id);
+        return repository.getDemoWithQuestionsById(id);
     }
 }
