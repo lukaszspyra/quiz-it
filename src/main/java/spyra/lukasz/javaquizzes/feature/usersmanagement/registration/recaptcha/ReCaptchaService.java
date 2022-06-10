@@ -21,7 +21,7 @@ public class ReCaptchaService {
 
     public void processResponse(String response) throws InvalidReCaptchaException {
         if (!validateResponse(response)) {
-            throw new IllegalArgumentException("Response contains invalid characters");
+            throw new InvalidReCaptchaException("ReCaptcha response contains invalid characters");
         }
         final String secret = environment.getProperty("google.recaptcha.key.secret");
         final String verifyURL = environment.getProperty("google.recaptcha.verify.url");
