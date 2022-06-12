@@ -41,17 +41,19 @@ class RegistrationController {
      */
     @PostMapping("/register")
     public String registerUserAccount(
-            @RequestParam(value = "g-recaptcha-response") String captcha,
+            @RequestParam(value = "g-recaptcha-response") String reCaptcha,
             @Valid NewUserDTO newUserDTO,
             BindingResult bindingResult,
             Model model) {
-        if (bindingResult.hasErrors() || captcha == null || captcha.isBlank()) {
-            //TODO:add captcha error to model
+        if (isReCaptchaMissing(reCaptcha)) {
+            model.addAttribute("reCaptchaError", "Missing reCaptcha robot verification");
             return "register";
         }
-
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
         try {
-            reCaptchaService.processResponse(captcha);
+            reCaptchaService.processResponse(reCaptcha);
             registerService.registerAccount(newUserDTO, AvailableRole.USER);
         } catch (UserAlreadyExistsException | InvalidReCaptchaException ex) {
             bindingResult.rejectValue("email", "newUserDTO.email", ex.getMessage());
@@ -59,5 +61,9 @@ class RegistrationController {
         }
         model.addAttribute("registrationsuccess", "You have been successfully registered");
         return "/login";
+    }
+
+    private boolean isReCaptchaMissing(String reCaptcha) {
+        return reCaptcha == null || reCaptcha.isBlank();
     }
 }

@@ -65,6 +65,8 @@
                              th:errors="*{global}" th:errorclass="fieldError">
                             Non-matching passwords
                         </div>
+                        <div class="alert alert-danger" th:if="${reCaptchaError != null}" th:text="${reCaptchaError}>
+                        </div>
 
                         <!--/* Registration form */-->
                         <div class="row justify-content-center">
