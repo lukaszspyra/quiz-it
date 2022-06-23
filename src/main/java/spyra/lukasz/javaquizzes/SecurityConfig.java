@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.login;
+package spyra.lukasz.javaquizzes;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,6 +12,9 @@ import spyra.lukasz.javaquizzes.shared.AvailableRole;
 
 import java.util.Arrays;
 
+/**
+ * Configuration of Spring Security
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
