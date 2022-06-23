@@ -4,9 +4,15 @@ import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * ResponseType model for reCaptcha {@link org.springframework.web.client.RestOperations#postForEntity(URI, Object, Class)}
+ *
+ * Contains data returned from verification server
+ */
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonPropertyOrder({
@@ -48,6 +54,9 @@ public class ReCaptchaResponse {
         return false;
     }
 
+    /**
+     * Possible values of ErrorCodes in reCaptcha verification result model
+     */
     enum ErrorCode {
         MissingSecret,
         InvalidSecret,
