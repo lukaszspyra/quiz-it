@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes.feature.login;
+package spyra.lukasz.javaquizzes.feature.usersmanagement.login;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
