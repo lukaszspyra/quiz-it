@@ -5,14 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.1</version>
+        <version>2.7.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>spyra.lukasz</groupId>
-    <artifactId>java-quizzes</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>java-quizzes</name>
-    <description>java-quizzes</description>
+    <artifactId>quiz-it-space</artifactId>
+    <version>1.0.0</version>
+    <name>IT quizzes space</name>
 
     <properties>
         <java.version>11</java.version>
@@ -63,14 +62,10 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+        <!--  https://mvnrepository.com/artifact/org.postgresql/postgresql  -->
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -149,7 +144,6 @@
                         </path>
                     </annotationProcessorPaths>
                 </configuration>
-
             </plugin>
         </plugins>
     </build>
