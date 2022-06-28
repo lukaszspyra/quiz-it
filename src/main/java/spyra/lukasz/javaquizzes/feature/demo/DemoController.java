@@ -44,7 +44,7 @@ class DemoController {
             return "demo";
         }
         model.addAttribute("demoView", demos.get(0));
-        return "/demo/demo-start";
+        return "demo-start";
     }
 
     @GetMapping("/demo/{demo_id}/start")
@@ -65,7 +65,7 @@ class DemoController {
         }
         model.addAttribute("demo_id", demoId);
         session.setAttribute("question", questionsNotAnswered.remove(0));
-        return "demo/demo-attempt";
+        return "demo-attempt";
     }
 
     @PostMapping("/demo/{demo_id}/answer")
@@ -83,6 +83,6 @@ class DemoController {
     String finishDemo(Model model,
                       HttpSession session) {
         model.addAttribute("result", finisher.finishQuizAttempt(session));
-        return "/demo/demo-result";
+        return "demo-result";
     }
 }
