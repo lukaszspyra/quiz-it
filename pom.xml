@@ -14,7 +14,7 @@
     <name>IT quizzes space</name>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>18</java.version>
         <version.testng>7.5</version.testng>
         <version.jackson>2.13.2</version.jackson>
         <version.mapstruct>1.4.2.Final</version.mapstruct>
