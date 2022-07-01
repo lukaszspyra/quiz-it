@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,9 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
 import java.security.Principal;
-import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.LinkedList;
@@ -22,7 +21,6 @@ import java.util.List;
  * Controls quiz attempt taken by the {@link spyra.lukasz.javaquizzes.shared.User}
  */
 @Controller
-@RequiredArgsConstructor
 class AttemptController {
 
     private final Starter starter;
@@ -33,7 +31,17 @@ class AttemptController {
 
     private final AttemptService attemptService;
 
-    private final QuestionTimeReader propertyReader;
+    private final int questionTime;
+
+    @Autowired
+    AttemptController(Starter starter, Progresser progresser, Finisher finisher, AttemptService attemptService, @Value("${question.time}") int questionTime) {
+        this.starter = starter;
+        this.progresser = progresser;
+        this.finisher = finisher;
+        this.attemptService = attemptService;
+        this.questionTime = questionTime;
+    }
+
 
     /**
      * Starts quiz attempt based on the PathVariable with quiz id
@@ -43,17 +51,15 @@ class AttemptController {
      * @param session   server side storage to hold timers (both total timer and one question timer)
      *                  and questions remaining in given quiz
      * @return redirect to {@link AttemptController#progressQuiz(long, long, Model, HttpSession)} with created {@link TakeQuiz#getId()}
-     * @throws IOException if {@link java.util.Properties} with config data not found
      */
     @GetMapping("/quiz/{quiz_id}/start")
     String startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
                            Principal principal,
-                           HttpSession session) throws IOException {
+                           HttpSession session) {
         TakeQuiz takeQuiz = starter.takeQuiz(quizId, principal.getName());
         List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
-        int questionTimer = Integer.parseInt(propertyReader.readProperty("question_time", "settings.properties"));
-        long attemptTimer = takeQuiz.calcTimeForQuizInEpochSeconds(questions.size() * questionTimer);
-        session.setAttribute("question_timer", questionTimer);
+        long attemptTimer = takeQuiz.calcTimeForQuizInEpochSeconds(questions.size() * questionTime);
+        session.setAttribute("question_timer", questionTime);
         session.setAttribute("questions", questions);
         session.setAttribute("attempt_timer", attemptTimer);
         return "redirect:/quiz/{quiz_id}/attempt/" + takeQuiz.getId();
