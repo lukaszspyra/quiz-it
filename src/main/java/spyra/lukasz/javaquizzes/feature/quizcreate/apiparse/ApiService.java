@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.quizcreate.apiparse;
 
-import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.JsonReader;
 import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.QuizInitRepository;
@@ -18,14 +19,22 @@ import java.net.http.HttpResponse;
  * @see <a href="https://quizapi.io/">quizapi.io</a>
  */
 @Service
-@RequiredArgsConstructor
 class ApiService {
 
     private final JsonReader jsonReader;
 
-    private final PropertiesReader propertiesReader;
-
     private final QuizInitRepository repository;
+
+    private final String apiURL;
+
+    private final String apiKey;
+
+    ApiService(JsonReader jsonReader, QuizInitRepository repository, @Value("${api.url}") String apiURL, @Value("${api.key}") String apiKey) {
+        this.jsonReader = jsonReader;
+        this.repository = repository;
+        this.apiURL = apiURL;
+        this.apiKey = apiKey;
+    }
 
 
     /**
@@ -45,10 +54,10 @@ class ApiService {
         return repository.save(quizFromApi);
     }
 
-    private String generateUri(final String tag, final String questionNumber) throws IOException {
+    private String generateUri(final String tag, final String questionNumber) {
         final StringBuilder builder = new StringBuilder();
-        return builder.append(propertiesReader.readProperty("api_URL", "settings.properties"))
-                .append(propertiesReader.readProperty("api_key", "settings.properties"))
+        return builder.append(apiURL)
+                .append(apiKey)
                 .append("&limit=")
                 .append(questionNumber)
                 .append("&tags=")
