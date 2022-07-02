@@ -1,6 +1,5 @@
 package spyra.lukasz.javaquizzes.feature.quizcreate.apiparse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.JsonReader;

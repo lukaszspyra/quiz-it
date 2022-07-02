@@ -33,7 +33,6 @@ class AttemptController {
 
     private final int questionTime;
 
-    @Autowired
     AttemptController(Starter starter, Progresser progresser, Finisher finisher, AttemptService attemptService, @Value("${question.time}") int questionTime) {
         this.starter = starter;
         this.progresser = progresser;
