@@ -148,6 +148,10 @@ h5.subtitle {
   padding: 90px 0px;
 }
 
+.attempt-left-padding {
+  padding-left: 30px;
+}
+
 .section-heading {
   text-align: center;
   width: 70%;
@@ -559,10 +563,6 @@ h5.subtitle {
   line-height: 30px;
 }
 
-.banner-content .btn {
-  margin-right: 12px;
-}
-
 .btn-sm {
   padding: 10px 30px;
 }
@@ -856,6 +856,17 @@ HISTORY MISSION
   background: #fff;
   text-align: center;
   padding: 45px 25px 30px 25px;
+  border: 1px solid transparent;
+  transition: all .3s ease 0s;
+  border-radius: 5px;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-box-results {
+  margin-bottom: 30px;
+  background: #fff;
+  text-align: center;
+  padding: 15px 25px 30px 25px;
   border: 1px solid transparent;
   transition: all .3s ease 0s;
   border-radius: 5px;

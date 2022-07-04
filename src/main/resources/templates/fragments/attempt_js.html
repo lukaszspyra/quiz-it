@@ -1,6 +1,6 @@
 <script th:fragment="submitformactions_js">
     $("#form_answer").submit(function () {
-        sessionStorage.removeItem('passed');
+        localStorage.removeItem('passed');
         $("#form_answer_button").attr("disabled", true);
     });
 </script>
@@ -27,7 +27,7 @@
                 document.form_answer.action = "/quiz/" + [[${quiz_id}]] + "/finish/" + [[${attempt_id}]];
 
                 document.getElementById("form_answer").submit();
-                sessionStorage.clear();
+                localStorage.clear();
                 document.getElementById("countdown").innerHTML = "Time's up"; //if there's no time left, program in this 2 lines is clearing interval (nothing is counting now)
                 //and you see "It's over" instead of time left
             }
@@ -60,12 +60,11 @@
     const TIME_LIMIT = setConstant();
 
     function setConstant() {
-        let sessionItem = Number(sessionStorage.getItem('passed'));
+        let sessionItem = Number(localStorage.getItem('passed'));
         if (sessionItem !== null && sessionItem > 0) {
-            return Number(sessionStorage.getItem('passed'));
-        } else {
-            return Number([[${session.question_timer}]]) * 60;
+            return sessionItem;
         }
+        return Number([[${session.question_timer}]]) * 60;
     }
 
     let timePassed = 0;
@@ -100,7 +99,7 @@
     startTimer();
 
     function onTimesUp() {
-        sessionStorage.removeItem('passed');
+        localStorage.removeItem('passed');
         document.getElementById("form_answer").submit();
         clearInterval(timerInterval);
     }
@@ -110,7 +109,7 @@
             timePassed = timePassed += 1;
             timeLeft = TIME_LIMIT - timePassed;
 
-            sessionStorage.setItem('passed', timeLeft);
+            localStorage.setItem('passed', timeLeft);
 
             document.getElementById("base-timer-label").innerHTML = formatTime(
                 timeLeft

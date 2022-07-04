@@ -36,31 +36,31 @@
     <div class="overlay dark-overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Username</h3>
                     <p th:text="${user.getName()}">'No data'</p>
                 </div>
             </div>
-            <div class=" col-lg-3 col-md-6">
+            <div class=" col-lg-3 col-md-6 col-sm-6">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Email</h3>
                     <p th:text="${user.getEmail()}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Quizzes solved</h3>
                     <p th:text="${user.getTakenQuizzes().size()}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3 col-md-6 col-sm-6">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Registered as</h3>
                     <p th:text="${user.getRole().getName()}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-12 col-md-12">
+            <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="banner-content text-center" style="padding: 20px 0px 100px">
                     <h2 class="text-white">Your results</h2>
                 </div>

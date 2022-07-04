@@ -51,7 +51,7 @@
 
                             <form class="font-20" name="form_answer" id="form_answer" method="post"
                                   th:action="@{/quiz/{id}/answer/{attemptId} (id=${quiz_id}, attemptId=${attempt_id})}">
-                                <fieldset><!--/*style="height: 200px"*/-->
+                                <fieldset class="attempt-left-padding">
                                     <div class="form-check p-1" th:each="answer: ${question.getAnswers()}">
                                         <input class="form-check-input" type="checkbox" name="given_answers"
                                                th:value="${answer.getId()}" id="test">

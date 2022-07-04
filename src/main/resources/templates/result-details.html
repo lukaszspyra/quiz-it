@@ -36,38 +36,38 @@
     <div class="overlay dark-overlay"></div>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Score</h3>
                     <p th:text="${result.score}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Max</h3>
                     <p th:text="${result.quizMaxScore}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Difficulty</h3>
                     <p th:text="${result.difficulty}">'No data'</p>
                 </div>
             </div>
-            <div class=" col-lg-2 col-md-6">
+            <div class=" col-lg-2">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Duration</h3>
                     <p th:text="${result.duration}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
+            <div class="col-lg-3">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Attempt time</h3>
                     <p th:text="${result.finish}">'No data'</p>
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 col-md-12">
+                <div class="col-lg-12">
                     <div class="banner-content text-center" style="padding: 20px 0px 100px">
                         <h2 class="text-white">Your answers</h2>
                     </div>
@@ -76,7 +76,7 @@
         </div>
     </div>
 </div>
-<!--/*MAIN HEADER AREA END */-->
+<!--/*MAIN BANNER AREA END */-->
 
 
 <!--/*  SERVICE AREA START  */-->
@@ -84,69 +84,84 @@
     <div class="container">
         <div th:each="question: ${result.questionsSolved}" class="row justify-content-center">
             <div class="col-12">
-                <div class="service-box">
+                <div class="service-box-results">
                     <div class="service-inner">
                         <div class="row">
-                            <div class="col-1">
-                                <span>No.</span>
-                            </div>
-                            <div class="col-3">
-                                <span> Question</span>
-                            </div>
-                            <div class="col-3">
-                                <span>Available answers</span>
-                            </div>
-                            <div class="col-3">
-                                <span>Marked answers</span>
-                            </div>
-                            <div class="col-1">
-                                <span>Score</span>
-                            </div>
-                            <div class="col-1">
-                                <span>Max</span>
-                            </div>
-                        </div>
-                        <div class="row result-padding">
-                            <div class="col-1">
-                                <text th:text="${questionStat.count}"></text>
-                            </div>
-                            <div class="col-3">
 
-                                <!--/*Displays <img> or <h2> depending on content*/-->
-                                <th:block th:switch="${#strings.startsWith(question.getContent(), '/restricted/')}">
-                                    <img th:case="${true}" th:src="@{${question.getContent()}}"/>
-                                    <text th:case="*" th:text="${question.getContent()}">
-                                        <!--/*style="height: 300px"*/--></text>
-                                </th:block>
+                            <div class="col-lg-1">
+                                <div class="row result-padding justify-content-center">
+                                    <span>No.</span>
+                                </div>
+                                <div class="row result-padding justify-content-center">
+                                    <text th:text="${questionStat.count}"></text>
+                                </div>
+                            </div>
 
-                            </div>
-                            <div class="col-3">
-                                <ul>
-                                    <th:block th:each="possibleAnswer: ${question.possibleAnswers}">
-                                        <li style="word-break:break-word;" class="text-break"
-                                            th:text="${possibleAnswer.content}">
-                                        </li>
-                                        <br th:if="${possibleAnswerStat.last} == false">
+                            <div class="col-lg-3">
+                                <div class="row result-padding justify-content-center">
+                                    <span> Question</span>
+                                </div>
+                                <div class="row result-padding justify-content-center">
+                                    <!--/*Displays <img> or <h2> depending on content*/-->
+                                    <th:block th:switch="${#strings.startsWith(question.getContent(), '/restricted/')}">
+                                        <img th:case="${true}" th:src="@{${question.getContent()}}"/>
+                                        <text th:case="*" th:text="${question.getContent()}">
+                                            <!--/*style="height: 300px"*/--></text>
                                     </th:block>
-                                </ul>
+                                </div>
                             </div>
-                            <div class="col-3">
-                                <ul>
-                                    <th:block th:each="markedAnswer: ${question.markedAnswers}">
-                                        <li style="word-break:break-word" class="text-break"
-                                            th:classappend="${markedAnswer.isCorrect() ? 'text-correct' : 'text-incorrect'}"
-                                            th:text="${markedAnswer.content}">
-                                        </li>
-                                        <br th:if="${markedAnswerStat.last} == false">
-                                    </th:block>
-                                </ul>
+
+                            <div class="col-lg-3">
+                                <div class="row result-padding justify-content-center">
+                                    <span>Available answers</span>
+                                </div>
+                                <div class="row result-padding justify-content-center">
+                                    <ul>
+                                        <th:block th:each="possibleAnswer: ${question.possibleAnswers}">
+                                            <li style="word-break:break-word;" class="text-break"
+                                                th:text="${possibleAnswer.content}">
+                                            </li>
+                                            <br th:if="${possibleAnswerStat.last} == false">
+                                        </th:block>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-1">
-                                <text th:text="${question.questAwardedScore}"></text>
+
+                            <div class="col-lg-3">
+                                <div class="row result-padding justify-content-center">
+                                    <span>Marked answers</span>
+                                </div>
+                                <div class="row result-padding justify-content-center">
+                                    <ul>
+                                        <th:block th:each="markedAnswer: ${question.markedAnswers}">
+                                            <li style="word-break:break-word" class="text-break"
+                                                th:classappend="${markedAnswer.isCorrect() ? 'text-correct' : 'text-incorrect'}"
+                                                th:text="${markedAnswer.content}">
+                                            </li>
+                                            <br th:if="${markedAnswerStat.last} == false">
+                                        </th:block>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="col-1">
-                                <text th:text="${question.questMaxScore}"></text>
+
+                            <div class="col-lg-1">
+                                <div class="row result-padding justify-content-center">
+                                    <span>Score</span>
+                                </div>
+                                <div class="row result-padding justify-content-center">
+                                    <text th:text="${question.questAwardedScore}"></text>
+                                </div>
                             </div>
+
+                            <div class="col-lg-1">
+                                <div class="row result-padding justify-content-center">
+                                    <span>Max</span>
+                                </div>
+                                <div class="row result-padding justify-content-center">
+                                    <text th:text="${question.questMaxScore}"></text>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
