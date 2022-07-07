@@ -103,7 +103,7 @@
                         <!--/*        Delete quiz attempt */-->
                         <a id="delete" onclick="return confirm('Delete quiz result?')"
                            href="javascript: document.delete.submit()"
-                           class="btn btn-sm btn-outline-danger" style="font-size: 16px">delete</a><br>
+                           class="btn btn-circled btn-sm btn-outline-danger" style="font-size: 16px">delete</a><br>
                         <form name="delete" th:action="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" method="post"
                               hidden>
                             <input type="hidden" name="_method" value="DELETE"/>
