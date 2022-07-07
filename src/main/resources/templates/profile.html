@@ -98,12 +98,22 @@
                         <h1 th:text="${takenQuiz.getScore()}">?</h1>
                     </div>
                     <div class="service-inner">
-                        <h3 style="min-height: 73px" th:text=" ${takenQuiz.getQuizTitle()}">'No data'</h3>
+                        <h3 th:text=" ${takenQuiz.getQuizTitle()}">'No data'</h3><br>
+
+                        <!--/*        Delete quiz attempt */-->
+                        <a id="delete" onclick="return confirm('Delete quiz result?')"
+                           href="javascript: document.delete.submit()"
+                           class="btn btn-sm btn-outline-danger" style="font-size: 16px">delete</a><br>
+                        <form name="delete" th:action="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" method="post"
+                              hidden>
+                            <input type="hidden" name="_method" value="DELETE"/>
+                            <input hidden type="submit">
+                        </form>
+
                         <text>Difficulty: <span th:text="${takenQuiz.getDifficulty()}">'No data'</span><br></text>
                         <text>Max score: <span th:text="${takenQuiz.getQuizMaxScore()}">'No data'</span><br></text>
                         <text>Time spent: <span th:text="${takenQuiz.getDuration()}">'No data'</span><br></text>
-                        <text>Attempt time: <span th:text="${takenQuiz.getAttemptTime}">'No data'</span><br><br>
-                        </text>
+                        <text>Attempt time: <span th:text="${takenQuiz.getAttemptTime}">'No data'</span><br><br></text>
                         <a th:href="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" class="btn btn-black btn-circled">details</a>
                     </div>
                 </div>
