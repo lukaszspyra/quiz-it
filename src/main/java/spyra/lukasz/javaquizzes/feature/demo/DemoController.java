@@ -64,7 +64,7 @@ class DemoController {
             return "redirect:/demo/{demo_id}/finish/";
         }
         model.addAttribute("demo_id", demoId);
-        session.setAttribute("question", questionsNotAnswered.remove(0));
+        session.setAttribute("question", questionsNotAnswered.get(0));
         return "demo-attempt";
     }
 
@@ -74,6 +74,7 @@ class DemoController {
         List<Long> markedIds = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
         final QuestionDTO question = (QuestionDTO) session.getAttribute("question");
         final TakeDemoDTO demo = (TakeDemoDTO) session.getAttribute("demo");
+        demo.removeQuestion(question);
         final TakeDemoDTO updatedDemo = progresser.progressQuiz(question, markedIds, demo);
         session.setAttribute("demo", updatedDemo);
         return "redirect:/demo/{demo_id}/attempt";

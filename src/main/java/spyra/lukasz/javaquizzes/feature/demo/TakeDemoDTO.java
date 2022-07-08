@@ -33,4 +33,8 @@ final class TakeDemoDTO {
         return Duration.between(start, finish);
     }
 
+   boolean removeQuestion(QuestionDTO questionDTO){
+        return questionDTOs.remove(questionDTO);
+   }
+
 }
