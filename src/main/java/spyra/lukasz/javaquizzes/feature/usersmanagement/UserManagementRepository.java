@@ -2,7 +2,6 @@ package spyra.lukasz.javaquizzes.feature.usersmanagement;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.security.access.prepost.PostAuthorize;
 import org.springframework.security.access.prepost.PreAuthorize;
 import spyra.lukasz.javaquizzes.shared.User;
 
@@ -19,6 +18,7 @@ interface UserManagementRepository extends JpaRepository<User, Long> {
 
     /**
      * Deletes users by id, only if {@link spyra.lukasz.javaquizzes.shared.Role} is {@link spyra.lukasz.javaquizzes.shared.AvailableRole#SUPER_ADMIN}
+     *
      * @param id fo entity to be deleted
      */
     @PreAuthorize("hasAuthority('SUPER_ADMIN')")
