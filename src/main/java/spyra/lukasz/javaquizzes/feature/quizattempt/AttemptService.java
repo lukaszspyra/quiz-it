@@ -6,6 +6,7 @@ import spyra.lukasz.javaquizzes.shared.Question;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -21,7 +22,7 @@ class AttemptService {
      * @param quizId given quiz id
      * @return questions
      */
-    List<QuestionView> getQuizQuestionsRandomOrder(long quizId) {
+    List<QuestionView> getQuizQuestionsRandomOrder(UUID quizId) {
         List<Question> questions = quizProviderRepository.findQuizById(quizId).getQuestions();
         Collections.shuffle(questions);
         return questionMapper.toView(questions);

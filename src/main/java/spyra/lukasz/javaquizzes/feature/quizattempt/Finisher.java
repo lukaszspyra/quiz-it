@@ -6,6 +6,7 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  * Process quiz end
@@ -25,9 +26,9 @@ class Finisher {
      * @param takeQuizId to be ended
      * @return saved finished quiz attempt mapped to view
      */
-    FinalResultView finishQuizAttempt(HttpSession session, Long takeQuizId) {
+    FinalResultView finishQuizAttempt(HttpSession session, UUID takeQuizId) {
         cleanUpSession(session);
-        TakeQuiz byId = takeQuizRepository.getById(takeQuizId);
+        TakeQuiz byId = takeQuizRepository.getReferenceById(takeQuizId);
         byId.setFinish(LocalDateTime.now());
         return mapper.toFinalResultView(takeQuizRepository.save(byId));
     }

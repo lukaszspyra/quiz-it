@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -57,7 +58,7 @@ class ResultDetailsMapper {
                 "s";
     }
 
-    private QuestionDetailsView mapQuestToDetailsView(Question question, long takeQuizId) {
+    private QuestionDetailsView mapQuestToDetailsView(Question question, UUID takeQuizId) {
         QuestionDetailsView questDetails = new QuestionDetailsView();
         questDetails.setQuestionId(question.getId());
         questDetails.setQuestMaxScore(question.getScore());
@@ -73,7 +74,7 @@ class ResultDetailsMapper {
         return questDetails;
     }
 
-    private List<QuestionDetailsView> mapQuestToDetailsView(List<Question> questionList, long takeQuizId) {
+    private List<QuestionDetailsView> mapQuestToDetailsView(List<Question> questionList, UUID takeQuizId) {
         return questionList.stream()
                 .map(e -> mapQuestToDetailsView(e, takeQuizId))
                 .collect(Collectors.toUnmodifiableList());

@@ -5,10 +5,12 @@ import org.springframework.lang.NonNull;
 import org.springframework.security.access.prepost.PreAuthorize;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
+import java.util.UUID;
+
 /**
  * Deletes {@link TakeQuiz} from logged-in {@link spyra.lukasz.javaquizzes.shared.User}
  */
-interface ResultDeleteRepository extends JpaRepository<TakeQuiz, Long> {
+interface ResultDeleteRepository extends JpaRepository<TakeQuiz, UUID> {
 
     /**
      * Secured to check if {@link TakeQuiz} belongs to currently logged-in {@link spyra.lukasz.javaquizzes.shared.User}

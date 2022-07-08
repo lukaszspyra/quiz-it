@@ -7,6 +7,7 @@ import spyra.lukasz.javaquizzes.shared.Quiz;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  * Starts the demo attempt.
@@ -28,7 +29,7 @@ class DemoStarter {
      * @return mapped instance of {@link TakeDemoDTO}
      */
     @Transactional
-    TakeDemoDTO takeQuiz(long demoId) {
+    TakeDemoDTO takeQuiz(UUID demoId) {
         Quiz presentQuiz = service.getDemoById(demoId);
         TakeQuiz takeQuiz = new TakeQuiz();
         takeQuiz.setQuiz(presentQuiz);

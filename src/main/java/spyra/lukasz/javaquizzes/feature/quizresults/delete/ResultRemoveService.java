@@ -3,9 +3,9 @@ package spyra.lukasz.javaquizzes.feature.quizresults.delete;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
-import spyra.lukasz.javaquizzes.shared.User;
 
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * Service for removal of {@link TakeQuiz}
@@ -23,7 +23,7 @@ class ResultRemoveService {
      *
      * @param attemptId of entity for removal
      */
-    void deleteAttemptResult(long attemptId) {
+    void deleteAttemptResult(UUID attemptId) {
         final Optional<TakeQuiz> attemptById = repository.findById(attemptId);
         attemptById.ifPresent(repository::delete);
     }

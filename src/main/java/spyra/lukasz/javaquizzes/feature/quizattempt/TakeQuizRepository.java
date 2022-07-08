@@ -8,8 +8,9 @@ import spyra.lukasz.javaquizzes.shared.User;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.Optional;
+import java.util.UUID;
 
-interface TakeQuizRepository extends JpaRepository<TakeQuiz, Long> {
+interface TakeQuizRepository extends JpaRepository<TakeQuiz, UUID> {
 
     /**
      * Finds user by email, joining with entities of role and taken quizzes

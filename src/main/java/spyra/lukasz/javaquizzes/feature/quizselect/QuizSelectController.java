@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.UUID;
+
 /**
  * Returns view with quizzes chosen by the user
  * <p>
@@ -29,7 +31,7 @@ class QuizSelectController {
     }
 
     @GetMapping("/quiz/{id}")
-    String confirmQuizStart(Model model, @PathVariable long id) {
+    String confirmQuizStart(Model model, @PathVariable UUID id) {
         model.addAttribute("quiz", quizService.getById(id));
         return "quiz-start";
     }

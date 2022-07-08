@@ -8,6 +8,7 @@ import spyra.lukasz.javaquizzes.shared.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Progresses quiz with each question answered.
@@ -33,10 +34,10 @@ class Progresser {
      * @param takeQuizId present quiz attempt
      * @param questId present answered question
      */
-    void progressQuiz(final List<Long> answerIds, final long takeQuizId, final long questId) {
+    void progressQuiz(final List<UUID> answerIds, final UUID takeQuizId, final UUID questId) {
         List<Answer> answered = answerRepository.findAllById(answerIds);
-        TakeQuiz currentQuiz = takeQuizRepository.getById(takeQuizId);
-        Question question = questionRepository.getById(questId);
+        TakeQuiz currentQuiz = takeQuizRepository.getReferenceById(takeQuizId);
+        Question question = questionRepository.getReferenceById(questId);
         TakeQuiz updatedQuiz = updateQuiz(currentQuiz, scoreCounter.count(answered), LocalDateTime.now());
         updateGivenAnswers(answered, question, updatedQuiz);
     }

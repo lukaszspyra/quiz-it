@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * DTO for attempt details presented for the user
@@ -12,7 +13,7 @@ import java.util.List;
 @Setter
 class AttemptDetailsView {
 
-    private long attemptId;
+    private UUID attemptId;
 
     private int score;
 

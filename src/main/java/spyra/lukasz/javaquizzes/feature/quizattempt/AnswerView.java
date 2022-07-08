@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 import spyra.lukasz.javaquizzes.shared.Answer;
 
+import java.util.UUID;
+
 /**
  * DTO for {@link Answer} entity
  */
@@ -15,7 +17,7 @@ import spyra.lukasz.javaquizzes.shared.Answer;
 @EqualsAndHashCode
 class AnswerView {
 
-    private long id;
+    private UUID id;
 
     private boolean correct;
 

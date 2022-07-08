@@ -2,13 +2,15 @@ package spyra.lukasz.javaquizzes.feature.demo;
 
 import lombok.Getter;
 
+import java.util.UUID;
+
 /**
  * DTO for demo quiz entity used to present details in controller for demo selection
  */
 @Getter
 final class DemoView {
 
-    private final long id;
+    private final UUID id;
 
     private final String title;
 
@@ -28,13 +30,13 @@ final class DemoView {
 
     static class Builder {
 
-        private long id;
+        private UUID id;
         private String title;
         private int score;
         private String created;
         private String updated;
 
-        Builder withId(long id) {
+        Builder withId(UUID id) {
             this.id = id;
             return this;
         }

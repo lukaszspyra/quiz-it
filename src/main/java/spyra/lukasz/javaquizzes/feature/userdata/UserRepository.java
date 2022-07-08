@@ -13,6 +13,7 @@ interface UserRepository extends JpaRepository<User, Long> {
     /**
      * User entity retrieved from database, joined with {@link spyra.lukasz.javaquizzes.shared.Role} and list of
      * {@link spyra.lukasz.javaquizzes.shared.TakeQuiz}
+     *
      * @param email of registered User
      * @return User or empty Optional if it does not exist
      */

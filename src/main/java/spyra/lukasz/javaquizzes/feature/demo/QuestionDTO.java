@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * DTO for {@link spyra.lukasz.javaquizzes.shared.Question} entity
@@ -12,7 +13,7 @@ import java.util.List;
 @Setter
 final class QuestionDTO {
 
-    private long id;
+    private UUID id;
 
     private String content;
 

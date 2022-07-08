@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.UUID;
+
 /**
  * Deletes quiz attempt results
  */
@@ -22,7 +24,7 @@ class ResultDeleteController {
      * @return redirects to profile view controller
      */
     @DeleteMapping("/attempt/{attempt_id}/result/")
-    String deleteResult(@PathVariable(value = "attempt_id") long attemptId) {
+    String deleteResult(@PathVariable(value = "attempt_id") UUID attemptId) {
         service.deleteAttemptResult(attemptId);
         return "redirect:/profile";
     }

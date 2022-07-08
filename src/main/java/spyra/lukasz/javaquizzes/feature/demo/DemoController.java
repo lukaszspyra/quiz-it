@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Performs demo quiz attempts
@@ -48,7 +49,7 @@ class DemoController {
     }
 
     @GetMapping("/demo/{demo_id}/start")
-    String startDemo(@PathVariable(name = "demo_id") long demoId,
+    String startDemo(@PathVariable(name = "demo_id") UUID demoId,
                      HttpSession session) {
         final TakeDemoDTO takeDemoDTO = starter.takeQuiz(demoId);
         session.setAttribute("demo", takeDemoDTO);
@@ -56,7 +57,7 @@ class DemoController {
     }
 
     @GetMapping("/demo/{demo_id}/attempt")
-    String nextDemoQuestion(@PathVariable(name = "demo_id") long demoId,
+    String nextDemoQuestion(@PathVariable(name = "demo_id") UUID demoId,
                             Model model,
                             HttpSession session) {
         List<QuestionDTO> questionsNotAnswered = ((TakeDemoDTO) session.getAttribute("demo")).getQuestionDTOs();
@@ -69,9 +70,9 @@ class DemoController {
     }
 
     @PostMapping("/demo/{demo_id}/answer")
-    String submitDemoAnswers(@RequestParam(value = "given_answers", required = false) Long[] answerIds,
+    String submitDemoAnswers(@RequestParam(value = "given_answers", required = false) UUID[] answerIds,
                              HttpSession session) {
-        List<Long> markedIds = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
+        List<UUID> markedIds = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
         final QuestionDTO question = (QuestionDTO) session.getAttribute("question");
         final TakeDemoDTO demo = (TakeDemoDTO) session.getAttribute("demo");
         demo.removeQuestion(question);

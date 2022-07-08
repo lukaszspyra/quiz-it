@@ -3,6 +3,8 @@ package spyra.lukasz.javaquizzes.feature.quizresults;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 /**
  * DTO for answer details presented for user
  */
@@ -10,7 +12,7 @@ import lombok.Setter;
 @Setter
 class AnswerDetailsView {
 
-    private long id;
+    private UUID id;
 
     private boolean correct;
 

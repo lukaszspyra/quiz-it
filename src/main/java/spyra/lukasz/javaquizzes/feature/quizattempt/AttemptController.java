@@ -1,6 +1,5 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,10 +11,7 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import javax.servlet.http.HttpSession;
 import java.security.Principal;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * Controls quiz attempt taken by the {@link spyra.lukasz.javaquizzes.shared.User}
@@ -49,10 +45,10 @@ class AttemptController {
      * @param principal with name of currently logged in User
      * @param session   server side storage to hold timers (both total timer and one question timer)
      *                  and questions remaining in given quiz
-     * @return redirect to {@link AttemptController#progressQuiz(long, long, Model, HttpSession)} with created {@link TakeQuiz#getId()}
+     * @return redirect to {@link AttemptController#progressQuiz(UUID, UUID, Model, HttpSession)} with created {@link TakeQuiz#getId()}
      */
     @GetMapping("/quiz/{quiz_id}/start")
-    String startSingleQuiz(@PathVariable(name = "quiz_id") long quizId,
+    String startSingleQuiz(@PathVariable(name = "quiz_id") UUID quizId,
                            Principal principal,
                            HttpSession session) {
         TakeQuiz takeQuiz = starter.takeQuiz(quizId, principal.getName());
@@ -75,8 +71,8 @@ class AttemptController {
      */
     @SuppressWarnings("unchecked cast")
     @GetMapping("/quiz/{quiz_id}/attempt/{attempt_id}")
-    String progressQuiz(@PathVariable(name = "quiz_id") long quizId,
-                        @PathVariable(name = "attempt_id") long attemptId,
+    String progressQuiz(@PathVariable(name = "quiz_id") UUID quizId,
+                        @PathVariable(name = "attempt_id") UUID attemptId,
                         Model model,
                         HttpSession session) {
         List<QuestionView> questionsNotAnswered = (List<QuestionView>) session.getAttribute("questions");
@@ -92,7 +88,7 @@ class AttemptController {
     /**
      * Process answers from POST form of attempt view
      * <p>
-     * Answers are received in the form of id long[], quiz is progressed by {@link Progresser#progressQuiz(List, long, long)}
+     * Answers are received in the form of id UUID[], quiz is progressed by {@link Progresser#progressQuiz(List, UUID, UUID)}
      * and redirected
      *
      * @param answerIds  received by POST form from the User
@@ -100,16 +96,16 @@ class AttemptController {
      * @param attemptId  current quiz attempt id
      * @param quizId     current quiz run
      * @param session    storage for questions
-     * @return redirects to {@link AttemptController#progressQuiz(long, long, Model, HttpSession)}
+     * @return redirects to {@link AttemptController#progressQuiz(UUID, UUID, Model, HttpSession)}
      */
     @SuppressWarnings("unchecked cast")
     @PostMapping("/quiz/{quiz_id}/answer/{attempt_id}")
-    String giveAnswers(@RequestParam(value = "given_answers", required = false) Long[] answerIds,
-                       @RequestParam(value = "question_id") long questionId,
-                       @PathVariable(value = "attempt_id") long attemptId,
-                       @PathVariable(value = "quiz_id") long quizId,
+    String giveAnswers(@RequestParam(value = "given_answers", required = false) UUID[] answerIds,
+                       @RequestParam(value = "question_id") UUID questionId,
+                       @PathVariable(value = "attempt_id") UUID attemptId,
+                       @PathVariable(value = "quiz_id") UUID quizId,
                        HttpSession session) {
-        List<Long> answers = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
+        List<UUID> answers = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
         progresser.progressQuiz(answers, attemptId, questionId);
         List<QuestionView> questions = (List<QuestionView>) session.getAttribute("questions");
         List<QuestionView> questionsNotAnswered = new LinkedList<>(questions.subList(1, questions.size()));
@@ -126,7 +122,7 @@ class AttemptController {
      * @return result view
      */
     @GetMapping("/quiz/{quiz_id}/finish/{attempt_id}")
-    String finishQuiz(@PathVariable(value = "attempt_id") long attemptId,
+    String finishQuiz(@PathVariable(value = "attempt_id") UUID attemptId,
                       Model model,
                       HttpSession session) {
         FinalResultView takeQuiz = finisher.finishQuizAttempt(session, attemptId);
@@ -141,14 +137,14 @@ class AttemptController {
      * @param questionId current quiz question
      * @param attemptId  current attempt
      * @param quizId     base for attempt
-     * @return redirects to {@link AttemptController#finishQuiz(long, Model, HttpSession)}
+     * @return redirects to {@link AttemptController#finishQuiz(UUID, Model, HttpSession)}
      */
     @PostMapping("/quiz/{quiz_id}/finish/{attempt_id}")
-    String giveTimeOutAnswers(@RequestParam(value = "given_answers", required = false) Long[] answerIds,
-                              @RequestParam(value = "question_id") long questionId,
-                              @PathVariable(value = "attempt_id") long attemptId,
-                              @PathVariable(value = "quiz_id") long quizId) {
-        List<Long> answers = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
+    String giveTimeOutAnswers(@RequestParam(value = "given_answers", required = false) UUID[] answerIds,
+                              @RequestParam(value = "question_id") UUID questionId,
+                              @PathVariable(value = "attempt_id") UUID attemptId,
+                              @PathVariable(value = "quiz_id") UUID quizId) {
+        List<UUID> answers = answerIds == null ? Collections.emptyList() : Arrays.asList(answerIds);
         progresser.progressQuiz(answers, attemptId, questionId);
         return "redirect:/quiz/{quiz_id}/finish/" + attemptId;
     }

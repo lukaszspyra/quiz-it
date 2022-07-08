@@ -11,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Table(name = "users")
@@ -43,4 +44,8 @@ public class User {
     @Valid
     @NotNull
     private Role role;
+
+    public boolean isSuperAdmin(){
+        return role.getName().equals(AvailableRole.SUPER_ADMIN.name());
+    }
 }

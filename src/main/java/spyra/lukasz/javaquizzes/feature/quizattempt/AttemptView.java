@@ -4,6 +4,7 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * DTO for {@link spyra.lukasz.javaquizzes.shared.Quiz}
@@ -15,7 +16,7 @@ import java.util.List;
 @EqualsAndHashCode
 class AttemptView {
 
-    private long id;
+    private UUID id;
 
     private String title;
 

@@ -11,6 +11,7 @@ import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Entity
@@ -22,8 +23,8 @@ import java.util.stream.Collectors;
 public class Question {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private UUID id;
 
     @NotNull
     private long apiId;
@@ -57,7 +58,7 @@ public class Question {
      * @param selectedIds for answers filtering
      * @return list of answers filtered by selected Ids
      */
-    public List<Answer> selectAnswers(List<Long> selectedIds) {
+    public List<Answer> selectAnswers(List<UUID> selectedIds) {
         return answers.stream()
                 .filter(q -> selectedIds.contains(q.getId()))
                 .collect(Collectors.toUnmodifiableList());

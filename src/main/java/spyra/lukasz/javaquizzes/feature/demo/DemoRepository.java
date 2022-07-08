@@ -6,11 +6,12 @@ import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Quiz repository used to fetch demo quizzes
  */
-interface DemoRepository extends JpaRepository<Quiz, Long> {
+interface DemoRepository extends JpaRepository<Quiz, UUID> {
 
     List<Quiz> findAllByDemoTrueAndTitleEqualsIgnoreCase(@NotNull String title);
 
@@ -20,6 +21,6 @@ interface DemoRepository extends JpaRepository<Quiz, Long> {
      * @return {@link Quiz} entity with demo == true
      */
     @Query("select q from Quiz q join fetch q.questions where q.id = ?1 and q.demo = true")
-    Quiz getDemoWithQuestionsById(@NotNull Long id);
+    Quiz getDemoWithQuestionsById(@NotNull UUID id);
 
 }

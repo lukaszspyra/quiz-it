@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
+import java.util.UUID;
+
 /**
  * Gets {@link AttemptDetailsView} DTO based on required quiz attempt id
  */
@@ -24,7 +26,7 @@ class ResultDetailsService {
      * @param attemptId to be searched for
      * @return AttemptDetailsView
      */
-    AttemptDetailsView quizAttemptDetails(long attemptId){
+    AttemptDetailsView quizAttemptDetails(UUID attemptId){
         TakeQuiz attemptById = repository.getById(attemptId);
         return resultDetailsMapper.quizAttemptToDetailsView(attemptById);
     }

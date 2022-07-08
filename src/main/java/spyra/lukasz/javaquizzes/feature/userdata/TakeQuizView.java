@@ -3,6 +3,8 @@ package spyra.lukasz.javaquizzes.feature.userdata;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 /**
  * DTO for quiz attempt details presentation
  */
@@ -10,7 +12,7 @@ import lombok.Setter;
 @Setter
 class TakeQuizView {
 
-    private long id;
+    private UUID id;
 
     private int score;
 

@@ -2,13 +2,15 @@ package spyra.lukasz.javaquizzes.feature.quizselect;
 
 import lombok.Getter;
 
+import java.util.UUID;
+
 /**
  * DTO for quiz entity used to present details in controller
  */
 @Getter
 final class QuizView {
 
-    private final long id;
+    private final UUID id;
 
     private final String title;
 
@@ -28,13 +30,13 @@ final class QuizView {
 
     static class Builder {
 
-        private long id;
+        private UUID id;
         private String title;
         private int score;
         private String created;
         private String updated;
 
-        Builder withId(long id) {
+        Builder withId(UUID id) {
             this.id = id;
             return this;
         }

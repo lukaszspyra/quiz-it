@@ -3,6 +3,7 @@ package spyra.lukasz.javaquizzes.feature.quizattempt;
 import lombok.*;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * DTO to sent question data to view
@@ -14,7 +15,7 @@ import java.util.List;
 @EqualsAndHashCode
 public class QuestionView {
 
-    private long id;
+    private UUID id;
 
     private int score;
 

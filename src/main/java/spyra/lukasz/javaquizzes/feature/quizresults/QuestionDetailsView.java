@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * DTO for question presentation
@@ -12,7 +13,7 @@ import java.util.List;
 @Setter
 class QuestionDetailsView {
 
-    private long questionId;
+    private UUID questionId;
 
     private int questMaxScore;
 

@@ -4,8 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import spyra.lukasz.javaquizzes.shared.TakeQuizAnswer;
 
 import java.util.List;
+import java.util.UUID;
 
-interface MarkedAnswerDetailsRepository extends JpaRepository<TakeQuizAnswer, Long> {
+interface MarkedAnswerDetailsRepository extends JpaRepository<TakeQuizAnswer, UUID> {
 
-    List<TakeQuizAnswer> findTakeQuizAnswerByQuestionIdAndTakeQuizId(long questionId, long takeQuizId);
+    List<TakeQuizAnswer> findTakeQuizAnswerByQuestionIdAndTakeQuizId(UUID questionId, UUID takeQuizId);
 }

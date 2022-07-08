@@ -3,7 +3,6 @@ package spyra.lukasz.javaquizzes.feature.userdata;
 import lombok.Getter;
 import lombok.Setter;
 import spyra.lukasz.javaquizzes.shared.Role;
-import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
 import java.util.List;
 

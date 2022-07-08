@@ -6,6 +6,7 @@ import lombok.Setter;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * DTO for {@link spyra.lukasz.javaquizzes.shared.TakeQuiz} entity
@@ -14,7 +15,7 @@ import java.util.List;
 @Setter
 final class TakeDemoDTO {
 
-    private long id;
+    private UUID id;
 
     private int score;
 

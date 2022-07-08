@@ -4,7 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.access.prepost.PostAuthorize;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
-interface QuizProviderRepository extends JpaRepository<Quiz, Long> {
+import java.util.UUID;
+
+interface QuizProviderRepository extends JpaRepository<Quiz, UUID> {
 
     /**
      * Finds quiz by ID, checking for restricted object, which can be accessed only by admin roles.
@@ -12,5 +14,5 @@ interface QuizProviderRepository extends JpaRepository<Quiz, Long> {
      * @return authorized quiz
      */
     @PostAuthorize("returnObject.restricted == true ? hasAnyAuthority('ADMIN', 'SUPER_ADMIN') : true")
-    Quiz findQuizById(long id);
+    Quiz findQuizById(UUID id);
 }

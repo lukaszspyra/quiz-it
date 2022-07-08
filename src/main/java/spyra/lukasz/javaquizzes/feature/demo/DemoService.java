@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Delivers quiz demo instances mapped to DTO.
@@ -21,7 +22,7 @@ class DemoService {
         return mapper.toView(repository.findAllByDemoTrueAndTitleEqualsIgnoreCase(title));
     }
 
-    Quiz getDemoById(long id) {
+    Quiz getDemoById(UUID id) {
         return repository.getDemoWithQuestionsById(id);
     }
 }

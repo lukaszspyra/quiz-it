@@ -8,6 +8,7 @@ import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 import spyra.lukasz.javaquizzes.shared.User;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 /**
  * Starts the quiz attempt.
@@ -29,7 +30,7 @@ class Starter {
      * @param userEmail currently logged in {@link User}
      * @return created quiz attempt
      */
-    TakeQuiz takeQuiz(long quizId, String userEmail) {
+    TakeQuiz takeQuiz(UUID quizId, String userEmail) {
         Quiz presentQuiz = quizProviderRepository.findQuizById(quizId);
         User activeUser = takeQuizRepository.findUserByEmail(userEmail).orElseThrow(() -> new UsernameNotFoundException("Not found"));
         TakeQuiz takeQuiz = new TakeQuiz();

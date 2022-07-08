@@ -1,7 +1,6 @@
 package spyra.lukasz.javaquizzes.feature.usersmanagement;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import spyra.lukasz.javaquizzes.shared.AvailableRole;
@@ -27,18 +26,11 @@ class UserManagementService {
 
 
     Optional<ChangeUserRoleDTO> changeRole(long userId, AvailableRole newRole) {
-        if (isSuperAdmin(userId)) {
+        Optional<User> userById = userRepository.findByIdAndRoleNameNotLike(userId, newRole.name());
+        if (userById.isEmpty() || userById.get().isSuperAdmin()) {
             return Optional.empty();
         }
-        Optional<User> userById = userRepository.findByIdAndRoleNameNotLike(userId, newRole.name());
-        if (userById.isPresent()) {
-            return performRoleChange(userById.get(), newRole);
-        }
-        return Optional.empty();
-    }
-
-    private boolean isSuperAdmin(long userId) {
-        return userId == 1;
+        return performRoleChange(userById.get(), newRole);
     }
 
     @Transactional

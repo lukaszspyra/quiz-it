@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.*;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Controls progress during Demo quiz attempt.
@@ -31,7 +31,7 @@ class DemoProgresser {
      * @param takeDemoDTO current {@link TakeQuiz} attempt instance
      * @return demo DTO with updated score
      */
-    TakeDemoDTO progressQuiz(final QuestionDTO questionDTO, final List<Long> markedIds, final TakeDemoDTO takeDemoDTO) {
+    TakeDemoDTO progressQuiz(final QuestionDTO questionDTO, final List<UUID> markedIds, final TakeDemoDTO takeDemoDTO) {
         final Question question = mapper.toQuestion(questionDTO);
         final TakeQuiz currentDemo = mapper.fromDTO(takeDemoDTO);
 

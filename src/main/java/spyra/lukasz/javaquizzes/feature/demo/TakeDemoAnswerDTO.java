@@ -3,6 +3,8 @@ package spyra.lukasz.javaquizzes.feature.demo;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.UUID;
+
 /**
  * DTO for {@link spyra.lukasz.javaquizzes.shared.TakeQuizAnswer} entity
  */
@@ -10,7 +12,7 @@ import lombok.Setter;
 @Setter
 final class TakeDemoAnswerDTO {
 
-    private long id;
+    private UUID id;
 
     private boolean correct;
 

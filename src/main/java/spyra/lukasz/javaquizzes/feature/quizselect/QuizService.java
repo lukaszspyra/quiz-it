@@ -1,10 +1,10 @@
 package spyra.lukasz.javaquizzes.feature.quizselect;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Gets mapped {@link spyra.lukasz.javaquizzes.shared.Quiz} entities to DTO {@link QuizView} from database
@@ -25,7 +25,7 @@ class QuizService {
         return quizToViewMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrueOrderByTitleAsc());
     }
 
-    QuizView getById(long id) {
+    QuizView getById(UUID id) {
         return quizToViewMapper.toView(quizSelectRepository.getQuizById(id));
     }
 }

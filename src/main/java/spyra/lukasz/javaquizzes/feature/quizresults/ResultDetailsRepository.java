@@ -4,7 +4,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.access.prepost.PostAuthorize;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
-interface ResultDetailsRepository extends JpaRepository<TakeQuiz, Long> {
+import java.util.UUID;
+
+interface ResultDetailsRepository extends JpaRepository<TakeQuiz, UUID> {
 
     /**
      * Secured to check if {@link TakeQuiz} belongs to currently logged in {@link spyra.lukasz.javaquizzes.shared.User}
@@ -12,5 +14,5 @@ interface ResultDetailsRepository extends JpaRepository<TakeQuiz, Long> {
      * @return {@link TakeQuiz} for currently logged in User
      */
     @PostAuthorize("returnObject.user.email == authentication.principal.getUsername()")
-    TakeQuiz getById(long id);
+    TakeQuiz getById(UUID id);
 }
