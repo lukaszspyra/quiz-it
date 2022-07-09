@@ -1,0 +1,568 @@
+[
+  {
+    "restricted": false,
+    "predefined": true,
+    "demo": false,
+    "created": "2022-05-29T09:21:20"
+  },
+  {
+    "id": 1081,
+    "question": "Where are the online repositories configured on a Debian/Ubuntu Machine",
+    "answers": {
+      "answer_a": "/etc/apt/sources.list",
+      "answer_b": "/etc/apt/yum.repos",
+      "answer_c": "/etc/fstab",
+      "answer_d": "/etc/apt/repos",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 703,
+    "question": "How can you list only the directories in your current directory using ls command?",
+    "answers": {
+      "answer_a": "ls -l|grep “^d”",
+      "answer_b": "ls -ld",
+      "answer_c": "ls --dir",
+      "answer_d": "ls -d",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 10,
+    "question": "Which of the following is a command in Linux?",
+    "answers": {
+      "answer_a": "w",
+      "answer_b": "x",
+      "answer_c": "t",
+      "answer_d": "All of the Above",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 684,
+    "question": "What is the default value of UMASK?",
+    "answers": {
+      "answer_a": "022",
+      "answer_b": "044",
+      "answer_c": "777",
+      "answer_d": "222",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 28,
+    "question": "Where is Linux user list stored?",
+    "answers": {
+      "answer_a": "/etc/users",
+      "answer_b": "/usr/local/users",
+      "answer_c": "By running the command show users",
+      "answer_d": "None of the above.",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 688,
+    "question": "What is an internal command?",
+    "answers": {
+      "answer_a": "Shell built in commands are called as internal commands.",
+      "answer_b": "Shell commands which are executed on the local machine are called internal commands.",
+      "answer_c": "Every command which comes with the default installation of Linux is called internal command with some small exceptions like really old commands.",
+      "answer_d": "Every command which has been developed by the new generation of Linux is considered an internal command.",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 22,
+    "question": "tcpdump is a packet-sniffing Linux command that offers administrators the ability to monitor what?",
+    "answers": {
+      "answer_a": "Server performance",
+      "answer_b": "Network traffic and activity",
+      "answer_c": "Application performance",
+      "answer_d": "Files and directories",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Hard"
+  },
+  {
+    "id": 49,
+    "question": "Which of the following key combinations allows to terminate the current process in Linux shell?",
+    "answers": {
+      "answer_a": "Ctrl + C",
+      "answer_b": "Ctrl + Z",
+      "answer_c": "Ctrl + A",
+      "answer_d": "Ctrl + L",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 44,
+    "question": "Which of the following answers refers to a Linux command-line command used for configuring network interface parameters specific to the wireless communication?",
+    "answers": {
+      "answer_a": "net config",
+      "answer_b": "ifconfig",
+      "answer_c": "networksetup",
+      "answer_d": "iwconfig",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 1080,
+    "question": "Which command do we need to use if we want to see all packages installed on the system (Ubuntu)",
+    "answers": {
+      "answer_a": "dpkg -l",
+      "answer_b": "packageall -l",
+      "answer_c": "dpkg -a",
+      "answer_d": null,
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 1069,
+    "question": "What will happen If you run the command \"init 0\" in your terminal",
+    "answers": {
+      "answer_a": "Shut down the system",
+      "answer_b": "Reboot the system",
+      "answer_c": "Enter single user mode",
+      "answer_d": "Start the system without a display manager (GUI)",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 32,
+    "question": "Which command is used to display the default permissions for newly created files?",
+    "answers": {
+      "answer_a": "umask",
+      "answer_b": "priority",
+      "answer_c": "nice",
+      "answer_d": "perm",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 695,
+    "question": "Which command can be used to change file access permission bits?",
+    "answers": {
+      "answer_a": "chmod",
+      "answer_b": "chown",
+      "answer_c": "umask",
+      "answer_d": "chperm",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 674,
+    "question": "Which of the following command can give documentation of a command?",
+    "answers": {
+      "answer_a": "man",
+      "answer_b": "info",
+      "answer_c": "doc",
+      "answer_d": "show",
+      "answer_e": "help",
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  },
+  {
+    "id": 753,
+    "question": "How do you write the contents of 3 files into a single file?",
+    "answers": {
+      "answer_a": "cat file1 file2 file3 > file",
+      "answer_b": "cat file1 > file && cat file2 >> file && cat file3 >> file",
+      "answer_c": "cat file1 >> file; cat file2 >> file; cat file3 >> file",
+      "answer_d": "cat file1 > file && cat file2 > file && cat file3 > file",
+      "answer_e": "cat file1 > file || cat file2 > file || cat file3 > file",
+      "answer_f": "cat file1 > file; cat file2 > file; cat file3 > file"
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 54,
+    "question": "What are the types of links in Linux?",
+    "answers": {
+      "answer_a": "soft and hard links",
+      "answer_b": "open and close links",
+      "answer_c": "in-line and external links",
+      "answer_d": "links and highlights",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 696,
+    "question": "Which command can be used to execute a command/s repeatedly for the given schedule?",
+    "answers": {
+      "answer_a": "crontab",
+      "answer_b": "while",
+      "answer_c": "for",
+      "answer_d": "set",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 42,
+    "question": "Which of the answers listed below refers to a Linux command that allows for assuming the identity of a different system user and executing commands with security privileges of that user account?",
+    "answers": {
+      "answer_a": "sync",
+      "answer_b": "id",
+      "answer_c": "usermod",
+      "answer_d": "su",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 1079,
+    "question": "Which command do we need to execute to check the available repos in yum (CentOS)",
+    "answers": {
+      "answer_a": "yum repolist",
+      "answer_b": "yum listrepo",
+      "answer_c": "yum searchrepo",
+      "answer_d": "yum reposearch",
+      "answer_e": "yum reposhow",
+      "answer_f": "yum showrepo"
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Medium"
+  },
+  {
+    "id": 702,
+    "question": "Which command can be used to display basic information about your server?",
+    "answers": {
+      "answer_a": "uname",
+      "answer_b": "info",
+      "answer_c": "ls",
+      "answer_d": "show",
+      "answer_e": null,
+      "answer_f": null
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false",
+      "answer_e_correct": "false",
+      "answer_f_correct": "false"
+    },
+    "tip": null,
+    "tags": [
+      {
+        "name": "Linux#2"
+      }
+    ],
+    "category": "Linux",
+    "difficulty": "Easy"
+  }
+]
