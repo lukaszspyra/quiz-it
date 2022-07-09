@@ -156,7 +156,7 @@
 
             if (timeLeft <= 0) {
                 clearInterval(timing);
-                document.form_answer.action = "/quiz/" + [[${quiz_id}]] + "/finish/" + [[${attempt_id}]];
+                document.form_answer.action = "/quiz/" + " + [[${quiz_id}]] + " + "/finish/" + " + [[${attempt_id}]] + ";
 
                 document.getElementById("form_answer").submit();
                 localStorage.clear();
