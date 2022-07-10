@@ -101,10 +101,10 @@
                         <h3 th:text=" ${takenQuiz.getQuizTitle()}">'No data'</h3><br>
 
                         <!--/*        Delete quiz attempt */-->
-                        <a id="delete" onclick="return confirm('Delete quiz result?')"
-                           href="javascript: document.delete.submit()"
+                        <a onclick="return confirm('Delete quiz result?')"
+                           th:href="${'javascript: document.delete' + takenQuizStat.index + '.submit()'}"
                            class="btn btn-circled btn-sm btn-outline-danger" style="font-size: 16px">delete</a><br>
-                        <form name="delete" th:action="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" method="post"
+                        <form th:name="${'delete' + takenQuizStat.index}" th:action="@{/attempt/{id}/result/ (id=${takenQuiz.id})}" method="post"
                               hidden>
                             <input type="hidden" name="_method" value="DELETE"/>
                             <input hidden type="submit">

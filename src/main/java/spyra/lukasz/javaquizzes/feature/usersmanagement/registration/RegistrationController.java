@@ -60,7 +60,7 @@ class RegistrationController {
             return "register";
         }
         model.addAttribute("registrationsuccess", "You have been successfully registered");
-        return "/login";
+        return "login";
     }
 
     private boolean isReCaptchaMissing(String reCaptcha) {
