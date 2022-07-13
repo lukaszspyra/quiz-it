@@ -530,7 +530,7 @@ h5.subtitle {
 }
 
 .content-padding {
-  padding: 180px 0px 80px;
+  padding: 200px 0px 80px;
 }
 
 .banner-content .btn {
@@ -599,6 +599,21 @@ INner Pages
 }
 
 .page-banner-area {
+  background: url("../images/banner/3.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.page-banner-area-demo {
+  background: url("../images/banner/3.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.page-banner-area-login {
+  background: url("../images/banner/2.jpg") no-repeat 50% 50%;
+  background-size: cover;
+}
+
+.page-banner-area-register {
   background: url("../images/banner/1.jpg") no-repeat 50% 50%;
   background-size: cover;
 }
