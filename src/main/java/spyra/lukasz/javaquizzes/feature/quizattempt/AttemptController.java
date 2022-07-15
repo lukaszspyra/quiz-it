@@ -82,7 +82,7 @@ class AttemptController {
         model.addAttribute("attempt_id", attemptId);
         model.addAttribute("quiz_id", quizId);
         model.addAttribute("question", questionsNotAnswered.get(0));
-        return "attempt";
+        return "quiz-attempt";
     }
 
     /**
@@ -127,7 +127,7 @@ class AttemptController {
                       HttpSession session) {
         FinalResultView takeQuiz = finisher.finishQuizAttempt(session, attemptId);
         model.addAttribute("result", takeQuiz);
-        return "result";
+        return "quiz-result";
     }
 
     /**
