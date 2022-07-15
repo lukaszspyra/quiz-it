@@ -20,24 +20,24 @@
 
 
 
-    /* ==========================================================================
-      COUNTER UP 
- ========================================================================== */
-
-    $('.counter').counterUp({
-        delay: 10,
-        time: 1000
-    });
-
-    $('.carousel').carousel({
-      interval: 8000
-    });
-    
-    /* Closes the Responsive Menu on Menu Item Click*/
-    $('.navbar-collapse .navbar-nav a').on('click', function () {
-        $('.navbar-toggler:visible').click();
-    });
-    /*END MENU JS*/
+ //    /* ==========================================================================
+ //      COUNTER UP
+ // ========================================================================== */
+ //
+ //    $('.counter').counterUp({
+ //        delay: 10,
+ //        time: 1000
+ //    });
+ //
+ //    $('.carousel').carousel({
+ //      interval: 8000
+ //    });
+ //
+ //    /* Closes the Responsive Menu on Menu Item Click*/
+ //    $('.navbar-collapse .navbar-nav a').on('click', function () {
+ //        $('.navbar-toggler:visible').click();
+ //    });
+ //    /*END MENU JS*/
 
     
     /* ----------------------------------------------------------- */

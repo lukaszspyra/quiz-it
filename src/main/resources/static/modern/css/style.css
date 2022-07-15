@@ -567,14 +567,14 @@ h5.subtitle {
   padding: 10px 30px;
 }
 
-.banner-1 {
-  background: url("../images/banner/bg-2.jpg");
+.banner-2 {
+  background: url("../images/banner/slider-3.jpg");
   background-size: cover;
   position: relative;
 }
 
-.banner-2 {
-  background: url("../images/banner/slider-3.jpg");
+.banner-attempt {
+  background: url("../images/banner/slider.jpg");
   background-size: cover;
   position: relative;
 }
