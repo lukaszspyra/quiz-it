@@ -63,12 +63,12 @@
                         Logout
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarWelcome">
+                        <form name="logout" th:action="@{/logout}" method="post" hidden>
+                            <input type="submit" hidden >
+                        </form>
                         <a class="dropdown-item" href="javascript: document.logout.submit()">
                             Logout
                         </a>
-                        <form name="logout" action="#" th:action="@{/logout}" method="post" hidden>
-                            <input hidden type="submit" class="nav-link" value="Log out">
-                        </form>
                     </div>
                 </li>
 
