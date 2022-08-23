@@ -1,4 +1,4 @@
-package spyra.lukasz.javaquizzes;
+package spyra.lukasz.javaquizzes.config.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,26 +14,52 @@ import java.util.Arrays;
 
 /**
  * Configuration of Spring Security
+ *
+ * Enables {@link org.springframework.security.access.prepost.PreAuthorize}
  */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    /**
+     * Array of resources endpoints, that shall be available without authentication
+     */
     private final String[] resources = new String[]{
             "/modern/**", "/css/**", "/images/**", "/js/**", "/plugins/**", "/scss/**", "/fonts/**", "/icons/**"
     };
 
+    /**
+     * Array of Admins names, used for securing administration endpoints
+     */
     private final String[] admins = new String[]{AvailableRole.SUPER_ADMIN.name(), AvailableRole.ADMIN.name()};
     private final String[] users = Arrays.stream(AvailableRole.values())
             .map(AvailableRole::name)
             .toArray(String[]::new);
 
+    /**
+     * Provides bean of BCrypt as default password encoder for users passwords hashing
+     * @return new instance of BCrypt encoder
+     */
     @Bean
     PasswordEncoder getPasswordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    /**
+     * Main security config
+     *
+     * <ul>
+     *     <li>
+     *         Configures endpoints for admins, users and visitors
+     *     </li>
+     *     <li>
+     *         Provides custom login/logout endpoints, that can be used for custom views
+     *     </li>
+     * </ul>
+     * @param http
+     * @throws Exception
+     */
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
