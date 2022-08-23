@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.quizcreate.apiparse;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.JsonReader;
 import spyra.lukasz.javaquizzes.feature.quizcreate.jsonfileparse.QuizInitRepository;
@@ -18,6 +19,7 @@ import java.net.http.HttpResponse;
  * @see <a href="https://quizapi.io/">quizapi.io</a>
  */
 @Service
+@PropertySource("/settings.properties")
 class ApiService {
 
     private final JsonReader jsonReader;

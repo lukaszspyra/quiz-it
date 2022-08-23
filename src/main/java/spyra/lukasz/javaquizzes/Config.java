@@ -10,7 +10,6 @@ import org.springframework.web.client.RestOperations;
  * Configuration of RestOperations factory method
  */
 @Configuration
-@PropertySource("/settings.properties")
 public class Config {
 
     @Bean

@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.quizattempt;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,6 +18,7 @@ import java.util.*;
  * Controls quiz attempt taken by the {@link spyra.lukasz.javaquizzes.shared.User}
  */
 @Controller
+@PropertySource("/settings.properties")
 class AttemptController {
 
     private final Starter starter;
