@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 /**
  * MapStruct registered Mapper
- *
+ * <p>
  * Used by Spring as bean
  */
 @Mapper(componentModel = "spring")
@@ -20,6 +20,7 @@ abstract class QuizMapperMapStruct {
 
     /**
      * MapStruct implementation of mapping from {@link QuizJson} to {@link Quiz}
+     *
      * @param quizJson
      * @return Quiz entity without questions set
      */
@@ -27,6 +28,7 @@ abstract class QuizMapperMapStruct {
 
     /**
      * MapStruct implementation of mapping from list of {@link QuestionJson} to {@link Question} list
+     *
      * @param questionsJson
      * @return list of Question entities without Answers set
      */
@@ -34,6 +36,7 @@ abstract class QuizMapperMapStruct {
 
     /**
      * MapStruct implementation of mapping from list of {@link AnswerJson} to {@link Answer} list
+     *
      * @param answersJson
      * @return list of Answer entities
      */
@@ -41,26 +44,24 @@ abstract class QuizMapperMapStruct {
 
     /**
      * After mapping binding of Questions to Quiz
-     *
+     * <p>
      * Initial mapping by MapStruct gives Quiz entities without Questions set, whilst Questions do not have Answers set.
      * Those links are created after mapping process.
+     *
      * @param quiz with not questions set
      */
     @AfterMapping
     protected void bindQuestionsToQuiz(@MappingTarget Quiz quiz) {
         List<Question> questNotBound = quiz.getQuestions();
         List<Question> questBound = questNotBound.stream()
-                .peek(q -> q.getQuizzes().add(quiz))
+                .peek(q -> q.setQuiz(quiz))
                 .map(this::bindAnswerToQuestion)
                 .collect(Collectors.toUnmodifiableList());
         quiz.setQuestions(questBound);
     }
 
     private Question bindAnswerToQuestion(final Question question) {
-        List<Answer> answersBound = question.getAnswers().stream()
-                .peek(a -> a.setQuestion(question))
-                .collect(Collectors.toUnmodifiableList());
-        question.setAnswers(answersBound);
+        question.getAnswers().forEach(a -> a.setQuestion(question));
         return question;
     }
 }

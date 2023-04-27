@@ -64,6 +64,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
+                .antMatchers("/healthz").permitAll()
                 .antMatchers(resources).permitAll()
                 .antMatchers("/", "/home").permitAll()
                 .antMatchers("/demo/**").permitAll()

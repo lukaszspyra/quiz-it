@@ -9,28 +9,29 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>spyra.lukasz</groupId>
-    <artifactId>quiz-it-space</artifactId>
+    <artifactId>quiz-it</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>IT quizzes space</name>
+    <name>quizIT</name>
 
     <properties>
-        <java.version>18</java.version>
+        <java.version>17</java.version>
         <version.testng>7.5</version.testng>
         <version.jackson>2.13.2</version.jackson>
         <version.mapstruct>1.4.2.Final</version.mapstruct>
         <version.lombok>1.18.24</version.lombok>
         <version.thymeleaf.extras>3.0.4.RELEASE</version.thymeleaf.extras>
+        <version.mockito>4.8.0</version.mockito>
+        <version.postgres>42.3.7</version.postgres>
     </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-rest</artifactId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,10 +48,6 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <dependency>
@@ -63,10 +60,10 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
-        <!--  https://mvnrepository.com/artifact/org.postgresql/postgresql  -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>${version.postgres}</version>
             <scope>runtime</scope>
         </dependency>
         <dependency>
@@ -79,6 +76,21 @@
             <artifactId>lombok</artifactId>
             <version>${version.lombok}</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${version.jackson}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>${version.jackson}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${version.mapstruct}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -97,19 +109,10 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${version.jackson}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-            <version>${version.jackson}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${version.mapstruct}</version>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <version>${version.mockito}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
     <build>

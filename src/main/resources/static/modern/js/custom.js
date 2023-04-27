@@ -19,26 +19,6 @@
     });
 
 
-
- //    /* ==========================================================================
- //      COUNTER UP
- // ========================================================================== */
- //
- //    $('.counter').counterUp({
- //        delay: 10,
- //        time: 1000
- //    });
- //
- //    $('.carousel').carousel({
- //      interval: 8000
- //    });
- //
- //    /* Closes the Responsive Menu on Menu Item Click*/
- //    $('.navbar-collapse .navbar-nav a').on('click', function () {
- //        $('.navbar-toggler:visible').click();
- //    });
- //    /*END MENU JS*/
-
     
     /* ----------------------------------------------------------- */
     /*  Fixed header
@@ -68,3 +48,14 @@
 
 
 })(window.jQuery);
+
+    $(".toggle-password").click(function() {
+
+        $(this).toggleClass("fa-eye fa-eye-slash");
+        var input = $($(this).attr("toggle"));
+        if (input.attr("type") === "password") {
+            input.attr("type", "text");
+        } else {
+            input.attr("type", "password");
+        }
+    });

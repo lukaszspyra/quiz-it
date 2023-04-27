@@ -44,7 +44,7 @@ public class Quiz {
 
     private String difficulty;
 
-    @ManyToMany(mappedBy = "quizzes", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "quiz", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @Valid
     private List<Question> questions = new LinkedList<>();
 

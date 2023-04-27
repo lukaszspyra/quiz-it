@@ -9,7 +9,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
+import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Path;
 
 @Component
@@ -19,18 +21,18 @@ public final class JsonReader {
     private final QuizMapperMapStruct jsonMapper;
 
     /**
-     * Reads JSON file content to {@link Quiz} entity
+     * Reads JSON file content from InputStream to {@link Quiz} entity.
      *
      * Adds empty API request quiz title tag, as it handles jsons from file.
      *
-     * @param jsonPath to JSON file with quiz contents
+     * @param resourceInputStream to be parsed from JSON format to quiz contents
      * @return complete entity
-     * @throws IOException when file with content not found
+     * @throws IOException when resources with content not found
      */
-    Quiz readJsonFile(final Path jsonPath) throws IOException {
+    Quiz readJsonFile(final InputStream resourceInputStream) throws IOException {
         ObjectMapper mapper = createObjectMapperWithTimeModule();
         mapper.setInjectableValues(prepareCategoryTag(""));
-        JsonNode jsonNode = mapper.readTree(jsonPath.toFile());
+        JsonNode jsonNode = mapper.readTree(resourceInputStream);
         return jsonMapper.quizJsonToQuiz(mapper.readValue(jsonNode.toString(), QuizJson.class));
     }
 

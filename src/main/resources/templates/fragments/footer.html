@@ -2,7 +2,7 @@
     <div class="container">
         <div class="col-lg-12 text-center">
             <div>
-                © 2022 QuizIT.
+                <div th:text="'© ' + ${#dates.format(#dates.createNow(), 'yyyy')} + ' QuizIT'"></div>
             </div>
         </div>
     </div>

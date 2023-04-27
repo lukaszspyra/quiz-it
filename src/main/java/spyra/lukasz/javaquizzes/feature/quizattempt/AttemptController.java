@@ -54,7 +54,7 @@ class AttemptController {
                            Principal principal,
                            HttpSession session) {
         TakeQuiz takeQuiz = starter.takeQuiz(quizId, principal.getName());
-        List<QuestionView> questions = attemptService.getQuizQuestionsRandomOrder(quizId);
+        List<QuestionView> questions = attemptService.findQuizQuestionsRandomOrder(quizId);
         long attemptTimer = takeQuiz.calcTimeForQuizInEpochSeconds(questions.size() * questionTime);
         session.setAttribute("question_timer", questionTime);
         session.setAttribute("questions", questions);

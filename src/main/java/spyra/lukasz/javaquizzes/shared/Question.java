@@ -38,13 +38,11 @@ public class Question {
     @NotNull
     private String difficulty;
 
-    @ManyToMany
-    @JoinTable(name = "quiz_question",
-            joinColumns = @JoinColumn(name = "question_id"),
-            inverseJoinColumns = @JoinColumn(name = "quiz_id"))
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "quiz_id")
     @NotNull
     @Valid
-    private List<Quiz> quizzes = new LinkedList<>();
+    private Quiz quiz;
 
     @OneToMany(mappedBy = "question", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @NotNull

@@ -46,7 +46,7 @@ class RegistrationController {
             BindingResult bindingResult,
             Model model) {
         if (isReCaptchaMissing(reCaptcha)) {
-            model.addAttribute("reCaptchaError", "Missing reCaptcha robot verification");
+            model.addAttribute("reCaptchaError", "Missing reCaptcha verification");
             return "register";
         }
         if (bindingResult.hasErrors()) {

@@ -54,7 +54,7 @@
                     <p th:text="${user.getTakenQuizzes().size()}">'No data'</p>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
+            <div sec:authorize="hasAnyAuthority('SUPER_ADMIN', 'ADMIN')" class="col-lg-3 col-md-6 col-sm-6">
                 <div class="banner-content content-padding text-center">
                     <h3 class="text-white">Registered as</h3>
                     <p th:text="${user.getRole().getName()}">'No data'</p>

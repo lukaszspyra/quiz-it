@@ -29,7 +29,7 @@ class DemoStarter {
      * @return mapped instance of {@link TakeDemoDTO}
      */
     @Transactional
-    TakeDemoDTO takeQuiz(UUID demoId) {
+    public TakeDemoDTO takeQuiz(UUID demoId) {
         Quiz presentQuiz = service.getDemoById(demoId);
         TakeQuiz takeQuiz = new TakeQuiz();
         takeQuiz.setQuiz(presentQuiz);

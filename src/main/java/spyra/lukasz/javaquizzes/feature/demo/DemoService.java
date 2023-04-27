@@ -2,6 +2,8 @@ package spyra.lukasz.javaquizzes.feature.demo;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import spyra.lukasz.javaquizzes.shared.Question;
 import spyra.lukasz.javaquizzes.shared.Quiz;
 
 import java.util.List;
@@ -14,15 +16,26 @@ import java.util.UUID;
 @RequiredArgsConstructor
 class DemoService {
 
-    private final DemoRepository repository;
+    private final DemoRepository demoRepository;
+
+    private final DemoQuestionRepository questionRepository;
 
     private final DemoToViewMapper mapper;
 
     List<DemoView> findDemosByTitle(String title) {
-        return mapper.toView(repository.findAllByDemoTrueAndTitleEqualsIgnoreCase(title));
+        return mapper.toView(demoRepository.findAllByDemoTrueAndTitleEqualsIgnoreCase(title));
     }
 
-    Quiz getDemoById(UUID id) {
-        return repository.getDemoWithQuestionsById(id);
+    /**
+     * Marked @Transactional to keep the same references to entities, Hibernate cache will combine fetched dependencies
+     * in two queries
+     * @param id
+     * @return demo with fetched questions/answers
+     */
+    @Transactional
+    public Quiz getDemoById(UUID id) {
+        Quiz demo = demoRepository.getDemoWithQuestionsById(id);
+        List<Question> demoQuestionsByQuiz = questionRepository.findDemoQuestionsByQuiz(demo);
+        return demo;
     }
 }

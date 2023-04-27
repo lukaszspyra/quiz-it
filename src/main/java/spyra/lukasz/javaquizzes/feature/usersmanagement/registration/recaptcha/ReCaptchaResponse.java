@@ -43,12 +43,10 @@ public class ReCaptchaResponse {
             return false;
         }
         for(ErrorCode error : errorCodes) {
-            switch(error) {
-                case InvalidResponse:
-                case MissingResponse:
-                case BadRequest:
-                case TimeOut:
+            switch (error) {
+                case InvalidResponse, MissingResponse, BadRequest, TimeOut -> {
                     return true;
+                }
             }
         }
         return false;
