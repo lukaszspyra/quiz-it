@@ -1,6 +1,7 @@
 package spyra.lukasz.javaquizzes.feature.quizselect;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,11 +18,17 @@ class QuizService {
 
     private final QuizToViewMapper quizToViewMapper;
 
-    List<QuizView> findPredefinedNotRestrictedNotDemo() {
+    /**
+     * Find entities and map to view, result is cached for properties predefined time
+     * @return list of quizzes mapped to QuizView
+     */
+    @Cacheable(cacheNames = "QuizzesPredefinedNotRestrictedNotDemo", key = "#root.methodName")
+    public List<QuizView> findPredefinedNotRestrictedNotDemo() {
         return quizToViewMapper.toView(quizSelectRepository.findQuizzesByRestrictedFalseAndPredefinedTrueAndDemoOrderByTitleAsc(false));
     }
 
-    List<QuizView> findRestricted() {
+    @Cacheable(cacheNames = "RestrictedQuizzes", key = "#root.methodName")
+    public List<QuizView> findRestricted() {
         return quizToViewMapper.toView(quizSelectRepository.findQuizzesByRestrictedTrueOrderByTitleAsc());
     }
 

@@ -2,6 +2,7 @@ package spyra.lukasz.javaquizzes.feature.quizresults;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import spyra.lukasz.javaquizzes.shared.TakeQuiz;
 
@@ -19,14 +20,15 @@ class ResultDetailsService {
     private final ResultDetailsMapper resultDetailsMapper;
 
     /**
-     * Searches for entity with given id and returns corresponding DTO
-     *
+     * Searches for entity with given id and returns corresponding DTO,
+     * result is cached for properties predefined time or until user is logged-out.
      * Uses repository layer and mapper
      *
      * @param attemptId to be searched for
      * @return AttemptDetailsView
      */
-    AttemptDetailsView quizAttemptDetails(UUID attemptId){
+    @Cacheable(cacheNames = "AttemptDetails")
+    public AttemptDetailsView quizAttemptDetails(UUID attemptId){
         TakeQuiz attemptById = repository.getById(attemptId);
         return resultDetailsMapper.quizAttemptToDetailsView(attemptById);
     }

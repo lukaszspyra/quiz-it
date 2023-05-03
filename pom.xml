@@ -23,6 +23,9 @@
         <version.thymeleaf.extras>3.0.4.RELEASE</version.thymeleaf.extras>
         <version.mockito>4.8.0</version.mockito>
         <version.postgres>42.3.7</version.postgres>
+        <version.cache>3.0.6</version.cache>
+        <!-- The main class to start by executing java -jar -->
+        <start-class>spyra.lukasz.javaquizzes.JavaQuizzesApplication</start-class>
     </properties>
     <dependencies>
         <dependency>
@@ -113,6 +116,15 @@
             <artifactId>mockito-inline</artifactId>
             <version>${version.mockito}</version>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+            <version>${version.cache}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ben-manes.caffeine</groupId>
+            <artifactId>caffeine</artifactId>
         </dependency>
     </dependencies>
     <build>

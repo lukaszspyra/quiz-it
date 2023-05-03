@@ -1,5 +1,6 @@
 package spyra.lukasz.javaquizzes.config.security;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -8,19 +9,27 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.logout.HeaderWriterLogoutHandler;
+import org.springframework.security.web.header.writers.ClearSiteDataHeaderWriter;
+import spyra.lukasz.javaquizzes.config.CacheConfiguration;
 import spyra.lukasz.javaquizzes.shared.AvailableRole;
 
 import java.util.Arrays;
 
+import static org.springframework.security.web.header.writers.ClearSiteDataHeaderWriter.Directive.*;
+
 /**
  * Configuration of Spring Security
- *
+ * </p>
  * Enables {@link org.springframework.security.access.prepost.PreAuthorize}
  */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@RequiredArgsConstructor
 class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final CacheConfiguration cacheConfiguration;
 
     /**
      * Array of resources endpoints, that shall be available without authentication
@@ -39,6 +48,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Provides bean of BCrypt as default password encoder for users passwords hashing
+     *
      * @return new instance of BCrypt encoder
      */
     @Bean
@@ -56,7 +66,11 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
      *     <li>
      *         Provides custom login/logout endpoints, that can be used for custom views
      *     </li>
+     *     <li>
+     *         Clears cache with user attempt details and user profile upon log out
+     *     </li>
      * </ul>
+     *
      * @param http
      * @throws Exception
      */
@@ -83,6 +97,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .defaultSuccessUrl("/")
                 .and()
                 .logout()
+                .addLogoutHandler(new HeaderWriterLogoutHandler(new ClearSiteDataHeaderWriter(CACHE, COOKIES, STORAGE)))
+                .addLogoutHandler(cacheConfiguration.clearCache())
                 .permitAll()
                 .logoutSuccessUrl("/login?logout");
     }

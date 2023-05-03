@@ -15,7 +15,7 @@ class UserStatsController {
     private final UserDataService userService;
 
     @GetMapping("/profile")
-    public String userProfile(Principal principal, Authentication authentication, Model model) {
+    String userProfile(Principal principal, Authentication authentication, Model model) {
         model.addAttribute("user", userService.getUserDataByEmail(principal.getName()));
         return "profile";
     }
