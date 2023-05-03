@@ -22,11 +22,6 @@
 
                 <!--/* Only for logged in */-->
                 <li sec:authorize="hasAnyAuthority('SUPER_ADMIN', 'ADMIN', 'USER')" class="nav-item">
-                    <a class="nav-link smoth-scroll" href="/profile">Profile</a>
-                </li>
-
-                <!--/* Only for logged in */-->
-                <li sec:authorize="hasAnyAuthority('SUPER_ADMIN', 'ADMIN', 'USER')" class="nav-item">
                     <a class="nav-link smoth-scroll" href="/quizzes">Quizzes</a>
                 </li>
 
@@ -35,9 +30,19 @@
                     <a class="nav-link smoth-scroll" href="/admin/java-quizzes">Java Quizzes</a>
                 </li>
 
+                <!--/* Only for logged in */-->
+                <li sec:authorize="hasAnyAuthority('SUPER_ADMIN', 'ADMIN', 'USER')" class="nav-item">
+                    <a class="nav-link smoth-scroll" href="/profile">Profile</a>
+                </li>
+
                 <!--/* Only for super-admin */-->
                 <li sec:authorize="hasAuthority('SUPER_ADMIN')" class="nav-item">
                     <a class="nav-link smoth-scroll" href="/superadmin/user-management/users">Users Management</a>
+                </li>
+
+                <!--/* Only for super-admin */-->
+                <li sec:authorize="hasAuthority('SUPER_ADMIN')" class="nav-item">
+                    <a class="nav-link smoth-scroll" href="/superadmin/cache-stats">Cache Stats</a>
                 </li>
 
                 <!--/* Only for non-logged in */-->
