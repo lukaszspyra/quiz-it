@@ -1,6 +1,6 @@
 HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
+
 !**/src/main/**/target/
 !**/src/test/**/target/
 
@@ -30,7 +30,6 @@ build/
 !**/src/test/**/build/
 
 # Package Files #
-*.jar
 *.war
 *.nar
 *.ear
@@ -50,7 +49,8 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-.mvn/wrapper/maven-wrapper.jar
 
 src/main/resources/quizcontent/restricted
 src/main/resources/static/restricted
+
+src/main/resources/application-prod.properties
