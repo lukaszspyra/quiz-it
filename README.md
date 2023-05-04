@@ -5,6 +5,7 @@ Web-app for taking IT quizzes, hosted on [Railway](https://railway.app) and [Neo
 ### https://quizit.up.railway.app
 
 ---
+### Summary:
 Hobbyist application created to practise Java web development. Simple idea of having private place for taking
 coding quizzes evolved into public space for variety of IT puzzles topics.
 
@@ -24,14 +25,14 @@ coding quizzes evolved into public space for variety of IT puzzles topics.
 
 
 ---
-#### Running the app locally, alternatives:
+### Running the app locally:
 
-1) Requirements: Docker Compose (multi-container setup)
-    - run the app in IDE or CLI from root of the project:  
+1) Required: Docker Compose (multi-container setup)
+    - simply run the app in IDE or CLI from root of the project:  
       ```docker compose up```
 
 
-2) Requirements: Java17, instance of PostgreSQL database**
+2) Required: Java17, instance of PostgreSQL database**
    - start PostgreSQL database, e.g. in docker container:  
    ```docker run -e POSTGRES_USER=root -e POSTGRES_PASSWORD=pass -e POSTGRES_DB=postgres -p 5432:5432 -d postgres```
 
@@ -67,4 +68,4 @@ add h2 dependency to pom.xml (scope runtime), replace entries in application.pro
 - Maven
 - TestNG
 - JUnit
-- google's reCaptcha
+- Google's reCaptcha
