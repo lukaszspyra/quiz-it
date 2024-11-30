@@ -49,6 +49,7 @@
 
 })(window.jQuery);
 
+
     $(".toggle-password").click(function() {
 
         $(this).toggleClass("fa-eye fa-eye-slash");

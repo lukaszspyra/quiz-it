@@ -39,14 +39,20 @@ coding quizzes evolved into public space for variety of IT puzzles topics.
    - run the app in IDE or CLI from root of the project:  
    ```./mvnw clean package```  
    ```java -jar target/quiz-it-1.0.0.jar```
-   
 
 ** to use in-memory database instead:
-add h2 dependency to pom.xml (scope runtime), replace entries in application.properties by:
+add h2 dependency to pom.xml (scope runtime) and replace entries in application.properties by:
     ```spring.datasource.url=jdbc:h2:mem:dbname```
     ```spring.datasource.driverClassName=org.h2.Driver```
     ```spring.jpa.database-platform=org.hibernate.dialect.H2Dialect```
     ```spring.h2.console.enabled=true```
+
+---
+#### Sample logins with different roles (passwords hashed in DB):
+
+```sadmin@test.pl / Password1```  
+```admin@test.pl / Password1```  
+```user@test.pl / Password2```  
 
 
 

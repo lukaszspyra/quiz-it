@@ -1,0 +1,204 @@
+[
+  {
+    "restricted": true,
+    "predefined": true,
+    "demo": false,
+    "created": "2022-05-15T10:10:19"
+  },
+  {
+    "id": null,
+    "question": "Abstraction in OOP is about:",
+    "answers": {
+      "answer_a": "marking all classes as abstract.",
+      "answer_b": "generalizing based on concrete examples.",
+      "answer_c": "omitting less relevant features.",
+      "answer_d": "creating things that don't correspond to the reality."
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false"
+    },
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Abstraction"
+      }
+    ],
+    "category": "Java",
+    "difficulty": "Medium"
+  },
+  {
+    "id": null,
+    "question": "The abstract keyword, when applied to a class:",
+    "answers": {
+      "answer_a": "forces it to have only abstract methods.",
+      "answer_b": "forces a non-abstract subclass to provide implementation for all abstract methods.",
+      "answer_c": "prevents it from being directly instantiated.",
+      "answer_d": "prevents all its methods from being inherited."
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false"
+    },
+    "explanation": "Again, only 2 and 3 are correct. abstract forces a method to be implemented/overridden in the first non-abstract subclass in the hierarchy line. Point 4 contradicts that, because a method first needs to be inheritable in order to be overridden/implemented. ",
+    "tip": null,
+    "tags": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Abstraction"
+      }
+    ],
+    "category": "Java",
+    "difficulty": "Medium"
+  },
+  {
+    "id": null,
+    "question": "The final keyword, when applied to a class:",
+    "answers": {
+      "answer_a": "prevents it from being instantiated.",
+      "answer_b": "prevents it from being extended.",
+      "answer_c": "prevents it from being implemented.",
+      "answer_d": "prevents it from being inherited."
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "false"
+    },
+    "explanation": "Only 2 is correct. A class cannot be implemented. It can be inherited only if ti's a member class (not covered yet), but final doesn't prevent it. And preventing instantiation is the job of abstract ",
+    "tip": null,
+    "tags": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Abstraction"
+      }
+    ],
+    "category": "Java",
+    "difficulty": "Medium"
+  },
+  {
+    "id": null,
+    "question": "IS-A relationship:",
+    "answers": {
+      "answer_a": "is a form of HAS-A relationship.",
+      "answer_b": "can be implemented using inheritance.",
+      "answer_c": "can be implemented using encapsulation.",
+      "answer_d": "can be implemented using composition and interfaces."
+    },
+    "correct_answers": {
+      "answer_a_correct": "false",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true"
+    },
+    "explanation": "2 and 4 are correct. You can't implement IS-A using encapsulation alone, but inheritance and composition+interfaces can do the job.",
+    "tip": null,
+    "tags": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Abstraction"
+      }
+    ],
+    "category": "Java",
+    "difficulty": "Medium"
+  },
+  {
+    "id": null,
+    "question": "Which of the following are true:",
+    "answers": {
+      "answer_a": "Static method cannot be abstract.",
+      "answer_b": "Private method cannot be abstract.",
+      "answer_c": "Final method cannot be abstract.",
+      "answer_d": "Protected method cannot be abstract."
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "true",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false"
+    },
+    "explanation": "1, 2, 3 are correct. Private methods are not inherited at all; static and final methods are, but can't be overridden, and overriding is what abstract forces you to do.",
+    "tip": null,
+    "tags": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Abstraction"
+      }
+    ],
+    "category": "Java",
+    "difficulty": "Medium"
+  },
+  {
+    "id": null,
+    "question": "It is a good idea to:",
+    "answers": {
+      "answer_a": "make non-leaf classes abstract by default.",
+      "answer_b": "make leaf classes final by default.",
+      "answer_c": "make all constructors private in non-leaf classes.",
+      "answer_d": "document all potential extension points."
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "true",
+      "answer_c_correct": "false",
+      "answer_d_correct": "true"
+    },
+    "explanation": "1, 2, 4 are correct. Making all constructors private effectively prevents extending, so the class would no longer be non-leaf (i.e. not the last in the inheritance tree). Documenting all potential places where a component can be extended gives others hints how not to break the contract the a class. Making leaf classes final keeps the control in your hands and frees you form having to document those points  On the other hand, making non-leaf classes abstract frees you from the hell of equals() between the instances parent and child class. Remember: you always can loosen the restrictions, if you need. Tightening them is much harder (if possible at all). ",
+    "tip": null,
+    "tags": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Abstraction"
+      }
+    ],
+    "category": "Java",
+    "difficulty": "Medium"
+  },
+  {
+    "id": null,
+    "question": "In JDK 15, in the java.lang package, there are (Check, don't guess!):",
+    "answers": {
+      "answer_a": "more final classes than abstract classes.",
+      "answer_b": "more final classes than non-final classes.",
+      "answer_c": "abstract classes which are public.",
+      "answer_d": "abstract classes which are not public."
+    },
+    "correct_answers": {
+      "answer_a_correct": "true",
+      "answer_b_correct": "false",
+      "answer_c_correct": "true",
+      "answer_d_correct": "false"
+    },
+    "explanation": null,
+    "tip": null,
+    "tags": [
+      {
+        "name": "Java"
+      },
+      {
+        "name": "Abstraction"
+      }
+    ],
+    "category": "Java",
+    "difficulty": "Medium"
+  }
+]

@@ -59,6 +59,7 @@ class AttemptController {
         session.setAttribute("question_timer", questionTime);
         session.setAttribute("questions", questions);
         session.setAttribute("attempt_timer", attemptTimer);
+        session.setAttribute("total", questions.size());
         return "redirect:/quiz/{quiz_id}/attempt/" + takeQuiz.getId();
     }
 
@@ -84,6 +85,7 @@ class AttemptController {
         model.addAttribute("attempt_id", attemptId);
         model.addAttribute("quiz_id", quizId);
         model.addAttribute("question", questionsNotAnswered.get(0));
+        session.setAttribute("remaining", questionsNotAnswered.size());
         return "quiz-attempt";
     }
 

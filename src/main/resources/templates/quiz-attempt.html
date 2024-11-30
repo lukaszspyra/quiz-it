@@ -45,7 +45,7 @@
                             <th:block th:switch="${#strings.startsWith(question.getContent(), '/restricted/')}">
                                 <img th:case="${true}" th:src="@{${question.getContent()}}"
                                      class="banner-title section-padding"/>
-                                <h2 th:case="*" th:text="${question.getContent()}" class="banner-title section-padding">
+                                <h2 th:case="*" th:text="'(' + ${(session.total - session.remaining + 1)} + ' / ' + ${session.total} + ') ' + ${session.question.getContent()}" class="banner-title section-padding">
                                     <!--/*style="height: 300px"*/--></h2>
                             </th:block>
 
@@ -128,4 +128,3 @@ Essential Scripts
 
 </body>
 </html>
-   

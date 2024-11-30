@@ -52,6 +52,7 @@ class DemoController {
     String startDemo(@PathVariable(name = "demo_id") UUID demoId,
                      HttpSession session) {
         final TakeDemoDTO takeDemoDTO = starter.takeQuiz(demoId);
+        session.setAttribute("total", takeDemoDTO.getQuestionDTOs().size());
         session.setAttribute("demo", takeDemoDTO);
         return "redirect:/demo/{demo_id}/attempt";
     }
@@ -65,6 +66,7 @@ class DemoController {
             return "redirect:/demo/{demo_id}/finish/";
         }
         model.addAttribute("demo_id", demoId);
+        session.setAttribute("remaining", questionsNotAnswered.size());
         session.setAttribute("question", questionsNotAnswered.get(0));
         return "demo-attempt";
     }
