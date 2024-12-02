@@ -19,7 +19,7 @@
         <version.testng>7.5</version.testng>
         <version.jackson>2.13.2</version.jackson>
         <version.mapstruct>1.4.2.Final</version.mapstruct>
-        <version.lombok>1.18.24</version.lombok>
+        <version.lombok>1.18.30</version.lombok>
         <version.thymeleaf.extras>3.0.4.RELEASE</version.thymeleaf.extras>
         <version.mockito>4.8.0</version.mockito>
         <version.postgres>42.3.7</version.postgres>
