@@ -40,8 +40,10 @@ coding quizzes evolved into public space for variety of IT puzzles topics.
    ```./mvnw clean package```  
    ```java -jar target/quiz-it-1.0.0.jar```
 
+
 ** to use in-memory database instead:
 add h2 dependency to pom.xml (scope runtime) and replace entries in application.properties by:
+
     ```spring.datasource.url=jdbc:h2:mem:dbname```
     ```spring.datasource.driverClassName=org.h2.Driver```
     ```spring.jpa.database-platform=org.hibernate.dialect.H2Dialect```

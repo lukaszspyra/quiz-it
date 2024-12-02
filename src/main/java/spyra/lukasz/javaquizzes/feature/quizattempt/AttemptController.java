@@ -85,7 +85,7 @@ class AttemptController {
         model.addAttribute("attempt_id", attemptId);
         model.addAttribute("quiz_id", quizId);
         model.addAttribute("question", questionsNotAnswered.get(0));
-        session.setAttribute("remaining", questionsNotAnswered.size());
+        model.addAttribute("remaining", questionsNotAnswered.size());
         return "quiz-attempt";
     }
 
