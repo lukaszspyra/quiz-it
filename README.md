@@ -50,6 +50,10 @@ add h2 dependency to pom.xml (scope runtime) and replace entries in application.
     ```spring.h2.console.enabled=true```
 
 ---
+#### Random quizzes functionality:
+- in order for it to work you need to register in external [API](https://quizapi.io/) and insert your key into ```settings.properties```
+
+---
 #### Sample logins with different roles (passwords hashed in DB):
 
 ```sadmin@test.pl / Password1```  

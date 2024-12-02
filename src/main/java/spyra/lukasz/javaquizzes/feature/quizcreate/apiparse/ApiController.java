@@ -12,11 +12,13 @@ import java.io.IOException;
 /**
  * Handles data required for generating random {@link Quiz} from API
  */
+@Controller
 @RequiredArgsConstructor
 class ApiController {
 
     private final ApiService apiService;
 
+    @GetMapping("/quizzes/random")
     String chooseRandomQuiz() {
         return "quiz-random-start";
     }
@@ -30,6 +32,7 @@ class ApiController {
      * @throws IOException          when {@link java.util.Properties} file is not found
      * @throws InterruptedException when there is API connection issue with sending request
      */
+    @PostMapping("/quizzes/random")
     String generateRandomQuiz(@RequestParam(value = "tag") String tag,
                               @RequestParam(value = "questions") String questionsNumber) throws IOException, InterruptedException {
         final Quiz createdQuiz = apiService.getRandomQuizFromApi(tag, questionsNumber);
