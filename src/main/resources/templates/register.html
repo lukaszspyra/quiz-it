@@ -1,5 +1,5 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:right="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
     <!--/* Required meta tags */-->
@@ -79,12 +79,14 @@
                                        placeholder="Email" minlength="7" required>
                             </div>
                             <div class="col-7 form-group">
-                                <input th:field="*{password}" name="password" type="password" class="form-control"
+                                <input th:field="*{password}" id="password-field" name="password" type="password" class="form-control"
                                        placeholder="Password" minlength="3" required>
+                                <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
                             <div class="col-7 form-group">
-                                <input th:field="*{matchingPassword}" name="matching-password" type="password"
+                                <input th:field="*{matchingPassword}" id="matching-password-field" name="matching-password" type="password"
                                        class="form-control" placeholder="Repeat Password" minlength="3" required>
+                                <span toggle="#matching-password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                             </div>
 
                             <!--/* CAPTCHA */-->

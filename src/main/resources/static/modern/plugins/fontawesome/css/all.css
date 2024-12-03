@@ -1430,13 +1430,15 @@ readers do not read off random characters that represent icons */
   content: "\f360"; }
 
 .fa-eye:before {
-  content: "\f06e"; }
+  content: "\f06e";
+  padding-right: 0.5em;}
 
 .fa-eye-dropper:before {
   content: "\f1fb"; }
 
 .fa-eye-slash:before {
-  content: "\f070"; }
+  content: "\f070";
+  padding-right: 0.5em;}
 
 .fa-facebook:before {
   content: "\f09a"; }
