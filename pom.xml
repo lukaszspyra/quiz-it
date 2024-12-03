@@ -22,7 +22,7 @@
         <version.lombok>1.18.30</version.lombok>
         <version.thymeleaf.extras>3.0.4.RELEASE</version.thymeleaf.extras>
         <version.mockito>4.8.0</version.mockito>
-        <version.postgres>42.3.7</version.postgres>
+        <version.postgres>42.7.4</version.postgres>
         <version.cache>3.0.6</version.cache>
         <!-- The main class to start by executing java -jar -->
         <start-class>spyra.lukasz.javaquizzes.JavaQuizzesApplication</start-class>

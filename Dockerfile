@@ -2,6 +2,10 @@ FROM eclipse-temurin:17-jdk-jammy as builder
 WORKDIR /opt/app
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
+
+# clean up the file
+RUN sed -i 's/\r$//' mvnw
+
 RUN ./mvnw clean package dependency:go-offline
 COPY ./src ./src
 RUN ./mvnw clean package
